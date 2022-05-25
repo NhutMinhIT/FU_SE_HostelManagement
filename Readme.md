@@ -8,18 +8,18 @@ Currently, technology 4.0 and the epidemic, the need for students to find online
 
 ## Features by role
 - ### Hostel's Owner:
--    	Sign up/sign in.
+-   Sign up/sign in.
 -	Create/Delete their hostel.
--   	Update information hostel.
--    	View information customer.
--   	View bill.
--    	View turnover.
+-   Update information hostel.
+-   View information customer.
+-   View bill.
+-   View turnover.
 - ### Customer:
--    	Search hostel list order by address/cost.
--    	Room registration.
--    	Add personal information.
--    	Create account/Log in to view bill.
--    	Pay the bill.
+-   Search hostel list order by address/cost.
+-   Room registration.
+-   Add personal information.
+-   Create account/Log in to view bill.
+-   Pay the bill.
 ## Technology
 - Frontend:
     - HTML5
