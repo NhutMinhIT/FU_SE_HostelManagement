@@ -47,7 +47,7 @@ Through research, we have found that there are very few developed applications i
     - Linkedin:
     - Github: https://github.com/AvilXx
     
-- Ho Bảo Anh 
+- Ho Bao Anh 
     - Gmail: baoanhho.211@gmail.com
     - Linkedin:
     - Github: https://github.com/BaoAnhHo211
@@ -58,7 +58,7 @@ Through research, we have found that there are very few developed applications i
     - Github: https://github.com/minhtri269
 
 ## Database
-![image](https://user-images.githubusercontent.com/90835621/170403545-9cba8413-f416-4838-b14c-ff01d105260f.png)
+![image](https://user-images.githubusercontent.com/90835621/170403663-a77d7a42-5592-4d2b-bd36-9cbf5eed8f85.png)
 
 ## Wireframe or Screenshots of the system
 ### Website Interface
