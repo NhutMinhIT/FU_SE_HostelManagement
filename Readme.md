@@ -66,6 +66,12 @@ Through research, we have found that there are very few developed applications i
 
 ### Room Page
 ![image](https://user-images.githubusercontent.com/90835621/170280891-b5529d60-e94f-4c8b-96dc-a973b32761f0.png)
+![image](https://user-images.githubusercontent.com/90835621/170400932-f7a71505-f003-4e23-b60d-1e64e9f245b0.png)
+
+
+### ADD NEW ROOM Page
+![image](https://user-images.githubusercontent.com/90835621/170400883-38474280-9444-42f9-a4d8-f96c0af28398.png)
+
 
 ### Signup Page
 ![image](https://user-images.githubusercontent.com/90835621/170280970-c470db09-1a79-4794-b5d4-aab913348329.png)
