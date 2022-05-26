@@ -1,7 +1,7 @@
 # HostelManager - MoonHostel
 
 ## Logo
-![image](https://user-images.githubusercontent.com/90835621/170402144-008a22c0-95c3-4129-be6d-ac0d3b935ed2.png)
+![image](https://user-images.githubusercontent.com/90835621/170406519-d4b2b71d-b897-4619-a533-9ca672692bf7.png)
 
 ## Case study
 
