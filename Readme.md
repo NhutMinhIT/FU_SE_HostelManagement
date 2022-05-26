@@ -58,7 +58,7 @@ Through research, we have found that there are very few developed applications i
     - Github: https://github.com/minhtri269
 
 ## Database
-![image](https://user-images.githubusercontent.com/90835621/170399211-6d8794c9-3685-47ce-b500-6cf65a17a52e.png)
+![image](https://user-images.githubusercontent.com/90835621/170402897-61ac0915-7f83-45fe-972e-0a21780bd072.png)
 
 ## Wireframe or Screenshots of the system
 ### Website Interface
