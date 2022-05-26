@@ -8,17 +8,17 @@ Currently, technology has developed very strongly, so inn owners want to find fo
 Through research, we have found that there are very few developed applications in the field of hostel management, so we have launched a motel management software called MoonHostel.
 
 ## Features by role
-- ### Hostel's Owner:
+ ### Hostel's Owner:
 -   Sign up/sign in.
 -	Create/Delete the room.
 -   Update room information.
--   View customer information.
+-   View customers information.
 -   Create account for customer
--   View bill.
--   View turnover.
-- ### Customer:
+-   View bills.
+-   View turnovers.
+ ### Customer:
 -   Log in to view bills.
--   Bills payment.
+-   Bill payment.
 
 ## Technology
 - Frontend:
