@@ -56,7 +56,7 @@ Currently, technology 4.0 and the epidemic, the need for students to find online
     - Github: https://github.com/minhtri269
 
 ## Database
-![image](https://user-images.githubusercontent.com/90835621/170277067-8d1b7ef7-093c-469b-adee-dacd625687dc.png)
+![image](https://user-images.githubusercontent.com/90835621/170399211-6d8794c9-3685-47ce-b500-6cf65a17a52e.png)
 
 ## Wireframe or Screenshots of the system
 ### Website Interface
