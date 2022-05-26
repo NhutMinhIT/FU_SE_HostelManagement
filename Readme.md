@@ -4,7 +4,8 @@
 
 ## Case study
 
-Currently, technology 4.0 and the epidemic, the need for students to find online accommodation is increasing day by day. So we searched through room rental apps and wrote a more complete app for students or those away from home to search easily and comfortably.
+Currently, technology has developed very strongly, so inn owners want to find for themselves applications and websites to manage their accommodation in order to reduce labor, especially making the management become stricter. tighter.
+Through research, we have found that there are very few developed applications in the field of hostel management, so we have launched a motel management software called MoonHostel.
 
 ## Features by role
 - ### Hostel's Owner:
