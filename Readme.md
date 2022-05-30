@@ -63,22 +63,15 @@ Through research, we have found that there are very few developed applications i
 ## Wireframe or Screenshots of the system
 ### Website Interface
 ### Home Page
-![image](https://user-images.githubusercontent.com/90835621/170280757-c2d774d5-697c-44e6-8139-6c5507bd6e14.png)
+![image](https://user-images.githubusercontent.com/90835621/171013579-666d8f9c-aadb-4674-951e-e508dd37ecf8.png)
 
 ### Room Page
-![image](https://user-images.githubusercontent.com/90835621/170280891-b5529d60-e94f-4c8b-96dc-a973b32761f0.png)
-![image](https://user-images.githubusercontent.com/90835621/170400932-f7a71505-f003-4e23-b60d-1e64e9f245b0.png)
-
-
-### ADD NEW ROOM Page
-![image](https://user-images.githubusercontent.com/90835621/170400883-38474280-9444-42f9-a4d8-f96c0af28398.png)
-
+![image](https://user-images.githubusercontent.com/90835621/171013646-1e2bb618-acdb-483e-890c-2135bce9e8e1.png)
 
 ### Signup Page
-![image](https://user-images.githubusercontent.com/90835621/170280970-c470db09-1a79-4794-b5d4-aab913348329.png)
+![image](https://user-images.githubusercontent.com/90835621/171013769-41f5db16-193b-4f78-90e6-206fc2eaf731.png)
 
-### Signin Page
-
+### Login Page
 ![image](https://user-images.githubusercontent.com/90835621/170281123-0eb1d6a2-3771-4e01-b383-c83c92fe6504.png)
 
 
