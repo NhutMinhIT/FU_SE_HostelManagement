@@ -98,19 +98,40 @@
                                 <i class="fas fa-table me-1"></i>Add New Room Information                               
                             </div>
                             <div class="card-body">
-                                <table>
-                                    <h2 class="text-center">Add New Room</h2>
+                                
+                                    <h2 class="text-center">ADD NEW ROOM</h2>
+
+                                    <form action="#">
+                                        <div class="row">
+
+                                            <div class="col-md-4 ml-3 mt-5">
+                                                <label for="name">Room:</label>  
+                                                <input type="text" id="text" name="text"/> <br/> 
+                                            </div>
+                                            <div class="col-md-4 ml-3 mt-5">
+                                                <label for="name">Name:</label>  
+                                                <input type="text" id="text" name="text"/> <br/> 
+                                            </div>
+                                        <div class="col-md-4 ml-3 mt-5">
+                                                <label for="name">Price:</label>  
+                                                <input type="text" id="text" name="text"/> <br/> 
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                        <a>                                           
+                                            <button type="submit" class="btn btn-success mt-5" style="margin-left: 40%"><i class=""></i> Submit</button>
+                                        </a>
+                                         </div>
+                                    </form>
 
 
-
-
-                                </table>
+                             
                             </div>
 
                         </div>
                     </div>
 
-            </div>
+            
 
 
         </main>

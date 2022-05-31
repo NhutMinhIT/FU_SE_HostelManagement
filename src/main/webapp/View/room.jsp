@@ -87,7 +87,7 @@
                         <h1 class="mt-4"><i class="fa fa-house"></i> Room Manager</h1>
                         <div class="breadcrumb mb-4 px-4">
                              <div class="row ">
-                                    <a>
+                                 <a href="addnewrom.jsp">
                                         <button type="button"  class="btn btn-success m-2"><i class="fa fa-add"></i> Add Room</button>
                                     </a>
                                 </div> 
@@ -131,7 +131,7 @@
                                 </div>
                             </div>
                             <div class="col-xl-3 col-md-6">
-                                <div class="card bg-warning text-white mb-4">
+                                <div class="card bg-secondary text-white mb-4">
                                     <div class="card-body">
                                         <h4><i class="fa fa-house"></i> Room 1.03</h4>
                                     </div>
@@ -183,7 +183,7 @@
                                 </div>
                             </div>
                             <div class="col-xl-3 col-md-6">
-                                <div class="card bg-warning text-white mb-4">
+                                <div class="card bg-secondary text-white mb-4">
                                     <div class="card-body">
                                         <h4><i class="fa fa-house"></i> Room 1.04</h4>
                                     </div>
@@ -227,11 +227,11 @@
                                     <tfoot>
                                         <tr>
                                             <th>Name</th>
-                                            <th>Position</th>
-                                            <th>Office</th>
-                                            <th>Age</th>
+                                            <th>CMND/CCCD</th>
+                                            <th>Room</th>
+                                            <th>Floor</th>
                                             <th>Start date</th>
-                                            <th>Salary</th>
+                                            <th>Price</th>
                                         </tr>
                                     </tfoot>
                                     <tbody>
@@ -267,30 +267,7 @@
                                             <td>2022/03/29</td>
                                             <td>2,300,000 VND</td>
                                         </tr>
-                                        <tr>
-                                            <td>Airi Satou</td>
-                                            <td>Accountant</td>
-                                            <td>Tokyo</td>
-                                            <td>33</td>
-                                            <td>2008/11/28</td>
-                                            <td>$162,700</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Brielle Williamson</td>
-                                            <td>Integration Specialist</td>
-                                            <td>New York</td>
-                                            <td>61</td>
-                                            <td>2012/12/02</td>
-                                            <td>$372,000</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Herrod Chandler</td>
-                                            <td>Sales Assistant</td>
-                                            <td>San Francisco</td>
-                                            <td>59</td>
-                                            <td>2012/08/06</td>
-                                            <td>$137,500</td>
-                                        </tr>
+                                    
                                     </tbody>
                                 </table>
                             </div>
