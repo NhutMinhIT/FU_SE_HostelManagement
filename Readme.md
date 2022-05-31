@@ -66,13 +66,19 @@ Through research, we have found that there are very few developed applications i
 ![image](https://user-images.githubusercontent.com/90835621/171013579-666d8f9c-aadb-4674-951e-e508dd37ecf8.png)
 
 ### Room Page
-![image](https://user-images.githubusercontent.com/90835621/171013646-1e2bb618-acdb-483e-890c-2135bce9e8e1.png)
+![image](https://user-images.githubusercontent.com/90835621/171219121-4093fef8-8d2b-4e06-84d3-412affaa3036.png)
 
-### Signup Page
+### Add New Home Page
+![image](https://user-images.githubusercontent.com/90835621/171219333-24d85795-e17a-4e1b-a00c-f6694fce09a5.png)
+
+### Add New Room Page
+![image](https://user-images.githubusercontent.com/90835621/171219440-f615954a-db52-465b-bcf9-dadeb6e4d315.png)
+
+### Add New Accoune
 ![image](https://user-images.githubusercontent.com/90835621/171013769-41f5db16-193b-4f78-90e6-206fc2eaf731.png)
 
 ### Login Page
-![image](https://user-images.githubusercontent.com/90835621/170281123-0eb1d6a2-3771-4e01-b383-c83c92fe6504.png)
+![image](https://user-images.githubusercontent.com/90835621/171219562-4e6f967d-58f1-4d98-8324-d6a0572b3b4d.png)
 
 
 
