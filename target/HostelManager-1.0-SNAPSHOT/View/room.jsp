@@ -86,7 +86,7 @@
                     <div class="container-fluid px-4">                        
                         <h1 class="mt-4"><i class="fa fa-house"></i> Room Manager</h1>
                         <div class="breadcrumb mb-4 px-4">
-                             <div class="row " style="float:right; display: flex">
+                             <div class="row ">
                                     <a>
                                         <button type="button"  class="btn btn-success m-2"><i class="fa fa-add"></i> Add Room</button>
                                     </a>
