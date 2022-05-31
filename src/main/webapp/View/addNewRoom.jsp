@@ -18,6 +18,8 @@
         <title>MoonHostel</title>
         <link rel="icon" type="image/png" href="../assets/img/logo.png" sizes="16x16">
         <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
         <link href="../css/styles.css" rel="stylesheet" />
 
     </head>
@@ -95,64 +97,70 @@
                     <div class="container-fluid px-4">
                         <div class="card mt-4">
                             <div class="card-header">
-                                <i class="fas fa-table me-1"></i>Add New Room Information                               
+                                <h1 class="text-info">Add Room</h1>
+
                             </div>
                             <div class="card-body">
-                                
-                                    <h2 class="text-center">ADD NEW ROOM</h2>
 
-                                    <form action="#">
-                                        <div class="row">
-
-                                            <div class="col-md-4 ml-3 mt-5">
-                                                <label for="name">Room:</label>  
-                                                <input type="text" id="text" name="text"/> <br/> 
-                                            </div>
-                                            <div class="col-md-4 ml-3 mt-5">
-                                                <label for="name">Name:</label>  
-                                                <input type="text" id="text" name="text"/> <br/> 
-                                            </div>
-                                        <div class="col-md-4 ml-3 mt-5">
-                                                <label for="name">Price:</label>  
-                                                <input type="text" id="text" name="text"/> <br/> 
-                                            </div>
+                                <form action="#">
+                                    <div class="form-group row">
+                                        <label  class="col-sm-2 col-form-label">Room N.o</label>
+                                        <div class="col-sm-10">
+                                            <input type="text" class="form-control" placeholder="Room N.o">
                                         </div>
-                                        <div class="row">
-                                        <a>                                           
-                                            <button type="submit" class="btn btn-success mt-5" style="margin-left: 40%"><i class=""></i> Submit</button>
-                                        </a>
-                                         </div>
-                                    </form>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-sm-2 col-form-label">Home</label>
+                                        <div class="col-sm-10">
+                                            <input type="text" class="form-control"  placeholder="Home">
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-group col-md-2">
+                                            <label>Unit Price </label>
+                                        </div>
+                                        <div class="form-group col-md-10">
+
+                                            <input type="text" class="form-control"  placeholder="VND">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="inputAddress2">Description</label>
+                                        <textarea rows="3" class="form-control" id="remarks" name="remarks"></textarea>
+                                    </div>
 
 
-                             
+                                    <div class="mt-3 text-center">
+                                        <button class="btn btn-warning" type="button" id="cancelButton"><i class="fa fa-mail-reply"></i> Return</button>
+                                        <button class="btn btn-success" type="button" id="sumbitButton"><i class="fa fa-check"></i> Save</button>
+                                    </div>
+                                </form>
+
                             </div>
 
                         </div>
                     </div>
 
-            
-
-
-        </main>
-        <footer class="py-4 bg-light mt-auto">
-            <div class="container-fluid px-4">
-                <div class="d-flex align-items-center justify-content-between small">
-                    <div class="text-muted ">Copyright &copy; by MoonHostel</div>
-                </div>
+                </main>
+                <footer class="py-4 bg-light mt-auto">
+                    <div class="container-fluid px-4">
+                        <div class="d-flex align-items-center justify-content-between small">
+                            <div class="text-muted ">Copyright &copy; by MoonHostel</div>
+                        </div>
+                    </div>
+                </footer>
             </div>
-        </footer>
-    </div>
-</div>
-<script src="../js/scripts.js"></script>
-<script src="../js/datatables-simple-demo.js"></script>
-<script src="../assets/demo/chart-area-demo.js"></script>
-<script src="../assets/demo/chart-bar-demo.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>    
-<script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
-<script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+        </div>
+        <script src="../js/scripts.js"></script>
+        <script src="../js/datatables-simple-demo.js"></script>
+        <script src="../assets/demo/chart-area-demo.js"></script>
+        <script src="../assets/demo/chart-bar-demo.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>    
+        <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+        <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
 
-</body>
+    </body>
 
 </html>
