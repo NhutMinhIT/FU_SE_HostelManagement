@@ -46,7 +46,7 @@
             </ul>
         </nav>
         <div id="layoutSidenav">
-             <div id="layoutSidenav_nav">
+            <div id="layoutSidenav_nav">
                 <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
                     <div class="sb-sidenav-menu">
                         <div class="nav">
@@ -59,7 +59,7 @@
                                 <div class="sb-nav-link-icon"><i class="fas fa-house"></i></div>
                                 Room                                
                             </a>
-                             <a class="nav-link" href="signup.jsp">
+                            <a class="nav-link" href="signup.jsp">
                                 <div class="sb-nav-link-icon"><i class="fas fa-add"></i></div>
                                 New Account
                             </a>                    
@@ -82,33 +82,73 @@
                 </nav>
             </div>
             <div id="layoutSidenav_content">
-                <main class="container-fluid">
-                    <div class="container-fluid px-4">                        
-                        <h1 class="mt-4"><i class="fa fa-house"></i> Room Manager</h1>
-                        <div class="breadcrumb mb-4 px-4">
-                             <div class="row " style="float:right; display: flex">
-                                    <a>
-                                        <button type="button"  class="btn btn-success m-2"><i class="fa fa-add"></i> Add Room</button>
-                                    </a>
-                                </div> 
-                                <div class="row mr-5" style="float:right; display: flex">
-                                    <a>
-                                        <button type="button"  class="btn btn-primary m-2"><i class="fa fa-edit"></i> Edit</button>
-                                        </button>
-                                    </a>
-                                </div> 
-                                <div class="row " style="float:right; display: flex">
-                                    <a>
-                                        <button type="button"  class="btn btn-danger m-2"><i class="fa fa-remove"></i> Delete Room</button>
-                                    </a>
-                                </div> 
+                <h1 class="mt-4 col-md-4"><i class="fa fa-house"></i> Room Manager</h1>
+                <table>
+                    <div class="card mb-4">
+                        <div class="card-header">
+                            <div class="card-header">
+                                <i class="fas fa-table me-1"></i>Home Manager                              
+                            </div>
+                            <div class="row " style="float:right; display: flex">
+                                <a href="addNewHome.jsp">
+                                    <button type="button"  class="btn btn-success m-2"><i class="fa fa-bank"></i> Add Home</button>
+                                </a>
+                            </div>
+                            <div class="row " style="float:right; display: flex">
+                                <a href="#">
+                                    <button type="button"  class="btn btn-info m-2"><i class="far fa-building"></i> Room</button>
+                                </a>
+                            </div> 
+                            <div class="row " style="float:right; display: flex">
+                                <a href="#">
+                                    <button type="button"  class="btn btn-primary m-2"><i class="fa fa-user-plus"></i> Add Customer</button>
+                                </a>
+                            </div> 
+
                         </div>
-                        
-                        <div class="row">
+                    </div>
+                </table>
+
+                <main class="container-fluid">
+
+                    <div class=" room container-fluid px-4">                        
+
+
+
+                        <ul class="nav nav-tabs mb-4">
+                            <li class="nav-item">
+                                <a class="nav-link active" href="#floor1" role="tab" data-toggle="tab">Floor 1</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#floor2" role="tab" data-toggle="tab">Floor 2</a>
+                            </li>
+
+                        </ul>
+                     
+                        <div class="breadcrumb mb-4" style="margin-left: 70%">
+                            <div class="row ">
+                                <a href="addNewRoom.jsp">
+                                    <button type="button"  class="btn btn-success m-2"><i class="fa fa-add"></i> Add Room</button>
+                                </a>
+                            </div> 
+                             <div class="row ">
+                                <a href="#">
+                                    <button type="button"  class="btn btn-primary m-2"><i class="fa fa-edit"></i> Edit Room</button>
+                                </a>
+                             </div>
+                              <div class="row ">
+                                <a href="#">
+                                    <button type="button"  class="btn btn-danger m-2"><i class="fa fa-remove"></i> Delete Room</button>
+                                </a>
+                            </div>
+                            <!-- comment -->
+                        </div>
+                           
+                        <div role="tabpanel" class="row tab-pane fade show active" id="floor1">
                             <div class="col-xl-3 col-md-6" style="border-radius: 50px;">
                                 <div class="card bg-success text-white mb-4">
                                     <div class="card-body">
-                                        <h4><i class="fa fa-house"></i> Room 1.01</h4>
+                                        <h4><i class="fa fa-house"></i> Room 1</h4>
                                     </div>
                                     <div class="card-body">
                                         <i class="fas fa-user fa-fw"></i> Nguyễn Nhựt Minh
@@ -131,9 +171,9 @@
                                 </div>
                             </div>
                             <div class="col-xl-3 col-md-6">
-                                <div class="card bg-warning text-white mb-4">
+                                <div class="card bg-secondary text-white mb-4">
                                     <div class="card-body">
-                                        <h4><i class="fa fa-house"></i> Room 1.03</h4>
+                                        <h4><i class="fa fa-house"></i> Room 2</h4>
                                     </div>
 
                                     <div class="card-body">
@@ -160,7 +200,7 @@
                             <div class="col-xl-3 col-md-6">
                                 <div class="card bg-success text-white mb-4">
                                     <div class="card-body">
-                                        <h4><i class="fa fa-house"></i> Room 2.03</h4>
+                                        <h4><i class="fa fa-house"></i> Room 3</h4>
                                     </div>
                                     <div class="card-body">
                                         <i class="fas fa-user fa-fw"></i> Phan Minh Trí
@@ -183,9 +223,9 @@
                                 </div>
                             </div>
                             <div class="col-xl-3 col-md-6">
-                                <div class="card bg-warning text-white mb-4">
+                                <div class="card bg-secondary text-white mb-4">
                                     <div class="card-body">
-                                        <h4><i class="fa fa-house"></i> Room 1.04</h4>
+                                        <h4><i class="fa fa-house"></i> Room 4</h4>
                                     </div>
                                     <div class="card-body">
                                         <i class="fas fa-user fa-fw"></i> Empty
@@ -208,6 +248,7 @@
                                 </div>
                             </div>
                         </div>
+                        
                         <div class="card mb-4">
                             <div class="card-header">
                                 <i class="fas fa-table me-1"></i>Tenant Information                               
@@ -227,11 +268,11 @@
                                     <tfoot>
                                         <tr>
                                             <th>Name</th>
-                                            <th>Position</th>
-                                            <th>Office</th>
-                                            <th>Age</th>
+                                            <th>CMND/CCCD</th>
+                                            <th>Room</th>
+                                            <th>Floor</th>
                                             <th>Start date</th>
-                                            <th>Salary</th>
+                                            <th>Price</th>
                                         </tr>
                                     </tfoot>
                                     <tbody>
@@ -267,30 +308,7 @@
                                             <td>2022/03/29</td>
                                             <td>2,300,000 VND</td>
                                         </tr>
-                                        <tr>
-                                            <td>Airi Satou</td>
-                                            <td>Accountant</td>
-                                            <td>Tokyo</td>
-                                            <td>33</td>
-                                            <td>2008/11/28</td>
-                                            <td>$162,700</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Brielle Williamson</td>
-                                            <td>Integration Specialist</td>
-                                            <td>New York</td>
-                                            <td>61</td>
-                                            <td>2012/12/02</td>
-                                            <td>$372,000</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Herrod Chandler</td>
-                                            <td>Sales Assistant</td>
-                                            <td>San Francisco</td>
-                                            <td>59</td>
-                                            <td>2012/08/06</td>
-                                            <td>$137,500</td>
-                                        </tr>
+
                                     </tbody>
                                 </table>
                             </div>

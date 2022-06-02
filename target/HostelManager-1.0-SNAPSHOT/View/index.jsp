@@ -66,8 +66,7 @@
                              <a class="nav-link" href="signup.jsp">
                                 <div class="sb-nav-link-icon"><i class="fas fa-add"></i></div>
                                 New Account
-                            </a>
-                           
+                            </a> 
                             
                            
                             <div class="sb-sidenav-menu-heading">About</div>
