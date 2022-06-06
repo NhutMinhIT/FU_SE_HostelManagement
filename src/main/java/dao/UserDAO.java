@@ -17,8 +17,8 @@ import utils.DBUtils;
  * @author avillX
  */
 public class UserDAO {
-    private final static String LOGIN = "SELECT * FROM dbo.User WHERE username=? AND password=? AND status='true'";
-
+    private final static String LOGIN = "SELECT * FROM dbo.User WHERE username=? AND password=? AND status='APPROVED'";
+    private final static String APPROVED_USER = "UPDATE dbo.User SET status = ? where user_id = ?";
 
 
 public UserDTO checkLogin(String username, String password) throws SQLException {
@@ -39,7 +39,7 @@ public UserDTO checkLogin(String username, String password) throws SQLException 
                     String fullName = rs.getString("fullName");                   
                     String phone = rs.getString("phone");
                     String roleID = rs.getString("isAdmin");
-                    user = new UserDTO(userID, username, password, fullName, email, phone, "ACTIVE", roleID);
+                    user = new UserDTO(userID, username, password, fullName, email, phone, "APPROVED", roleID);
                 }
             }
         } catch (Exception e) {
@@ -57,4 +57,31 @@ public UserDTO checkLogin(String username, String password) throws SQLException 
         }
         return user;
     }
+
+    public boolean Approved_User(UserDTO user) throws SQLException {
+        boolean check = false;
+        Connection conn = null;
+        PreparedStatement ptm = null;
+        try {
+            conn = DBUtils.getConnection();
+            if (conn != null) {
+                ptm = conn.prepareStatement(APPROVED_USER);
+                ptm.setString(1, user.getStatus());
+                ptm.setString(2, user.getUserID());             
+                check = ptm.executeUpdate() > 0 ? true : false;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            if (ptm != null) {
+                ptm.close();
+            }
+            if (conn != null) {
+                conn.close();
+            }
+        }
+        return check;
+    }
+
+
 }

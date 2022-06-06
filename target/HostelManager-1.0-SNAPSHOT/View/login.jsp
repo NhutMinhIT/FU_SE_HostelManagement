@@ -6,42 +6,96 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
-<!DOCTYPE html>
+
+<!doctype html>
 <html lang="en">
-<head>
-  <!-- Design by foolishdeveloper.com -->
-  <title>SpeedStyle - Not Just For Show</title>
 
-  <link rel="preconnect" href="https://fonts.gstatic.com">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" type="text/css" href="../css/stylesignin.css">
-  <!--Stylesheet-->
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title> Free Stylish Login Page Website Template | Smarteyeapps.com</title>
 
-</head>
-<body>
-    
+        <link rel="shortcut icon" href="../assets/images/fav.jpg">
+        <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+        <link rel="stylesheet" href="../assets/css/fontawsom-all.min.css">
+        <link rel="stylesheet" type="text/css" href="../css/style1.css" />
+    </head>
 
- 
-    <div>
-        <div class="background">
-            <div class="shape"></div>
-            <div class="shape"></div>
-        </div>
-        <form action="./login">
-            <h3>Login Here</h3>
+    <body>
+        <div class="container-fluid conya">
+            <div class="side-left">
+                <div class="sid-layy">
+                    <div class="row slid-roo">
+                        <div class="data-portion">
+                            <h2>Manage Your Hostel</h2>
+                            <p>We are always with you...<3</p>
+                            <ul>
+                                <li>Phone :- +84 975654543</li>
 
-            <label for="username">Username</label>
-            <input type="text" placeholder="Username" name="username" >
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="side-right">
+                <img class="logo rounded-circle" style="width: 30%" src="../assets/img/logo.png" alt="">
 
-            <label for="password">Password</label>
-            <input type="password" placeholder="Password" name="password"><br>
+                <h2>Login into Your Account</h2>
 
-            <p class="help-block alert-danger"></p>
+                <div class="form-row">
+                    <label for="">Email ID</label>
+                    <input type="text" placeholder="yourname@company.com" class="form-control form-control-sm">
+                </div>
 
-            <a href="home.jsp"><button type="submit" style="color: white">Sign In</button></a>
-            <p>Don't have account?  <a href ="signup" style="color: red">Sign up</a></p>
-         </form>
-    </div>
-</body>
+                <div class="form-row">
+                    <label for="">Password</label>
+                    <input type="text" placeholder="Password" class="form-control form-control-sm">
+                </div>
+
+                <div class="form-row row skjh">
+                    <div class="col-7 left no-padding">
+                        <input type="checkbox">Keep me Sign In
+                    </div>
+                    <div class="col-5">
+                        <span> <a href="">Forget Password ?</a></span>
+                    </div>
+
+
+                </div>
+
+
+                <div class="form-row dfr">
+                    <button class="btn btn-sm btn-success">Login</button>
+                </div>
+
+
+                <div class="ord-v">
+                    <a href="or login with"></a>
+                </div>
+
+                <div class="soc-det">
+                    <ul>
+                        <li class="facebook"><i class="fab fa-facebook-f"></i></li>
+                        <li class="twitter"><i class="fab fa-twitter"></i></li>
+                        <li class="link"><i class="fab fa-linkedin-in"></i></li>
+
+                    </ul>
+                </div>
+
+
+
+            </div>
+            <div class="copyco">
+                <p>Copyrigh 2022 @ MoonHostel</p> 
+            </div>
+        </div>  
+        <script src="../assets/js/jquery-3.2.1.min.js"></script>
+        <script src="../assets/js/popper.min.js"></script>
+        <script src="../assets/js/bootstrap.min.js"></script>
+        <script src="../assets/js/script.js"></script>
+    </body>
+
+
+
+
 </html>
