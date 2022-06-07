@@ -13,10 +13,10 @@ import javax.servlet.http.HttpSession;
 @WebServlet(name = "LoginController", urlPatterns = {"/LoginController"})
 public class LoginController extends HttpServlet {
 
-    private static final String ERROR = "login.jsp";
-    private static final String ADMIN_PAGE = "MainController?action=Admin&search=";
+    private static final String ERROR = "View/login.jsp";
+    private static final String ADMIN_PAGE = "MainController?action=Admin";
     private static final String AD = "AD";
-    private static final String USER_PAGE = "MainController?action=UserHome&search=";
+    private static final String USER_PAGE = "MainController?action=UserHome";
     private static final String US = "US";
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
@@ -47,7 +47,6 @@ public class LoginController extends HttpServlet {
 
             
         } catch (Exception e) {
-            log("Error at LoginController: " + e.toString());
         } finally {
             request.getRequestDispatcher(url).forward(request, response);
         }

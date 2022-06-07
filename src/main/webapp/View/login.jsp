@@ -13,12 +13,12 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <title> Free Stylish Login Page Website Template | Smarteyeapps.com</title>
+        <title> Welcome to MoonHostel</title>
 
-        <link rel="shortcut icon" href="../assets/images/fav.jpg">
-        <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
-        <link rel="stylesheet" href="../assets/css/fontawsom-all.min.css">
-        <link rel="stylesheet" type="text/css" href="../css/style1.css" />
+        <link rel="shortcut icon" href="assets/images/fav.jpg">
+        <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+        <link rel="stylesheet" href="assets/css/fontawsom-all.min.css">
+        <link rel="stylesheet" type="text/css" href="css/style1.css" />
     </head>
 
     <body>
@@ -38,7 +38,7 @@
                 </div>
             </div>
             <div class="side-right">
-                <img class="logo rounded-circle" style="width: 30%" src="../assets/img/logo.png" alt="">
+                <img class="logo rounded-circle" style="width: 30%" src="assets/img/logo.png" alt="">
 
                 <h2>Login into Your Account</h2>
 
@@ -89,10 +89,10 @@
                 <p>Copyrigh 2022 @ MoonHostel</p> 
             </div>
         </div>  
-        <script src="../assets/js/jquery-3.2.1.min.js"></script>
-        <script src="../assets/js/popper.min.js"></script>
-        <script src="../assets/js/bootstrap.min.js"></script>
-        <script src="../assets/js/script.js"></script>
+        <script src="assets/js/jquery-3.2.1.min.js"></script>
+        <script src="assets/js/popper.min.js"></script>
+        <script src="assets/js/bootstrap.min.js"></script>
+        <script src="assets/js/script.js"></script>
     </body>
 
 
