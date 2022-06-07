@@ -40,35 +40,35 @@
                 <img class="logo rounded-circle" style="width: 30%" src="assets/img/logo.png" alt="">
 
                 <h3>Login</h3>
-
-                <div class="form-row">
-                    <label for="">Email ID</label>
-                    <input type="text" placeholder="yourname@gmail.com" class="form-control form-control-sm">
-                </div>
-
-                <div class="form-row">
-                    <label for="">Password</label>
-                    <input type="text" placeholder="Password" class="form-control form-control-sm">
-                </div>
-
-                <div class="form-row row skjh">
-                    <div class="col-7 left no-padding">
-                        <input type="checkbox">Remember me
-                    </div>
-                    <div class="col-5">
-                        <span> <a href="">Forget Password ?</a></span>
+                <form action="">
+                    <div class="form-row">
+                        <label for="">Email ID</label>
+                        <input type="text" placeholder="yourname@gmail.com" class="form-control form-control-sm" required pattern="\S+">
                     </div>
 
+                    <div class="form-row">
+                        <label for="">Password</label>
+                        <input type="text" placeholder="Password" class="form-control form-control-sm" required pattern="\S+">
+                    </div>
 
-                </div>
+                    <div class="form-row row skjh">
+                        <div class="col-7 left no-padding">
+                            <input type="checkbox">Remember me
+                        </div>
+                        <div class="col-5">
+                            <span> <a href="">Forget Password ?</a></span>
+                        </div>
 
 
-                <div class=" dfr center">
-                    <a href="index.jsp">
-                        <button class="btn btn-success">Login</button>
-                    </a>
-                </div>
+                    </div>
 
+
+                    <div class=" dfr center">
+                        <a href="index.jsp">
+                            <button class="btn btn-success">Login</button>
+                        </a>
+                    </div>
+                </form>
 
                 <div class="soc-det">
                     <ul>
