@@ -11,6 +11,9 @@
         <title>MoonHostel</title>
         <link rel="icon" type="image/png" href="../assets/img/logo.png" sizes="16x16">
         <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
         <link href="../css/styles.css" rel="stylesheet" />
     </head>
 
@@ -87,11 +90,11 @@
                     <div class="card mb-4">
                         <div class="card-header">
                             <div class="card-header">
-                                <i class="fas fa-table me-1"></i>Home Manager                              
+                                <i class="fas fa-table me-1"></i>Hostel Manager                              
                             </div>
                             <div class="row " style="float:right; display: flex">
-                                <a href="addNewHome.jsp">
-                                    <button type="button"  class="btn btn-success m-2"><i class="fa fa-bank"></i> Add Home</button>
+                                <a href="addNewHostel.jsp">
+                                    <button type="button"  class="btn btn-success m-2"><i class="fa fa-bank"></i> Add Hostel</button>
                                 </a>
                             </div>
                             <div class="row " style="float:right; display: flex">
@@ -99,220 +102,292 @@
                                     <button type="button"  class="btn btn-info m-2"><i class="far fa-building"></i> Room</button>
                                 </a>
                             </div> 
-                            <div class="row " style="float:right; display: flex">
-                                <a href="#">
-                                    <button type="button"  class="btn btn-primary m-2"><i class="fa fa-user-plus"></i> Add Customer</button>
-                                </a>
-                            </div> 
-
+                           
                         </div>
                     </div>
                 </table>
 
                 <main class="container-fluid">
 
-                    <div class=" room container-fluid px-4">                        
+                    <div class="room container-fluid px-4">                        
 
-
-
-                        <ul class="nav nav-tabs mb-4">
+                        <ul class=" col-12 nav nav-tabs mb-4">
                             <li class="nav-item">
-                                <a class="nav-link active" href="#floor1" role="tab" data-toggle="tab">Floor 1</a>
+                                <a class="nav-link active" href="#District9" role="tab" data-toggle="tab">District 9</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#floor2" role="tab" data-toggle="tab">Floor 2</a>
+                                <a class="nav-link" href="#District1" role="tab" data-toggle="tab">District 1</a>
                             </li>
-
                         </ul>
-                     
-                        <div class="breadcrumb mb-4" style="margin-left: 70%">
+
+                        <div class="breadcrumb mb-4" style="margin-left: 60%">
                             <div class="row ">
                                 <a href="addNewRoom.jsp">
                                     <button type="button"  class="btn btn-success m-2"><i class="fa fa-add"></i> Add Room</button>
                                 </a>
                             </div> 
-                             <div class="row ">
+                            <div class="row ">
                                 <a href="#">
-                                    <button type="button"  class="btn btn-primary m-2"><i class="fa fa-edit"></i> Edit Room</button>
+                                    <button type="button"  class="btn btn-primary m-2"><i class="fa fa-edit"></i> Edit Hostel</button>
                                 </a>
-                             </div>
-                              <div class="row ">
+                            </div>
+                            <div class="row ">
                                 <a href="#">
-                                    <button type="button"  class="btn btn-danger m-2"><i class="fa fa-remove"></i> Delete Room</button>
+                                    <button type="button"  class="btn btn-danger m-2"><i class="fa fa-remove"></i> Delete Hostel</button>
                                 </a>
                             </div>
                             <!-- comment -->
                         </div>
-                           
-                        <div role="tabpanel" class="row tab-pane fade show active" id="floor1">
-                            <div class="col-xl-3 col-md-6" style="border-radius: 50px;">
-                                <div class="card bg-success text-white mb-4">
-                                    <div class="card-body">
-                                        <h4><i class="fa fa-house"></i> Room 1</h4>
-                                    </div>
-                                    <div class="card-body">
-                                        <i class="fas fa-user fa-fw"></i> Nguyễn Nhựt Minh
-                                    </div>
-                                    <div class="card-body">
-                                        <i class="fas fa-money-bill-1 fa-fw"></i> 2,300,000 VND
-                                    </div>
-                                    <div class="card-footer align-items-centernt">
-                                        <div  class="ml-2" style="float: left;">
-                                            <a>                                           
-                                                <button type="button"  class="btn btn-primary m-2"><i class="fa fa-edit"></i> Edit</button>
-                                            </a>
+                        <div class="tab-content ">
+                            <div role="tabpanel" class=" tab-pane fade show active" id="District9" >
+                                <div class="row">
+                                    <div class="col-xl-3 col-md-6" style="border-radius: 50px;">
+                                        <div class="card bg-success text-white mb-4">
+                                            <div class="card-body">
+                                                <h4><i class="fa fa-house"></i> Room 1</h4>
+                                            </div>
+                                            <div class="card-body ">
+                                                <button class="btn btn-warning" title="View"><i class="fa fa-eye" ></i></button>
+                                                <button class="btn btn-primary" title="Edit"><i class="fa fa-edit" ></i></button>
+                                            </div>
+                                            <div class="card-body">
+                                                <i class="fas fa-user fa-fw"></i> Nguyễn Nhựt Minh
+                                            </div>
+                                            <div class="card-body">
+                                                <i class="fas fa-money-bill-1 fa-fw"></i> 2,300,000 VND
+                                            </div>
+                                            <div class="card-footer align-items-centernt">
+                                                <div  class="ml-2" style="float: left;">
+                                                    <a>                                           
+                                                        <button type="button"  class="btn btn-primary m-2"><i class="fa fa-edit"></i> Edit</button>
+                                                    </a>
+                                                </div>
+                                                <div  class="row">
+                                                    <a>
+                                                        <button type="button"  class="btn btn-danger m-2"><i class="fa fa-remove"></i> Delete</button>
+                                                    </a>
+                                                </div>
+                                            </div>
                                         </div>
-                                        <div  class="row">
-                                            <a>
-                                                <button type="button"  class="btn btn-danger m-2"><i class="fa fa-remove"></i> Delete</button>
-                                            </a>
-                                        </div>
                                     </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-3 col-md-6">
-                                <div class="card bg-secondary text-white mb-4">
-                                    <div class="card-body">
-                                        <h4><i class="fa fa-house"></i> Room 2</h4>
-                                    </div>
+                                    <div class="col-xl-3 col-md-6">
+                                        <div class="card bg-secondary text-white mb-4">
+                                            <div class="card-body">
+                                                <h4><i class="fa fa-house"></i> Room 2</h4>
+                                            </div>
+                                            <div class="card-body">
+                                                 <a href="AddNewCustomer.jsp">
+                                                <button class="btn btn-warning "><i class="fa fa-add"></i> Add Customer</button>
+                                                </a>
+                                            </div>
+                                            <div class="card-body">
+                                                <i class="fas fa-user fa-fw"></i> Empty
+                                            </div>
+                                            <div class="card-body">
+                                                <i class="fas fa-money-bill-1 fa-fw"></i> 2,300,000 VND
+                                            </div>
+                                            <div class="card-footer align-items-centernt">
+                                                <div  class="ml-2" style="float: left">
+                                                    <a>                                           
+                                                        <button type="button"  class="btn btn-primary m-2"><i class="fa fa-edit"></i> Edit</button>
+                                                    </a>
+                                                </div>
+                                                <div  class="row">
+                                                    <a>
+                                                        <button type="button"  class="btn btn-danger m-2"><i class="fa fa-remove"></i> Delete</button>
+                                                    </a>
+                                                </div>
+                                            </div>
 
-                                    <div class="card-body">
-                                        <i class="fas fa-user fa-fw"></i> Empty
-                                    </div>
-                                    <div class="card-body">
-                                        <i class="fas fa-money-bill-1 fa-fw"></i> 2,300,000 VND
-                                    </div>
-                                    <div class="card-footer align-items-centernt">
-                                        <div  class="ml-2" style="float: left">
-                                            <a>                                           
-                                                <button type="button"  class="btn btn-primary m-2"><i class="fa fa-edit"></i> Edit</button>
-                                            </a>
-                                        </div>
-                                        <div  class="row">
-                                            <a>
-                                                <button type="button"  class="btn btn-danger m-2"><i class="fa fa-remove"></i> Delete</button>
-                                            </a>
                                         </div>
                                     </div>
+                                    <div class="col-xl-3 col-md-6">
+                                        <div class="card bg-success text-white mb-4">
+                                            <div class="card-body">
+                                                <h4><i class="fa fa-house"></i> Room 3</h4>
+                                            </div>
+                                            <div class="card-body ">
+                                                <button class="btn btn-warning" title="View"><i class="fa fa-eye" ></i></button>
+                                                <button class="btn btn-primary" title="Edit"><i class="fa fa-edit" ></i></button>
+                                            </div>
+                                            <div class="card-body">
+                                                <i class="fas fa-user fa-fw"></i> Phan Minh Trí
+                                            </div>
+                                            <div class="card-body">
+                                                <i class="fas fa-money-bill-1 fa-fw"></i> 2,300,000 VND
+                                            </div>
+                                            <div class="card-footer align-items-centernt">
+                                                <div  class="ml-2" style="float: left">
+                                                    <a>                                           
+                                                        <button type="button"  class="btn btn-primary m-2"><i class="fa fa-edit"></i> Edit</button>
+                                                    </a>
+                                                </div>
+                                                <div  class="row">
+                                                    <a>
+                                                        <button type="button"  class="btn btn-danger m-2"><i class="fa fa-remove"></i> Delete</button>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-3 col-md-6">
+                                        <div class="card bg-secondary text-white mb-4">
+                                            <div class="card-body">
+                                                <h4><i class="fa fa-house"></i> Room 4</h4>
+                                            </div>
+                                            <div class="card-body">
+                                                <a href="AddNewCustomer.jsp">
+                                                <button class="btn btn-warning "><i class="fa fa-add"></i> Add Customer</button>
+                                                </a>
+                                            </div>
+                                            <div class="card-body">
+                                                <i class="fas fa-user fa-fw"></i> Empty
+                                            </div>
+                                            <div class="card-body">
+                                                <i class="fas fa-money-bill-1 fa-fw"></i> 2,300,000 VND
+                                            </div>
+                                            <div class="card-footer align-items-centernt">
+                                                <div  class="ml-2" style="float: left">
+                                                    <a>                                           
+                                                        <button type="button"  class="btn btn-primary m-2"><i class="fa fa-edit"></i> Edit</button>
+                                                    </a>
+                                                </div>
+                                                <div  class="row">
+                                                    <a>
+                                                        <button type="button"  class="btn btn-danger m-2"><i class="fa fa-remove"></i> Delete</button>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div role="tabpanel" class="tab-pane fade show " id="District1" >
+                                <div class="row">
+                                    <div class="col-xl-3 col-md-6" style="border-radius: 50px;">
+                                        <div class="card bg-success text-white mb-4">
+                                            <div class="card-body">
+                                                <h4><i class="fa fa-house"></i> Room 12</h4>
+                                            </div>
+                                            <div class="card-body ">
+                                                <button class="btn btn-warning"><i class="fa fa-eye"></i></button>
+                                                <button class="btn btn-primary"><i class="fa fa-edit"></i></button>
+                                            </div>
+                                            <div class="card-body">
+                                                <i class="fas fa-user fa-fw"></i> Nguyễn Nhựt Minh
+                                            </div>
+                                            <div class="card-body">
+                                                <i class="fas fa-money-bill-1 fa-fw"></i> 2,300,000 VND
+                                            </div>
+                                            <div class="card-footer align-items-centernt">
+                                                <div  class="ml-2" style="float: left;">
+                                                    <a>                                           
+                                                        <button type="button"  class="btn btn-primary m-2"><i class="fa fa-edit"></i> Edit</button>
+                                                    </a>
+                                                </div>
+                                                <div  class="row">
+                                                    <a>
+                                                        <button type="button"  class="btn btn-danger m-2"><i class="fa fa-remove"></i> Delete</button>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-3 col-md-6">
+                                        <div class="card bg-secondary text-white mb-4">
+                                            <div class="card-body">
+                                                <h4><i class="fa fa-house"></i> Room 2</h4>
+                                            </div>
+                                            <div class="card-body">
+                                                 <a href="AddNewCustomer.jsp">
+                                                <button class="btn btn-warning "><i class="fa fa-add"></i> Add Customer</button>
+                                                </a>
+                                            </div>
+                                            <div class="card-body">
+                                                <i class="fas fa-user fa-fw"></i> Empty
+                                            </div>
+                                            <div class="card-body">
+                                                <i class="fas fa-money-bill-1 fa-fw"></i> 2,300,000 VND
+                                            </div>
+                                            <div class="card-footer align-items-centernt">
+                                                <div  class="ml-2" style="float: left">
+                                                    <a>                                           
+                                                        <button type="button"  class="btn btn-primary m-2"><i class="fa fa-edit"></i> Edit</button>
+                                                    </a>
+                                                </div>
+                                                <div  class="row">
+                                                    <a>
+                                                        <button type="button"  class="btn btn-danger m-2"><i class="fa fa-remove"></i> Delete</button>
+                                                    </a>
+                                                </div>
+                                            </div>
 
-                                </div>
-                            </div>
-                            <div class="col-xl-3 col-md-6">
-                                <div class="card bg-success text-white mb-4">
-                                    <div class="card-body">
-                                        <h4><i class="fa fa-house"></i> Room 3</h4>
-                                    </div>
-                                    <div class="card-body">
-                                        <i class="fas fa-user fa-fw"></i> Phan Minh Trí
-                                    </div>
-                                    <div class="card-body">
-                                        <i class="fas fa-money-bill-1 fa-fw"></i> 2,300,000 VND
-                                    </div>
-                                    <div class="card-footer align-items-centernt">
-                                        <div  class="ml-2" style="float: left">
-                                            <a>                                           
-                                                <button type="button"  class="btn btn-primary m-2"><i class="fa fa-edit"></i> Edit</button>
-                                            </a>
-                                        </div>
-                                        <div  class="row">
-                                            <a>
-                                                <button type="button"  class="btn btn-danger m-2"><i class="fa fa-remove"></i> Delete</button>
-                                            </a>
                                         </div>
                                     </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-3 col-md-6">
-                                <div class="card bg-secondary text-white mb-4">
-                                    <div class="card-body">
-                                        <h4><i class="fa fa-house"></i> Room 4</h4>
-                                    </div>
-                                    <div class="card-body">
-                                        <i class="fas fa-user fa-fw"></i> Empty
-                                    </div>
-                                    <div class="card-body">
-                                        <i class="fas fa-money-bill-1 fa-fw"></i> 2,300,000 VND
-                                    </div>
-                                    <div class="card-footer align-items-centernt">
-                                        <div  class="ml-2" style="float: left">
-                                            <a>                                           
-                                                <button type="button"  class="btn btn-primary m-2"><i class="fa fa-edit"></i> Edit</button>
-                                            </a>
+                                    <div class="col-xl-3 col-md-6">
+                                        <div class="card bg-success text-white mb-4">
+                                            <div class="card-body">
+                                                <h4><i class="fa fa-house"></i> Room 3</h4>
+                                            </div>
+                                            <div class="card-body ">
+                                                <button class="btn btn-warning"><i class="fa fa-eye"></i></button>
+                                                <button class="btn btn-primary"><i class="fa fa-edit"></i></button>
+                                            </div>
+                                            <div class="card-body">
+                                                <i class="fas fa-user fa-fw"></i> Phan Minh Trí
+                                            </div>
+                                            <div class="card-body">
+                                                <i class="fas fa-money-bill-1 fa-fw"></i> 2,300,000 VND
+                                            </div>
+                                            <div class="card-footer align-items-centernt">
+                                                <div  class="ml-2" style="float: left">
+                                                    <a>                                           
+                                                        <button type="button"  class="btn btn-primary m-2"><i class="fa fa-edit"></i> Edit</button>
+                                                    </a>
+                                                </div>
+                                                <div  class="row">
+                                                    <a>
+                                                        <button type="button"  class="btn btn-danger m-2"><i class="fa fa-remove"></i> Delete</button>
+                                                    </a>
+                                                </div>
+                                            </div>
                                         </div>
-                                        <div  class="row">
-                                            <a>
-                                                <button type="button"  class="btn btn-danger m-2"><i class="fa fa-remove"></i> Delete</button>
-                                            </a>
+                                    </div>
+                                    <div class="col-xl-3 col-md-6">
+                                        <div class="card bg-secondary text-white mb-4">
+                                            <div class="card-body">
+                                                <h4><i class="fa fa-house"></i> Room 4</h4>
+                                            </div>
+                                           <div class="card-body">
+                                                 <a href="AddNewCustomer.jsp">
+                                                <button class="btn btn-warning "><i class="fa fa-add"></i> Add Customer</button>
+                                                </a>
+                                            </div>
+                                            <div class="card-body">
+                                                <i class="fas fa-user fa-fw"></i> Empty
+                                            </div>
+                                            <div class="card-body">
+                                                <i class="fas fa-money-bill-1 fa-fw"></i> 2,300,000 VND
+                                            </div>
+                                            <div class="card-footer align-items-centernt">
+                                                <div  class="ml-2" style="float: left">
+                                                    <a>                                           
+                                                        <button type="button"  class="btn btn-primary m-2"><i class="fa fa-edit"></i> Edit</button>
+                                                    </a>
+                                                </div>
+                                                <div  class="row">
+                                                    <a>
+                                                        <button type="button"  class="btn btn-danger m-2"><i class="fa fa-remove"></i> Delete</button>
+                                                    </a>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        
-                        <div class="card mb-4">
-                            <div class="card-header">
-                                <i class="fas fa-table me-1"></i>Tenant Information                               
-                            </div>
-                            <div class="card-body">
-                                <table id="datatablesSimple">
-                                    <thead>
-                                        <tr>
-                                            <th>Name</th>
-                                            <th>CMND/CCCD</th>
-                                            <th>Room</th>
-                                            <th>Floor</th>
-                                            <th>Start date</th>
-                                            <th>Price</th>
-                                        </tr>
-                                    </thead>
-                                    <tfoot>
-                                        <tr>
-                                            <th>Name</th>
-                                            <th>CMND/CCCD</th>
-                                            <th>Room</th>
-                                            <th>Floor</th>
-                                            <th>Start date</th>
-                                            <th>Price</th>
-                                        </tr>
-                                    </tfoot>
-                                    <tbody>
-                                        <tr>
-                                            <td>Nguyen Nhut Minh</td>
-                                            <td>2567489055</td>
-                                            <td>01</td>
-                                            <td>01</td>
-                                            <td>2021/05/25</td>
-                                            <td>2,300,000 VND</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Phan Minh Tri</td>
-                                            <td>2569358952</td>
-                                            <td>03</td>
-                                            <td>02</td>
-                                            <td>2021/02/14</td>
-                                            <td>2,500,000 VND</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Trần Quang Hùng</td>
-                                            <td>4785962305</td>
-                                            <td>03</td>
-                                            <td>03</td>
-                                            <td>2021/12/09</td>
-                                            <td>2,500,000 VND</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Hồ Bảo Anh</td>
-                                            <td>4856932652</td>
-                                            <td>02</td>
-                                            <td>01</td>
-                                            <td>2022/03/29</td>
-                                            <td>2,300,000 VND</td>
-                                        </tr>
 
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
+
                     </div>
                 </main>
                 <footer class="py-4 bg-light mt-auto jumbotron">

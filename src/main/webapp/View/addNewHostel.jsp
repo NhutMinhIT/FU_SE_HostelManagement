@@ -95,16 +95,16 @@
                     <div class="container-fluid px-4">
                         <div class="card mt-4">
                             <div class="card-header">
-                                <h1 class="text-info">Add Home</h1>
+                                <h1 class="text-info">Add Hostel</h1>
 
                             </div>
                             <div class="card-body">
 
                                 <form action="#">
                                     <div class="form-group row">
-                                        <label  class="col-sm-2 col-form-label">Home</label>
+                                        <label  class="col-sm-2 col-form-label">Name</label>
                                         <div class="col-sm-10">
-                                            <input type="text" class="form-control" placeholder="Enter your home">
+                                            <input type="text" class="form-control" placeholder="Enter your hostel">
                                         </div>
                                     </div>
                                     <div class="form-group row">
