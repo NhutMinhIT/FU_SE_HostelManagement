@@ -1,3 +1,18 @@
+<<<<<<< HEAD
+D:\j2yD9gmz\Majors 5\SWP391\Git\HostelManager\src\main\java\controller\LogoutController.java
+D:\j2yD9gmz\Majors 5\SWP391\Git\HostelManager\src\main\java\dto\UserDTO.java
+D:\j2yD9gmz\Majors 5\SWP391\Git\HostelManager\src\main\java\controller\MainController.java
+D:\j2yD9gmz\Majors 5\SWP391\Git\HostelManager\src\main\java\dto\Contract.java
+D:\j2yD9gmz\Majors 5\SWP391\Git\HostelManager\src\main\java\dao\HostelDAO.java
+D:\j2yD9gmz\Majors 5\SWP391\Git\HostelManager\src\main\java\dao\UserDAO.java
+D:\j2yD9gmz\Majors 5\SWP391\Git\HostelManager\src\main\java\dto\FurnitureDTO.java
+D:\j2yD9gmz\Majors 5\SWP391\Git\HostelManager\src\main\java\dto\HostelDTO.java
+D:\j2yD9gmz\Majors 5\SWP391\Git\HostelManager\src\main\java\dto\RoomDTO.java
+D:\j2yD9gmz\Majors 5\SWP391\Git\HostelManager\src\main\java\dto\CustomerDTO.java
+D:\j2yD9gmz\Majors 5\SWP391\Git\HostelManager\src\main\java\utils\DBUtils.java
+D:\j2yD9gmz\Majors 5\SWP391\Git\HostelManager\src\main\java\controller\LoginController.java
+D:\j2yD9gmz\Majors 5\SWP391\Git\HostelManager\src\main\java\dao\RoomDAO.java
+=======
 C:\Users\Dell\OneDrive\Desktop\Test-Project\HostelManager\src\main\java\dto\CustomerDTO.java
 C:\Users\Dell\OneDrive\Desktop\Test-Project\HostelManager\src\main\java\dto\RoomDTO.java
 C:\Users\Dell\OneDrive\Desktop\Test-Project\HostelManager\src\main\java\dto\UserDTO.java
@@ -10,3 +25,4 @@ C:\Users\Dell\OneDrive\Desktop\Test-Project\HostelManager\src\main\java\dto\Cont
 C:\Users\Dell\OneDrive\Desktop\Test-Project\HostelManager\src\main\java\dto\HostelDTO.java
 C:\Users\Dell\OneDrive\Desktop\Test-Project\HostelManager\src\main\java\controller\LoginController.java
 C:\Users\Dell\OneDrive\Desktop\Test-Project\HostelManager\src\main\java\dto\FurnitureDTO.java
+>>>>>>> 880c7cbf13dd28609d61e5f5382b4759b38cd55a

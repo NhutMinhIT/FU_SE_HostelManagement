@@ -16,14 +16,16 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author avillX
  */
-
+@WebServlet(name = "MainController", urlPatterns = {"/MainController"})
 public class MainController extends HttpServlet {
 
     private static final String ERROR = "error.jsp";
-    private static final String LOGIN = "Login";
     private static final String LOGIN_CONTROLLER = "LoginController";
-    private static final String LOGOUT = "Logout";
     private static final String LOGOUT_CONTROLLER = "LogoutController";
+
+    private static final String ADMIN_PAGE = "AdminPageController";
+    private static final String USER_PAGE = "UserPageController";
+
     
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -31,10 +33,14 @@ public class MainController extends HttpServlet {
         String url = ERROR;
         try {
             String action = request.getParameter("action");
-            if (LOGIN.equals(action)) {
+            if ("Login".equals(action)) {
                 url = LOGIN_CONTROLLER;
-            } else if (LOGOUT.equals(action)) {
+            } else if ("Logout".equals(action)) {
                 url = LOGOUT_CONTROLLER;
+            }else if ("Admin".equals(action)) {
+                url = ADMIN_PAGE;
+            }else if ("User".equals(action)) {
+                url = USER_PAGE;
             }
         } catch (Exception e) {
             log("Error at MainController: " + e.toString());
