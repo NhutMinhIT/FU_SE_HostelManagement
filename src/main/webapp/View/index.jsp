@@ -7,7 +7,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
-     <head>
+    <head>
         <meta charset="utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
@@ -21,7 +21,7 @@
     <body class="sb-nav-fixed">
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
             <!-- Navbar Brand-->
-               <a class="navbar-brand ps-3" href="index.jsp">MoonHostel
+            <a class="navbar-brand ps-3" href="index.jsp">MoonHostel
                 <img src="../assets/img/logo.png" class="rounded-circle"  alt="logo"width="40" height="36">
             </a>
             <!-- Sidebar Toggle-->
@@ -63,12 +63,16 @@
                                 <div class="sb-nav-link-icon"><i class="fas fa-house"></i></div>
                                 Room                                
                             </a>
-                             <a class="nav-link" href="signup.jsp">
+                            <a class="nav-link collapsed" href="service.jsp">
+                                <div class="sb-nav-link-icon"><i class="fas fa-cubes"></i></div>
+                                Service                                
+                            </a>
+                            <a class="nav-link" href="signup.jsp">
                                 <div class="sb-nav-link-icon"><i class="fas fa-add"></i></div>
                                 New Account
                             </a> 
-                            
-                           
+
+
                             <div class="sb-sidenav-menu-heading">About</div>
                             <a class="nav-link" href="#">
                                 <div class="sb-nav-link-icon"><i class="fas fa-map"></i></div>
@@ -82,15 +86,15 @@
                     </div>
                     <div class="sb-sidenav-footer">
                         <div class="small">Logged in as:</div>
-                       MoonHostel
-                       <img src="../assets/img/logo.png" class="rounded-circle"  alt="regisster"width="40" height="36">
+                        MoonHostel
+                        <img src="../assets/img/logo.png" class="rounded-circle"  alt="regisster"width="40" height="36">
                     </div>
                 </nav>
             </div>
             <div id="layoutSidenav_content">
                 <main class="container-fluid">
                     <div class="container-fluid px-4">
-                         <h1 class="mt-4"><i class="fa fa-house"></i> Home</h1>
+                        <h1 class="mt-4"><i class="fa fa-house"></i> Home</h1>
                         <div class="row mt-3">
                             <div class="col-xl-6 ">
                                 <div class="card bg-warning text-white mb-4">
@@ -204,7 +208,7 @@
                 </footer>
             </div>
         </div>
-       <script src="../js/scripts.js"></script>
+        <script src="../js/scripts.js"></script>
         <script src="../js/datatables-simple-demo.js"></script>
         <script src="../assets/demo/chart-area-demo.js"></script>
         <script src="../assets/demo/chart-bar-demo.js"></script>

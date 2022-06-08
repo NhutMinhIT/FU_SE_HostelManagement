@@ -68,7 +68,7 @@
                                 <div class="sb-nav-link-icon"><i class="fas fa-house"></i></div>
                                 Room                                
                             </a>
-                            <a class="nav-link collapsed" href="service.jsp">
+                            <a class="nav-link collapsed" href="room.jsp">
                                 <div class="sb-nav-link-icon"><i class="fas fa-cubes"></i></div>
                                 Service                                
                             </a>
@@ -101,42 +101,36 @@
                     <div class="container-fluid px-4">
                         <div class="card mt-4">
                             <div class="card-header">
-                                <h1 class="text-info">Add Room</h1>
-
+                                <h1 class="text-info">Add Service</h1>
                             </div>
                             <div class="card-body">
 
                                 <form action="#">
-                                    <div class="form-group row">
-                                        <label  class="col-sm-2 col-form-label">Room N.o</label>
-                                        <div class="col-sm-10">
-                                            <input type="text" class="form-control" placeholder="Room N.o">
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label class="col-sm-2 col-form-label">Home</label>
-                                        <div class="col-sm-10">
-                                            <input type="text" class="form-control"  placeholder="Home">
-                                        </div>
-                                    </div>
-                                    <div class="form-row">
-                                        <div class="form-group col-md-2">
-                                            <label>Unit Price </label>
-                                        </div>
-                                        <div class="form-group col-md-10">
-
-                                            <input type="text" class="form-control"  placeholder="VND">
-                                        </div>
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label for="inputAddress2">Description</label>
-                                        <textarea rows="3" class="form-control" id="remarks" name="remarks"></textarea>
-                                    </div>
-
-
+                                    <table  class="table table-striped table-bordered "  width="100%">
+                                            <thead>
+                                                <tr>
+                                                    <th style=" text-align: center">ID</th>
+                                                    <th style=" text-align: center">Service Name</th>
+                                                    <th style=" text-align: center ">Price (VNĐ)</th>
+                                                    
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td style="text-align: center" >Elect</td>
+                                                    <td style="text-align: center">Electricity</td>
+                                                    <td><input type="text" name="price" style="width: 100%; text-align: right" value="3000"></td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                    <td style="text-align: center" >Water</td>
+                                                    <td style="text-align: center">Water</td>
+                                                    <td><input type="text" name="price" style="width: 100%; text-align: right" value="3000"></td>
+                                                   
+                                                </tr>
+                                            </tbody>
+                                        </table>
                                     <div class="mt-3 text-center">
-                                        <button class="btn btn-warning" type="button" id="cancelButton"><i class="fa fa-mail-reply"></i> Return</button>
                                         <button class="btn btn-success" type="button" id="sumbitButton"><i class="fa fa-check"></i> Save</button>
                                     </div>
                                 </form>

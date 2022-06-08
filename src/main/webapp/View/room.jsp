@@ -62,6 +62,10 @@
                                 <div class="sb-nav-link-icon"><i class="fas fa-house"></i></div>
                                 Room                                
                             </a>
+                             <a class="nav-link collapsed" href="service.jsp">
+                                <div class="sb-nav-link-icon"><i class="fas fa-cubes"></i></div>
+                                Service                                
+                            </a>
                             <a class="nav-link" href="signup.jsp">
                                 <div class="sb-nav-link-icon"><i class="fas fa-add"></i></div>
                                 New Account
@@ -99,7 +103,7 @@
                             </div>
                             <div class="row " style="float:right; display: flex">
                                 <a href="#">
-                                    <button type="button"  class="btn btn-info m-2"><i class="far fa-building"></i> Room</button>
+                                    <button type="button"  class="btn btn-danger m-2"><i class="fa fa-remove"></i>Delete Hostel</button>
                                 </a>
                             </div> 
 
@@ -120,22 +124,12 @@
                             </li>
                         </ul>
 
-                        <div class="breadcrumb mb-4" style="margin-left: 60%">
-                            <div class="row ">
+                        <div class="breadcrumb mb-4 " style="margin-left: 90%">
+                            <div class="row">
                                 <a href="addNewRoom.jsp">
-                                    <button type="button"  class="btn btn-success m-2"><i class="fa fa-add"></i> Add Room</button>
+                                    <button type="button"  class="btn btn-success"><i class="fa fa-add"></i> Add Room</button>
                                 </a>
-                            </div> 
-                            <div class="row ">
-                                <a href="#">
-                                    <button type="button"  class="btn btn-primary m-2"><i class="fa fa-edit"></i> Edit Hostel</button>
-                                </a>
-                            </div>
-                            <div class="row ">
-                                <a href="#">
-                                    <button type="button"  class="btn btn-danger m-2"><i class="fa fa-remove"></i> Delete Hostel</button>
-                                </a>
-                            </div>
+                            </div>                             
                             <!-- comment -->
                         </div>
                         <div class="tab-content ">
@@ -144,207 +138,140 @@
                                     <table id="datatablesSimple">
                                         <thead>
                                             <tr>
-                                                <th>Name</th>
-                                                <th>CMND/CCCD</th>
                                                 <th>Room</th>
-                                                <th>Floor</th>
+                                                <th>Name</th>
+                                                <th>Phone</th>                                                                                                
                                                 <th>Start date</th>
                                                 <th>Price</th>
+                                                <th>Status</th>
+                                                <th>Function</th>
                                             </tr>
                                         </thead>
                                         <tfoot>
                                             <tr>
+                                                <th>Room</th>
                                                 <th>Name</th>
-                                                <th>Position</th>
-                                                <th>Office</th>
-                                                <th>Age</th>
+                                                <th>Phone</th>                                                                                                
                                                 <th>Start date</th>
-                                                <th>Salary</th>
+                                                <th>Price</th>
+                                                <th>Status</th>
+                                                <th>Function</th>
                                             </tr>
                                         </tfoot>
                                         <tbody>
-                                            <tr>
-                                                <td>Nguyen Nhut Minh</td>
-                                                <td>2567489055</td>
-                                                <td>01</td>
-                                                <td>01</td>
-                                                <td>2021/05/25</td>
+                                            <tr>                                                
+                                                <td>1</td>
+                                                <td>Nguyễn Nhựt Minh</td>
+                                                <td>0382694825</td>
+                                                <td>08/06/2022</td>
                                                 <td>2,300,000 VND</td>
+                                                <td class="text-success">Active</td>
+                                                <td>                                                    
+                                                    <button class="btn btn-warning" title="View"><i class="fa fa-eye"></i></button>
+                                                    <button class="btn btn-primary" title="Edit"><i class="fa fa-edit"></i></button>
+                                                    <button class="btn btn-danger" title="Remove"><i class="fa fa-remove"></i></button>                                                    
+                                                </td>
                                             </tr>
                                             <tr>
-                                                <td>Phan Minh Tri</td>
-                                                <td>2569358952</td>
-                                                <td>03</td>
-                                                <td>02</td>
-                                                <td>2021/02/14</td>
-                                                <td>2,500,000 VND</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Trần Quang Hùng</td>
-                                                <td>4785962305</td>
-                                                <td>03</td>
-                                                <td>03</td>
-                                                <td>2021/12/09</td>
-                                                <td>2,500,000 VND</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Hồ Bảo Anh</td>
-                                                <td>4856932652</td>
-                                                <td>02</td>
-                                                <td>01</td>
-                                                <td>2022/03/29</td>
+                                                <td>2</td>
+                                                <td>Phan Minh Trí</td>
+                                                <td>0987500668</td>
+                                                <td>20/12/2021</td>
                                                 <td>2,300,000 VND</td>
+                                                <td class="text-success">Active</td>
+                                                <td>                                                    
+                                                    <button class="btn btn-warning" title="View"><i class="fa fa-eye"></i></button>
+                                                    <button class="btn btn-primary" title="Edit"><i class="fa fa-edit"></i></button>
+                                                    <button class="btn btn-danger" title="Remove"><i class="fa fa-remove"></i></button>                                                    
+                                                </td>
                                             </tr>
                                             <tr>
-                                                <td>Airi Satou</td>
-                                                <td>Accountant</td>
-                                                <td>Tokyo</td>
-                                                <td>33</td>
-                                                <td>2008/11/28</td>
-                                                <td>$162,700</td>
+                                                <td>3</td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td>2,300,000 VND</td>
+                                                <td class="text-danger">No Active</td>
+                                                <td>   
+                                                    <a href="AddNewCustomer.jsp">
+                                                        <button class="btn btn-warning"><i class="fa fa-add"></i>Add Customer</button>
+                                                    </a>                                               
+                                                </td>
                                             </tr>
-                                            <tr>
-                                                <td>Brielle Williamson</td>
-                                                <td>Integration Specialist</td>
-                                                <td>New York</td>
-                                                <td>61</td>
-                                                <td>2012/12/02</td>
-                                                <td>$372,000</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Herrod Chandler</td>
-                                                <td>Sales Assistant</td>
-                                                <td>San Francisco</td>
-                                                <td>59</td>
-                                                <td>2012/08/06</td>
-                                                <td>$137,500</td>
-                                            </tr>
+
                                         </tbody>
                                     </table>
                                 </div>
 
                             </div>
                             <div role="tabpanel" class="tab-pane fade show " id="District1" >
-                                <div class="row">
-                                    <div class="col-xl-3 col-md-6" style="border-radius: 50px;">
-                                        <div class="card bg-success text-white mb-4">
-                                            <div class="card-body">
-                                                <h4><i class="fa fa-house"></i> Room 12</h4>
-                                            </div>
-                                            <div class="card-body ">
-                                                <button class="btn btn-warning"><i class="fa fa-eye"></i></button>
-                                                <button class="btn btn-primary"><i class="fa fa-edit"></i></button>
-                                            </div>
-                                            <div class="card-body">
-                                                <i class="fas fa-user fa-fw"></i> Nguyễn Nhựt Minh
-                                            </div>
-                                            <div class="card-body">
-                                                <i class="fas fa-money-bill-1 fa-fw"></i> 2,300,000 VND
-                                            </div>
-                                            <div class="card-footer align-items-centernt">
-                                                <div  class="ml-2" style="float: left;">
-                                                    <a>                                           
-                                                        <button type="button"  class="btn btn-primary m-2"><i class="fa fa-edit"></i> Edit</button>
-                                                    </a>
-                                                </div>
-                                                <div  class="row">
-                                                    <a>
-                                                        <button type="button"  class="btn btn-danger m-2"><i class="fa fa-remove"></i> Delete</button>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-3 col-md-6">
-                                        <div class="card bg-secondary text-white mb-4">
-                                            <div class="card-body">
-                                                <h4><i class="fa fa-house"></i> Room 2</h4>
-                                            </div>
-                                            <div class="card-body">
-                                                <a href="AddNewCustomer.jsp">
-                                                    <button class="btn btn-warning "><i class="fa fa-add"></i> Add Customer</button>
-                                                </a>
-                                            </div>
-                                            <div class="card-body">
-                                                <i class="fas fa-user fa-fw"></i> Empty
-                                            </div>
-                                            <div class="card-body">
-                                                <i class="fas fa-money-bill-1 fa-fw"></i> 2,300,000 VND
-                                            </div>
-                                            <div class="card-footer align-items-centernt">
-                                                <div  class="ml-2" style="float: left">
-                                                    <a>                                           
-                                                        <button type="button"  class="btn btn-primary m-2"><i class="fa fa-edit"></i> Edit</button>
-                                                    </a>
-                                                </div>
-                                                <div  class="row">
-                                                    <a>
-                                                        <button type="button"  class="btn btn-danger m-2"><i class="fa fa-remove"></i> Delete</button>
-                                                    </a>
-                                                </div>
-                                            </div>
+                                <div class="card-body">
+                                    <table id="datatablesSimple1">
+                                        <thead>
+                                            <tr>
+                                                <th>Room</th>
+                                                <th>Name</th>
+                                                <th>Phone</th>                                                                                                
+                                                <th>Start date</th>
+                                                <th>Price</th>
+                                                <th>Status</th>
+                                                <th>Function</th>
+                                            </tr>
+                                        </thead>
+                                        <tfoot>
+                                            <tr>
+                                                <th>Room</th>
+                                                <th>Name</th>
+                                                <th>Phone</th>                                                                                                
+                                                <th>Start date</th>
+                                                <th>Price</th>
+                                                <th>Status</th>
+                                                <th>Function</th>
+                                            </tr>
+                                        </tfoot>
+                                        <tbody>
+                                            <tr>
+                                                <td>1</td>
+                                                <td>Trần Quang Hùng</td>
+                                                <td>0987123456</td>
+                                                <td>20/10/2020</td>
+                                                <td>2,500,000 VND</td>
+                                                <td class="text-success">Active</td>
+                                                <td>                                                    
+                                                    <button class="btn btn-warning" title="View"><i class="fa fa-eye"></i></button>
+                                                    <button class="btn btn-primary" title="Edit"><i class="fa fa-edit"></i></button>
+                                                    <button class="btn btn-danger" title="Remove"><i class="fa fa-remove"></i></button>                                                    
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>2</td>
+                                                <td>Hồ Bảo Anh</td>
+                                                <td>0123456789</td>
+                                                <td>20/01/2021</td>
+                                                <td>2,500,000 VND</td>
+                                                <td class="text-success">Active</td>
+                                                <td>                                                    
+                                                    <button class="btn btn-warning" title="View"><i class="fa fa-eye"></i></button>
+                                                    <button class="btn btn-primary" title="Edit"><i class="fa fa-edit"></i></button>
+                                                    <button class="btn btn-danger" title="Remove"><i class="fa fa-remove"></i></button>                                                    
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>3</td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td>2,300,000 VND</td>
+                                                <td class="text-danger">No Active</td>
+                                                <td>   
+                                                    <a href="AddNewCustomer.jsp">
+                                                        <button class="btn btn-warning"><i class="fa fa-add"></i>Add Customer</button>
+                                                    </a>                                               
+                                                </td>
+                                            </tr>
 
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-3 col-md-6">
-                                        <div class="card bg-success text-white mb-4">
-                                            <div class="card-body">
-                                                <h4><i class="fa fa-house"></i> Room 3</h4>
-                                            </div>
-                                            <div class="card-body ">
-                                                <button class="btn btn-warning"><i class="fa fa-eye"></i></button>
-                                                <button class="btn btn-primary"><i class="fa fa-edit"></i></button>
-                                            </div>
-                                            <div class="card-body">
-                                                <i class="fas fa-user fa-fw"></i> Phan Minh Trí
-                                            </div>
-                                            <div class="card-body">
-                                                <i class="fas fa-money-bill-1 fa-fw"></i> 2,300,000 VND
-                                            </div>
-                                            <div class="card-footer align-items-centernt">
-                                                <div  class="ml-2" style="float: left">
-                                                    <a>                                           
-                                                        <button type="button"  class="btn btn-primary m-2"><i class="fa fa-edit"></i> Edit</button>
-                                                    </a>
-                                                </div>
-                                                <div  class="row">
-                                                    <a>
-                                                        <button type="button"  class="btn btn-danger m-2"><i class="fa fa-remove"></i> Delete</button>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-3 col-md-6">
-                                        <div class="card bg-secondary text-white mb-4">
-                                            <div class="card-body">
-                                                <h4><i class="fa fa-house"></i> Room 4</h4>
-                                            </div>
-                                            <div class="card-body">
-                                                <a href="AddNewCustomer.jsp">
-                                                    <button class="btn btn-warning "><i class="fa fa-add"></i> Add Customer</button>
-                                                </a>
-                                            </div>
-                                            <div class="card-body">
-                                                <i class="fas fa-user fa-fw"></i> Empty
-                                            </div>
-                                            <div class="card-body">
-                                                <i class="fas fa-money-bill-1 fa-fw"></i> 2,300,000 VND
-                                            </div>
-                                            <div class="card-footer align-items-centernt">
-                                                <div  class="ml-2" style="float: left">
-                                                    <a>                                           
-                                                        <button type="button"  class="btn btn-primary m-2"><i class="fa fa-edit"></i> Edit</button>
-                                                    </a>
-                                                </div>
-                                                <div  class="row">
-                                                    <a>
-                                                        <button type="button"  class="btn btn-danger m-2"><i class="fa fa-remove"></i> Delete</button>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                                        </tbody>
+                                    </table>
                                 </div>
                             </div>
                         </div>
