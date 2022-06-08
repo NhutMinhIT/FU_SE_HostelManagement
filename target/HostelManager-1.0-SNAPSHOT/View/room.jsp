@@ -140,8 +140,13 @@
                                             <tr>
                                                 <th>Room</th>
                                                 <th>Name</th>
+<<<<<<< HEAD
                                                 <th>Email</th>                                                                                                
                                                 <th>Start Date</th>
+=======
+                                                <th>Phone</th>                                                                                                
+                                                <th>Start date</th>
+>>>>>>> 1500ba7ce6cfbf43419f8729ff4e00e3c6f82d0f
                                                 <th>Price</th>
                                                 <th>Status</th>
                                                 <th>Function</th>
@@ -151,8 +156,13 @@
                                             <tr>
                                                 <th>Room</th>
                                                 <th>Name</th>
+<<<<<<< HEAD
                                                 <th>Email</th>                                                                                                
                                                 <th>Start Date</th>
+=======
+                                                <th>Phone</th>                                                                                                
+                                                <th>Start date</th>
+>>>>>>> 1500ba7ce6cfbf43419f8729ff4e00e3c6f82d0f
                                                 <th>Price</th>
                                                 <th>Status</th>
                                                 <th>Function</th>
@@ -174,7 +184,36 @@
                                                     <button class="btn btn-danger" title="Remove"><i class="fa fa-remove"></i></button>                                                    
                                                 </td>
                                             </tr>
+<<<<<<< HEAD
                                             
+=======
+                                            <tr>
+                                                <td>2</td>
+                                                <td>Phan Minh Trí</td>
+                                                <td>0987500668</td>
+                                                <td>20/12/2021</td>
+                                                <td>2,300,000 VND</td>
+                                                <td class="text-success">Active</td>
+                                                <td>                                                    
+                                                    <button class="btn btn-warning" title="View"><i class="fa fa-eye"></i></button>
+                                                    <button class="btn btn-primary" title="Edit"><i class="fa fa-edit"></i></button>
+                                                    <button class="btn btn-danger" title="Remove"><i class="fa fa-remove"></i></button>                                                    
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>3</td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td>2,300,000 VND</td>
+                                                <td class="text-danger">No Active</td>
+                                                <td>   
+                                                    <a href="AddNewCustomer.jsp">
+                                                        <button class="btn btn-warning"><i class="fa fa-add"></i>Add Customer</button>
+                                                    </a>                                               
+                                                </td>
+                                            </tr>
+>>>>>>> 1500ba7ce6cfbf43419f8729ff4e00e3c6f82d0f
 
                                         </tbody>
                                     </table>

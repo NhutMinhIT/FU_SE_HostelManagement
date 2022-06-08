@@ -16,8 +16,8 @@
         <title> Free Stylish Login Page Website Template | Smarteyeapps.com</title>
 
         <link rel="shortcut icon" href="../assets/images/fav.jpg">
-        <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
-        <link rel="stylesheet" href="../assets/css/fontawsom-all.min.css">
+        <link rel="stylesheet" href="../css/bootstrap.min.css">
+        <link rel="stylesheet" href="../css/fontawsom-all.min.css">
         <link rel="stylesheet" type="text/css" href="../css/style1.css" />
     </head>
 
@@ -38,36 +38,38 @@
                 </div>
             </div>
             <div class="side-right">
-                <img class="logo rounded-circle" style="width: 30%" src="../assets/img/logo.png" alt="">
+                <img class="logo rounded-circle" style="width: 30%; margin-bottom: 10px" src="../assets/img/logo.png" alt="">
 
-                <h2>SIGN UP</h2>
+                <h3>SIGN UP</h3>
+                <form action="">
+                    <div class="form-row">
+                        <label for="username">User name</label>
+                        <input type="text" placeholder="User name" name="username" class="form-control form-control-sm" required pattern="\S+">
+                    </div>
 
-                <div class="form-row">
-                    <label for="username">User name</label>
-                    <input type="text" placeholder="User name" name="username" class="form-control form-control-sm">
-                </div>
+                    <div class="form-row">
+                        <label for="password">Password</label>
+                        <input onChange="onChange()" type="password" size="60" placeholder="Password" name="Pass" required pattern="\S+" class="form-control form-control-sm">
+                    </div>
+                    <div class="form-row">
+                        <label for="repassword">Re-password</label>
+                        <input onChange="onChange()" type="password" size="60" placeholder="Re-password" name="repassword" required pattern="\S+" class="form-control form-control-sm">
+                    </div>
 
-                <div class="form-row">
-                    <label for="password">Password</label>
-                    <input onChange="onChange()" type="password" size="60" placeholder="Password" name="Pass" required pattern="\S+" class="form-control form-control-sm">
-                </div>
-                <div class="form-row">
-                    <label for="repassword">Re-password</label>
-                    <input onChange="onChange()" type="password" size="60" placeholder="Re-password" name="repassword" required pattern="\S+" class="form-control form-control-sm">
-                </div>
+                    <p>Already have account?  <a href ="login" style="color: red">Login</a></p>
 
-                <p>Already have account?  <a href ="login" style="color: red">Login</a></p>
+                    <div class="dfr">
+                        <a href="login.jsp">
+                            <button type="submit" class="btn btn-sm btn-success">Sign up</button>
+                        </a>
+                    </div>
 
-                <div class="form-row dfr">
-                    <button type="submit" class="btn btn-sm btn-success">Sign up</button>
-                </div>
-
-
+                </form>
                 <div class="soc-det">
                     <ul>
-                        <li class="facebook"><i class="fab fa-facebook-f"></i></li>
-                        <li class="twitter"><i class="fab fa-twitter"></i></li>
-                        <li class="link"><i class="fab fa-linkedin-in"></i></li>
+                        <li class="facebook"><a href="https://www.facebook.com"><i class="fa-brands fa-facebook-f"></i></a></li>
+                        <li class="twitter"><a href="https://twitter.com/"><i class="fa-brands fa-twitter"></i></a></li>
+                        <li class="link"><a href="https://www.linkedin.com/"><i class="fa-brands fa-linkedin"></i></a></li>
                     </ul>
                 </div>
 
@@ -82,19 +84,20 @@
         <script src="../assets/js/popper.min.js"></script>
         <script src="../assets/js/bootstrap.min.js"></script>
         <script src="../assets/js/script.js"></script>
+        <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
 
     </body>
 
     <script>
-                        function onChange() {
-                            const password = document.querySelector('input[name=Pass]');
-                            const confirm = document.querySelector('input[name=repassword]');
-                            if (confirm.value === password.value) {
-                                confirm.setCustomValidity('');
-                            } else {
-                                confirm.setCustomValidity('Passwords do not match');
+                            function onChange() {
+                                const password = document.querySelector('input[name=Pass]');
+                                const confirm = document.querySelector('input[name=repassword]');
+                                if (confirm.value === password.value) {
+                                    confirm.setCustomValidity('');
+                                } else {
+                                    confirm.setCustomValidity('Passwords do not match');
+                                }
                             }
-                        }
     </script>
 
 

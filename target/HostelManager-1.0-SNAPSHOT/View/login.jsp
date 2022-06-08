@@ -15,10 +15,16 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <title> Welcome to MoonHostel</title>
 
+<<<<<<< HEAD
         <link rel="shortcut icon" href="${pageContext.request.contextPath}/assets/images/fav.jpg">
         <link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap.min.css">
         <link rel="stylesheet" href="${pageContext.request.contextPath}/css/fontawsom-all.min.css">
         <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/style1.css" />
+=======
+        <link rel="shortcut icon" href="assets/images/fav.jpg">
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="css/style1.css" />
+>>>>>>> 1500ba7ce6cfbf43419f8729ff4e00e3c6f82d0f
     </head>
 
     <body>
@@ -28,7 +34,7 @@
                     <div class="row slid-roo">
                         <div class="data-portion">
                             <h2>Manage Your Hostel</h2>
-                            <p>We are always with you...<3</p>
+                            <p>We are always be with you...<3</p>
                             <ul>
                                 <li>Phone :- +84 975654543</li>
 
@@ -40,11 +46,35 @@
             <div class="side-right">
                 <img class="logo rounded-circle" style="width: 30%" src="assets/img/logo.png" alt="">
 
+<<<<<<< HEAD
                 <h2>Login into Your Account</h2>
                 <form action="${pageContext.request.contextPath}/MainController" method="POST">
                     <div class="form-row">
                         <label for="">Email ID</label>
                         <input type="text" placeholder="yourname@company.com" class="form-control form-control-sm" name="email">
+=======
+                <h3>Login</h3>
+                <form action="">
+                    <div class="form-row">
+                        <label for="">Email ID</label>
+                        <input type="text" placeholder="yourname@gmail.com" class="form-control form-control-sm" required pattern="\S+">
+                    </div>
+
+                    <div class="form-row">
+                        <label for="">Password</label>
+                        <input type="text" placeholder="Password" class="form-control form-control-sm" required pattern="\S+">
+                    </div>
+
+                    <div class="form-row row skjh">
+                        <div class="col-7 left no-padding">
+                            <input type="checkbox">Remember me
+                        </div>
+                        <div class="col-5">
+                            <span> <a href="">Forget Password ?</a></span>
+                        </div>
+
+
+>>>>>>> 1500ba7ce6cfbf43419f8729ff4e00e3c6f82d0f
                     </div>
 
                     <div class="form-row">
@@ -52,6 +82,7 @@
                         <input type="password" placeholder="Password" class="form-control form-control-sm" name="password">
                     </div>
 
+<<<<<<< HEAD
                     <div class="form-row row skjh">
                         <div class="col-7 left no-padding">
                             <input type="checkbox">Keep me Sign In
@@ -72,12 +103,20 @@
                 <div class="ord-v">
                     <a href="or login with"></a>
                 </div>
+=======
+                    <div class=" dfr center">
+                        <a href="index.jsp">
+                            <button class="btn btn-success">Login</button>
+                        </a>
+                    </div>
+                </form>
+>>>>>>> 1500ba7ce6cfbf43419f8729ff4e00e3c6f82d0f
 
                 <div class="soc-det">
                     <ul>
-                        <li class="facebook"><i class="fab fa-facebook-f"></i></li>
-                        <li class="twitter"><i class="fab fa-twitter"></i></li>
-                        <li class="link"><i class="fab fa-linkedin-in"></i></li>
+                        <li class="facebook"><a href="https://www.facebook.com"><i class="fa-brands fa-facebook-f"></i></a></li>
+                        <li class="twitter"><a href="https://twitter.com/"><i class="fa-brands fa-twitter"></i></a></li>
+                        <li class="link"><a href="https://www.linkedin.com/"><i class="fa-brands fa-linkedin"></i></a></li>
 
                     </ul>
                 </div>
@@ -89,10 +128,19 @@
                 <p>Copyrigh 2022 @ MoonHostel</p> 
             </div>
         </div>  
+<<<<<<< HEAD
         <script src="${pageContext.request.contextPath}/assets/js/jquery-3.2.1.min.js"></script>
         <script src="${pageContext.request.contextPath}/assets/js/popper.min.js"></script>
         <script src="${pageContext.request.contextPath}/assets/js/bootstrap.min.js"></script>
         <script src="${pageContext.request.contextPath}/assets/js/script.js"></script>
+=======
+        <script src="assets/js/jquery-3.2.1.min.js"></script>
+        <script src="assets/js/popper.min.js"></script>
+        <script src="assets/js/bootstrap.min.js"></script>
+        <script src="assets/js/script.js"></script>
+        <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+
+>>>>>>> 1500ba7ce6cfbf43419f8729ff4e00e3c6f82d0f
     </body>
 
 
