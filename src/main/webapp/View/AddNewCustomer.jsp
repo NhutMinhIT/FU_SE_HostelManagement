@@ -1,9 +1,3 @@
-<%-- 
-    Document   : AddNewCustomer
-    Created on : Jun 2, 2022, 11:13:11 AM
-    Author     : ASUS
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -68,6 +62,10 @@
                             <a class="nav-link collapsed" href="room.jsp">
                                 <div class="sb-nav-link-icon"><i class="fas fa-house"></i></div>
                                 Room                                
+                            </a>
+                            <a class="nav-link collapsed" href="service.jsp">
+                                <div class="sb-nav-link-icon"><i class="fas fa-cubes"></i></div>
+                                Service                                
                             </a>
                             <a class="nav-link" href="signup.jsp">
                                 <div class="sb-nav-link-icon"><i class="fas fa-add"></i></div>

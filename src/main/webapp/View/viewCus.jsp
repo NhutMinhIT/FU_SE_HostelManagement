@@ -95,10 +95,12 @@
                     <div class="card mb-4">
                         <div class="card-header">
                             <div class="card-header">
-                                <h2><i class="fa fa-plus"></i> Add Customer</h2>                              
+                                <h2><i class="fa fa-eye"></i> View Customer</h2>                              
                             </div>
                             <div class="mt-3 text-center" style="float:right; display: flex">
-                                <button class="btn btn-warning" type="button" id="cancelButton"><i class="fa fa-mail-reply"></i> Return</button>
+                                <a href="room.jsp">
+                                    <button class="btn btn-warning" type="button" id="cancelButton"><i class="fa fa-mail-reply"></i> Return</button>
+                                </a>
                                 <button class="btn btn-success" type="button" id="sumbitButton"><i class="fa fa-check"></i> Save</button>
                             </div>                      
                         </div>
@@ -130,38 +132,39 @@
                                         <div class="form-group row mt-2">
                                             <label  class="col-sm-2 col-form-label">Name</label>
                                             <div class="col-sm-10">
-                                                <input type="text" class="form-control" placeholder="Enter your name">
+                                                <input type="text" class="form-control" placeholder="Enter your name" value="Nguyễn Nhựt Minh" disabled="Name">
                                             </div>
                                         </div>
                                         <div class="form-group row mt-2">
                                             <label  class="col-sm-2 col-form-label">Sex</label>
-                                            <div class="col-sm-10">
-                                                <input type="radio" name="radio" id="sex"  /> Male
-                                                <input type="radio" name="radio" checked /> Female
+                                            <div class="col-sm-10">  
+                                                <input type="radio" name="checkbox" value="Male" disabled="disabled" />Female
+                                                <input type="radio" name="checkbox" checked/> Male
                                             </div>
                                         </div>
                                         <div class="form-group row mt-2">
                                             <label  class="col-sm-2 col-form-label">Day of Birth (DOB)</label>
                                             <div class="col-sm-10">
-                                                <input type="date" class="form-control" placeholder="Enter your DOB">
+                                                <input type="text" class="form-control"placeholder="" value="16/01/2001" disabled="disable" >
                                             </div>
                                         </div>
                                         <div class="form-group row mt-2">
                                             <label  class="col-sm-2 col-form-label">CMND/CCCD</label>
                                             <div class="col-sm-10">
-                                                <input type="text" class="form-control" placeholder="Enter your CMND/CCCD">
+                                                <input type="text" class="form-control" placeholder="Enter your CMND/CCCD" value="261567736" disabled="cmnd">
                                             </div>
                                         </div>
                                         <div class="form-group row mt-2">
                                             <label  class="col-sm-2 col-form-label">Phone</label>
                                             <div class="col-sm-10">
-                                                <input type="text" class="form-control" placeholder="Enter your phone">
+                                                <input type="number" class="form-control" placeholder="Enter your phone"value="0382694825" disabled="phone">
                                             </div>
                                         </div>
                                         <div class="form-group row mt-2">
                                             <label  class="col-sm-2 col-form-label">Address</label>
                                             <div class="col-sm-10">
-                                                <input type="text" class="form-control" placeholder="Enter your address">
+                                                <input type="text" class="form-control" placeholder="Enter your address" 
+                                                       value="288/3 Man Thiên, phường Tăng Nhơn Phú A, Quận 9, Tp. Hồ Chí Minh." disabled=address>
                                             </div>
                                         </div>
                                         <div class="form-group row mt-2">
@@ -173,7 +176,7 @@
                                         <div class="form-group row mt-2">
                                             <label  class="col-sm-2 col-form-label">Start Day</label>
                                             <div class="col-sm-10">
-                                                <input type="date" class="form-control" >
+                                                <input type="text" class="form-control"placeholder="" value="25/05/2019" disabled="disable" >
                                             </div>
                                         </div>
                                     </div>
@@ -183,24 +186,32 @@
                                         <table  class="table table-striped table-bordered "  width="100%">
                                             <thead>
                                                 <tr>
-                                                    <th style="width: 5%">Choose</th>
+                                                    <th style="width: 5%">Using</th>
                                                     <th style="width: 55%; text-align: center">Service Name</th>
                                                     <th style="width: 20%; text-align: center ">Price (VNĐ)</th>
                                                     <th style="width: 20%; text-align: center">Quantity</th>
                                                 </tr>
                                             </thead>
+                                            <tfoot>
+                                                <tr>
+                                                    <th style="width: 5%">Using</th>
+                                                    <th style="width: 55%; text-align: center">Service Name</th>
+                                                    <th style="width: 20%; text-align: center ">Price (VNĐ)</th>
+                                                    <th style="width: 20%; text-align: center">Quantity</th>
+                                                </tr>
+                                            </tfoot>>
                                             <tbody>
                                                 <tr>
-                                                    <td ><input type="checkbox"></td>
-                                                    <td style="text-align: center">Electricity</td>
-                                                    <td><input type="text" name="price" style="width: 100%; text-align: right" value="3000"></td>
-                                                    <td><input type="text" name="quantity" style="width: 100%; text-align: right" value="1"></td>
-                                                </tr>
+                                                    <td ><input type="checkbox" checked=""disabled="" ></td>
+                                                    <td style="text-align: center" disabled="">Electricity</td>
+                                                    <td><input type="text" name="price" style="width: 100%; text-align: right" value="3000" disabled=""></td>
+                                                    <td><input type="text" name="quantity" style="width: 100%; text-align: right" value="1" disabled=""></td>
+                                                </tr>                                         
                                                 <tr>
-                                                    <td><input type="checkbox"></td>
+                                                    <td><input type="checkbox" checked=""disabled=""></td>
                                                     <td style="text-align: center">Water</th>
-                                                    <td><input type="text" name="price" style="width: 100%; text-align: right" value="10000"></td>
-                                                    <td><input type="text" name="quantity" style="width: 100%; text-align: right" value="1"></td>
+                                                    <td><input type="text" name="price" style="width: 100%; text-align: right" value="10000" disabled=""></td>
+                                                    <td><input type="text" name="quantity" style="width: 100%; text-align: right" value="1" disabled=""></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -223,27 +234,31 @@
                                             </thead>
                                             <tbody>
                                                 <tr>
-                                                    <td><input type="text" name="name" style="width: 100% ;text-align: center"></td>
-                                                    <td><input type="date" name="date"></td>
+                                                    <td><input type="text" name="name" value="Phan Minh Tri" disabled="" style="width: 100% ;text-align: center"></td>
+                                                    <td><input type="text" name="date" value="24/09/2001" disabled=""></td>
                                                     <td style="text-align: center">
-                                                        <input type="radio" name="radio" id="sex"  /> Male
-                                                        <input type="radio" name="radio" checked /> Female
+                                                        <input type="radio" checked=""disabled="">Male <br/>
+                                                        <input type="radio" name="radio" /> Female
                                                     </td>
-                                                    <td><input type="text" name="cmnd" style=" text-align: center"></td>
-                                                    <td><input type="text" name="address" style="width: 100%; text-align: center"></td>
-                                                    <td><input type="text" name="phone" style="width: 100%; text-align: center"></td>
+                                                    <td><input type="text" name="cmnd" value="1234567890" disabled="cmnd" style=" text-align: center"></td>
+                                                    <td><input type="text" name="address" style="width: 100%; text-align: center"
+                                                               value="288/3 Man Thiên, phường Tăng Nhơn Phú A, Quận 9, Tp. Hồ Chí Minh."
+                                                               disabled="address"></td>
+                                                    <td><input type="text" name="phone" value="0986785483" disabled="phone"style="width: 100%; text-align: center"></td>
                                                     <td><button class="btn btn-danger"><i class="fa fa-minus-circle"></i></button></td>
                                                 </tr>
-                                                <tr>
-                                                    <td><input type="text" name="name" style="width: 100% ;text-align: center"></td>
-                                                    <td><input type="date" name="date"></td>
+                                               <tr>
+                                                    <td><input type="text" name="name" value="Trần Quang Hùng" disabled="" style="width: 100% ;text-align: center"></td>
+                                                    <td><input type="text" name="date" value="25/05/2001" disabled=""></td>
                                                     <td style="text-align: center">
-                                                        <input type="radio" name="radio" id="sex"  /> Male
-                                                        <input type="radio" name="radio" checked /> Female
+                                                        <input type="radio" checked=""disabled="">Male <br/>
+                                                        <input type="radio" name="radio" /> Female
                                                     </td>
-                                                    <td><input type="text" name="cmnd" style=" text-align: center"></td>
-                                                    <td><input type="text" name="address" style="width: 100%; text-align: center"></td>
-                                                    <td><input type="text" name="phone" style="width: 100%; text-align: center"></td>
+                                                    <td><input type="text" name="cmnd" value="2987986756" disabled="cmnd" style=" text-align: center"></td>
+                                                    <td><input type="text" name="address" style="width: 100%; text-align: center"
+                                                               value="288/3 Man Thiên, phường Tăng Nhơn Phú A, Quận 9, Tp. Hồ Chí Minh."
+                                                               disabled="address"></td>
+                                                    <td><input type="text" name="phone" value="0987689006" disabled="phone"style="width: 100%; text-align: center"></td>
                                                     <td><button class="btn btn-danger"><i class="fa fa-minus-circle"></i></button></td>
                                                 </tr>
                                             </tbody>
@@ -262,20 +277,23 @@
                                         <div class="form-group row mt-2">
                                             <label  class="col-sm-2 col-form-label">ID Contract</label>
                                             <div class="col-sm-10">
-                                                <input type="text" class="form-control" placeholder="Enter your ID">
+                                                <input type="text" class="form-control" placeholder="Enter your ID"
+                                                       value="01" disabled="">
                                             </div>
                                         </div>
                                         <div class="row mt-2">
                                             <div class="form-group row col-md-6 mt-2">
                                                 <label  class="col-sm-4 col-form-label">Contract Start Date</label>
                                                 <div class="col col-sm-8">
-                                                    <input type="date" class="form-control">
+                                                    <input type="text" class="form-control"
+                                                           value="25/05/2019" disabled="">
                                                 </div>
                                             </div>
                                             <div class="form-group row col-md-6 mt-2">
                                                 <label  class="col-sm-4 col-form-label">Contract End Date</label>
                                                 <div class="col-sm-8">
-                                                    <input type="date" class="form-control">
+                                                    <input type="text" class="form-control"
+                                                           value="25/05/2023" disabled="">
                                                 </div>
                                             </div>
                                         </div> 

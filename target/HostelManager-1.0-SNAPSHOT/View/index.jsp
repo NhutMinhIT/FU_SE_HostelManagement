@@ -5,9 +5,10 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="en">
-     <head>
+    <head>
         <meta charset="utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
@@ -16,13 +17,13 @@
         <title>MoonHostel</title>
         <link rel="icon" type="image/png" href="../assets/img/logo.png" sizes="16x16">
         <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
-        <link href="../css/styles.css" rel="stylesheet" />
+        <link href="${pageContext.request.contextPath}/css/styles.css" rel="stylesheet" />
     </head>
     <body class="sb-nav-fixed">
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
             <!-- Navbar Brand-->
-               <a class="navbar-brand ps-3" href="index.jsp">MoonHostel
-                <img src="../assets/img/logo.png" class="rounded-circle"  alt="logo"width="40" height="36">
+            <a class="navbar-brand ps-3" href="${pageContext.request.contextPath}/MainController?action=">MoonHostel
+                <img src="${pageContext.request.contextPath}/assets/img/logo.png" class="rounded-circle"  alt="logo"width="40" height="36">
             </a>
             <!-- Sidebar Toggle-->
             <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
@@ -55,7 +56,7 @@
                     <div class="sb-sidenav-menu">
                         <div class="nav">
 
-                            <a class="nav-link" href="index.jsp">
+                            <a class="nav-link" href="${pageContext.request.contextPath}/MainController">
                                 <div class="sb-nav-link-icon"><i class="fas fa-palette"></i></div>
                                 Home
                             </a>
@@ -63,12 +64,16 @@
                                 <div class="sb-nav-link-icon"><i class="fas fa-house"></i></div>
                                 Room                                
                             </a>
-                             <a class="nav-link" href="signup.jsp">
+                            <a class="nav-link collapsed" href="service.jsp">
+                                <div class="sb-nav-link-icon"><i class="fas fa-cubes"></i></div>
+                                Service                                
+                            </a>
+                            <a class="nav-link" href="signup.jsp">
                                 <div class="sb-nav-link-icon"><i class="fas fa-add"></i></div>
                                 New Account
                             </a> 
-                            
-                           
+
+
                             <div class="sb-sidenav-menu-heading">About</div>
                             <a class="nav-link" href="#">
                                 <div class="sb-nav-link-icon"><i class="fas fa-map"></i></div>
@@ -82,15 +87,15 @@
                     </div>
                     <div class="sb-sidenav-footer">
                         <div class="small">Logged in as:</div>
-                       MoonHostel
-                       <img src="../assets/img/logo.png" class="rounded-circle"  alt="regisster"width="40" height="36">
+                        ${sessionScope.LOGIN_USER.fullname}
+                        
                     </div>
                 </nav>
             </div>
             <div id="layoutSidenav_content">
                 <main class="container-fluid">
                     <div class="container-fluid px-4">
-                         <h1 class="mt-4"><i class="fa fa-house"></i> Home</h1>
+                        <h1 class="mt-4"><i class="fa fa-house"></i> Home</h1>
                         <div class="row mt-3">
                             <div class="col-xl-6 ">
                                 <div class="card bg-warning text-white mb-4">
@@ -128,20 +133,25 @@
                                         <table class="table">
                                             <thead>
                                                 <tr>
-                                                    <th scope="col">House</th>
+                                                    <th scope="col">Hostel</th>
                                                     <th scope="col">Room</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
+                                                
+                                            <c:forEach items="${RoomList}" var="o">
+                                                <c:if test="${o.status == 'EMPTY'}">
                                                 <tr>
-                                                    <th scope="row">Moon House</th>
-                                                    <td>Room 1.02</td>
+                                                    <c:forEach items="${HostelList}" var="h">
+                                                        <c:if test="${h.hostelID == o.hostelID}">
+                                                            <th scope="row">${h.hostelname}</th>
+                                                        </c:if>
+                                                    </c:forEach> 
+                                                    <td>Room ${o.roomID}</td>
+                                                </tr>
+                                                </c:if>
+                                            </c:forEach>     
 
-                                                </tr>
-                                                <tr>
-                                                    <th scope="row">Star House</th>
-                                                    <td>Room 2.03</td>
-                                                </tr>
                                             </tbody>
                                         </table>
                                     </div>
@@ -152,7 +162,7 @@
                             <div class="col-xl-6 ">
                                 <div class="card bg-warning text-white mb-4">
                                     <div class="card-body">
-                                        <h1>The customer owes the room</h1>
+                                        <h1>The invoice remains unpaid</h1>
                                         <hr>
                                     </div>
                                     <div class="card-body">
@@ -204,10 +214,10 @@
                 </footer>
             </div>
         </div>
-       <script src="../js/scripts.js"></script>
-        <script src="../js/datatables-simple-demo.js"></script>
-        <script src="../assets/demo/chart-area-demo.js"></script>
-        <script src="../assets/demo/chart-bar-demo.js"></script>
+        <script src="${pageContext.request.contextPath}/js/scripts.js"></script>
+        <script src="${pageContext.request.contextPath}/js/datatables-simple-demo.js"></script>
+        <script src="${pageContext.request.contextPath}/assets/demo/chart-area-demo.js"></script>
+        <script src="${pageContext.request.contextPath}/assets/demo/chart-bar-demo.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>    
         <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>

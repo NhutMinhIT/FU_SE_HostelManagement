@@ -4,46 +4,45 @@
  */
 package controller;
 
+import dao.RoomDAO;
+import dto.HostelDTO;
+import dto.RoomDTO;
+import dto.UserDTO;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
  * @author avillX
  */
-@WebServlet(name = "MainController", urlPatterns = {"/MainController"})
-public class MainController extends HttpServlet {
+@WebServlet(name = "UserPageController", urlPatterns = {"/UserPageController"})
+public class UserPageController extends HttpServlet {
 
-    private static final String ERROR = "error.jsp";
-    private static final String LOGIN_CONTROLLER = "LoginController";
-    private static final String LOGOUT_CONTROLLER = "LogoutController";
-
-    private static final String ADMIN_PAGE = "AdminPageController";
-    private static final String USER_PAGE = "UserPageController";
-
-    
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
+    private static final String SUCCESS = "View/index.jsp";
+    private static final String ERROR = "View/index.jsp";
+   
+     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         String url = ERROR;
         try {
-            String action = request.getParameter("action");
-            if ("Login".equals(action)) {
-                url = LOGIN_CONTROLLER;
-            } else if ("Logout".equals(action)) {
-                url = LOGOUT_CONTROLLER;
-            }else if ("AdminPage".equals(action)) {
-                url = ADMIN_PAGE;
-            }else if ("UserPage".equals(action)) {
-                url = USER_PAGE;
-            }
+            HttpSession ss = request.getSession();
+            UserDTO us =  (UserDTO) ss.getAttribute("LOGIN_USER");
+            RoomDAO dao = new RoomDAO();
+            List<HostelDTO> HostelList = dao.GetListHostel(us.getUserID());
+            List<RoomDTO> RoomList = dao.GetListRoom(HostelList);
+            request.setAttribute("HostelList",HostelList);
+            request.setAttribute("RoomList",RoomList);
+
         } catch (Exception e) {
-            log("Error at MainController: " + e.toString());
+            log("Error at UserPageController:"+e.toString());
         } finally {
             request.getRequestDispatcher(url).forward(request, response);
         }

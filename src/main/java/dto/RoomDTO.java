@@ -11,14 +11,16 @@ package dto;
 public class RoomDTO {
     private String roomID;
     private String hostelID;
+    private String roomnumber;
     private String roomsize;
     private double price;
     private String description;
     private String status;
 
-    public RoomDTO(String roomID, String hostelID, String roomsize, double price, String description, String status) {
+    public RoomDTO(String roomID, String hostelID, String roomnumber, String roomsize, double price, String description, String status) {
         this.roomID = roomID;
         this.hostelID = hostelID;
+        this.roomnumber = roomnumber;
         this.roomsize = roomsize;
         this.price = price;
         this.description = description;
@@ -39,6 +41,14 @@ public class RoomDTO {
 
     public void setHostelID(String hostelID) {
         this.hostelID = hostelID;
+    }
+
+    public String getRoomnumber() {
+        return roomnumber;
+    }
+
+    public void setRoomnumber(String roomnumber) {
+        this.roomnumber = roomnumber;
     }
 
     public String getRoomsize() {
@@ -72,6 +82,8 @@ public class RoomDTO {
     public void setStatus(String status) {
         this.status = status;
     }
+
+   
 
 
 }
