@@ -62,7 +62,7 @@
                                 <div class="sb-nav-link-icon"><i class="fas fa-house"></i></div>
                                 Room                                
                             </a>
-                             <a class="nav-link collapsed" href="service.jsp">
+                            <a class="nav-link collapsed" href="service.jsp">
                                 <div class="sb-nav-link-icon"><i class="fas fa-cubes"></i></div>
                                 Service                                
                             </a>
@@ -167,7 +167,9 @@
                                                 <td>2,300,000 VND</td>
                                                 <td class="text-success">Active</td>
                                                 <td>                                                    
-                                                    <button class="btn btn-warning" title="View"><i class="fa fa-eye"></i></button>
+                                                    <a href="viewCus.jsp">
+                                                        <button class="btn btn-warning" title="View"><i class="fa fa-eye"></i></button>
+                                                    </a>
                                                     <button class="btn btn-primary" title="Edit"><i class="fa fa-edit"></i></button>
                                                     <button class="btn btn-danger" title="Remove"><i class="fa fa-remove"></i></button>                                                    
                                                 </td>
@@ -250,7 +252,7 @@
                                                 <td>20/01/2021</td>
                                                 <td>2,500,000 VND</td>
                                                 <td class="text-success">Active</td>
-                                                <td>                                                    
+                                                <td> 
                                                     <button class="btn btn-warning" title="View"><i class="fa fa-eye"></i></button>
                                                     <button class="btn btn-primary" title="Edit"><i class="fa fa-edit"></i></button>
                                                     <button class="btn btn-danger" title="Remove"><i class="fa fa-remove"></i></button>                                                    
