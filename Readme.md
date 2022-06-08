@@ -66,19 +66,28 @@ Through research, we have found that there are very few developed applications i
 ![image](https://user-images.githubusercontent.com/90835621/171013579-666d8f9c-aadb-4674-951e-e508dd37ecf8.png)
 
 ### Room Page
-![image](https://user-images.githubusercontent.com/90835621/171219121-4093fef8-8d2b-4e06-84d3-412affaa3036.png)
+![image](https://user-images.githubusercontent.com/90835621/172651005-6ce8f813-63a9-4200-b7ed-b64323f9c162.png)
 
-### Add New Home Page
-![image](https://user-images.githubusercontent.com/90835621/171219333-24d85795-e17a-4e1b-a00c-f6694fce09a5.png)
+### Service Page
+![image](https://user-images.githubusercontent.com/90835621/172651131-3f3fe9b7-8f40-40eb-907f-58b7e2ab74b5.png)
+
+### Add New Hostel Page
+![image](https://user-images.githubusercontent.com/90835621/172651218-90a9aac7-aea4-47f4-9033-99f3309cff5f.png)
 
 ### Add New Room Page
-![image](https://user-images.githubusercontent.com/90835621/171219440-f615954a-db52-465b-bcf9-dadeb6e4d315.png)
+![image](https://user-images.githubusercontent.com/90835621/172651300-477393ad-e3ee-48fd-983a-777398d9e5b4.png)
 
-### Add New Accoune
-![image](https://user-images.githubusercontent.com/90835621/171013769-41f5db16-193b-4f78-90e6-206fc2eaf731.png)
+### Add New Customer
+![image](https://user-images.githubusercontent.com/90835621/172651379-e1f00f45-4b8e-47db-b1e8-4cbe22a64f9e.png)
+![image](https://user-images.githubusercontent.com/90835621/172651432-2f1a17ac-fa0a-4dfa-bfd7-4cb2f7a81bd5.png)
+![image](https://user-images.githubusercontent.com/90835621/172651488-0090e486-1ede-45d6-a7ed-6a93342c5ccd.png)
+![image](https://user-images.githubusercontent.com/90835621/172651541-2a7f78c9-a2db-4f77-8341-7021d354bb5c.png)
+
+### View Customer
+![image](https://user-images.githubusercontent.com/90835621/172652185-fcff3d43-9695-4e30-8784-e1e6468114cc.png)
+![image](https://user-images.githubusercontent.com/90835621/172652224-5a8abeb0-2b9d-4feb-b3a1-ec938fe7373c.png)
+![image](https://user-images.githubusercontent.com/90835621/172652272-6a67ee25-8ce2-482b-b6d9-4746dece99f2.png)
+![image](https://user-images.githubusercontent.com/90835621/172652318-0664c500-27a8-48e9-b981-f3cb07664162.png)
 
 ### Login Page
 ![image](https://user-images.githubusercontent.com/90835621/171219562-4e6f967d-58f1-4d98-8324-d6a0572b3b4d.png)
-
-
-
