@@ -4,6 +4,9 @@
  */
 package controller;
 
+import dao.RoomDAO;
+import dto.HostelDTO;
+import dto.RoomDTO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -16,34 +19,30 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author avillX
  */
-@WebServlet(name = "MainController", urlPatterns = {"/MainController"})
-public class MainController extends HttpServlet {
+@WebServlet(name = "UpdateHostelController", urlPatterns = {"/UpdateHostelController"})
+public class UpdateHostelController extends HttpServlet {
 
-    private static final String ERROR = "error.jsp";
-    private static final String LOGIN_CONTROLLER = "LoginController";
-    private static final String LOGOUT_CONTROLLER = "LogoutController";
+    private static final String ERROR = "UserPageController";
+    private static final String SUCCESS = "UserPageController";   
 
-    private static final String ADMIN_PAGE = "AdminPageController";
-    private static final String USER_PAGE = "UserPageController";
-
-    
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         String url = ERROR;
         try {
-            String action = request.getParameter("action");
-            if ("Login".equals(action)) {
-                url = LOGIN_CONTROLLER;
-            } else if ("Logout".equals(action)) {
-                url = LOGOUT_CONTROLLER;
-            }else if ("AdminPage".equals(action)) {
-                url = ADMIN_PAGE;
-            }else if ("UserPage".equals(action)) {
-                url = USER_PAGE;
+            String hostelID = request.getParameter("hostelID");
+            String hostelname = request.getParameter("hostelname");
+            String address = request.getParameter("address");
+            String phone = request.getParameter("phone");
+            String userID = request.getParameter("userID");
+
+            RoomDAO dao = new RoomDAO();
+            boolean check = dao.UpdateHostel(new HostelDTO(hostelID, hostelname, address, phone, userID));
+            if (check) {
+                url = SUCCESS;
             }
         } catch (Exception e) {
-            log("Error at MainController: " + e.toString());
+            log("Error at UpdateHostelController: " + e.toString());
         } finally {
             request.getRequestDispatcher(url).forward(request, response);
         }
