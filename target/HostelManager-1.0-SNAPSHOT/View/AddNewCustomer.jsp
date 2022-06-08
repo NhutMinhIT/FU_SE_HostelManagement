@@ -98,7 +98,9 @@
                                 <h2><i class="fa fa-plus"></i> Add Customer</h2>                              
                             </div>
                             <div class="mt-3 text-center" style="float:right; display: flex">
-                                <button class="btn btn-warning" type="button" id="cancelButton"><i class="fa fa-mail-reply"></i> Return</button>
+                                <a href="room.jsp">
+                                    <button class="btn btn-warning" type="button" id="cancelButton"><i class="fa fa-mail-reply"></i> Return</button>
+                                </a>
                                 <button class="btn btn-success" type="button" id="sumbitButton"><i class="fa fa-check"></i> Save</button>
                             </div>                      
                         </div>
@@ -278,6 +280,12 @@
                                                     <input type="date" class="form-control">
                                                 </div>
                                             </div>
+                                            <div class="form-group row col-md-8 mt-2">
+                                                <label  class="col-sm-4 col-form-label"></label>
+                                                <div class="col col-sm-8">
+                                                    <input type="file" accept=".jpg, .png" multiple/>
+                                                </div>
+                                            </div>
                                         </div> 
                                     </div>
                                 </div>
@@ -304,6 +312,27 @@
         <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
         <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+        <!--<script>
+            const reader = new FileReader();
+
+// Lắng nghe trạng thái đăng tải tệp
+            fileUpload.addEventListener("change", (event) => {
+                // Lấy thông tin tập tin được đăng tải
+                const files = event.target.files;
+
+                // Đọc thông tin tập tin đã được đăng tải
+                reader.readAsDataURL(files[0])
+
+                // Lắng nghe quá trình đọc tập tin hoàn thành
+                reader.addEventListener("load", (event) => {
+                    // Lấy chuỗi Binary thông tin hình ảnh
+                    const img = event.target.result;
+
+                    // Thực hiện hành động gì đó, có thể append chuỗi giá trị này vào thẻ IMG
+                    console.log(img) // data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEASABIAA........
+                })
+            })
+        </script>-->
 
     </body>
 

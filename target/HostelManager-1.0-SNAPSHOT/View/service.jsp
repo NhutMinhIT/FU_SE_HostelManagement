@@ -107,29 +107,29 @@
 
                                 <form action="#">
                                     <table  class="table table-striped table-bordered "  width="100%">
-                                            <thead>
-                                                <tr>
-                                                    <th style=" text-align: center">ID</th>
-                                                    <th style=" text-align: center">Service Name</th>
-                                                    <th style=" text-align: center ">Price (VNĐ)</th>
-                                                    
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr>
-                                                    <td style="text-align: center" >Elect</td>
-                                                    <td style="text-align: center">Electricity</td>
-                                                    <td><input type="text" name="price" style="width: 100%; text-align: right" value="3000"></td>
-                                                    
-                                                </tr>
-                                                <tr>
-                                                    <td style="text-align: center" >Water</td>
-                                                    <td style="text-align: center">Water</td>
-                                                    <td><input type="text" name="price" style="width: 100%; text-align: right" value="3000"></td>
-                                                   
-                                                </tr>
-                                            </tbody>
-                                        </table>
+                                        <thead>
+                                            <tr>
+                                                <th style=" text-align: center">ID</th>
+                                                <th style=" text-align: center">Service Name</th>
+                                                <th style=" text-align: center ">Price (VNĐ)</th>
+
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td style="text-align: center" >Elect</td>
+                                                <td style="text-align: center">Electricity</td>
+                                                <td><input type="text" name="price" style="width: 100%; text-align: right" value="3000"></td>
+
+                                            </tr>
+                                            <tr>
+                                                <td style="text-align: center" >Water</td>
+                                                <td style="text-align: center">Water</td>
+                                                <td><input type="text" name="price" style="width: 100%; text-align: right" value="3000"></td>
+
+                                            </tr>
+                                        </tbody>
+                                    </table>
                                     <div class="mt-3 text-center">
                                         <button class="btn btn-success" type="button" id="sumbitButton"><i class="fa fa-check"></i> Save</button>
                                     </div>
