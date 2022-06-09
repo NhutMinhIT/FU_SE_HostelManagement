@@ -40,15 +40,15 @@
                 <img class="logo rounded-circle" style="width: 30%" src="assets/img/logo.png" alt="">
 
                 <h3>Login</h3>
-                <form action="">
+                <form action="LoginController" method="POST">
                     <div class="form-row">
                         <label for="">Email ID</label>
-                        <input type="text" placeholder="yourname@gmail.com" class="form-control form-control-sm" required pattern="\S+">
+                        <input type="text" name="txtemail" placeholder="yourname@gmail.com" class="form-control form-control-sm" required pattern="\S+">
                     </div>
 
                     <div class="form-row">
                         <label for="">Password</label>
-                        <input type="text" placeholder="Password" class="form-control form-control-sm" required pattern="\S+">
+                        <input type="text" name="txtpassword" placeholder="Password" class="form-control form-control-sm" required pattern="\S+">
                     </div>
 
                     <div class="form-row row skjh">

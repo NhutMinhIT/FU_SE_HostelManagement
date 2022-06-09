@@ -3,6 +3,7 @@ package controller;
 import dao.UserDAO;
 import dto.UserDTO;
 import java.io.IOException;
+import java.sql.SQLException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -32,21 +33,29 @@ public class LoginController extends HttpServlet {
                 if (loginUser != null) {
                     HttpSession session = request.getSession();
                     String roleID = loginUser.getRoleID();
-                    if (AD.equals(roleID)) {
+                    if (null == roleID) {
+                        request.setAttribute("ERROR", "Your role is not support!");
+                    } else switch (roleID) {
+                    case AD:
                         session.setAttribute("LOGIN_USER", loginUser);
                         url = ADMIN_PAGE;
-                    } else if (US.equals(roleID)) {
-                        session.setAttribute("LOGIN_USER", loginUser);
-                        url = USER_PAGE;
-                    } else {
+                        break;
+                    case US:
+                        if(loginUser.getStatus().equals("APROVED")){
+                            session.setAttribute("LOGIN_USER", loginUser);
+                            url = USER_PAGE;
+                        }
+                        break;
+                    default:
                         request.setAttribute("ERROR", "Your role is not support!");
-                    }
+                        break;
+                }
                 } else {
                     request.setAttribute("ERROR", "Incorrect userID or Password!");
                 }
 
             
-        } catch (Exception e) {
+        } catch (SQLException e) {
         } finally {
             request.getRequestDispatcher(url).forward(request, response);
         }
