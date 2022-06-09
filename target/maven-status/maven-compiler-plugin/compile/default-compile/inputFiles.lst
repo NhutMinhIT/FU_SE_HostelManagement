@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 C:\Users\Dell\OneDrive\Desktop\Project\HostelManager\src\main\java\dao\RoomDAO.java
 C:\Users\Dell\OneDrive\Desktop\Project\HostelManager\src\main\java\controller\MainController.java
 C:\Users\Dell\OneDrive\Desktop\Project\HostelManager\src\main\java\controller\LoginController.java
@@ -11,3 +12,25 @@ C:\Users\Dell\OneDrive\Desktop\Project\HostelManager\src\main\java\dto\UserDTO.j
 C:\Users\Dell\OneDrive\Desktop\Project\HostelManager\src\main\java\dto\FurnitureDTO.java
 C:\Users\Dell\OneDrive\Desktop\Project\HostelManager\src\main\java\dto\Contract.java
 C:\Users\Dell\OneDrive\Desktop\Project\HostelManager\src\main\java\dao\HostelDAO.java
+=======
+C:\Users\Dell\OneDrive\Desktop\ProjectHostel\HostelManager\src\main\java\controller\DeleteRoomController.java
+C:\Users\Dell\OneDrive\Desktop\ProjectHostel\HostelManager\src\main\java\dao\UserDAO.java
+C:\Users\Dell\OneDrive\Desktop\ProjectHostel\HostelManager\src\main\java\dto\Contract.java
+C:\Users\Dell\OneDrive\Desktop\ProjectHostel\HostelManager\src\main\java\dto\CustomerDTO.java
+C:\Users\Dell\OneDrive\Desktop\ProjectHostel\HostelManager\src\main\java\dto\RoomDTO.java
+C:\Users\Dell\OneDrive\Desktop\ProjectHostel\HostelManager\src\main\java\controller\LogoutController.java
+C:\Users\Dell\OneDrive\Desktop\ProjectHostel\HostelManager\src\main\java\controller\LoginController.java
+C:\Users\Dell\OneDrive\Desktop\ProjectHostel\HostelManager\src\main\java\utils\DBUtils.java
+C:\Users\Dell\OneDrive\Desktop\ProjectHostel\HostelManager\src\main\java\controller\UpdateHostelController.java
+C:\Users\Dell\OneDrive\Desktop\ProjectHostel\HostelManager\src\main\java\controller\UpdateRoomController.java
+C:\Users\Dell\OneDrive\Desktop\ProjectHostel\HostelManager\src\main\java\controller\UserPageController.java
+C:\Users\Dell\OneDrive\Desktop\ProjectHostel\HostelManager\src\main\java\controller\MainController.java
+C:\Users\Dell\OneDrive\Desktop\ProjectHostel\HostelManager\src\main\java\dto\FurnitureDTO.java
+C:\Users\Dell\OneDrive\Desktop\ProjectHostel\HostelManager\src\main\java\dao\RoomDAO.java
+C:\Users\Dell\OneDrive\Desktop\ProjectHostel\HostelManager\src\main\java\dto\UserDTO.java
+C:\Users\Dell\OneDrive\Desktop\ProjectHostel\HostelManager\src\main\java\dao\HostelDAO.java
+C:\Users\Dell\OneDrive\Desktop\ProjectHostel\HostelManager\src\main\java\controller\DeleteHostelController.java
+C:\Users\Dell\OneDrive\Desktop\ProjectHostel\HostelManager\src\main\java\dto\HostelDTO.java
+C:\Users\Dell\OneDrive\Desktop\ProjectHostel\HostelManager\src\main\java\controller\AddHostelController.java
+C:\Users\Dell\OneDrive\Desktop\ProjectHostel\HostelManager\src\main\java\controller\HostelManagerController.java
+>>>>>>> 83b97c015f16896776d71e898a477cec1d789937

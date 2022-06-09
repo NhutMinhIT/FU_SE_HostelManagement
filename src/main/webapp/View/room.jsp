@@ -140,6 +140,11 @@
                                             <tr>
                                                 <th>Room</th>
                                                 <th>Name</th>
+<<<<<<< HEAD
+=======
+                                                <th>Email</th>                                                                                                
+                                                <th>Start Date</th>
+>>>>>>> 83b97c015f16896776d71e898a477cec1d789937
                                                 <th>Phone</th>                                                                                                
                                                 <th>Start date</th>
                                                 <th>Price</th>
@@ -151,6 +156,11 @@
                                             <tr>
                                                 <th>Room</th>
                                                 <th>Name</th>
+<<<<<<< HEAD
+=======
+                                                <th>Email</th>                                                                                                
+                                                <th>Start Date</th>
+>>>>>>> 83b97c015f16896776d71e898a477cec1d789937
                                                 <th>Phone</th>                                                                                                
                                                 <th>Start date</th>
                                                 <th>Price</th>
@@ -173,7 +183,12 @@
                                                     <button class="btn btn-primary" title="Edit"><i class="fa fa-edit"></i></button>
                                                     <button class="btn btn-danger" title="Remove"><i class="fa fa-remove"></i></button>                                                    
                                                 </td>
+<<<<<<< HEAD
                                             </tr>
+=======
+                                            </tr>                                       
+
+>>>>>>> 83b97c015f16896776d71e898a477cec1d789937
                                             <tr>
                                                 <td>2</td>
                                                 <td>Phan Minh Trí</td>
@@ -200,7 +215,10 @@
                                                     </a>                                               
                                                 </td>
                                             </tr>
+<<<<<<< HEAD
 
+=======
+>>>>>>> 83b97c015f16896776d71e898a477cec1d789937
                                         </tbody>
                                     </table>
                                 </div>

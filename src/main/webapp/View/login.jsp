@@ -14,10 +14,18 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <title> Welcome to MoonHostel</title>
+<<<<<<< HEAD
 
         <link rel="shortcut icon" href="assets/images/fav.jpg">
         <link rel="stylesheet" href="css/bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="css/style1.css" />
+=======
+        <link rel="shortcut icon" href="${pageContext.request.contextPath}/assets/images/fav.jpg">
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap.min.css">
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/css/fontawsom-all.min.css">
+        <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/style1.css" />
+
+>>>>>>> 83b97c015f16896776d71e898a477cec1d789937
     </head>
 
     <body>
@@ -40,15 +48,22 @@
                 <img class="logo rounded-circle" style="width: 30%" src="assets/img/logo.png" alt="">
 
                 <h3>Login</h3>
+<<<<<<< HEAD
                 <form action="LoginController" method="POST">
                     <div class="form-row">
                         <label for="">Email ID</label>
                         <input type="text" name="txtemail" placeholder="yourname@gmail.com" class="form-control form-control-sm" required pattern="\S+">
+=======
+                <form action="${pageContext.request.contextPath}/MainController" method="POST">
+                    <div class="form-row">
+                        <label for="">Email ID</label>
+                        <input type="text" placeholder="yourname@gmail.com" class="form-control form-control-sm" name="email" required pattern="\S+" >
+>>>>>>> 83b97c015f16896776d71e898a477cec1d789937
                     </div>
 
                     <div class="form-row">
                         <label for="">Password</label>
-                        <input type="text" name="txtpassword" placeholder="Password" class="form-control form-control-sm" required pattern="\S+">
+                        <input type="password" placeholder="Password" class="form-control form-control-sm" name="password" required pattern="\S+">
                     </div>
 
                     <div class="form-row row skjh">
@@ -58,6 +73,7 @@
                         <div class="col-5">
                             <span> <a href="">Forget Password ?</a></span>
                         </div>
+<<<<<<< HEAD
 
 
                     </div>
@@ -69,6 +85,21 @@
                         </a>
                     </div>
                 </form>
+=======
+                    <p class="help-block alert-danger">${requestScope.ERROR}</p>
+
+                    </div>
+                    <div></div>
+
+                    <div class="form-row dfr">
+                        <input type="submit" class="btn btn"  name="action" value="Login">
+                    </div>
+                </form>
+
+                <div class="ord-v">
+                    <a href="or login with"></a>
+                </div>
+>>>>>>> 83b97c015f16896776d71e898a477cec1d789937
 
                 <div class="soc-det">
                     <ul>

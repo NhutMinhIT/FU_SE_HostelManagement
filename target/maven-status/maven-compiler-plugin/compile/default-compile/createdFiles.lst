@@ -3,6 +3,10 @@ dto\RoomDTO.class
 dto\UserDTO.class
 controller\MainController.class
 controller\LoginController.class
+<<<<<<< HEAD
+=======
+controller\UserPageController.class
+>>>>>>> 83b97c015f16896776d71e898a477cec1d789937
 dto\HostelDTO.class
 utils\DBUtils.class
 dto\Contract.class

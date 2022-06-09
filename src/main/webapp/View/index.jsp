@@ -21,8 +21,14 @@
     <body class="sb-nav-fixed">
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
             <!-- Navbar Brand-->
+<<<<<<< HEAD
             <a class="navbar-brand ps-3" href="index.jsp">MoonHostel
                 <img src="../assets/img/logo.png" class="rounded-circle"  alt="logo"width="40" height="36">
+=======
+
+            <a class="navbar-brand ps-3" href="${pageContext.request.contextPath}/MainController?action=">MoonHostel
+                <img src="${pageContext.request.contextPath}/assets/img/logo.png" class="rounded-circle"  alt="logo"width="40" height="36">
+>>>>>>> 83b97c015f16896776d71e898a477cec1d789937
             </a>
             <!-- Sidebar Toggle-->
             <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
@@ -44,7 +50,7 @@
                         <li>
                             <hr class="dropdown-divider" />
                         </li>
-                        <li><a class="dropdown-item" href="#!">Logout</a></li>
+                        <li><a class="dropdown-item" href="${pageContext.request.contextPath}/MainController?action=Logout">Logout</a></li>
                     </ul>
                 </li>
             </ul>
@@ -55,7 +61,11 @@
                     <div class="sb-sidenav-menu">
                         <div class="nav">
 
+<<<<<<< HEAD
                             <a class="nav-link" href="index.jsp">
+=======
+                            <a class="nav-link" href="${pageContext.request.contextPath}/UserPageController">
+>>>>>>> 83b97c015f16896776d71e898a477cec1d789937
                                 <div class="sb-nav-link-icon"><i class="fas fa-palette"></i></div>
                                 Home
                             </a>
@@ -86,8 +96,14 @@
                     </div>
                     <div class="sb-sidenav-footer">
                         <div class="small">Logged in as:</div>
+<<<<<<< HEAD
                         MoonHostel
                         <img src="../assets/img/logo.png" class="rounded-circle"  alt="regisster"width="40" height="36">
+=======
+
+                        ${sessionScope.LOGIN_USER.fullname}
+                       
+>>>>>>> 83b97c015f16896776d71e898a477cec1d789937
                     </div>
                 </nav>
             </div>
@@ -134,12 +150,25 @@
                                                 <tr>
                                                     <th scope="col">House</th>
                                                     <th scope="col">Room</th>
+        
                                                 </tr>
                                             </thead>
                                             <tbody>
                                                 <tr>
+<<<<<<< HEAD
                                                     <th scope="row">Moon House</th>
                                                     <td>Room 1.02</td>
+=======
+                                                    <c:forEach items="${HostelList}" var="h">
+                                                        <c:if test="${h.hostelID == o.hostelID}">
+                                                            <td scope="row">${h.hostelname}</td>
+                                                        </c:if>
+                                                    </c:forEach> 
+                                                    <td>Room ${o.roomID}</td>
+                                                </tr>
+                                                </c:if>
+                                            </c:forEach>     
+>>>>>>> 83b97c015f16896776d71e898a477cec1d789937
 
                                                 </tr>
                                                 <tr>
