@@ -140,13 +140,10 @@
                                             <tr>
                                                 <th>Room</th>
                                                 <th>Name</th>
-<<<<<<< HEAD
                                                 <th>Email</th>                                                                                                
                                                 <th>Start Date</th>
-=======
                                                 <th>Phone</th>                                                                                                
                                                 <th>Start date</th>
->>>>>>> 1500ba7ce6cfbf43419f8729ff4e00e3c6f82d0f
                                                 <th>Price</th>
                                                 <th>Status</th>
                                                 <th>Function</th>
@@ -156,13 +153,10 @@
                                             <tr>
                                                 <th>Room</th>
                                                 <th>Name</th>
-<<<<<<< HEAD
                                                 <th>Email</th>                                                                                                
                                                 <th>Start Date</th>
-=======
                                                 <th>Phone</th>                                                                                                
                                                 <th>Start date</th>
->>>>>>> 1500ba7ce6cfbf43419f8729ff4e00e3c6f82d0f
                                                 <th>Price</th>
                                                 <th>Status</th>
                                                 <th>Function</th>
@@ -183,10 +177,8 @@
                                                     <button class="btn btn-primary" title="Edit"><i class="fa fa-edit"></i></button>
                                                     <button class="btn btn-danger" title="Remove"><i class="fa fa-remove"></i></button>                                                    
                                                 </td>
-                                            </tr>
-<<<<<<< HEAD
-                                            
-=======
+                                            </tr>                                       
+
                                             <tr>
                                                 <td>2</td>
                                                 <td>Phan Minh Trí</td>
@@ -213,8 +205,6 @@
                                                     </a>                                               
                                                 </td>
                                             </tr>
->>>>>>> 1500ba7ce6cfbf43419f8729ff4e00e3c6f82d0f
-
                                         </tbody>
                                     </table>
                                 </div>

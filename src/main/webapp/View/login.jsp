@@ -89,19 +89,19 @@
                 <p>Copyrigh 2022 @ MoonHostel</p> 
             </div>
         </div>  
-<<<<<<< HEAD
+
         <script src="${pageContext.request.contextPath}/assets/js/jquery-3.2.1.min.js"></script>
         <script src="${pageContext.request.contextPath}/assets/js/popper.min.js"></script>
         <script src="${pageContext.request.contextPath}/assets/js/bootstrap.min.js"></script>
         <script src="${pageContext.request.contextPath}/assets/js/script.js"></script>
-=======
+
         <script src="assets/js/jquery-3.2.1.min.js"></script>
         <script src="assets/js/popper.min.js"></script>
         <script src="assets/js/bootstrap.min.js"></script>
         <script src="assets/js/script.js"></script>
         <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
 
->>>>>>> 1500ba7ce6cfbf43419f8729ff4e00e3c6f82d0f
+
     </body>
 
 
