@@ -10,19 +10,19 @@ package dto;
  */
 public class CustomerDTO {
     private String customerID;
-    private String customername;
     private String password;
     private String fullname;
+    private String email;
     private String dob;
     private String phone;
     private String status;
     private String address;
 
-    public CustomerDTO(String customerID, String customername, String password, String fullname, String dob, String phone, String status, String address) {
+    public CustomerDTO(String customerID, String password, String fullname, String email, String dob, String phone, String status, String address) {
         this.customerID = customerID;
-        this.customername = customername;
         this.password = password;
         this.fullname = fullname;
+        this.email = email;
         this.dob = dob;
         this.phone = phone;
         this.status = status;
@@ -35,14 +35,6 @@ public class CustomerDTO {
 
     public void setCustomerID(String customerID) {
         this.customerID = customerID;
-    }
-
-    public String getCustomername() {
-        return customername;
-    }
-
-    public void setCustomername(String customername) {
-        this.customername = customername;
     }
 
     public String getPassword() {
@@ -59,6 +51,14 @@ public class CustomerDTO {
 
     public void setFullname(String fullname) {
         this.fullname = fullname;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getDob() {
@@ -92,5 +92,7 @@ public class CustomerDTO {
     public void setAddress(String address) {
         this.address = address;
     }
+
+   
 
 }

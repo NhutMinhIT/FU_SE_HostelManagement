@@ -18,6 +18,7 @@ import utils.DBUtils;
  * @author avillX
  */
 public class UserDAO {
+<<<<<<< HEAD
     private final static String LOGIN = "SELECT * FROM dbo.User WHERE username=? AND password=? AND status='APPROVED'";
     private final static String APPROVED_USER = "UPDATE dbo.User SET status = ? where user_id = ?";
     private final static String ADDNEW_USER = "INSERT INTO dbo.User (username,password,email,fullname,phone,status,isAdmin) value(?,?,?,?,?,?,?)";
@@ -25,6 +26,13 @@ public class UserDAO {
 
 
     public static UserDTO checkLogin(String username, String password) throws SQLException {
+=======
+    private final static String LOGIN = "SELECT * FROM dbo.[User] WHERE email=? AND password=? AND status='APPROVED'";
+    private final static String APPROVED_USER = "UPDATE dbo.[User] SET status = ? where user_id = ?";
+
+
+public UserDTO checkLogin(String email, String password) throws SQLException {
+>>>>>>> a3f2a3d29e3b22d42af25d0ea1a30266b88ad67b
         Connection conn = null;
         PreparedStatement ptm = null;
         ResultSet rs = null;
@@ -33,17 +41,21 @@ public class UserDAO {
             conn = DBUtils.getConnection();
             if (conn != null) {
                 ptm = conn.prepareStatement(LOGIN);
-                ptm.setString(1, username);
+                ptm.setString(1, email);
                 ptm.setString(2, password);
                 rs = ptm.executeQuery();
                 if (rs.next()) {
                     String userID = rs.getString("user_id");
-                    String email = rs.getString("email");
                     String fullName = rs.getString("fullName");                   
                     String phone = rs.getString("phone");
+<<<<<<< HEAD
                     String status = rs.getString("status");
                     String roleID = rs.getString("isAdmin");
                     user = new UserDTO(userID, username, password, fullName, email, phone, status, roleID);
+=======
+                    String roleID = rs.getString("Role");
+                    user = new UserDTO(userID, password, fullName, email, phone, "APPROVED", roleID);
+>>>>>>> a3f2a3d29e3b22d42af25d0ea1a30266b88ad67b
                 }
             }
         } catch (Exception e) {

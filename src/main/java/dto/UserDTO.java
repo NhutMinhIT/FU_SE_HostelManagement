@@ -10,7 +10,6 @@ package dto;
  */
 public class UserDTO {
     private String userID ;
-    private String username;
     private String password;
     private String fullname;
     private String email;
@@ -18,9 +17,8 @@ public class UserDTO {
     private String status;
     private String roleID;
 
-    public UserDTO(String userID, String username, String password, String fullname, String email, String phone, String status, String roleID) {
+    public UserDTO(String userID, String password, String fullname, String email, String phone, String status, String roleID) {
         this.userID = userID;
-        this.username = username;
         this.password = password;
         this.fullname = fullname;
         this.email = email;
@@ -37,13 +35,6 @@ public class UserDTO {
         this.userID = userID;
     }
 
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
 
     public String getPassword() {
         return password;
