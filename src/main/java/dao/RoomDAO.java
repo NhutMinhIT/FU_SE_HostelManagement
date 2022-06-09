@@ -29,7 +29,7 @@ public class RoomDAO {
     private static final String UPDATEROOM = "UPDATE FROM dbo.[Room] SET hostel_id = ?, room_number = ?, roomsize = ?, price = ?, description = ?, status = ? where room_id = ?";
     private static final String UPDATEHOSTEL = "UPDATE FROM dbo.[Hostel] SET hostel_name = ?, address = ?, phone = ? where hostel_id =?"; 
 
-    private static final String DELETEROOM = "DELETE dbo.[Room]  WHERE roomID=?";
+    private static final String DELETEROOM = "DELETE dbo.[Room]  WHERE roomID = ?";
     private static final String DELETEHOSTEL = "UPDATE dbo.[Hostel] WHERE hostelID = ?";
 
     public List<HostelDTO> GetListHostel(String userID) throws SQLException {
@@ -244,7 +244,7 @@ public class RoomDAO {
         try {
             conn = DBUtils.getConnection();
             if (conn != null) {
-                ptm = conn.prepareStatement(ADDROOM);
+                ptm = conn.prepareStatement(ADDHOSTEL);
                 ptm.setString(1, h.getHostelname());
                 ptm.setString(2, h.getAddress());
                 ptm.setString(3, h.getPhone());

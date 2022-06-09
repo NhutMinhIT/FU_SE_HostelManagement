@@ -14,17 +14,11 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <title> Welcome to MoonHostel</title>
-
-<<<<<<< HEAD
         <link rel="shortcut icon" href="${pageContext.request.contextPath}/assets/images/fav.jpg">
         <link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap.min.css">
         <link rel="stylesheet" href="${pageContext.request.contextPath}/css/fontawsom-all.min.css">
         <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/style1.css" />
-=======
-        <link rel="shortcut icon" href="assets/images/fav.jpg">
-        <link rel="stylesheet" href="css/bootstrap.min.css">
-        <link rel="stylesheet" type="text/css" href="css/style1.css" />
->>>>>>> 1500ba7ce6cfbf43419f8729ff4e00e3c6f82d0f
+
     </head>
 
     <body>
@@ -46,35 +40,11 @@
             <div class="side-right">
                 <img class="logo rounded-circle" style="width: 30%" src="assets/img/logo.png" alt="">
 
-<<<<<<< HEAD
                 <h2>Login into Your Account</h2>
                 <form action="${pageContext.request.contextPath}/MainController" method="POST">
                     <div class="form-row">
                         <label for="">Email ID</label>
                         <input type="text" placeholder="yourname@company.com" class="form-control form-control-sm" name="email">
-=======
-                <h3>Login</h3>
-                <form action="LoginController" method="POST">
-                    <div class="form-row">
-                        <label for="">Email ID</label>
-                        <input type="text" name="txtemail" placeholder="yourname@gmail.com" class="form-control form-control-sm" required pattern="\S+">
-                    </div>
-
-                    <div class="form-row">
-                        <label for="">Password</label>
-                        <input type="text" name="txtpassword" placeholder="Password" class="form-control form-control-sm" required pattern="\S+">
-                    </div>
-
-                    <div class="form-row row skjh">
-                        <div class="col-7 left no-padding">
-                            <input type="checkbox">Remember me
-                        </div>
-                        <div class="col-5">
-                            <span> <a href="">Forget Password ?</a></span>
-                        </div>
-
-
->>>>>>> 1500ba7ce6cfbf43419f8729ff4e00e3c6f82d0f
                     </div>
 
                     <div class="form-row">
@@ -82,7 +52,6 @@
                         <input type="password" placeholder="Password" class="form-control form-control-sm" name="password">
                     </div>
 
-<<<<<<< HEAD
                     <div class="form-row row skjh">
                         <div class="col-7 left no-padding">
                             <input type="checkbox">Keep me Sign In
@@ -103,14 +72,6 @@
                 <div class="ord-v">
                     <a href="or login with"></a>
                 </div>
-=======
-                    <div class=" dfr center">
-                        <a href="index.jsp">
-                            <button class="btn btn-success">Login</button>
-                        </a>
-                    </div>
-                </form>
->>>>>>> 1500ba7ce6cfbf43419f8729ff4e00e3c6f82d0f
 
                 <div class="soc-det">
                     <ul>
