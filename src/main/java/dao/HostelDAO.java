@@ -18,7 +18,7 @@ public class HostelDAO {
     private final static String ALLHOSTEL = "Select * from dbo.Hostel WHERE user_id = ?";
     private final static String UPDATE = "UPDATE dbo.Hostel SET hostelname = ?, address = ?, phone = ? WHERE hostel_id = ?";
     private static final String DELETE = "DELETE dbo.Hostel WHERE hostel_id = ?";
-    private static final String CREATE = "INSERT INTO dbo.Hostel(hostel_name,address,phone,user_id) value(?,?,?,?,?)";
+
 
 
 public boolean updateHostel(HostelDTO p) throws SQLException {
@@ -61,33 +61,6 @@ public boolean updateHostel(HostelDTO p) throws SQLException {
             }
         } catch (Exception e) {
              e.printStackTrace();
-        } finally {
-            if (ptm != null) {
-                ptm.close();
-            }
-            if (conn != null) {
-                conn.close();
-            }
-        }
-        return check;
-    }
-    
-    public static boolean addNewHostel(HostelDTO hostel) throws SQLException{
-        boolean check=false;
-        Connection conn = null;
-        PreparedStatement ptm = null;
-        try {
-            conn = DBUtils.getConnection();
-            if (conn != null) {
-                ptm = conn.prepareStatement(CREATE);
-                ptm.setString(1, hostel.getHostelname());
-                ptm.setString(2, hostel.getAddress());
-                ptm.setString(3, hostel.getPhone());
-                ptm.setString(4, hostel.getHostelID());
-                check = ptm.executeUpdate() > 0 ? true : false;
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
         } finally {
             if (ptm != null) {
                 ptm.close();

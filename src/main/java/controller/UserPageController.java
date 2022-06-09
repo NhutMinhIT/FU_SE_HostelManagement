@@ -4,42 +4,6 @@
  */
 package controller;
 
-<<<<<<< HEAD
-import java.io.IOException;
-import java.io.PrintWriter;
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
-/**
- *
- * @author DELL
- */
-public class UserPageController extends HttpServlet {
-
-    /**
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
-     * methods.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        try ( PrintWriter out = response.getWriter()) {
-            String action = request.getParameter("addHostel");
-            String url = "index.jsp";
-            switch(action){
-                case "addHostel":
-                    url = "AddHostelSevlet";
-                    break;
-                    
-            }
-=======
 import dao.RoomDAO;
 import dto.HostelDTO;
 import dto.RoomDTO;
@@ -76,12 +40,12 @@ public class UserPageController extends HttpServlet {
             List<RoomDTO> RoomList = dao.GetListRoom(HostelList);
             request.setAttribute("HostelList",HostelList);
             request.setAttribute("RoomList",RoomList);
+            url = SUCCESS;
 
         } catch (Exception e) {
             log("Error at UserPageController:"+e.toString());
         } finally {
             request.getRequestDispatcher(url).forward(request, response);
->>>>>>> a3f2a3d29e3b22d42af25d0ea1a30266b88ad67b
         }
     }
 

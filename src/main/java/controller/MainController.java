@@ -33,7 +33,6 @@ public class MainController extends HttpServlet {
         String url = ERROR;
         try {
             String action = request.getParameter("action");
-<<<<<<< HEAD
             if (null != action) switch (action) {
                 case "Login":
                     url = LOGIN_CONTROLLER;
@@ -41,24 +40,14 @@ public class MainController extends HttpServlet {
                 case "Logout":
                     url = LOGOUT_CONTROLLER;
                     break;
-                case "Admin":
+                case "AdminPage":
                     url = ADMIN_PAGE;
                     break;
-                case "User":
+                case "UserPage":
                     url = USER_PAGE;
                     break;
                 default:
                     break;
-=======
-            if ("Login".equals(action)) {
-                url = LOGIN_CONTROLLER;
-            } else if ("Logout".equals(action)) {
-                url = LOGOUT_CONTROLLER;
-            }else if ("AdminPage".equals(action)) {
-                url = ADMIN_PAGE;
-            }else if ("UserPage".equals(action)) {
-                url = USER_PAGE;
->>>>>>> a3f2a3d29e3b22d42af25d0ea1a30266b88ad67b
             }
         } catch (Exception e) {
             log("Error at MainController: " + e.toString());

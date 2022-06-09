@@ -3,7 +3,6 @@ package controller;
 import dao.UserDAO;
 import dto.UserDTO;
 import java.io.IOException;
-import java.sql.SQLException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -17,7 +16,7 @@ public class LoginController extends HttpServlet {
     private static final String ERROR = "View/login.jsp";
     private static final String ADMIN_PAGE = "MainController?action=AdminPage";
     private static final String AD = "AD";
-    private static final String USER_PAGE = "/View/index.jsp";
+    private static final String USER_PAGE = "MainController?action=UserPage";
     private static final String US = "US";
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
@@ -33,10 +32,7 @@ public class LoginController extends HttpServlet {
                 if (loginUser != null) {
                     HttpSession session = request.getSession();
                     String roleID = loginUser.getRoleID();
-<<<<<<< HEAD
-                    if (null == roleID) {
-                        request.setAttribute("ERROR", "Your role is not support!");
-                    } else switch (roleID) {
+                    switch (roleID) {
                     case AD:
                         session.setAttribute("LOGIN_USER", loginUser);
                         url = ADMIN_PAGE;
@@ -48,24 +44,15 @@ public class LoginController extends HttpServlet {
                         }
                         break;
                     default:
-=======
-                    if (AD.equals(roleID.trim())) {
-                        session.setAttribute("LOGIN_USER", loginUser);
-                        url = ADMIN_PAGE;
-                    } else if (US.equals(roleID.trim())) {
-                        session.setAttribute("LOGIN_USER", loginUser);
-                        url = USER_PAGE;
-                    } else {
->>>>>>> a3f2a3d29e3b22d42af25d0ea1a30266b88ad67b
-                        request.setAttribute("ERROR", "Your role is not support!");
+                        request.setAttribute("ERROR", "Your role is not ready!");
                         break;
-                }
+                    }
                 } else {
                     request.setAttribute("ERROR", "Incorrect userID or Password!");
                 }
 
             
-        } catch (SQLException e) {
+        } catch (Exception e) {
         } finally {
             request.getRequestDispatcher(url).forward(request, response);
         }
