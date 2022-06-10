@@ -108,7 +108,6 @@
                                 <form action="#">
                                     <table  class="table table-striped table-bordered "  width="100%">
 <<<<<<< HEAD
-=======
                                             <thead>
                                                 <tr>
                                                     <th style=" text-align: center">ID</th>
@@ -132,7 +131,7 @@
                                                 </tr>
                                             </tbody>
                                         </table>
->>>>>>> 83b97c015f16896776d71e898a477cec1d789937
+=======
                                         <thead>
                                             <tr>
                                                 <th style=" text-align: center">ID</th>
@@ -156,6 +155,7 @@
                                             </tr>
                                         </tbody>
                                     </table>
+>>>>>>> 1500ba7ce6cfbf43419f8729ff4e00e3c6f82d0f
                                     <div class="mt-3 text-center">
                                         <button class="btn btn-success" type="button" id="sumbitButton"><i class="fa fa-check"></i> Save</button>
                                     </div>

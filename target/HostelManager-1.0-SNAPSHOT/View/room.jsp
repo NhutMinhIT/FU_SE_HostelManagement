@@ -14,7 +14,7 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
-        <link href="../css/styles.css" rel="stylesheet" />
+        <link href="${pageContext.request.contextPath}/css/styles.css" rel="stylesheet" />
     </head>
 
     <body class="sb-nav-fixed jumbotron">
@@ -141,12 +141,12 @@
                                                 <th>Room</th>
                                                 <th>Name</th>
 <<<<<<< HEAD
-=======
                                                 <th>Email</th>                                                                                                
                                                 <th>Start Date</th>
->>>>>>> 83b97c015f16896776d71e898a477cec1d789937
+=======
                                                 <th>Phone</th>                                                                                                
                                                 <th>Start date</th>
+>>>>>>> 1500ba7ce6cfbf43419f8729ff4e00e3c6f82d0f
                                                 <th>Price</th>
                                                 <th>Status</th>
                                                 <th>Function</th>
@@ -157,12 +157,12 @@
                                                 <th>Room</th>
                                                 <th>Name</th>
 <<<<<<< HEAD
-=======
                                                 <th>Email</th>                                                                                                
                                                 <th>Start Date</th>
->>>>>>> 83b97c015f16896776d71e898a477cec1d789937
+=======
                                                 <th>Phone</th>                                                                                                
                                                 <th>Start date</th>
+>>>>>>> 1500ba7ce6cfbf43419f8729ff4e00e3c6f82d0f
                                                 <th>Price</th>
                                                 <th>Status</th>
                                                 <th>Function</th>
@@ -183,12 +183,10 @@
                                                     <button class="btn btn-primary" title="Edit"><i class="fa fa-edit"></i></button>
                                                     <button class="btn btn-danger" title="Remove"><i class="fa fa-remove"></i></button>                                                    
                                                 </td>
-<<<<<<< HEAD
                                             </tr>
+<<<<<<< HEAD
+                                            
 =======
-                                            </tr>                                       
-
->>>>>>> 83b97c015f16896776d71e898a477cec1d789937
                                             <tr>
                                                 <td>2</td>
                                                 <td>Phan Minh Trí</td>
@@ -215,10 +213,8 @@
                                                     </a>                                               
                                                 </td>
                                             </tr>
-<<<<<<< HEAD
+>>>>>>> 1500ba7ce6cfbf43419f8729ff4e00e3c6f82d0f
 
-=======
->>>>>>> 83b97c015f16896776d71e898a477cec1d789937
                                         </tbody>
                                     </table>
                                 </div>
@@ -308,10 +304,10 @@
                 </footer>
             </div>
         </div>
-        <script src="../js/scripts.js"></script>
-        <script src="../js/datatables-simple-demo.js"></script>
-        <script src="../assets/demo/chart-area-demo.js"></script>
-        <script src="../assets/demo/chart-bar-demo.js"></script>
+        <script src="${pageContext.request.contextPath}../js/scripts.js"></script>
+        <script src="${pageContext.request.contextPath}/js/datatables-simple-demo.js"></script>
+        <script src="${pageContext.request.contextPath}/assets/demo/chart-area-demo.js"></script>
+        <script src="${pageContext.request.contextPath}/assets/demo/chart-bar-demo.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>    
         <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>

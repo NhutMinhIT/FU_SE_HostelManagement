@@ -312,7 +312,7 @@
         <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
         <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
-        <!<!-- <script>
+        <!--<script>
             const reader = new FileReader();
 
 // Lắng nghe trạng thái đăng tải tệp
@@ -332,7 +332,7 @@
                     console.log(img) // data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEASABIAA........
                 })
             })
-        </script>comment -->
+        </script>-->
 
     </body>
 

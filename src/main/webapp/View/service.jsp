@@ -107,32 +107,6 @@
 
                                 <form action="#">
                                     <table  class="table table-striped table-bordered "  width="100%">
-<<<<<<< HEAD
-=======
-                                            <thead>
-                                                <tr>
-                                                    <th style=" text-align: center">ID</th>
-                                                    <th style=" text-align: center">Service Name</th>
-                                                    <th style=" text-align: center ">Price (VNĐ)</th>
-                                                    
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr>
-                                                    <td style="text-align: center" >Elect</td>
-                                                    <td style="text-align: center">Electricity</td>
-                                                    <td><input type="text" name="price" style="width: 100%; text-align: right" value="3000"></td>
-                                                    
-                                                </tr>
-                                                <tr>
-                                                    <td style="text-align: center" >Water</td>
-                                                    <td style="text-align: center">Water</td>
-                                                    <td><input type="text" name="price" style="width: 100%; text-align: right" value="3000"></td>
-                                                   
-                                                </tr>
-                                            </tbody>
-                                        </table>
->>>>>>> 83b97c015f16896776d71e898a477cec1d789937
                                         <thead>
                                             <tr>
                                                 <th style=" text-align: center">ID</th>
