@@ -43,21 +43,21 @@
                 <h3>Login</h3>
                 <form action="${pageContext.request.contextPath}/MainController" method="POST">
                     <div class="form-row">
-                        <label for="">Email ID</label>
+                        <label for="">Emai</label>
                         <input type="text" placeholder="yourname@gmail.com" class="form-control form-control-sm" name="email" required pattern="\S+" >
                     </div>
 
                     <div class="form-row">
-                        <label for="">Password</label>
-                        <input type="password" placeholder="Password" class="form-control form-control-sm" name="password" required pattern="\S+">
+                        <label for="">Mật Khẩu</label>
+                        <input type="password" placeholder="Mật Khẩu" class="form-control form-control-sm" name="password" required pattern="\S+">
                     </div>
 
                     <div class="form-row row skjh">
                         <div class="col-7 left no-padding">
-                            <input type="checkbox">Remember me
+                            <input type="checkbox">Nhớ Mật Khẩu
                         </div>
                         <div class="col-5">
-                            <span> <a href="">Forget Password ?</a></span>
+                            <span> <a href="">Quên Mật Khẩu ?</a></span>
                         </div>
                     <p class="help-block alert-danger">${requestScope.ERROR}</p>
 

@@ -28,7 +28,7 @@
             <!-- Navbar Search-->
             <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
                 <div class="input-group">
-                    <input class="form-control" type="text" placeholder="Search for..." aria-label="Search for..." aria-describedby="btnNavbarSearch" />
+                    <input class="form-control" type="text" placeholder="Tìm Kiếm..." aria-label="Search for..." aria-describedby="btnNavbarSearch" />
                     <button class="btn btn-primary" id="btnNavbarSearch" type="button"><i class="fas fa-search"></i></button>
                 </div>
             </form>
@@ -36,14 +36,13 @@
             <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
-                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="#!">Profile</a></li>
-                        <li><a class="dropdown-item" href="#!">Settings</a></li>
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">                       
+                        <li><a class="dropdown-item" href="#!">Cài đặt</a></li>
 
                         <li>
                             <hr class="dropdown-divider" />
                         </li>
-                        <li><a class="dropdown-item" href="#!">Logout</a></li>
+                        <li><a class="dropdown-item" href="#!">Đăng Xuất</a></li>
                     </ul>
                 </li>
             </ul>
@@ -56,28 +55,20 @@
 
                             <a class="nav-link" href="index.jsp">
                                 <div class="sb-nav-link-icon"><i class="fas fa-palette"></i></div>
-                                Home
+                                Trang Chủ
                             </a>
                             <a class="nav-link collapsed" href="room.jsp">
                                 <div class="sb-nav-link-icon"><i class="fas fa-house"></i></div>
-                                Room                                
+                                Phòng                                
                             </a>
                             <a class="nav-link collapsed" href="service.jsp">
                                 <div class="sb-nav-link-icon"><i class="fas fa-cubes"></i></div>
-                                Service                                
-                            </a>
-                            <a class="nav-link" href="signup.jsp">
-                                <div class="sb-nav-link-icon"><i class="fas fa-add"></i></div>
-                                New Account
-                            </a>                    
-                            <div class="sb-sidenav-menu-heading">About</div>
-                            <a class="nav-link" href="#">
-                                <div class="sb-nav-link-icon"><i class="fas fa-map"></i></div>
-                                Maps
-                            </a>
+                                Dịch Vụ                                
+                            </a>                                               
+                            <div class="sb-sidenav-menu-heading">Khác</div>                            
                             <a class="nav-link" href="#">
                                 <div class="sb-nav-link-icon"><i class="fas fa-address-card"></i></div>
-                                Contact
+                                Liên Hệ
                             </a>
                         </div>
                     </div>
@@ -89,21 +80,21 @@
                 </nav>
             </div>
             <div id="layoutSidenav_content">
-                <h1 class="mt-4 col-md-4"><i class="fa fa-house"></i> Room Manager</h1>
+                <h1 class="mt-4 col-md-4"><i class="fa fa-house"></i> Quản Lí Phòng</h1>
                 <table>
                     <div class="card mb-4">
                         <div class="card-header">
                             <div class="card-header">
-                                <i class="fas fa-table me-1"></i>Hostel Manager                              
+                                <i class="fas fa-table me-1"></i>Quản Lí Nhà Trọ                              
                             </div>
                             <div class="row " style="float:right; display: flex">
                                 <a href="addNewHostel.jsp">
-                                    <button type="button"  class="btn btn-success m-2"><i class="fa fa-bank"></i> Add Hostel</button>
+                                    <button type="button"  class="btn btn-success m-2"><i class="fa fa-bank"></i> Thêm Nhà Trọ</button>
                                 </a>
                             </div>
                             <div class="row " style="float:right; display: flex">
                                 <a href="#">
-                                    <button type="button"  class="btn btn-danger m-2"><i class="fa fa-remove"></i>Delete Hostel</button>
+                                    <button type="button"  class="btn btn-danger m-2"><i class="fa fa-remove"></i> Xóa Nhà Trọ</button>
                                 </a>
                             </div> 
 
@@ -117,17 +108,17 @@
 
                         <ul class=" col-12 nav nav-tabs mb-4">
                             <li class="nav-item">
-                                <a class="nav-link active" href="#District9" role="tab" data-toggle="tab">District 9</a>
+                                <a class="nav-link active" href="#District9" role="tab" data-toggle="tab">Quận 9</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#District1" role="tab" data-toggle="tab">District 1</a>
+                                <a class="nav-link" href="#District1" role="tab" data-toggle="tab">Quận 1</a>
                             </li>
                         </ul>
 
-                        <div class="breadcrumb mb-4 " style="margin-left: 90%">
+                        <div class="breadcrumb mb-4 " style="margin-left: 85%">
                             <div class="row">
                                 <a href="addNewRoom.jsp">
-                                    <button type="button"  class="btn btn-success"><i class="fa fa-add"></i> Add Room</button>
+                                    <button type="button"  class="btn btn-success"><i class="fa fa-add"></i> Thêm Phòng</button>
                                 </a>
                             </div>                             
                             <!-- comment -->
@@ -138,26 +129,26 @@
                                     <table id="datatablesSimple">
                                         <thead>
                                             <tr>
-                                                <th>Room</th>
-                                                <th>Name</th>
-                                                <th>Phone</th> 
+                                                <th>Phòng</th>
+                                                <th>Người Thuê</th>
+                                                <th>Số Điện Thoại</th> 
                                                 <th>Email</th>                                     
-                                                <th>Start date</th>
-                                                <th>Price</th>
-                                                <th>Status</th>
-                                                <th>Function</th>
+                                                <th>Ngày Thuê</th>
+                                                <th>Giá</th>
+                                                <th>Trạng Thái</th>
+                                                <th>Chức Năng</th>
                                             </tr>
                                         </thead>
                                         <tfoot>
                                             <tr>
-                                                <th>Room</th>
-                                                <th>Name</th>
-                                                <th>Phone</th> 
+                                                <th>Phòng</th>
+                                                <th>Người Thuê</th>
+                                                <th>Số Điện Thoại</th> 
                                                 <th>Email</th>                                     
-                                                <th>Start date</th>
-                                                <th>Price</th>
-                                                <th>Status</th>
-                                                <th>Function</th>
+                                                <th>Ngày Thuê</th>
+                                                <th>Giá</th>
+                                                <th>Trạng Thái</th>
+                                                <th>Chức Năng</th>
                                             </tr>
                                         </tfoot>
                                         <tbody>
@@ -172,7 +163,7 @@
                                                 <td>minhnnse150140@gmail.com</td>
                                                 <td>08/06/2022</td>
                                                 <td>2,300,000 VND</td>
-                                                <td class="text-success">Active</td>
+                                                <td class="text-success">Hoạt Động</td>
                                                 <td>                                                    
                                                     <a href="viewRoom.jsp">
                                                         <button class="btn btn-warning" title="View"><i class="fa fa-eye"></i></button>
@@ -195,7 +186,7 @@
                                                 <td>tripmse150151@gmail.com</td>
                                                 <td>08/05/2021</td>
                                                 <td>2,300,000 VND</td>
-                                                <td class="text-success">Active</td>
+                                                <td class="text-success">Hoạt Động</td>
                                                 <td>                                                    
                                                     <a href="viewRoom.jsp">
                                                         <button class="btn btn-warning" title="View"><i class="fa fa-eye"></i></button>
@@ -213,10 +204,10 @@
                                                 <td></td>
                                                 <td></td>
                                                 <td>2,300,000 VND</td>
-                                                <td class="text-danger">No Active</td>
+                                                <td class="text-danger">Chưa hoạt động</td>
                                                 <td>                                                    
                                                     <a href="AddNewCustomer.jsp">
-                                                        <button class="btn btn-warning" title="View"><i class="fa fa-add"></i>Add Customer</button>
+                                                        <button class="btn btn-warning" title="View"><i class="fa fa-add"></i> Thêm Khách</button>
                                                     </a>
 
                                                 </td>
@@ -231,26 +222,26 @@
                                     <table id="datatablesSimple1">
                                         <thead>
                                             <tr>
-                                                <th>Room</th>
-                                                <th>Name</th>
-                                                <th>Phone</th> 
+                                                 <th>Phòng</th>
+                                                <th>Người Thuê</th>
+                                                <th>Số Điện Thoại</th> 
                                                 <th>Email</th>                                     
-                                                <th>Start date</th>
-                                                <th>Price</th>
-                                                <th>Status</th>
-                                                <th>Function</th>
+                                                <th>Ngày Thuê</th>
+                                                <th>Giá</th>
+                                                <th>Trạng Thái</th>
+                                                <th>Chức Năng</th>
                                             </tr>
                                         </thead>
                                         <tfoot>
                                             <tr>
-                                                <th>Room</th>
-                                                <th>Name</th>
-                                                <th>Phone</th> 
+                                                 <th>Phòng</th>
+                                                <th>Người Thuê</th>
+                                                <th>Số Điện Thoại</th> 
                                                 <th>Email</th>                                     
-                                                <th>Start date</th>
-                                                <th>Price</th>
-                                                <th>Status</th>
-                                                <th>Function</th>
+                                                <th>Ngày Thuê</th>
+                                                <th>Giá</th>
+                                                <th>Trạng Thái</th>
+                                                <th>Chức Năng</th>
                                             </tr>
                                         </tfoot>
                                         <tbody>
@@ -265,7 +256,7 @@
                                                 <td>hungtq272@gmail.com</td>
                                                 <td>03/12/2020</td>
                                                 <td>2,300,000 VND</td>
-                                                <td class="text-success">Active</td>
+                                                <td class="text-success">Hoạt Động</td>
                                                 <td>                                                    
                                                     <a href="viewRoom.jsp">
                                                         <button class="btn btn-warning" title="View"><i class="fa fa-eye"></i></button>
@@ -288,7 +279,7 @@
                                                 <td>baoanhnc3@gmail.com</td>
                                                 <td>18/05/2019</td>
                                                 <td>2,300,000 VND</td>
-                                                <td class="text-success">Active</td>
+                                                <td class="text-success">Hoạt Động</td>
                                                 <td>                                                    
                                                     <a href="viewRoom.jsp">
                                                         <button class="btn btn-warning" title="View"><i class="fa fa-eye"></i></button>
@@ -306,10 +297,10 @@
                                                 <td></td>
                                                 <td></td>
                                                 <td>2,300,000 VND</td>
-                                                <td class="text-danger">No Active</td>
+                                                <td class="text-danger">Chưa Hoạt Động</td>
                                                 <td>                                                    
                                                     <a href="AddNewCustomer.jsp">
-                                                        <button class="btn btn-warning" title="View"><i class="fa fa-add"></i>Add Customer</button>
+                                                        <button class="btn btn-warning" title="View"><i class="fa fa-add"></i> Thêm Khách</button>
                                                     </a>
 
                                                 </td>

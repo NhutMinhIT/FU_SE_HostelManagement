@@ -1,8 +1,3 @@
-<%-- 
-    Document   : viewRoom
-    Created on : Jun 10, 2022, 1:25:57 PM
-    Author     : ASUS
---%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -40,50 +35,41 @@
             <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
-                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="#!">Profile</a></li>
-                        <li><a class="dropdown-item" href="#!">Settings</a></li>
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">                       
+                        <li><a class="dropdown-item" href="#!">Cài Đặt</a></li>
 
                         <li>
                             <hr class="dropdown-divider" />
                         </li>
-                        <li><a class="dropdown-item" href="#!">Logout</a></li>
+                        <li><a class="dropdown-item" href="#!">Đăng Xuất</a></li>
                     </ul>
                 </li>
             </ul>
         </nav>
         <div id="layoutSidenav">
-            <div id="layoutSidenav_nav">
+             <div id="layoutSidenav_nav">
                 <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
                     <div class="sb-sidenav-menu">
                         <div class="nav">
 
                             <a class="nav-link" href="index.jsp">
                                 <div class="sb-nav-link-icon"><i class="fas fa-palette"></i></div>
-                                Home
+                                Trang Chủ
                             </a>
                             <a class="nav-link collapsed" href="room.jsp">
                                 <div class="sb-nav-link-icon"><i class="fas fa-house"></i></div>
-                                Room                                
+                                Phòng                                
                             </a>
                             <a class="nav-link collapsed" href="service.jsp">
                                 <div class="sb-nav-link-icon"><i class="fas fa-cubes"></i></div>
-                                Service                                
+                                Dịch Vụ                                
                             </a>
-                            <a class="nav-link" href="signup.jsp">
-                                <div class="sb-nav-link-icon"><i class="fas fa-add"></i></div>
-                                New Account
-                            </a> 
-
-
-                            <div class="sb-sidenav-menu-heading">About</div>
-                            <a class="nav-link" href="#">
-                                <div class="sb-nav-link-icon"><i class="fas fa-map"></i></div>
-                                Maps
-                            </a>
+                                               
+                            <div class="sb-sidenav-menu-heading">Khác</div>
+                           
                             <a class="nav-link" href="#">
                                 <div class="sb-nav-link-icon"><i class="fas fa-address-card"></i></div>
-                                Contact
+                                Liên Hệ
                             </a>
                         </div>
                     </div>
@@ -99,27 +85,27 @@
                     <div class="container-fluid px-4">
                         <div class="card mt-4">
                             <div class="card-header">
-                                <h1 class="text-info"><i class="fa fa-eye"></i> View Room</h1>
+                                <h1 class="text-info"><i class="fa fa-eye"></i> Xem Thông Tin Phòng</h1>
 
                             </div>
                             <div class="card-body">
 
                                 <form action="#">
                                     <div class="form-group row">
-                                        <label  class="col-sm-2 col-form-label">Room N.o</label>
+                                        <label  class="col-sm-2 col-form-label">Số Phòng</label>
                                         <div class="col-sm-10">
                                             <input type="text" class="form-control" value="1" disabled="disabled">
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <label class="col-sm-2 col-form-label">Hostel</label>
+                                        <label class="col-sm-2 col-form-label">Tên Nhà</label>
                                         <div class="col-sm-10">
                                             <input type="text" class="form-control"  value="District 1" disabled="disabled">
                                         </div>
                                     </div>
                                     <div class="form-row">
                                         <div class="form-group col-md-2">
-                                            <label>Unit Price </label>
+                                            <label>Giá Phòng</label>
                                         </div>
                                         <div class="form-group col-md-10">
 
@@ -129,7 +115,7 @@
 
                                     <div class="form-row">
                                         <div class="form-group col-md-2">
-                                            <label>Status </label>
+                                            <label>Trạng Thái </label>
                                         </div>
                                         <div class="form-group col-md-10">
 
@@ -140,10 +126,10 @@
 
                                     <div class="mt-3 text-center">
                                         <a href="room.jsp">
-                                            <button class="btn btn-warning" type="button" id="cancelButton"><i class="fa fa-mail-reply"></i> Return</button>
+                                            <button class="btn btn-warning" type="button" id="cancelButton"><i class="fa fa-mail-reply"></i> Trở Về</button>
                                         </a>
                                         <a href="editRoom.jsp">
-                                        <button class="btn btn-success" type="button" id="sumbitButton"><i class="fa fa-edit"></i> Edit</button>
+                                        <button class="btn btn-success" type="button" id="sumbitButton"><i class="fa fa-edit"></i> Chỉnh Sửa</button>
                                         </a>
                                     </div>
                                 </form>

@@ -55,37 +55,29 @@
             </ul>
         </nav>
         <div id="layoutSidenav">
-            <div id="layoutSidenav_nav">
+             <div id="layoutSidenav_nav">
                 <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
                     <div class="sb-sidenav-menu">
                         <div class="nav">
 
                             <a class="nav-link" href="index.jsp">
                                 <div class="sb-nav-link-icon"><i class="fas fa-palette"></i></div>
-                                Home
+                                Trang Chủ
                             </a>
                             <a class="nav-link collapsed" href="room.jsp">
                                 <div class="sb-nav-link-icon"><i class="fas fa-house"></i></div>
-                                Room                                
+                                Phòng                                
                             </a>
-                            <a class="nav-link collapsed" href="room.jsp">
+                            <a class="nav-link collapsed" href="service.jsp">
                                 <div class="sb-nav-link-icon"><i class="fas fa-cubes"></i></div>
-                                Service                                
+                                Dịch Vụ                                
                             </a>
-                            <a class="nav-link" href="signup.jsp">
-                                <div class="sb-nav-link-icon"><i class="fas fa-add"></i></div>
-                                New Account
-                            </a> 
-
-
-                            <div class="sb-sidenav-menu-heading">About</div>
-                            <a class="nav-link" href="#">
-                                <div class="sb-nav-link-icon"><i class="fas fa-map"></i></div>
-                                Maps
-                            </a>
+                                               
+                            <div class="sb-sidenav-menu-heading">Khác</div>
+                           
                             <a class="nav-link" href="#">
                                 <div class="sb-nav-link-icon"><i class="fas fa-address-card"></i></div>
-                                Contact
+                                Liên Hệ
                             </a>
                         </div>
                     </div>
@@ -122,14 +114,14 @@
                                                 <td style="text-align: center" >District 9</td>
                                                 <td style="text-align: center">16/03/2022</td>
                                                 <td><input type="text" name="price" style="width: 100%; text-align: right" value="3000"></td>
-                                                <td><input type="text" name="" style="width: 100%; text-align: right"></td>
+                                                <td><input type="text" name="" value="Kilogam (Kg)" disabled="" style="width: 100%; text-align: right"></td>
                                             </tr>
                                             <tr>
                                                 <td style="text-align: center" >Nước</td>
                                                 <td style="text-align: center" >District 1</td>
                                                 <td style="text-align: center">16/03/2022</td>
                                                 <td><input type="text" name="price" style="width: 100%; text-align: right" value="10000"></td>
-                                                <td><input type="text" name="" style="width: 100%; text-align: right"></td>
+                                                <td><input type="text" name="" style="width: 100%; text-align: right" value="Khối" disabled=""></td>
                                             </tr>
                                         </tbody>
                                     </table>

@@ -40,13 +40,12 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="#!">Profile</a></li>
+                        
                         <li><a class="dropdown-item" href="#!">Settings</a></li>
-
                         <li>
                             <hr class="dropdown-divider" />
                         </li>
-                        <li><a class="dropdown-item" href="${pageContext.request.contextPath}/MainController?action=Logout">Logout</a></li>
+                        <li><a class="dropdown-item" href="${pageContext.request.contextPath}/MainController?action=Logout">Đăng Xuất</a></li>
                     </ul>
                 </li>
             </ul>
@@ -57,40 +56,31 @@
                     <div class="sb-sidenav-menu">
                         <div class="nav">
 
-                            <a class="nav-link" href="${pageContext.request.contextPath}/UserPageController">
+                            <a class="nav-link" href="index.jsp">
                                 <div class="sb-nav-link-icon"><i class="fas fa-palette"></i></div>
-                                Home
+                                Trang Chủ
                             </a>
                             <a class="nav-link collapsed" href="room.jsp">
                                 <div class="sb-nav-link-icon"><i class="fas fa-house"></i></div>
-                                Room                                
+                                Phòng                                
                             </a>
                             <a class="nav-link collapsed" href="service.jsp">
                                 <div class="sb-nav-link-icon"><i class="fas fa-cubes"></i></div>
-                                Service                                
+                                Dịch Vụ                                
                             </a>
-                            <a class="nav-link" href="signup.jsp">
-                                <div class="sb-nav-link-icon"><i class="fas fa-add"></i></div>
-                                New Account
-                            </a> 
-
-
-                            <div class="sb-sidenav-menu-heading">About</div>
-                            <a class="nav-link" href="#">
-                                <div class="sb-nav-link-icon"><i class="fas fa-map"></i></div>
-                                Maps
-                            </a>
+                                               
+                            <div class="sb-sidenav-menu-heading">Khác</div>
+                           
                             <a class="nav-link" href="#">
                                 <div class="sb-nav-link-icon"><i class="fas fa-address-card"></i></div>
-                                Contact
+                                Liên Hệ
                             </a>
                         </div>
                     </div>
                     <div class="sb-sidenav-footer">
                         <div class="small">Logged in as:</div>
-
-                        ${sessionScope.LOGIN_USER.fullname}
-                       
+                        MoonHostel
+                        <img src="../assets/img/logo.png" class="rounded-circle"  alt="regisster"width="40" height="36">
                     </div>
                 </nav>
             </div>
