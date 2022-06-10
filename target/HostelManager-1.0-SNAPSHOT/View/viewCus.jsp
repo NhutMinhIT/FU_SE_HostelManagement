@@ -101,7 +101,7 @@
                                 <a href="room.jsp">
                                     <button class="btn btn-warning" type="button" id="cancelButton"><i class="fa fa-mail-reply"></i> Return</button>
                                 </a>
-                                <button class="btn btn-success" type="button" id="sumbitButton"><i class="fa fa-check"></i> Save</button>
+                                <button class="btn btn-success" type="button" id="sumbitButton"><i class="fa fa-edit"></i> Edit</button>
                             </div>                      
                         </div>
                     </div>

@@ -140,13 +140,9 @@
                                             <tr>
                                                 <th>Room</th>
                                                 <th>Name</th>
-<<<<<<< HEAD
-                                                <th>Email</th>                                                                                                
-                                                <th>Start Date</th>
-=======
-                                                <th>Phone</th>                                                                                                
+                                                <th>Phone</th> 
+                                                <th>Email</th>                                     
                                                 <th>Start date</th>
->>>>>>> 1500ba7ce6cfbf43419f8729ff4e00e3c6f82d0f
                                                 <th>Price</th>
                                                 <th>Status</th>
                                                 <th>Function</th>
@@ -156,13 +152,9 @@
                                             <tr>
                                                 <th>Room</th>
                                                 <th>Name</th>
-<<<<<<< HEAD
-                                                <th>Email</th>                                                                                                
-                                                <th>Start Date</th>
-=======
-                                                <th>Phone</th>                                                                                                
+                                                <th>Phone</th> 
+                                                <th>Email</th>                                     
                                                 <th>Start date</th>
->>>>>>> 1500ba7ce6cfbf43419f8729ff4e00e3c6f82d0f
                                                 <th>Price</th>
                                                 <th>Status</th>
                                                 <th>Function</th>
@@ -171,50 +163,64 @@
                                         <tbody>
                                             <tr>                                                
                                                 <td>1</td>
-                                                <td>Nguyễn Nhựt Minh</td>
+                                                <td>
+                                                    <a href="viewCus.jsp">
+                                                        Nguyễn Nhựt Minh
+                                                    </a>
+                                                </td>
                                                 <td>0382694825</td>
+                                                <td>minhnnse150140@gmail.com</td>
                                                 <td>08/06/2022</td>
                                                 <td>2,300,000 VND</td>
                                                 <td class="text-success">Active</td>
                                                 <td>                                                    
-                                                    <a href="viewCus.jsp">
+                                                    <a href="viewRoom.jsp">
                                                         <button class="btn btn-warning" title="View"><i class="fa fa-eye"></i></button>
                                                     </a>
-                                                    <button class="btn btn-primary" title="Edit"><i class="fa fa-edit"></i></button>
+                                                    <a href="editRoom.jsp">
+                                                        <button class="btn btn-primary" title="Edit"><i class="fa fa-edit"></i></button>
+                                                    </a>
                                                     <button class="btn btn-danger" title="Remove"><i class="fa fa-remove"></i></button>                                                    
                                                 </td>
-                                            </tr>
-<<<<<<< HEAD
-                                            
-=======
-                                            <tr>
+                                            </tr>                                       
+
+                                            <tr>                                                
                                                 <td>2</td>
-                                                <td>Phan Minh Trí</td>
-                                                <td>0987500668</td>
-                                                <td>20/12/2021</td>
+                                                <td>
+                                                    <a href="viewCus.jsp">
+                                                        Nguyễn Nhựt Trí
+                                                    </a>
+                                                </td>
+                                                <td>0987890989</td>
+                                                <td>tripmse150151@gmail.com</td>
+                                                <td>08/05/2021</td>
                                                 <td>2,300,000 VND</td>
                                                 <td class="text-success">Active</td>
                                                 <td>                                                    
-                                                    <button class="btn btn-warning" title="View"><i class="fa fa-eye"></i></button>
-                                                    <button class="btn btn-primary" title="Edit"><i class="fa fa-edit"></i></button>
-                                                    <button class="btn btn-danger" title="Remove"><i class="fa fa-remove"></i></button>                                                    
+                                                    <a href="viewRoom.jsp">
+                                                        <button class="btn btn-warning" title="View"><i class="fa fa-eye"></i></button>
+                                                    </a>
+                                                    <a href="editRoom.jsp">
+                                                        <button class="btn btn-primary" title="Edit"><i class="fa fa-edit"></i></button>
+                                                    </a>
+                                                    <button class="btn btn-danger" title="Remove"><i class="fa fa-remove"></i></button>                                                     
                                                 </td>
                                             </tr>
-                                            <tr>
+                                            <tr>                                                
                                                 <td>3</td>
+                                                <td></td>
                                                 <td></td>
                                                 <td></td>
                                                 <td></td>
                                                 <td>2,300,000 VND</td>
                                                 <td class="text-danger">No Active</td>
-                                                <td>   
+                                                <td>                                                    
                                                     <a href="AddNewCustomer.jsp">
-                                                        <button class="btn btn-warning"><i class="fa fa-add"></i>Add Customer</button>
-                                                    </a>                                               
+                                                        <button class="btn btn-warning" title="View"><i class="fa fa-add"></i>Add Customer</button>
+                                                    </a>
+
                                                 </td>
                                             </tr>
->>>>>>> 1500ba7ce6cfbf43419f8729ff4e00e3c6f82d0f
-
                                         </tbody>
                                     </table>
                                 </div>
@@ -227,7 +233,8 @@
                                             <tr>
                                                 <th>Room</th>
                                                 <th>Name</th>
-                                                <th>Phone</th>                                                                                                
+                                                <th>Phone</th> 
+                                                <th>Email</th>                                     
                                                 <th>Start date</th>
                                                 <th>Price</th>
                                                 <th>Status</th>
@@ -238,7 +245,8 @@
                                             <tr>
                                                 <th>Room</th>
                                                 <th>Name</th>
-                                                <th>Phone</th>                                                                                                
+                                                <th>Phone</th> 
+                                                <th>Email</th>                                     
                                                 <th>Start date</th>
                                                 <th>Price</th>
                                                 <th>Status</th>
@@ -246,46 +254,66 @@
                                             </tr>
                                         </tfoot>
                                         <tbody>
-                                            <tr>
+                                            <tr>                                                
                                                 <td>1</td>
-                                                <td>Trần Quang Hùng</td>
-                                                <td>0987123456</td>
-                                                <td>20/10/2020</td>
-                                                <td>2,500,000 VND</td>
+                                                <td>
+                                                    <a href="viewCus.jsp">
+                                                        Nguyễn Nhựt Hùng
+                                                    </a>
+                                                </td>
+                                                <td>0398098908</td>
+                                                <td>hungtq272@gmail.com</td>
+                                                <td>03/12/2020</td>
+                                                <td>2,300,000 VND</td>
                                                 <td class="text-success">Active</td>
                                                 <td>                                                    
-                                                    <button class="btn btn-warning" title="View"><i class="fa fa-eye"></i></button>
-                                                    <button class="btn btn-primary" title="Edit"><i class="fa fa-edit"></i></button>
+                                                    <a href="viewRoom.jsp">
+                                                        <button class="btn btn-warning" title="View"><i class="fa fa-eye"></i></button>
+                                                    </a>
+                                                    <a href="editRoom.jsp">
+                                                        <button class="btn btn-primary" title="Edit"><i class="fa fa-edit"></i></button>
+                                                    </a>
                                                     <button class="btn btn-danger" title="Remove"><i class="fa fa-remove"></i></button>                                                    
                                                 </td>
-                                            </tr>
-                                            <tr>
+                                            </tr>                                       
+
+                                            <tr>                                                
                                                 <td>2</td>
-                                                <td>Hồ Bảo Anh</td>
-                                                <td>0123456789</td>
-                                                <td>20/01/2021</td>
-                                                <td>2,500,000 VND</td>
+                                                <td>
+                                                    <a href="viewCus.jsp">
+                                                        Nguyễn Nhựt Anh
+                                                    </a>
+                                                </td>
+                                                <td>09876665438</td>
+                                                <td>baoanhnc3@gmail.com</td>
+                                                <td>18/05/2019</td>
+                                                <td>2,300,000 VND</td>
                                                 <td class="text-success">Active</td>
-                                                <td> 
-                                                    <button class="btn btn-warning" title="View"><i class="fa fa-eye"></i></button>
-                                                    <button class="btn btn-primary" title="Edit"><i class="fa fa-edit"></i></button>
+                                                <td>                                                    
+                                                    <a href="viewRoom.jsp">
+                                                        <button class="btn btn-warning" title="View"><i class="fa fa-eye"></i></button>
+                                                    </a>
+                                                    <a href="editRoom.jsp">
+                                                        <button class="btn btn-primary" title="Edit"><i class="fa fa-edit"></i></button>
+                                                    </a>
                                                     <button class="btn btn-danger" title="Remove"><i class="fa fa-remove"></i></button>                                                    
                                                 </td>
                                             </tr>
-                                            <tr>
+                                            <tr>                                                
                                                 <td>3</td>
+                                                <td></td>
                                                 <td></td>
                                                 <td></td>
                                                 <td></td>
                                                 <td>2,300,000 VND</td>
                                                 <td class="text-danger">No Active</td>
-                                                <td>   
+                                                <td>                                                    
                                                     <a href="AddNewCustomer.jsp">
-                                                        <button class="btn btn-warning"><i class="fa fa-add"></i>Add Customer</button>
-                                                    </a>                                               
+                                                        <button class="btn btn-warning" title="View"><i class="fa fa-add"></i>Add Customer</button>
+                                                    </a>
+
                                                 </td>
                                             </tr>
-
                                         </tbody>
                                     </table>
                                 </div>

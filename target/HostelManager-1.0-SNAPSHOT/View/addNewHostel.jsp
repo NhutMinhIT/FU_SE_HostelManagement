@@ -104,36 +104,36 @@
                             </div>
                             <div class="card-body">
 
-                                <form action="#">
+                                <form action="UserPageController" method="POST">
                                     <div class="form-group row">
                                         <label  class="col-sm-2 col-form-label">Name</label>
                                         <div class="col-sm-10">
-                                            <input type="text" class="form-control" placeholder="Enter your hostel">
+                                            <input type="text" name="txtname" class="form-control" placeholder="Enter your hostel">
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label  class="col-sm-2 col-form-label">City</label>
                                         <div class="col-sm-10">
-                                            <input type="text" class="form-control" placeholder="Enter your city">
+                                            <input type="text" name="txtcity" class="form-control" placeholder="Enter your city">
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label  class="col-sm-2 col-form-label">District</label>
                                         <div class="col-sm-10">
-                                            <input type="text" class="form-control" placeholder="Enter your district">
+                                            <input type="text" name="txtdistrict" class="form-control" placeholder="Enter your district">
                                         </div>
                                     </div>
 
                                     <div class="form-group row">
                                         <label  class="col-sm-2 col-form-label">Ward</label>
                                         <div class="col-sm-10">
-                                            <input type="text" class="form-control" placeholder="Enter your ward">
+                                            <input type="text" name="txtward" class="form-control" placeholder="Enter your ward">
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label  class="col-sm-2 col-form-label">Address</label>
                                         <div class="col-sm-10">
-                                            <input type="text" class="form-control" placeholder="Enter your address">
+                                            <input type="text" name="txtaddress" class="form-control" placeholder="Enter your address">
                                         </div>
                                     </div>
 
@@ -142,7 +142,7 @@
                                          <a href="room.jsp">
                                     <button class="btn btn-warning" type="button" id="cancelButton"><i class="fa fa-mail-reply"></i> Return</button>
                                 </a>
-                                        <button class="btn btn-success" type="button" id="sumbitButton"><i class="fa fa-check"></i> Save</button>
+                                        <button class="btn btn-success" type="submit" name="addHostel" id="sumbitButton"><i class="fa fa-check"></i> Save</button>
                                     </div>
                                 </form>
                                 

@@ -101,7 +101,7 @@
                     <div class="container-fluid px-4">
                         <div class="card mt-4">
                             <div class="card-header">
-                                <h1 class="text-info">Add Service</h1>
+                                <h1 class="text-info">Thêm dịch vụ</h1>
                             </div>
                             <div class="card-body">
 
@@ -109,24 +109,27 @@
                                     <table  class="table table-striped table-bordered "  width="100%">
                                         <thead>
                                             <tr>
-                                                <th style=" text-align: center">ID</th>
-                                                <th style=" text-align: center">Service Name</th>
-                                                <th style=" text-align: center ">Price (VNĐ)</th>
-
+                                                <th style=" text-align: center">Tên dịch vụ</th>
+                                                <th style=" text-align: center">Địa điểm</th>
+                                                <th style=" text-align: center">Ngày cập nhật</th>
+                                                <th style=" text-align: center ">Giá (VND)</th>
+                                                <th style=" text-align: center ">Đơn vị</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <tr>
-                                                <td style="text-align: center" >Elect</td>
-                                                <td style="text-align: center">Electricity</td>
+                                                <td style="text-align: center" >Điện</td>
+                                                <td style="text-align: center" >District 9</td>
+                                                <td style="text-align: center">16/03/2022</td>
                                                 <td><input type="text" name="price" style="width: 100%; text-align: right" value="3000"></td>
-
+                                                <td><input type="text" name="" style="width: 100%; text-align: right"></td>
                                             </tr>
                                             <tr>
-                                                <td style="text-align: center" >Water</td>
-                                                <td style="text-align: center">Water</td>
-                                                <td><input type="text" name="price" style="width: 100%; text-align: right" value="3000"></td>
-
+                                                <td style="text-align: center" >Nước</td>
+                                                <td style="text-align: center" >District 1</td>
+                                                <td style="text-align: center">16/03/2022</td>
+                                                <td><input type="text" name="price" style="width: 100%; text-align: right" value="10000"></td>
+                                                <td><input type="text" name="" style="width: 100%; text-align: right"></td>
                                             </tr>
                                         </tbody>
                                     </table>

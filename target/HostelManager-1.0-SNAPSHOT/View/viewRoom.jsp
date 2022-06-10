@@ -1,10 +1,8 @@
 <%-- 
-    Document   : addnewrom
-    Created on : May 31, 2022, 7:17:06 AM
-    Author     : Dell
+    Document   : viewRoom
+    Created on : Jun 10, 2022, 1:25:57 PM
+    Author     : ASUS
 --%>
-
-
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -18,6 +16,8 @@
         <title>MoonHostel</title>
         <link rel="icon" type="image/png" href="../assets/img/logo.png" sizes="16x16">
         <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
         <link href="../css/styles.css" rel="stylesheet" />
 
     </head>
@@ -66,6 +66,10 @@
                                 <div class="sb-nav-link-icon"><i class="fas fa-house"></i></div>
                                 Room                                
                             </a>
+                            <a class="nav-link collapsed" href="service.jsp">
+                                <div class="sb-nav-link-icon"><i class="fas fa-cubes"></i></div>
+                                Service                                
+                            </a>
                             <a class="nav-link" href="signup.jsp">
                                 <div class="sb-nav-link-icon"><i class="fas fa-add"></i></div>
                                 New Account
@@ -95,43 +99,80 @@
                     <div class="container-fluid px-4">
                         <div class="card mt-4">
                             <div class="card-header">
-                                <i class="fas fa-table me-1"></i>Add New Room Information                               
+                                <h1 class="text-info"><i class="fa fa-eye"></i> View Room</h1>
+
                             </div>
                             <div class="card-body">
-                                <table>
-                                    <h2 class="text-center">Add New Room</h2>
+
+                                <form action="#">
+                                    <div class="form-group row">
+                                        <label  class="col-sm-2 col-form-label">Room N.o</label>
+                                        <div class="col-sm-10">
+                                            <input type="text" class="form-control" value="1" disabled="disabled">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-sm-2 col-form-label">Hostel</label>
+                                        <div class="col-sm-10">
+                                            <input type="text" class="form-control"  value="District 1" disabled="disabled">
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-group col-md-2">
+                                            <label>Unit Price </label>
+                                        </div>
+                                        <div class="form-group col-md-10">
+
+                                            <input type="text" class="form-control"  value="2.300.000" disabled="disabled">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-row">
+                                        <div class="form-group col-md-2">
+                                            <label>Status </label>
+                                        </div>
+                                        <div class="form-group col-md-10">
+
+                                            <input type="text" class="form-control"  value="Active" disabled="disabled">
+                                        </div>
+                                    </div>
 
 
+                                    <div class="mt-3 text-center">
+                                        <a href="room.jsp">
+                                            <button class="btn btn-warning" type="button" id="cancelButton"><i class="fa fa-mail-reply"></i> Return</button>
+                                        </a>
+                                        <a href="editRoom.jsp">
+                                        <button class="btn btn-success" type="button" id="sumbitButton"><i class="fa fa-edit"></i> Edit</button>
+                                        </a>
+                                    </div>
+                                </form>
 
-
-                                </table>
                             </div>
 
                         </div>
                     </div>
 
+                </main>
+                <footer class="py-4 bg-light mt-auto">
+                    <div class="container-fluid px-4">
+                        <div class="d-flex align-items-center justify-content-between small">
+                            <div class="text-muted ">Copyright &copy; by MoonHostel</div>
+                        </div>
+                    </div>
+                </footer>
             </div>
+        </div>
+        <script src="../js/scripts.js"></script>
+        <script src="../js/datatables-simple-demo.js"></script>
+        <script src="../assets/demo/chart-area-demo.js"></script>
+        <script src="../assets/demo/chart-bar-demo.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>    
+        <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+        <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
 
-
-        </main>
-        <footer class="py-4 bg-light mt-auto">
-            <div class="container-fluid px-4">
-                <div class="d-flex align-items-center justify-content-between small">
-                    <div class="text-muted ">Copyright &copy; by MoonHostel</div>
-                </div>
-            </div>
-        </footer>
-    </div>
-</div>
-<script src="../js/scripts.js"></script>
-<script src="../js/datatables-simple-demo.js"></script>
-<script src="../assets/demo/chart-area-demo.js"></script>
-<script src="../assets/demo/chart-bar-demo.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>    
-<script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
-<script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
-
-</body>
+    </body>
 
 </html>
+

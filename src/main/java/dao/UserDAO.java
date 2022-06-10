@@ -83,5 +83,11 @@ public UserDTO checkLogin(String email, String password) throws SQLException {
         return check;
     }
 
-
+  public static void main(String[] args) throws SQLException {
+        
+        UserDAO dao = new UserDAO();
+        UserDTO list = dao.checkLogin("hungtqse150272@fpt.edu.vn", "hung");
+        if(list.getStatus().trim().equals("APPROVED"))
+            System.out.println("OK");
+        }
 }

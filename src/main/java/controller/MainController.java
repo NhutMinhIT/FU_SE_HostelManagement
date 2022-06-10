@@ -33,7 +33,7 @@ public class MainController extends HttpServlet {
         String url = ERROR;
         try {
             String action = request.getParameter("action");
-            if (null != action) switch (action) {
+            switch (action) {
                 case "Login":
                     url = LOGIN_CONTROLLER;
                     break;
