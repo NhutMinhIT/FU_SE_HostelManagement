@@ -40,6 +40,7 @@ public class UserPageController extends HttpServlet {
             List<RoomDTO> RoomList = dao.GetListRoom(HostelList);
             request.setAttribute("HostelList",HostelList);
             request.setAttribute("RoomList",RoomList);
+            url = SUCCESS;
 
         } catch (Exception e) {
             log("Error at UserPageController:"+e.toString());

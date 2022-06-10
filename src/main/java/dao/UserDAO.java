@@ -17,7 +17,7 @@ import utils.DBUtils;
  * @author avillX
  */
 public class UserDAO {
-    private final static String LOGIN = "SELECT * FROM dbo.[User] WHERE email=? AND password=? AND status='APPROVED'";
+    private final static String LOGIN = "SELECT * FROM dbo.[User] WHERE email=? AND password=?";
     private final static String APPROVED_USER = "UPDATE dbo.[User] SET status = ? where user_id = ?";
 
 
@@ -37,8 +37,9 @@ public UserDTO checkLogin(String email, String password) throws SQLException {
                     String userID = rs.getString("user_id");
                     String fullName = rs.getString("fullName");                   
                     String phone = rs.getString("phone");
+                    String status = rs.getString("status");
                     String roleID = rs.getString("Role");
-                    user = new UserDTO(userID, password, fullName, email, phone, "APPROVED", roleID);
+                    user = new UserDTO(userID, password, fullName, email, phone, status, roleID);
                 }
             }
         } catch (Exception e) {

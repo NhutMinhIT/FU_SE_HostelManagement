@@ -16,7 +16,7 @@ public class LoginController extends HttpServlet {
     private static final String ERROR = "View/login.jsp";
     private static final String ADMIN_PAGE = "MainController?action=AdminPage";
     private static final String AD = "AD";
-    private static final String USER_PAGE = "/View/index.jsp";
+    private static final String USER_PAGE = "MainController?action=UserPage";
     private static final String US = "US";
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
@@ -32,14 +32,20 @@ public class LoginController extends HttpServlet {
                 if (loginUser != null) {
                     HttpSession session = request.getSession();
                     String roleID = loginUser.getRoleID();
-                    if (AD.equals(roleID.trim())) {
+                    switch (roleID) {
+                    case AD:
                         session.setAttribute("LOGIN_USER", loginUser);
                         url = ADMIN_PAGE;
-                    } else if (US.equals(roleID.trim())) {
-                        session.setAttribute("LOGIN_USER", loginUser);
-                        url = USER_PAGE;
-                    } else {
-                        request.setAttribute("ERROR", "Your role is not support!");
+                        break;
+                    case US:
+                        if(loginUser.getStatus().equals("APROVED")){
+                            session.setAttribute("LOGIN_USER", loginUser);
+                            url = USER_PAGE;
+                        }
+                        break;
+                    default:
+                        request.setAttribute("ERROR", "Your role is not ready!");
+                        break;
                     }
                 } else {
                     request.setAttribute("ERROR", "Incorrect userID or Password!");
