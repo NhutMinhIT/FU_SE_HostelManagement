@@ -32,7 +32,6 @@ public class LoginController extends HttpServlet {
                 if (loginUser != null) {
                     HttpSession session = request.getSession();
                     String roleID = loginUser.getRoleID();
-<<<<<<< HEAD
                     switch (roleID) {
                     case AD:
                         session.setAttribute("LOGIN_USER", loginUser);
@@ -47,16 +46,6 @@ public class LoginController extends HttpServlet {
                     default:
                         request.setAttribute("ERROR", "Your role is not ready!");
                         break;
-=======
-                    if (AD.equals(roleID.trim())) {
-                        session.setAttribute("LOGIN_USER", loginUser);
-                        url = ADMIN_PAGE;
-                    } else if (US.equals(roleID.trim())) {
-                        session.setAttribute("LOGIN_USER", loginUser);
-                        url = USER_PAGE;
-                    } else {
-                        request.setAttribute("ERROR", "Your role is not support!");
->>>>>>> 83b97c015f16896776d71e898a477cec1d789937
                     }
                 } else {
                     request.setAttribute("ERROR", "Incorrect userID or Password!");
