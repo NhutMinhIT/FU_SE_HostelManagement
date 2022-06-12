@@ -85,24 +85,24 @@
             <div id="layoutSidenav_content">
 
 
-                <div class="card mb-4">
-                    <div class="card-header">
+               <div class="card mb-4">
                         <div class="card-header">
-                            <h2><i class="fa fa-eye"></i> Thông Tin Khách Thuê</h2>                              
-                        </div>
-                        <div class="card-header">
-                            <h4><i class="fa fa-home"></i> Phòng 1</h4>                              
-                        </div>
-                        <div class="mt-3 text-center" style="float:right; display: flex">                               
-                            <a href="room.jsp">
-                                <button class="btn btn-warning" type="button" id="cancelButton"><i class="fa fa-mail-reply"></i> Trở Lại</button>
-                            </a>
-                            <a href="editCus.jsp">
+                            <div class="card-header">
+                                <h2><i class="fa fa-eye"></i> Thông Tin Khách Thuê</h2>                              
+                            </div>
+                            <div class="card-header ml-3">
+                                <h4><i class="fa fa-home"></i> Phòng 1</h4>                              
+                            </div>
+                            <div class="mt-3 text-center" style="float:right; display: flex">                               
+                                <a href="room.jsp">
+                                    <button class="btn btn-warning" type="button" id="cancelButton"><i class="fa fa-mail-reply"></i> Trở Lại</button>
+                                </a>
+                                <a href="editCus.jsp">
                                 <button class="btn btn-success" type="button" id="sumbitButton"><i class="fa fa-edit"></i> Sửa</button>   
-                            </a>
-                        </div>                      
+                                </a>
+                            </div>                      
+                        </div>
                     </div>
-                </div>
 
 
                 <main class="container-fluid">

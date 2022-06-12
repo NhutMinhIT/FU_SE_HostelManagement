@@ -4,7 +4,9 @@
  */
 package controller;
 
+import dao.CustomerDAO;
 import dao.RoomDAO;
+import dto.CustomerDTO;
 import dto.HostelDTO;
 import dto.RoomDTO;
 import dto.UserDTO;
@@ -36,8 +38,10 @@ public class UserPageController extends HttpServlet {
             HttpSession ss = request.getSession();
             UserDTO us =  (UserDTO) ss.getAttribute("LOGIN_USER");
             RoomDAO dao = new RoomDAO();
+
             List<HostelDTO> HostelList = dao.GetListHostel(us.getUserID());
             List<RoomDTO> RoomList = dao.GetListRoom(HostelList);
+            
             request.setAttribute("HostelList",HostelList);
             request.setAttribute("RoomList",RoomList);
             url = SUCCESS;

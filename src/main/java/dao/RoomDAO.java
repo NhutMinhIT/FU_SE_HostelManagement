@@ -4,6 +4,7 @@
  */
 package dao;
 
+import dto.CustomerDTO;
 import dto.HostelDTO;
 import dto.RoomDTO;
 import java.sql.Connection;
@@ -189,7 +190,7 @@ public class RoomDAO {
         try {
             conn = DBUtils.getConnection();
             if (conn != null) {
-                ptm = conn.prepareStatement(UPDATEROOM);
+                ptm = conn.prepareStatement(UPDATEHOSTEL);
                 ptm.setString(1, Hostel.getHostelname());
                 ptm.setString(2, Hostel.getAddress());
                 ptm.setString(3, Hostel.getPhone());
@@ -265,21 +266,21 @@ public class RoomDAO {
     }
 
 
-    public static void main(String[] args) throws SQLException {
-        List<RoomDTO> room = new ArrayList<>();
-        RoomDAO dao = new RoomDAO();
-        List<HostelDTO> list = dao.GetListHostel("1");
-        for(HostelDTO o : list){
-            room = dao.GetListRoom(list);
-        }
-        for(RoomDTO o : room){
-            System.out.println(o);
-        }
-        
+//    public static void main(String[] args) throws SQLException {
+//        List<CustomerDTO> Cus = new ArrayList<>();
+//        List<RoomDTO> room = new ArrayList<>();
+//        RoomDAO dao = new RoomDAO();
+//        CustomerDAO o = new CustomerDAO();
+//        List<HostelDTO> list = dao.GetListHostel("1");
+//        room = dao.GetListRoom(list);
+//        Cus = o.GetListCustomer(room);
+//        for(CustomerDTO w : Cus){
+//            System.out.println(Cus);
+//        }
 //        ProductSize list = dao.getProductAllSize("1");
 ////        for(Product o :list){
 //            System.out.println(list);
 ////        }
         
     }
-}
+
