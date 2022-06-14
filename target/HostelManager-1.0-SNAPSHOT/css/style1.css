@@ -1,0 +1,312 @@
+/* =======================================================================
+Template Name: Dil Hospital
+Author:  SmartEye Adminpanel
+Author URI: www.smarteyeapps.com
+Version: 1.0
+coder name:Prabin Raja
+Description: This Template is created for web template
+======================================================================= */
+/* ===================================== Import Less ================================== */
+@font-face {
+  font-family: 'mouse-300';
+  src: url("../fonts/RobotoSlab-Regular.ttf") format("truetype"); }
+@font-face {
+  font-family: 'mouse-500';
+  src: url("../fonts/RobotoSlab-Bold.ttf") format("truetype"); }
+/* ===================================== Basic CSS ================================== */
+* {
+  margin: 0px;
+  padding: 0px;
+  list-style: none; }
+
+img {
+  max-width: 100%; }
+
+a {
+  text-decoration: none;
+  outline: none;
+  color: #444; }
+
+a:hover {
+  color: #444; }
+
+ul {
+  margin-bottom: 0;
+  padding-left: 0; }
+
+a:hover,
+a:focus,
+input,
+textarea {
+  text-decoration: none;
+  outline: none; }
+
+.center {
+  text-align: center; }
+
+.left {
+  text-align: left; }
+
+.right {
+  text-align: right; }
+
+.cp {
+  cursor: pointer; }
+
+html, body {
+  height: 100%; }
+
+p {
+  margin-bottom: 0px;
+  width: 100%; }
+
+.no-padding {
+  padding: 0px; }
+
+.no-margin {
+  margin: 0px; }
+
+.hid {
+  display: none; }
+
+.top-mar {
+  margin-top: 15px; }
+
+.h-100 {
+  height: 100%; }
+
+::placeholder {
+  color: #747f8a !important;
+  font-size: 13px;
+  opacity: .5 !important; }
+
+.container-fluid {
+  padding: 0px; }
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "mouse-500", Arial, Helvetica, sans-serif; }
+
+strong {
+  font-family: "mouse-500", Arial, Helvetica, sans-serif; }
+
+body {
+  background-color: #f7f7ff !important;
+  font-family: "mouse-300", Arial, Helvetica, sans-serif;
+  color: #6A6A6A; }
+
+.session-title {
+  padding: 30px;
+  margin: 0px; }
+  .session-title h2 {
+    width: 100%;
+    text-align: center; }
+  .session-title p {
+    max-width: 850px;
+    text-align: center;
+    float: none;
+    margin: auto; }
+  .session-title span {
+    float: right;
+    font-style: italic; }
+
+.inner-title {
+  padding: 20px;
+  padding-left: 0px;
+  margin-bottom: 30px; }
+  .inner-title h2 {
+    width: 100%;
+    text-align: center;
+    font-size: 2rem;
+    font-family: "slab", Arial, Helvetica, sans-serif; }
+  .inner-title p {
+    width: 100%;
+    text-align: center; }
+
+.page-nav {
+  padding: 40px;
+  text-align: center;
+  padding-top: 160px; }
+  .page-nav ul {
+    float: none;
+    margin: auto; }
+  .page-nav h2 {
+    font-size: 36px;
+    width: 100%;
+    color: #444; }
+    @media screen and (max-width: 600px) {
+      .page-nav h2 {
+        font-size: 26px; } }
+  .page-nav ul li {
+    float: left;
+    margin-right: 10px;
+    margin-top: 10px;
+    font-size: 16px; }
+    .page-nav ul li i {
+      width: 30px;
+      text-align: center;
+      color: #444; }
+    .page-nav ul li a {
+      color: #444; }
+
+.btn-success {
+  background-color: #863dd9;
+  border-color: #863dd9; }
+  .btn-success:hover {
+    background-color: #863dd9 !important;
+    border-color: #863dd9 !important; }
+  .btn-success:active {
+    background-color: #863dd9 !important;
+    border-color: #863dd9 !important; }
+  .btn-success:focus {
+    background-color: #863dd9 !important;
+    border-color: #863dd9 !important;
+    box-shadow: none !important; }
+
+.btn-info {
+  background-color: #4f6dcd;
+  border-color: #4f6dcd; }
+  .btn-info:hover {
+    background-color: #4f6dcd !important;
+    border-color: #4f6dcd !important; }
+  .btn-info:active {
+    background-color: #4f6dcd !important;
+    border-color: #4f6dcd !important; }
+  .btn-info:focus {
+    background-color: #4f6dcd !important;
+    border-color: #4f6dcd !important;
+    box-shadow: none !important; }
+
+.btn {
+  box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+  border-radius: 2px; }
+
+.form-control:focus {
+  box-shadow: none !important;
+  border: 2px solid  #863dd9; }
+
+.btn-light {
+  background-color: #FFF;
+  color: #3F3F3F; }
+
+.collapse.show {
+  display: block !important; }
+
+.form-control:focus {
+  box-shadow: none;
+  border: 2px solid #863dd9 !important; }
+
+.form-control {
+  background-color: #F8F8F8;
+  margin-bottom: 20px; }
+  .form-control:focus {
+    background-color: #FFF;
+    border-color: #CCC; }
+
+.container {
+  max-width: 1100px; }
+  @media screen and (max-width: 575px) {
+    .container {
+      padding: 20px 30px; } }
+
+/* ===================================== Body CSS ================================== */
+body {
+  height: 100%; }
+  body .conya {
+    height: 100%; }
+
+.side-left {
+  background-color: red;
+  height: 100%;
+  width: calc(100% - 340px);
+  float: left;
+  background-image: url(../assets//img/16023.jpg);
+  background-size: 100%; }
+  @media screen and (max-width: 660px) {
+    .side-left {
+      display: none; } }
+  .side-left .sid-layy {
+    background-color: rgba(135, 63, 217, 0.73);
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    width: calc(100% - 340px); }
+
+.side-right {
+  background-color: #FFF;
+  height: 100%;
+  width: 340px;
+  float: left;
+  padding: 80px 30px;
+  text-align: center; }
+  @media screen and (max-width: 660px) {
+    .side-right {
+      width: 100%; } }
+  .side-right .logo {
+    width: 200px; }
+  .side-right .soc-det {
+    display: flex; }
+    .side-right .soc-det ul {
+      float: none;
+      margin: auto; }
+      .side-right .soc-det ul li {
+        float: left;
+        padding: 8px;
+        background-color: #FFF;
+        box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+        border-radius: 2px;
+        width: 35px;
+        height: 35px;
+        border-radius: 50px;
+        margin-left: 10px;
+        font-size: 12px; }
+        .side-right .soc-det ul li i {
+          color: #FFF; }
+      .side-right .soc-det ul .facebook {
+        background-color: #3b5894; }
+      .side-right .soc-det ul .twitter {
+        background-color: #19a1f7; }
+      .side-right .soc-det ul .pin {
+        background-color: #db443b; }
+      .side-right .soc-det ul .link {
+        background-color: #007ab4; }
+  .side-right h2 {
+    font-size: .8rem;
+    font-family: "mouse-300", Arial, Helvetica, sans-serif;
+    padding: 20px 10px; }
+  .side-right .form-row label {
+    font-size: .8rem; }
+  .side-right .skjh {
+    font-size: .8rem; }
+    .side-right .skjh span {
+      float: right; }
+
+.dfr {
+  padding: 35px 10px;
+  text-align: center; }
+  .dfr .btn {
+    padding: 5px 40px;
+    border-radius: 50px;
+    float: none;
+    margin: auto; }
+
+.copyco {
+  position: absolute;
+  bottom: 13px;
+  right: 55px;
+  font-size: .8rem; }
+
+.slid-roo {
+  padding: 70px;
+  color: #FFF;
+  position: absolute;
+  bottom: 0px; }
+  .slid-roo p {
+    font-size: .9rem;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #cccccc70; }
+  .slid-roo ul li {
+    float: left;
+    padding: 10px;
+    font-size: .8rem; }
+
+/*# sourceMappingURL=style.css.map */
