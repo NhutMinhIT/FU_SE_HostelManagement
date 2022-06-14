@@ -40,24 +40,24 @@
             <div class="side-right">
                 <img class="logo rounded-circle" style="width: 30%" src="assets/img/logo.png" alt="">
 
-                <h3>Login</h3>
+                <h2>Login into Your Account</h2>
                 <form action="${pageContext.request.contextPath}/MainController" method="POST">
                     <div class="form-row">
-                        <label for="">Emai</label>
-                        <input type="text" placeholder="yourname@gmail.com" class="form-control form-control-sm" name="email" required pattern="\S+" >
+                        <label for="">Email ID</label>
+                        <input type="text" placeholder="yourname@company.com" class="form-control form-control-sm" name="email">
                     </div>
 
                     <div class="form-row">
-                        <label for="">Mật Khẩu</label>
-                        <input type="password" placeholder="Mật Khẩu" class="form-control form-control-sm" name="password" required pattern="\S+">
+                        <label for="">Password</label>
+                        <input type="password" placeholder="Password" class="form-control form-control-sm" name="password">
                     </div>
 
                     <div class="form-row row skjh">
                         <div class="col-7 left no-padding">
-                            <input type="checkbox">Nhớ Mật Khẩu
+                            <input type="checkbox">Keep me Sign In
                         </div>
                         <div class="col-5">
-                            <span> <a href="">Quên Mật Khẩu ?</a></span>
+                            <span> <a href="">Forget Password ?</a></span>
                         </div>
                     <p class="help-block alert-danger">${requestScope.ERROR}</p>
 
@@ -89,11 +89,19 @@
                 <p>Copyrigh 2022 @ MoonHostel</p> 
             </div>
         </div>  
+<<<<<<< HEAD
         <script src="${pageContext.request.contextPath}/assets/js/jquery-3.2.1.min.js"></script>
         <script src="${pageContext.request.contextPath}/assets/js/popper.min.js"></script>
         <script src="${pageContext.request.contextPath}/assets/js/bootstrap.min.js"></script>
         <script src="${pageContext.request.contextPath}/assets/js/script.js"></script>
+=======
+        <script src="assets/js/jquery-3.2.1.min.js"></script>
+        <script src="assets/js/popper.min.js"></script>
+        <script src="assets/js/bootstrap.min.js"></script>
+        <script src="assets/js/script.js"></script>
+        <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
 
+>>>>>>> 1500ba7ce6cfbf43419f8729ff4e00e3c6f82d0f
     </body>
 
 

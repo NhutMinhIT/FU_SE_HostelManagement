@@ -1,3 +1,8 @@
+<%-- 
+    Document   : lgoin
+    Created on : May 23, 2022, 3:49:54 PM
+    Author     : ASUS
+--%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
@@ -8,7 +13,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <title>SignUp</title>
+        <title> Free Stylish Login Page Website Template | Smarteyeapps.com</title>
 
         <link rel="shortcut icon" href="../assets/images/fav.jpg">
         <link rel="stylesheet" href="../css/bootstrap.min.css">
@@ -38,24 +43,24 @@
                 <h3>SIGN UP</h3>
                 <form action="">
                     <div class="form-row">
-                        <label for="username">Tên Đăng Nhập</label>
-                        <input type="text" placeholder="yourname@gmail.com" name="email" class="form-control form-control-sm" required pattern="\S+">
+                        <label for="username">User name</label>
+                        <input type="text" placeholder="User name" name="username" class="form-control form-control-sm" required pattern="\S+">
                     </div>
 
                     <div class="form-row">
-                        <label for="password">Mật Khẩu</label>
-                        <input onChange="onChange()" type="password" size="60" placeholder="Mật Khẩu" name="Pass" required pattern="\S+" class="form-control form-control-sm">
+                        <label for="password">Password</label>
+                        <input onChange="onChange()" type="password" size="60" placeholder="Password" name="Pass" required pattern="\S+" class="form-control form-control-sm">
                     </div>
                     <div class="form-row">
-                        <label for="repassword">Nhập Lại Mật Khẩu</label>
-                        <input onChange="onChange()" type="password" size="60" placeholder="Nhập Lại Mật Khẩu" name="repassword" required pattern="\S+" class="form-control form-control-sm">
+                        <label for="repassword">Re-password</label>
+                        <input onChange="onChange()" type="password" size="60" placeholder="Re-password" name="repassword" required pattern="\S+" class="form-control form-control-sm">
                     </div>
 
-                    <p>Bạn đã có tài khoản?  <a href ="login" style="color: red">Đăng Nhập</a></p>
+                    <p>Already have account?  <a href ="login" style="color: red">Login</a></p>
 
                     <div class="dfr">
                         <a href="login.jsp">
-                            <button type="submit" class="btn btn-sm btn-success">Đăng Kí</button>
+                            <button type="submit" class="btn btn-sm btn-success">Sign up</button>
                         </a>
                     </div>
 
