@@ -1,29 +1,3 @@
-<<<<<<< HEAD
-C:\Users\Dell\OneDrive\Desktop\MoonHostel\HostelManager\src\main\java\dto\FurnitureDTO.java
-C:\Users\Dell\OneDrive\Desktop\MoonHostel\HostelManager\src\main\java\controller\HostelManagerController.java
-C:\Users\Dell\OneDrive\Desktop\MoonHostel\HostelManager\src\main\java\dao\RoomDAO.java
-C:\Users\Dell\OneDrive\Desktop\MoonHostel\HostelManager\src\main\java\controller\DeleteHostelController.java
-C:\Users\Dell\OneDrive\Desktop\MoonHostel\HostelManager\src\main\java\controller\UserPageController.java
-C:\Users\Dell\OneDrive\Desktop\MoonHostel\HostelManager\src\main\java\dto\Contract.java
-C:\Users\Dell\OneDrive\Desktop\MoonHostel\HostelManager\src\main\java\dao\ContractDAO.java
-C:\Users\Dell\OneDrive\Desktop\MoonHostel\HostelManager\src\main\java\utils\DBUtils.java
-C:\Users\Dell\OneDrive\Desktop\MoonHostel\HostelManager\src\main\java\controller\LogoutController.java
-C:\Users\Dell\OneDrive\Desktop\MoonHostel\HostelManager\src\main\java\dto\RoomDTO.java
-C:\Users\Dell\OneDrive\Desktop\MoonHostel\HostelManager\src\main\java\controller\RoomPageController.java
-C:\Users\Dell\OneDrive\Desktop\MoonHostel\HostelManager\src\main\java\dto\ContractDTO.java
-C:\Users\Dell\OneDrive\Desktop\MoonHostel\HostelManager\src\main\java\dao\CustomerDAO.java
-C:\Users\Dell\OneDrive\Desktop\MoonHostel\HostelManager\src\main\java\controller\UpdateHostelController.java
-C:\Users\Dell\OneDrive\Desktop\MoonHostel\HostelManager\src\main\java\dao\UserDAO.java
-C:\Users\Dell\OneDrive\Desktop\MoonHostel\HostelManager\src\main\java\controller\DeleteRoomController.java
-C:\Users\Dell\OneDrive\Desktop\MoonHostel\HostelManager\src\main\java\dto\HostelDTO.java
-C:\Users\Dell\OneDrive\Desktop\MoonHostel\HostelManager\src\main\java\controller\MainController.java
-C:\Users\Dell\OneDrive\Desktop\MoonHostel\HostelManager\src\main\java\controller\UpdateRoomController.java
-C:\Users\Dell\OneDrive\Desktop\MoonHostel\HostelManager\src\main\java\controller\LoginController.java
-C:\Users\Dell\OneDrive\Desktop\MoonHostel\HostelManager\src\main\java\dao\HostelDAO.java
-C:\Users\Dell\OneDrive\Desktop\MoonHostel\HostelManager\src\main\java\dto\CustomerDTO.java
-C:\Users\Dell\OneDrive\Desktop\MoonHostel\HostelManager\src\main\java\dto\UserDTO.java
-C:\Users\Dell\OneDrive\Desktop\MoonHostel\HostelManager\src\main\java\controller\AddHostelController.java
-=======
 D:\j2yD9gmz\Majors 5\SWP391\Git\GitManager\MoonHostel\src\main\java\controller\RoomPageController.java
 D:\j2yD9gmz\Majors 5\SWP391\Git\GitManager\MoonHostel\src\main\java\dto\Contract.java
 D:\j2yD9gmz\Majors 5\SWP391\Git\GitManager\MoonHostel\src\main\java\dao\ContractDAO.java
@@ -49,4 +23,3 @@ D:\j2yD9gmz\Majors 5\SWP391\Git\GitManager\MoonHostel\src\main\java\dto\Contract
 D:\j2yD9gmz\Majors 5\SWP391\Git\GitManager\MoonHostel\src\main\java\controller\UserPageController.java
 D:\j2yD9gmz\Majors 5\SWP391\Git\GitManager\MoonHostel\src\main\java\dto\CustomerDTO.java
 D:\j2yD9gmz\Majors 5\SWP391\Git\GitManager\MoonHostel\src\main\java\utils\DBUtils.java
->>>>>>> AvillXx

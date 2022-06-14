@@ -4,10 +4,7 @@
  */
 package dao;
 
-<<<<<<< HEAD
-=======
 import dto.ContractDTO;
->>>>>>> AvillXx
 import dto.CustomerDTO;
 import dto.HostelDTO;
 import dto.RoomDTO;
@@ -341,19 +338,6 @@ public class RoomDAO {
     }
 
 
-<<<<<<< HEAD
-//    public static void main(String[] args) throws SQLException {
-//        List<CustomerDTO> Cus = new ArrayList<>();
-//        List<RoomDTO> room = new ArrayList<>();
-//        RoomDAO dao = new RoomDAO();
-//        CustomerDAO o = new CustomerDAO();
-//        List<HostelDTO> list = dao.GetListHostel("1");
-//        room = dao.GetListRoom(list);
-//        Cus = o.GetListCustomer(room);
-//        for(CustomerDTO w : Cus){
-//            System.out.println(Cus);
-//        }
-=======
     public static void main(String[] args) throws SQLException {
         List<CustomerDTO> Cus = new ArrayList<>();
         List <ContractDTO> Contract = new ArrayList<>();
@@ -373,7 +357,6 @@ public class RoomDAO {
         for(CustomerDTO w : Cus){
             System.out.println(w.getFullname());
         }
->>>>>>> AvillXx
 //        ProductSize list = dao.getProductAllSize("1");
 ////        for(Product o :list){
 //            System.out.println(list);

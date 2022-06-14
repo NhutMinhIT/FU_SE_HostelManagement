@@ -26,8 +26,6 @@ public class MainController extends HttpServlet {
     private static final String ADMIN_PAGE = "AdminPageController";
     private static final String USER_PAGE = "UserPageController";
     private static final String ROOM_PAGE = "RoomPageController";
-<<<<<<< HEAD
-=======
 
     private static final String ADD_ROOM = "AddRoomController";
     private static final String ADD_HOSTEL = "AddHostelController";
@@ -36,7 +34,6 @@ public class MainController extends HttpServlet {
     private static final String DELETE_ROOM = "DeleteRoomController";
     private static final String DELETE_HOSTEL = "DeleteHostelController";
 
->>>>>>> AvillXx
 
     
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
@@ -61,8 +58,6 @@ public class MainController extends HttpServlet {
                 case "RoomPage":
                     url = ROOM_PAGE;
                     break;
-<<<<<<< HEAD
-=======
                 case "AddRoom":
                     url = ADD_ROOM;
                     break;
@@ -81,7 +76,6 @@ public class MainController extends HttpServlet {
                 case "DeleteHostel":
                     url = DELETE_HOSTEL;
                     break;
->>>>>>> AvillXx
                 default:
                     break;
             }

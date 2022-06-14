@@ -85,12 +85,6 @@
             <div id="layoutSidenav_content">
 
 
-<<<<<<< HEAD
-                <div class="card mb-4">
-                    <div class="card-header">
-                        <div class="card-header">
-                            <h2><i class="fa fa-eye"></i> Thông Tin Khách Thuê</h2>                              
-=======
                <div class="card mb-4">
                         <div class="card-header">
                             <div class="card-header">
@@ -107,21 +101,8 @@
                                 <button class="btn btn-success" type="button" id="sumbitButton"><i class="fa fa-edit"></i> Sửa</button>   
                                 </a>
                             </div>                      
->>>>>>> AvillXx
                         </div>
-                        <div class="card-header ml-3">
-                            <h4><i class="fa fa-home"></i> Phòng 1</h4>                              
-                        </div>
-                        <div class="mt-3 text-center" style="float:right; display: flex">                               
-                            <a href="room.jsp">
-                                <button class="btn btn-warning" type="button" id="cancelButton"><i class="fa fa-mail-reply"></i> Trở Lại</button>
-                            </a>
-                            <a href="editCus.jsp">
-                                <button class="btn btn-success" type="button" id="sumbitButton"><i class="fa fa-edit"></i> Sửa</button>   
-                            </a>
-                        </div>                      
                     </div>
-                </div>
 
 
                 <main class="container-fluid">
@@ -364,11 +345,7 @@
                                             <label  class="col-sm-4 col-form-label">Ngày Hết Hạn</label>
                                             <div class="col-sm-8">
                                                 <input type="text" class="form-control"
-<<<<<<< HEAD
-                                                       value="25/05/2023" disabled=""/>
-=======
                                                        value="25/05/2023" disabled="">
->>>>>>> AvillXx
                                             </div>
                                         </div>                                        
 
@@ -377,10 +354,6 @@
                                 </div>
 
                             </div>
-<<<<<<< HEAD
-                        </div>
-=======
->>>>>>> AvillXx
                             </main>
 
                             <footer class="py-4 bg-light mt-auto jumbotron">

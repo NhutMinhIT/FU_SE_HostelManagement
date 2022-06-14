@@ -36,13 +36,8 @@ public class ContractDAO {
                     ptm.setString(1, i.getRoomID());
                     rs = ptm.executeQuery();
                     while (rs.next()) {
-<<<<<<< HEAD
-                        String contractID = rs.getString("contractID");
-                        String customerID = rs.getString("customerID");
-=======
                         String contractID = rs.getString("contract_id");
                         String customerID = rs.getString("customer_id");
->>>>>>> AvillXx
                         Date signed_date = rs.getDate("signed_date");
                         Date due_date = rs.getDate("due_date");
                         String status = rs.getString("status");
