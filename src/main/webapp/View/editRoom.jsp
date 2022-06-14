@@ -14,7 +14,11 @@
         <meta name="description" content="" />
         <meta name="author" content="" />
         <title>MoonHostel</title>
+<<<<<<< HEAD
         <link rel="icon" type="image/png" href="../assets/img/logo.png" sizes="16x16">
+=======
+        <link rel="icon" type="image/png" href="${pageContext.request.contextPath}/assets/img/logo.png" sizes="16x16">
+>>>>>>> AvillXx
         <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
@@ -22,6 +26,7 @@
 
     </head>
     <body class="sb-nav-fixed">
+<<<<<<< HEAD
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
             <!-- Navbar Brand-->
             <a class="navbar-brand ps-3" href="index.jsp">MoonHostel
@@ -86,6 +91,11 @@
                     </div>
                 </nav>
             </div>
+=======
+        
+        <%@include file="/View/layout/header.jsp" %>
+         
+>>>>>>> AvillXx
             <div id="layoutSidenav_content">
                 <main class="container-fluid">
                     <div class="container-fluid px-4">
@@ -96,17 +106,30 @@
                             </div>
                             <div class="card-body">
 
+<<<<<<< HEAD
                                 <form action="#">
                                     <div class="form-group row">
                                         <label  class="col-sm-2 col-form-label">Số Phòng</label>
                                         <div class="col-sm-10">
                                             <input type="text" class="form-control" value="1" disabled="disabled">
+=======
+                                <form action="MainController">
+                                    <input  type="hidden" name="${Room.roomID}"/>
+                                    <div class="form-group row">
+                                        <label  class="col-sm-2 col-form-label">Số Phòng</label>
+                                        <div class="col-sm-10">
+                                            <input type="text" class="form-control" value="${Room.roomnumber}" disabled="disabled">
+>>>>>>> AvillXx
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label">Tên Nhà</label>
                                         <div class="col-sm-10">
+<<<<<<< HEAD
                                             <input type="text" class="form-control"  value="District 1" disabled="disabled">
+=======
+                                            <input type="text" class="form-control"  value="${HostelName}" disabled="disabled">
+>>>>>>> AvillXx
                                         </div>
                                     </div>
                                     <div class="form-row">
@@ -115,7 +138,11 @@
                                         </div>
                                         <div class="form-group col-md-10">
 
+<<<<<<< HEAD
                                             <input type="text" class="form-control"  value="2.300.000 VND" >
+=======
+                                            <input type="text" class="form-control"  value="${Room.price}" name="RoomPrice">
+>>>>>>> AvillXx
                                         </div>
                                     </div>
 
@@ -124,19 +151,32 @@
                                             <label>Trạng Thái </label>
                                         </div>
                                         <div class="form-group col-md-10">
+<<<<<<< HEAD
 
                                             <input type="text" class="form-control"  value="Hoạt Động" disabled="disabled">
+=======
+                                            <input type="text" class="form-control"  value="${Room.status}" disabled="disabled">
+>>>>>>> AvillXx
                                         </div>
                                     </div>
 
 
                                     <div class="mt-3 text-center">
+<<<<<<< HEAD
                                         <a href="room.jsp">
                                             <button class="btn btn-warning" type="button" id="cancelButton"><i class="fa fa-mail-reply"></i> Trở Về</button>
                                         </a>
                                         
                                         <button class="btn btn-success" type="button" id="sumbitButton"><i class="fa fa-check"></i> Lưu</button>
                                         
+=======
+                                        <a href="MainController?action=RoomPage">
+                                            <button class="btn btn-warning" type="button" id="cancelButton"><i class="fa fa-mail-reply"></i> Trở Về</button>
+                                        </a>
+                                        <a href="">
+                                            <button class="btn btn-success" type="button" id="sumbitButton"><input type="submit" class="btn btn"  name="action" value="UpdateRoom"></button>
+                                        </a>
+>>>>>>> AvillXx
                                     </div>
                                 </form>
 
@@ -155,10 +195,17 @@
                 </footer>
             </div>
         </div>
+<<<<<<< HEAD
         <script src="../js/scripts.js"></script>
         <script src="../js/datatables-simple-demo.js"></script>
         <script src="../assets/demo/chart-area-demo.js"></script>
         <script src="../assets/demo/chart-bar-demo.js"></script>
+=======
+        <script src="${pageContext.request.contextPath}/js/scripts.js"></script>
+        <script src="${pageContext.request.contextPath}/js/datatables-simple-demo.js"></script>
+        <script src="${pageContext.request.contextPath}/assets/demo/chart-area-demo.js"></script>
+        <script src="${pageContext.request.contextPath}/assets/demo/chart-bar-demo.js"></script>
+>>>>>>> AvillXx
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>    
         <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>

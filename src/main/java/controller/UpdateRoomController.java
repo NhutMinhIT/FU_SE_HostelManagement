@@ -5,6 +5,7 @@
 package controller;
 
 import dao.RoomDAO;
+import dto.HostelDTO;
 import dto.RoomDTO;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -22,32 +23,12 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet(name = "UpdateRoomController", urlPatterns = {"/UpdateRoomController"})
 public class UpdateRoomController extends HttpServlet {
 
-    private static final String ERROR = "UserPageController";
+    private static final String ERROR = "View/editRoom";
     private static final String SUCCESS = "UserPageController";
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        String url = ERROR;
-        try {
-            String roomID = request.getParameter("roomID");
-            String hostelID = request.getParameter("hostelID");
-            String roomnumber = request.getParameter("roomnumber");
-            String roomsize = request.getParameter("roomsize");
-            Double price = Double.parseDouble(request.getParameter("price"));
-            String description = request.getParameter("description");
-            String status = request.getParameter("status");
-
-            RoomDAO dao = new RoomDAO();
-            boolean check = dao.UpdateRoom(new RoomDTO(roomID, hostelID, roomnumber, roomsize, price, description, status));
-            if (check) {
-                url = SUCCESS;
-            }
-        } catch (Exception e) {
-            log("Error at UpdateRoomController: " + e.toString());
-        } finally {
-            request.getRequestDispatcher(url).forward(request, response);
-        }
+       
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -62,7 +43,21 @@ public class UpdateRoomController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        response.setContentType("text/html;charset=UTF-8");
+        String url = ERROR;
+        try {
+            RoomDAO dao = new RoomDAO();
+            RoomDTO RoomInfo = dao.GetARoom(request.getParameter("RoomID"));
+            HostelDTO HostelInfo = dao.GetAHostel(request.getParameter("HostelID"));
+
+            request.setAttribute("HostelInfo",HostelInfo);
+            request.setAttribute("RoomInfo",RoomInfo);
+
+        } catch (Exception e) {
+            log("Error at UpdateRoomController(doGET): " + e.toString());
+        } finally {
+            request.getRequestDispatcher(url).forward(request, response);
+        }
     }
 
     /**
@@ -76,7 +71,30 @@ public class UpdateRoomController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        response.setContentType("text/html;charset=UTF-8");
+        String url = SUCCESS;
+        try {
+            RoomDAO dao = new RoomDAO();
+            RoomDTO NewRoom = dao.GetARoom(request.getParameter("RoomID"));
+            Double price = Double.parseDouble(request.getParameter("price"));
+            NewRoom.setPrice(price);
+//            String roomID = request.getParameter("roomID");
+//            String hostelID = request.getParameter("hostelID");
+//            String roomnumber = request.getParameter("roomnumber");
+//            String roomsize = request.getParameter("roomsize");          
+//            String description = request.getParameter("description");
+//            String status = request.getParameter("status");
+
+            
+            boolean check = dao.UpdateRoom(NewRoom);
+            if (check) {
+                url = SUCCESS;
+            }
+        } catch (Exception e) {
+            log("Error at UpdateRoomController(doPost): " + e.toString());
+        } finally {
+            request.getRequestDispatcher(url).forward(request, response);
+        }
     }
 
     /**

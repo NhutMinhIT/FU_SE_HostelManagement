@@ -47,6 +47,7 @@
                 <main class="container-fluid">
 
                     <div class="room container-fluid px-4">    
+<<<<<<< HEAD
                         
                         <c:forEach items="${HostelList}" var="Hos">
                             <ul class=" col-12 nav nav-tabs mb-4">
@@ -56,6 +57,15 @@
                             </ul>
                         </c:forEach> 
                                 
+=======
+                        <ul class=" col-12 nav nav-tabs mb-4">
+                            <li class="nav-item">
+                                <c:forEach items="${HostelList}" var="Hos">
+                                    <a class="nav-link active" href="#${Hos.hostelname}" role="tab" data-toggle="tab">${Hos.hostelname}</a>
+                                </c:forEach> 
+                            </li>                               
+                        </ul>        
+>>>>>>> AvillXx
                         <div class="breadcrumb mb-4 " style="margin-left: 85%">
                             <div class="row">
                                 <a href="addNewRoom.jsp">
@@ -66,7 +76,10 @@
                         </div>
                                 
                         <div class="tab-content ">
+<<<<<<< HEAD
                             <c:forEach items="${HostelList}" var="Hos">
+=======
+>>>>>>> AvillXx
                                 <div role="tabpanel" class=" tab-pane fade show active" id="${Hos.hostelname}" >
                                 <div class="card-body">
                                     <table id="datatablesSimple">
@@ -95,9 +108,15 @@
                                             </tr>
                                         </tfoot>
                                         <tbody>
+<<<<<<< HEAD
                                             <c:forEach items="${RoomList}" var="R">
                                                 <c:if test="${R.hostelID == Hos.hostelID}">
                                                     
+=======
+                                        <c:forEach items="${HostelList}" var="Hos">
+                                            <c:forEach items="${RoomList}" var="R">
+                                                <c:if test="${R.hostelID == Hos.hostelID}">                                                    
+>>>>>>> AvillXx
                                                     <c:forEach items="${ContractList}" var="Contract">
                                                         <c:if test="${Contract.roomID == R.roomID}">                                                            
                                                             <c:forEach items="${CusList}" var="Cus">
@@ -105,9 +124,15 @@
                                                                     <tr>                                                
                                                                         <td>${R.roomnumber}</td>
                                                                         <td>
+<<<<<<< HEAD
                                                                                 <a href="${pageContext.request.contextPath}/MainController?action=ViewCus&id=${Cus.customerID}">
                                                                                     ${Cus.fullname}
                                                                                 </a>
+=======
+                                                                            <a href="${pageContext.request.contextPath}/MainController?action=ViewCus&id=${Cus.customerID}">
+                                                                                ${Cus.fullname}
+                                                                            </a>
+>>>>>>> AvillXx
                                                                         </td>
                                                                         <td>${Cus.phone}</td>
                                                                         <td>${Cus.email}</td>
@@ -117,6 +142,7 @@
                                                                         <c:choose>
                                                                             <c:when test="${R.status == 'RENTING'}">
                                                                                <td>                                                    
+<<<<<<< HEAD
                                                                                     <a href="viewRoom.jsp">
                                                                                         <button class="btn btn-warning" title="View"><i class="fa fa-eye"></i></button>
                                                                                     </a>
@@ -124,6 +150,15 @@
                                                                                         <button class="btn btn-primary" title="Edit"><i class="fa fa-edit"></i></button>
                                                                                     </a>
                                                                                     <button class="btn btn-danger" title="Remove"><i class="fa fa-remove"></i></button>                                                    
+=======
+                                                                                    
+                                                                                    <a href="${pageContext.request.contextPath}/MainController?action=UpdateRoom&RoomID=${R.roomID}&HostelID=${Hos.hostelID}}">
+                                                                                        <button class="btn btn-primary" title="Edit"><i class="fa fa-edit"></i></button>
+                                                                                    </a>
+                                                                                    <a href="${pageContext.request.contextPath}/MainController?action=DeleteRoom&RoomID=${R.roomID}}">                                                                                        
+                                                                                        <button class="btn btn-danger" title="Remove"><i class="fa fa-remove"></i></button>                
+                                                                                    </a>
+>>>>>>> AvillXx
                                                                                 </td>
                                                                             </c:when>                                                                   
                                                                             <c:otherwise>
@@ -143,13 +178,22 @@
                                                             
                                                     
                                                 </c:if>   
+<<<<<<< HEAD
                                             </c:forEach> 
+=======
+                                            </c:forEach>
+                                        </c:forEach> 
+>>>>>>> AvillXx
                                         </tbody>
                                     </table>
                                 </div>
 
                             </div>
+<<<<<<< HEAD
                             </c:forEach> 
+=======
+                            
+>>>>>>> AvillXx
                         </div>
 
 
