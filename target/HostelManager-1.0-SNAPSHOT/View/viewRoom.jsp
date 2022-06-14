@@ -1,10 +1,3 @@
-<%-- 
-    Document   : addnewrom
-    Created on : May 31, 2022, 7:17:06 AM
-    Author     : Dell
---%>
-
-
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -42,8 +35,7 @@
             <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
-                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                        
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">                       
                         <li><a class="dropdown-item" href="#!">Cài Đặt</a></li>
 
                         <li>
@@ -55,7 +47,7 @@
             </ul>
         </nav>
         <div id="layoutSidenav">
-        <div id="layoutSidenav_nav">
+             <div id="layoutSidenav_nav">
                 <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
                     <div class="sb-sidenav-menu">
                         <div class="nav">
@@ -93,7 +85,7 @@
                     <div class="container-fluid px-4">
                         <div class="card mt-4">
                             <div class="card-header">
-                                <h1 class="text-info">Thêm Phòng</h1>
+                                <h1 class="text-info"><i class="fa fa-eye"></i> Xem Thông Tin Phòng</h1>
 
                             </div>
                             <div class="card-body">
@@ -102,13 +94,13 @@
                                     <div class="form-group row">
                                         <label  class="col-sm-2 col-form-label">Số Phòng</label>
                                         <div class="col-sm-10">
-                                            <input type="text" class="form-control" placeholder="Số Phòng">
+                                            <input type="text" class="form-control" value="1" disabled="disabled">
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label">Tên Nhà</label>
                                         <div class="col-sm-10">
-                                            <input type="text" class="form-control"  placeholder="Tên Nhà">
+                                            <input type="text" class="form-control"  value="District 1" disabled="disabled">
                                         </div>
                                     </div>
                                     <div class="form-row">
@@ -117,21 +109,28 @@
                                         </div>
                                         <div class="form-group col-md-10">
 
-                                            <input type="text" class="form-control"  placeholder="VND">
+                                            <input type="text" class="form-control"  value="2.300.000" disabled="disabled">
                                         </div>
                                     </div>
 
-                                    <div class="form-group">
-                                        <label for="inputAddress2">Mô Tả</label>
-                                        <textarea rows="3" class="form-control" id="remarks" name="remarks"></textarea>
+                                    <div class="form-row">
+                                        <div class="form-group col-md-2">
+                                            <label>Trạng Thái </label>
+                                        </div>
+                                        <div class="form-group col-md-10">
+
+                                            <input type="text" class="form-control"  value="Active" disabled="disabled">
+                                        </div>
                                     </div>
 
 
                                     <div class="mt-3 text-center">
-                                         <a href="room.jsp">
-                                    <button class="btn btn-warning" type="button" id="cancelButton"><i class="fa fa-mail-reply"></i> Trở Về</button>
-                                </a>
-                                        <button class="btn btn-success" type="button" id="sumbitButton"><i class="fa fa-check"></i> Lưu</button>
+                                        <a href="room.jsp">
+                                            <button class="btn btn-warning" type="button" id="cancelButton"><i class="fa fa-mail-reply"></i> Trở Về</button>
+                                        </a>
+                                        <a href="editRoom.jsp">
+                                        <button class="btn btn-success" type="button" id="sumbitButton"><i class="fa fa-edit"></i> Chỉnh Sửa</button>
+                                        </a>
                                     </div>
                                 </form>
 
@@ -162,3 +161,4 @@
     </body>
 
 </html>
+

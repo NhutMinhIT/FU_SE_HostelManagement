@@ -4,50 +4,44 @@
  */
 package controller;
 
-import dao.CustomerDAO;
 import dao.RoomDAO;
-import dto.CustomerDTO;
-import dto.HostelDTO;
 import dto.RoomDTO;
-import dto.UserDTO;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 /**
  *
  * @author avillX
  */
-@WebServlet(name = "UserPageController", urlPatterns = {"/UserPageController"})
-public class UserPageController extends HttpServlet {
+@WebServlet(name = "AddRoomController", urlPatterns = {"/AddRoomController"})
+public class AddRoomController extends HttpServlet {
 
-    private static final String SUCCESS = "View/index.jsp";
-    private static final String ERROR = "View/index.jsp";
-   
-     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
+    private static final String ERROR = "View/addNewRoom.jsp";
+    private static final String SUCCESS = "MainController?action=RoomPage";
+
+    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        String url = ERROR;
-        try {
-            HttpSession ss = request.getSession();
-            UserDTO us =  (UserDTO) ss.getAttribute("LOGIN_USER");
-            RoomDAO dao = new RoomDAO();
+        String url = SUCCESS;
+        RoomDAO dao = new RoomDAO();
+        try {            
+            Double price = Double.parseDouble(request.getParameter("price"));
+            String roomID = request.getParameter("roomID");
+            String hostelID = request.getParameter("hostelID");
+            String roomnumber = request.getParameter("roomnumber");          
+            String description = request.getParameter("description");
+            String status = request.getParameter("status");
 
-            List<HostelDTO> HostelList = dao.GetListHostel(us.getUserID());
-            List<RoomDTO> RoomList = dao.GetListRoom(HostelList);
             
-            request.setAttribute("HostelList",HostelList);
-            request.setAttribute("RoomList",RoomList);
-            url = SUCCESS;
-
+           
+            
         } catch (Exception e) {
-            log("Error at UserPageController:"+e.toString());
+            log("Error at UpdateRoomController(doPost): " + e.toString());
         } finally {
             request.getRequestDispatcher(url).forward(request, response);
         }

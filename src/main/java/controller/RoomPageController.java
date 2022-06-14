@@ -26,16 +26,40 @@ import javax.servlet.http.HttpSession;
  *
  * @author avillX
  */
-@WebServlet(name = "UpdateHostelController", urlPatterns = {"/UpdateHostelController"})
-public class UpdateHostelController extends HttpServlet {
+@WebServlet(name = "RoomPageController", urlPatterns = {"/RoomPageController"})
+public class RoomPageController extends HttpServlet {
 
-    private static final String ERROR = "UserPageController";
-    private static final String SUCCESS = "UserPageController";   
-
+    private static final String SUCCESS = "View/room.jsp";
+   
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        response.setContentType("text/html;charset=UTF-8");
+        String url = SUCCESS;
+        try {
+            HttpSession ss = request.getSession();
+            UserDTO us =  (UserDTO) ss.getAttribute("LOGIN_USER");
+            RoomDAO dao = new RoomDAO();
+            CustomerDAO Cusdao = new CustomerDAO();
+            ContractDAO Cdao = new ContractDAO();
 
-}
+            List<HostelDTO> HostelList = dao.GetListHostel(us.getUserID());
+            List<RoomDTO> RoomList = dao.GetListRoom(HostelList);
+            List<ContractDTO> ContractList = Cdao.GetListContract(RoomList);
+            List<CustomerDTO> CusList = Cusdao.GetListCustomer(ContractList);
+
+            request.setAttribute("HostelList",HostelList);
+            request.setAttribute("RoomList",RoomList);
+            request.setAttribute("ContractList",ContractList);
+            request.setAttribute("CusList",CusList);
+
+        } catch (Exception e) {
+            log("Error at RoomPageController:"+e.toString());
+        } finally {
+            request.getRequestDispatcher(url).forward(request, response);
+        }
+
+    }
+
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
@@ -48,24 +72,7 @@ public class UpdateHostelController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        String url = SUCCESS;
-        try {
-            HttpSession ss = request.getSession();
-            UserDTO us =  (UserDTO) ss.getAttribute("LOGIN_USER");
-            RoomDAO dao = new RoomDAO();
-
-            String HostelID = request.getParameter("HostelID");
-
-            HostelDTO Hostel = dao.GetAHostel(HostelID);
-
-            request.setAttribute("Hostel",Hostel);            
-
-        } catch (Exception e) {
-            log("Error at UpdateHostelController(doGet):"+e.toString());
-        } finally {
-            request.getRequestDispatcher(url).forward(request, response);
-        }
+        processRequest(request, response);
     }
 
     /**
@@ -79,25 +86,7 @@ public class UpdateHostelController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        String url = ERROR;
-        try {
-            String hostelID = request.getParameter("hostelID");
-            String hostelname = request.getParameter("hostelname");
-            String address = request.getParameter("address");
-            String phone = request.getParameter("phone");
-            String userID = request.getParameter("userID");
-
-            RoomDAO dao = new RoomDAO();
-            boolean check = dao.UpdateHostel(new HostelDTO(hostelID, hostelname, address, phone, userID));
-            if (check) {
-                url = SUCCESS;
-            }
-        } catch (Exception e) {
-            log("Error at UpdateHostelController(doPost): " + e.toString());
-        } finally {
-            request.getRequestDispatcher(url).forward(request, response);
-        }
+        processRequest(request, response);
     }
 
     /**

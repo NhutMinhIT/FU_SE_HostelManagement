@@ -93,42 +93,34 @@
                     <div class="container-fluid px-4">
                         <div class="card mt-4">
                             <div class="card-header">
-                                <h1 class="text-info">Thêm Phòng</h1>
+                                <h1 class="text-info">Tạo Tài Khoản</h1>
 
                             </div>
                             <div class="card-body">
 
                                 <form action="#">
                                     <div class="form-group row">
-                                        <label  class="col-sm-2 col-form-label">Số Phòng</label>
+                                        <label  class="col-sm-2 col-form-label">Tên Tài Khoản</label>
                                         <div class="col-sm-10">
-                                            <input type="text" class="form-control" placeholder="Số Phòng">
+                                            <input type="text" class="form-control" placeholder="Số CMND">
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <label class="col-sm-2 col-form-label">Tên Nhà</label>
+                                        <label  class="col-sm-2 col-form-label">Mật Khẩu</label>
                                         <div class="col-sm-10">
-                                            <input type="text" class="form-control"  placeholder="Tên Nhà">
+                                            <input type="text" class="form-control" placeholder="Mật Khẩu">
                                         </div>
                                     </div>
-                                    <div class="form-row">
-                                        <div class="form-group col-md-2">
-                                            <label>Giá Phòng</label>
+                                   <div class="form-group row">
+                                        <label  class="col-sm-2 col-form-label">Nhập Lại Mật Khẩu</label>
+                                        <div class="col-sm-10">
+                                            <input type="text" class="form-control" placeholder="Nhập Lại Mật Khẩu">
                                         </div>
-                                        <div class="form-group col-md-10">
-
-                                            <input type="text" class="form-control"  placeholder="VND">
-                                        </div>
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label for="inputAddress2">Mô Tả</label>
-                                        <textarea rows="3" class="form-control" id="remarks" name="remarks"></textarea>
-                                    </div>
+                                    </div>                                   
 
 
                                     <div class="mt-3 text-center">
-                                         <a href="room.jsp">
+                                         <a href="viewCus.jsp">
                                     <button class="btn btn-warning" type="button" id="cancelButton"><i class="fa fa-mail-reply"></i> Trở Về</button>
                                 </a>
                                         <button class="btn btn-success" type="button" id="sumbitButton"><i class="fa fa-check"></i> Lưu</button>

@@ -31,14 +31,14 @@ public class LoginController extends HttpServlet {
             
                 if (loginUser != null) {
                     HttpSession session = request.getSession();
-                    String roleID = loginUser.getRoleID();
+                    String roleID = loginUser.getRoleID().trim();
                     switch (roleID) {
                     case AD:
                         session.setAttribute("LOGIN_USER", loginUser);
                         url = ADMIN_PAGE;
                         break;
                     case US:
-                        if(loginUser.getStatus().equals("APROVED")){
+                        if(loginUser.getStatus().trim().equals("APPROVED")){
                             session.setAttribute("LOGIN_USER", loginUser);
                             url = USER_PAGE;
                         }

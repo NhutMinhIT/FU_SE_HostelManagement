@@ -29,7 +29,7 @@
             <!-- Navbar Search-->
             <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
                 <div class="input-group">
-                    <input class="form-control" type="text" placeholder="Search for..." aria-label="Search for..." aria-describedby="btnNavbarSearch" />
+                    <input class="form-control" type="text" placeholder="Search for..." aria-label="Tìm Kiếm..." aria-describedby="btnNavbarSearch" />
                     <button class="btn btn-primary" id="btnNavbarSearch" type="button"><i class="fas fa-search"></i></button>
                 </div>
             </form>
@@ -49,7 +49,7 @@
             </ul>
         </nav>
         <div id="layoutSidenav">
-             <div id="layoutSidenav_nav">
+            <div id="layoutSidenav_nav">
                 <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
                     <div class="sb-sidenav-menu">
                         <div class="nav">
@@ -66,9 +66,9 @@
                                 <div class="sb-nav-link-icon"><i class="fas fa-cubes"></i></div>
                                 Dịch Vụ                                
                             </a>
-                                               
+
                             <div class="sb-sidenav-menu-heading">Khác</div>
-                           
+
                             <a class="nav-link" href="#">
                                 <div class="sb-nav-link-icon"><i class="fas fa-address-card"></i></div>
                                 Liên Hệ
@@ -88,13 +88,16 @@
                     <div class="card mb-4">
                         <div class="card-header">
                             <div class="card-header">
-                                <h2><i class="fa fa-plus"></i> Thêm Khách</h2>                              
+                                <h2><i class="fa fa-eye"></i> Chỉnh Sửa Thông Tin Khách Thuê</h2>                              
                             </div>
-                            <div class="mt-3 text-center" style="float:right; display: flex">
-                                <a href="room.jsp">
+                            <div class="card-header">
+                                <h4><i class="fa fa-home"></i> Phòng 1</h4>                              
+                            </div>
+                            <div class="mt-3 text-center" style="float:right; display: flex">                               
+                                <a href="viewCus.jsp">
                                     <button class="btn btn-warning" type="button" id="cancelButton"><i class="fa fa-mail-reply"></i> Trở Lại</button>
                                 </a>
-                                <button class="btn btn-success" type="button" id="sumbitButton"><i class="fa fa-check"></i> Lưu</button>
+                                <button class="btn btn-success" type="button" id="sumbitButton"><i class="fa fa-edit"></i> Lưu</button>                              
                             </div>                      
                         </div>
                     </div>
@@ -106,17 +109,13 @@
 
                             <ul class=" col-12 nav nav-tabs mb-4">
                                 <li class="nav-item">
-                                    <a class="nav-link active" href="#cusInfor" role="tab" data-toggle="tab">Thông Tin Khách Thuê</a>
+                                    <a class="nav-link active" href="#cusInfor" role="tab" data-toggle="tab">Thông Tin</a>
                                 </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#service" role="tab" data-toggle="tab">Dịch Vụ</a>
-                                </li>
+                                
                                 <li class="nav-item">
                                     <a class="nav-link" href="#member" role="tab" data-toggle="tab">Thành Viên</a>
                                 </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#contract" role="tab" data-toggle="tab">Hợp Đồng</a>
-                                </li>
+                                
                             </ul>
 
                             <div class="tab-content ">
@@ -125,86 +124,60 @@
                                         <div class="form-group row mt-2">
                                             <label  class="col-sm-2 col-form-label">Tên</label>
                                             <div class="col-sm-10">
-                                                <input type="text" class="form-control" placeholder="Enter your name">
+                                                <input type="text" class="form-control" placeholder="Enter your name" value="Nguyễn Nhựt Minh">
                                             </div>
                                         </div>
                                         <div class="form-group row mt-2">
-                                            <label  class="col-sm-2 col-form-label">Giới Tính</label>
-                                            <div class="col-sm-10">
-                                                <input type="radio" name="radio" id="sex"  />Nam
-                                                <input type="radio" name="radio" checked /> Nữ
+                                            <label  class="col-sm-2 col-form-label">Giới tính</label>
+                                            <div class="col-sm-10">  
+                                                <input type="radio" name="checkbox" value="Male"  />Nữ
+                                                <input type="radio" name="checkbox" checked/> Nam
                                             </div>
                                         </div>
                                         <div class="form-group row mt-2">
                                             <label  class="col-sm-2 col-form-label">Ngày Sinh</label>
                                             <div class="col-sm-10">
-                                                <input type="date" class="form-control" placeholder="Enter your DOB">
+                                                <input type="text" class="form-control"placeholder="" value="16/01/2001" >
                                             </div>
                                         </div>
                                         <div class="form-group row mt-2">
                                             <label  class="col-sm-2 col-form-label">CMND/CCCD</label>
                                             <div class="col-sm-10">
-                                                <input type="text" class="form-control" placeholder="Enter your CMND/CCCD">
+                                                <input type="text" class="form-control" placeholder="Enter your CMND/CCCD" value="261567736" >
                                             </div>
                                         </div>
                                         <div class="form-group row mt-2">
                                             <label  class="col-sm-2 col-form-label">Số Điện Thoại</label>
                                             <div class="col-sm-10">
-                                                <input type="text" class="form-control" placeholder="Enter your phone">
+                                                <input type="text" class="form-control" placeholder="Enter your phone"value="0382694825" >
                                             </div>
                                         </div>
                                         <div class="form-group row mt-2">
-                                            <label  class="col-sm-2 col-form-label">Địa Chỉ</label>
+                                            <label  class="col-sm-2 col-form-label">Địa chỉ</label>
                                             <div class="col-sm-10">
-                                                <input type="text" class="form-control" placeholder="Enter your address">
+                                                <input type="text" class="form-control" placeholder="Enter your address" 
+                                                       value="288/3 Man Thiên, phường Tăng Nhơn Phú A, Quận 9, Tp. Hồ Chí Minh." disabled=address>
                                             </div>
                                         </div>
                                         <div class="form-group row mt-2">
                                             <label  class="col-sm-2 col-form-label">Phòng</label>
                                             <div class="col-sm-10">
-                                                <input type="text" value="Room 3" class="form-control" placeholder="Enter your Room" disabled="disabled">
+                                                <input type="text" value="Room 1" class="form-control" placeholder="Enter your Room" disabled="disabled">
                                             </div>
                                         </div>
                                         <div class="form-group row mt-2">
                                             <label  class="col-sm-2 col-form-label">Ngày Thuê</label>
                                             <div class="col-sm-10">
-                                                <input type="date" class="form-control" >
+                                                <input type="text" class="form-control"placeholder="" value="25/05/2019" disabled="disable" >
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div role="tabpanel" class="tab-pane fade show " id="service" >
-                                    <div class="card px-3 py-3">
-                                        <table  class="table table-striped table-bordered "  width="100%">
-                                            <thead>
-                                                <tr>
-                                                    <th style="width: 5%">Choose</th>
-                                                    <th style="width: 55%; text-align: center">Dịch Vụ</th>
-                                                    <th style="width: 20%; text-align: center ">Giá (VNĐ)</th>
-                                                    <th style="width: 20%; text-align: center">Số Lượng</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr>
-                                                    <td ><input type="checkbox"></td>
-                                                    <td style="text-align: center">Điện</td>
-                                                    <td><input type="text" name="price" style="width: 100%; text-align: right" value="3000"></td>
-                                                    <td><input type="text" name="quantity" style="width: 100%; text-align: right" value="1"></td>
-                                                </tr>
-                                                <tr>
-                                                    <td><input type="checkbox"></td>
-                                                    <td style="text-align: center">Nước</td>
-                                                    <td><input type="text" name="price" style="width: 100%; text-align: right" value="10000"></td>
-                                                    <td><input type="text" name="quantity" style="width: 100%; text-align: right" value="1"></td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </div>
+                               
 
                                 <div role="tabpanel" class="tab-pane fade show " id="member" >
                                     <div class="card px-3 py-3">
-                                        <table  class="table table-striped table-bordered "  >
+                                        <table  class="table table-striped table-bordered">                                           
                                             <thead>
                                                 <tr>
                                                     <th style=" text-align: center">Tên</th>
@@ -218,74 +191,52 @@
                                             </thead>
                                             <tbody>
                                                 <tr>
-                                                    <td><input type="text" name="name" style="width: 100% ;text-align: center"></td>
-                                                    <td><input type="date" name="date"></td>
+                                                    <td><input type="text" name="name" value="Phan Minh Tri" style="width: 100% ;text-align: center"></td>
+                                                    <td><input type="text" name="date" value="24/09/2001" ></td>
                                                     <td style="text-align: center">
-                                                        <input type="radio" name="radio" id="sex"  />Nam
-                                                        <input type="radio" name="radio" checked /> Nữ
+                                                        <input type="radio" checked="">Nam <br/>
+                                                        <input type="radio" name="radio"  /> Nữ
                                                     </td>
-                                                    <td><input type="text" name="cmnd" style=" text-align: center"></td>
-                                                    <td><input type="text" name="address" style="width: 100%; text-align: center"></td>
-                                                    <td><input type="text" name="phone" style="width: 100%; text-align: center"></td>
-                                                    <td><button class="btn btn-danger"><i class="fa fa-minus-circle"></i></button></td>
+                                                    <td><input type="text" name="cmnd" value="1234567890"style=" text-align: center"></td>
+                                                    <td><input type="text" name="address" style="width: 100%; text-align: center"
+                                                               value="288/3 Man Thiên, phường Tăng Nhơn Phú A, Quận 9, Tp. Hồ Chí Minh."
+                                                               disabled="address"></td>
+                                                    <td><input type="text" name="phone" value="0986785483" style="width: 100%; text-align: center"></td>
+                                                    <td style="display: flex;">
+                                                        <button class="btn btn-danger" title="Xóa thành viên"><i class="fa fa-minus-circle"></i></button>                                                        
+                                                    </td>
                                                 </tr>
                                                 <tr>
-                                                    <td><input type="text" name="name" style="width: 100% ;text-align: center"></td>
-                                                    <td><input type="date" name="date"></td>
+                                                    <td><input type="text" name="name" value="Trần Quang Hùng"style="width: 100% ;text-align: center"></td>
+                                                    <td><input type="text" name="date" value="25/05/2001" ></td>
                                                     <td style="text-align: center">
-                                                        <input type="radio" name="radio" id="sex"  />Nam
-                                                        <input type="radio" name="radio" checked /> Nữ
+                                                        <input type="radio" checked="">Nam <br/>
+                                                        <input type="radio" name="radio" /> Nữ
                                                     </td>
-                                                    <td><input type="text" name="cmnd" style=" text-align: center"></td>
-                                                    <td><input type="text" name="address" style="width: 100%; text-align: center"></td>
-                                                    <td><input type="text" name="phone" style="width: 100%; text-align: center"></td>
-                                                    <td><button class="btn btn-danger"><i class="fa fa-minus-circle"></i></button></td>
+                                                    <td><input type="text" name="cmnd" value="2987986756"style=" text-align: center"></td>
+                                                    <td><input type="text" name="address" style="width: 100%; text-align: center"
+                                                               value="288/3 Man Thiên, phường Tăng Nhơn Phú A, Quận 9, Tp. Hồ Chí Minh."
+                                                               disabled="address"></td>
+                                                    <td><input type="text" name="phone" value="0987689006"style="width: 100%; text-align: center"></td>
+                                                    <td style="display: flex;">
+                                                        <button class="btn btn-danger" title="Xóa thành viên"><i class="fa fa-minus-circle"></i></button>                                                     
+                                                    </td>
                                                 </tr>
                                             </tbody>
+                                           
                                         </table>
 
                                         <div>
                                             <div style="float:right">
                                                 <button id="addRowPerson" type="button" class="btn btn-success pull-right"><i class="fa fa-plus-circle"></i></button>
                                             </div>
+
                                         </div>
                                     </div>
+                                      
                                 </div>
+                                
 
-                                <div role="tabpanel" class="tab-pane fade show " id="contract" >
-                                    <div class="card px-3 py-3">
-                                        <div class="form-group row mt-2">
-                                            <label  class="col-sm-2 col-form-label">Số Hợp Đồng</label>
-                                            <div class="col-sm-10">
-                                                <input type="text" class="form-control" placeholder="Enter your ID">
-                                            </div>
-                                        </div>
-                                        <div class="row mt-2">
-                                            <div class="form-group row col-md-6 mt-2">
-                                                <label  class="col-sm-4 col-form-label">Ngày Bắt Đầu</label>
-                                                <div class="col col-sm-8">
-                                                    <input type="date" class="form-control">
-                                                </div>
-                                            </div>
-                                            <div class="form-group row col-md-6 mt-2">
-                                                <label  class="col-sm-4 col-form-label">Ngày Hết Hạn</label>
-                                                <div class="col-sm-8">
-                                                    <input type="date" class="form-control">
-                                                </div>
-                                            </div>
-                                            <div class="form-group row col-md-8 mt-2">
-                                                <label  class="col-sm-4 col-form-label"></label>
-                                                <div class="col col-sm-8">
-                                                    <input type="file" accept=".jpg, .png" multiple/>
-                                                </div>
-                                            </div>
-                                        </div> 
-                                    </div>
-                                </div>
-
-                            </div>
-
-                        </div>
                     </main>
                 </form>
                 <footer class="py-4 bg-light mt-auto jumbotron">
@@ -305,27 +256,6 @@
         <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
         <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
-        <!--<script>
-            const reader = new FileReader();
-
-// Lắng nghe trạng thái đăng tải tệp
-            fileUpload.addEventListener("change", (event) => {
-                // Lấy thông tin tập tin được đăng tải
-                const files = event.target.files;
-
-                // Đọc thông tin tập tin đã được đăng tải
-                reader.readAsDataURL(files[0])
-
-                // Lắng nghe quá trình đọc tập tin hoàn thành
-                reader.addEventListener("load", (event) => {
-                    // Lấy chuỗi Binary thông tin hình ảnh
-                    const img = event.target.result;
-
-                    // Thực hiện hành động gì đó, có thể append chuỗi giá trị này vào thẻ IMG
-                    console.log(img) // data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEASABIAA........
-                })
-            })
-        </script>-->
 
     </body>
 

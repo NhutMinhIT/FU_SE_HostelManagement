@@ -4,6 +4,8 @@
  */
 package dto;
 
+import java.sql.Date;
+
 /**
  *
  * @author avillX
@@ -13,12 +15,12 @@ public class CustomerDTO {
     private String password;
     private String fullname;
     private String email;
-    private String dob;
+    private Date dob;
     private String phone;
     private String status;
     private String address;
 
-    public CustomerDTO(String customerID, String password, String fullname, String email, String dob, String phone, String status, String address) {
+    public CustomerDTO(String customerID, String password, String fullname, String email, Date dob, String phone, String status, String address) {
         this.customerID = customerID;
         this.password = password;
         this.fullname = fullname;
@@ -61,11 +63,11 @@ public class CustomerDTO {
         this.email = email;
     }
 
-    public String getDob() {
+    public Date getDob() {
         return dob;
     }
 
-    public void setDob(String dob) {
+    public void setDob(Date dob) {
         this.dob = dob;
     }
 
@@ -92,6 +94,11 @@ public class CustomerDTO {
     public void setAddress(String address) {
         this.address = address;
     }
+
+
+ 
+
+    
 
    
 

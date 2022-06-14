@@ -12,16 +12,14 @@ public class RoomDTO {
     private String roomID;
     private String hostelID;
     private String roomnumber;
-    private String roomsize;
     private double price;
     private String description;
     private String status;
 
-    public RoomDTO(String roomID, String hostelID, String roomnumber, String roomsize, double price, String description, String status) {
+    public RoomDTO(String roomID, String hostelID, String roomnumber, double price, String description, String status) {
         this.roomID = roomID;
         this.hostelID = hostelID;
         this.roomnumber = roomnumber;
-        this.roomsize = roomsize;
         this.price = price;
         this.description = description;
         this.status = status;
@@ -51,14 +49,6 @@ public class RoomDTO {
         this.roomnumber = roomnumber;
     }
 
-    public String getRoomsize() {
-        return roomsize;
-    }
-
-    public void setRoomsize(String roomsize) {
-        this.roomsize = roomsize;
-    }
-
     public double getPrice() {
         return price;
     }
@@ -83,6 +73,7 @@ public class RoomDTO {
         this.status = status;
     }
 
+   
    
 
 
