@@ -17,6 +17,7 @@
         <link rel="shortcut icon" href="${pageContext.request.contextPath}/assets/images/fav.jpg">
         <link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap.min.css">
         <link rel="stylesheet" href="${pageContext.request.contextPath}/css/fontawsom-all.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/style1.css" />
 
     </head>
@@ -75,9 +76,9 @@
 
                 <div class="soc-det">
                     <ul>
-                        <li class="facebook"><a href="https://www.facebook.com"><i class="fa-brands fa-facebook-f"></i></a></li>
-                        <li class="twitter"><a href="https://twitter.com/"><i class="fa-brands fa-twitter"></i></a></li>
-                        <li class="link"><a href="https://www.linkedin.com/"><i class="fa-brands fa-linkedin"></i></a></li>
+                        <li class="facebook"><a href="https://www.facebook.com"><i class="fa fa-facebook"></i></a></li>
+                        <li class="twitter"><a href="https://twitter.com/"><i class="fa fa-twitter"></i></a></li>
+                        <li class="link"><a href="https://www.linkedin.com/"><i class="fa fa-linkedin"></i></a></li>
 
                     </ul>
                 </div>

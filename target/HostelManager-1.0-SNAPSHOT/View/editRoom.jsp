@@ -14,7 +14,7 @@
         <meta name="description" content="" />
         <meta name="author" content="" />
         <title>MoonHostel</title>
-        <link rel="icon" type="image/png" href="${pageContext.request.contextPath}/assets/img/logo.png" sizes="16x16">
+        <link rel="icon" type="image/png" href="../assets/img/logo.png" sizes="16x16">
         <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
@@ -22,9 +22,70 @@
 
     </head>
     <body class="sb-nav-fixed">
-        
-        <%@include file="/View/layout/header.jsp" %>
-         
+        <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
+            <!-- Navbar Brand-->
+            <a class="navbar-brand ps-3" href="index.jsp">MoonHostel
+                <img src="../assets/img/logo.png" class="rounded-circle"  alt="logo"width="40" height="36">
+            </a>
+            <!-- Sidebar Toggle-->
+            <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
+            <!-- Navbar Search-->
+            <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
+                <div class="input-group">
+                    <input class="form-control" type="text" placeholder="Search for..." aria-label="Search for..." aria-describedby="btnNavbarSearch" />
+                    <button class="btn btn-primary" id="btnNavbarSearch" type="button"><i class="fas fa-search"></i></button>
+                </div>
+            </form>
+            <!-- Navbar-->
+            <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="#!">Profile</a></li>
+                        <li><a class="dropdown-item" href="#!">Settings</a></li>
+
+                        <li>
+                            <hr class="dropdown-divider" />
+                        </li>
+                        <li><a class="dropdown-item" href="#!">Logout</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+        <div id="layoutSidenav">
+           <div id="layoutSidenav_nav">
+                <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+                    <div class="sb-sidenav-menu">
+                        <div class="nav">
+
+                            <a class="nav-link" href="index.jsp">
+                                <div class="sb-nav-link-icon"><i class="fas fa-palette"></i></div>
+                                Trang Chủ
+                            </a>
+                            <a class="nav-link collapsed" href="room.jsp">
+                                <div class="sb-nav-link-icon"><i class="fas fa-house"></i></div>
+                                Phòng                                
+                            </a>
+                            <a class="nav-link collapsed" href="service.jsp">
+                                <div class="sb-nav-link-icon"><i class="fas fa-cubes"></i></div>
+                                Dịch Vụ                                
+                            </a>
+                                               
+                            <div class="sb-sidenav-menu-heading">Khác</div>
+                           
+                            <a class="nav-link" href="#">
+                                <div class="sb-nav-link-icon"><i class="fas fa-address-card"></i></div>
+                                Liên Hệ
+                            </a>
+                        </div>
+                    </div>
+                    <div class="sb-sidenav-footer">
+                        <div class="small">Logged in as:</div>
+                        MoonHostel
+                        <img src="../assets/img/logo.png" class="rounded-circle"  alt="regisster"width="40" height="36">
+                    </div>
+                </nav>
+            </div>
             <div id="layoutSidenav_content">
                 <main class="container-fluid">
                     <div class="container-fluid px-4">
@@ -35,18 +96,17 @@
                             </div>
                             <div class="card-body">
 
-                                <form action="MainController">
-                                    <input  type="hidden" name="${Room.roomID}"/>
+                                <form action="#">
                                     <div class="form-group row">
                                         <label  class="col-sm-2 col-form-label">Số Phòng</label>
                                         <div class="col-sm-10">
-                                            <input type="text" class="form-control" value="${Room.roomnumber}" disabled="disabled">
+                                            <input type="text" class="form-control" value="1" disabled="disabled">
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label">Tên Nhà</label>
                                         <div class="col-sm-10">
-                                            <input type="text" class="form-control"  value="${HostelName}" disabled="disabled">
+                                            <input type="text" class="form-control"  value="District 1" disabled="disabled">
                                         </div>
                                     </div>
                                     <div class="form-row">
@@ -55,7 +115,7 @@
                                         </div>
                                         <div class="form-group col-md-10">
 
-                                            <input type="text" class="form-control"  value="${Room.price}" name="RoomPrice">
+                                            <input type="text" class="form-control"  value="2.300.000 VND" >
                                         </div>
                                     </div>
 
@@ -64,18 +124,19 @@
                                             <label>Trạng Thái </label>
                                         </div>
                                         <div class="form-group col-md-10">
-                                            <input type="text" class="form-control"  value="${Room.status}" disabled="disabled">
+
+                                            <input type="text" class="form-control"  value="Hoạt Động" disabled="disabled">
                                         </div>
                                     </div>
 
 
                                     <div class="mt-3 text-center">
-                                        <a href="MainController?action=RoomPage">
+                                        <a href="room.jsp">
                                             <button class="btn btn-warning" type="button" id="cancelButton"><i class="fa fa-mail-reply"></i> Trở Về</button>
                                         </a>
-                                        <a href="">
-                                            <button class="btn btn-success" type="button" id="sumbitButton"><input type="submit" class="btn btn"  name="action" value="UpdateRoom"></button>
-                                        </a>
+                                        
+                                        <button class="btn btn-success" type="button" id="sumbitButton"><i class="fa fa-check"></i> Lưu</button>
+                                        
                                     </div>
                                 </form>
 
@@ -94,10 +155,10 @@
                 </footer>
             </div>
         </div>
-        <script src="${pageContext.request.contextPath}/js/scripts.js"></script>
-        <script src="${pageContext.request.contextPath}/js/datatables-simple-demo.js"></script>
-        <script src="${pageContext.request.contextPath}/assets/demo/chart-area-demo.js"></script>
-        <script src="${pageContext.request.contextPath}/assets/demo/chart-bar-demo.js"></script>
+        <script src="../js/scripts.js"></script>
+        <script src="../js/datatables-simple-demo.js"></script>
+        <script src="../assets/demo/chart-area-demo.js"></script>
+        <script src="../assets/demo/chart-bar-demo.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>    
         <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>

@@ -27,14 +27,6 @@ public class MainController extends HttpServlet {
     private static final String USER_PAGE = "UserPageController";
     private static final String ROOM_PAGE = "RoomPageController";
 
-    private static final String ADD_ROOM = "AddRoomController";
-    private static final String ADD_HOSTEL = "AddHostelController";
-    private static final String UPDATE_ROOM = "UpdateRoomController";
-    private static final String UPDATE_HOSTEL = "UpdateHostelController";
-    private static final String DELETE_ROOM = "DeleteRoomController";
-    private static final String DELETE_HOSTEL = "DeleteHostelController";
-
-
     
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -57,24 +49,6 @@ public class MainController extends HttpServlet {
                     break;
                 case "RoomPage":
                     url = ROOM_PAGE;
-                    break;
-                case "AddRoom":
-                    url = ADD_ROOM;
-                    break;
-                case "AddHostel":
-                    url = ADD_HOSTEL;
-                    break;
-                case "UpdateRoom":
-                    url = UPDATE_ROOM;
-                    break;
-                case "UpdateHostel":
-                    url = UPDATE_HOSTEL;
-                    break;
-                case "DeleteRoom":
-                    url = DELETE_ROOM;
-                    break;
-                case "DeleteHostel":
-                    url = DELETE_HOSTEL;
                     break;
                 default:
                     break;
