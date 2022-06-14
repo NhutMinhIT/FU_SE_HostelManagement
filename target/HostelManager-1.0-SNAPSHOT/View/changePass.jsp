@@ -14,10 +14,11 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <title> Welcome to MoonHostel</title>
+        <link rel="icon" type="image/png" href="../assets/img/logo.png" sizes="16x16">
         <link rel="shortcut icon" href="${pageContext.request.contextPath}/assets/images/fav.jpg">
         <link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap.min.css">
         <link rel="stylesheet" href="${pageContext.request.contextPath}/css/fontawsom-all.min.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/style1.css" />
 
     </head>
@@ -41,32 +42,31 @@
             <div class="side-right">
                 <img class="logo rounded-circle" style="width: 30%" src="assets/img/logo.png" alt="">
 
-                <h3>Login</h3>
-                <form action="${pageContext.request.contextPath}/MainController" method="POST">
+                <h3>ĐỔI MẬT KHẨU</h3>
+
+                <form action="" method="POST">
                     <div class="form-row">
                         <label for="">Emai</label>
                         <input type="text" placeholder="yourname@gmail.com" class="form-control form-control-sm" name="email" required pattern="\S+" >
                     </div>
 
                     <div class="form-row">
-                        <label for="">Mật Khẩu</label>
-                        <input type="password" placeholder="Mật Khẩu" class="form-control form-control-sm" name="password" required pattern="\S+">
+                        <label for="">Mật Khẩu Hiện Tại</label>
+                        <input onchange="onChange1()" id="passSQL" name="passSQL" type="hidden" class="form-control form-control-sm" value=""/>
+                        <input onchange="onChange1()" id="OldPass" name="OldPass" type="password" placeholder="Mật khẩu hiện tại" class="form-control form-control-sm" required pattern="\S+"/>
                     </div>
-
-                    <div class="form-row row skjh">
-                        <div class="col-7 left no-padding">
-                            <input type="checkbox">Nhớ Mật Khẩu
-                        </div>
-                        <div class="col-5">
-                            <span> <a href="">Quên Mật Khẩu ?</a></span>
-                        </div>
-                        <p class="help-block alert-danger">${requestScope.ERROR}</p>
-
+                    <div class="form-row">
+                        <label for="">Mật Khẩu Mới</label>
+                        <input onChange="onChange()" type="password" placeholder="Mật khẩu Mới" class="form-control form-control-sm" name="NewPass" required pattern="\S+">
+                    </div>
+                    <div class="form-row">
+                        <label for="">Xác Nhận Mật Khẩu Mới</label>
+                        <input onChange="onChange()" type="password" placeholder="Mật khẩu Mới" class="form-control form-control-sm" name="ReNewPass" required pattern="\S+">
                     </div>
                     <div></div>
 
                     <div class="form-row dfr">
-                        <input type="submit" class="btn btn"  name="action" value="Login">
+                        <input type="submit" class="btn btn"  name="action" value="ĐỔI MẬT KHẨU">
                     </div>
                 </form>
 
@@ -83,21 +83,37 @@
                     </ul>
                 </div>
 
-
-
             </div>
             <div class="copyco">
                 <p>Copyrigh 2022 @ MoonHostel</p> 
             </div>
         </div>  
+        <script>
+            function onChange() {
+                const password = document.querySelector('input[name=NewPass]');
+                const confirm = document.querySelector('input[name=ReNewPass]');
+                if (confirm.value === password.value) {
+                    confirm.setCustomValidity('');
+                } else {
+                    confirm.setCustomValidity('Passwords do not match');
+                }
+            }
+            function onChange1() {
+                const password1 = document.querySelector('input[name=passSQL]');
+                const confirm1 = document.querySelector('input[name=OldPass]');
+                if (confirm1.value === password1.value) {
+                    confirm1.setCustomValidity('');
+
+                } else {
+                    confirm1.setCustomValidity('Old Pass do not match!! Please input again Old Password!!!');
+                }
+            }
+        </script>
         <script src="${pageContext.request.contextPath}/assets/js/jquery-3.2.1.min.js"></script>
         <script src="${pageContext.request.contextPath}/assets/js/popper.min.js"></script>
         <script src="${pageContext.request.contextPath}/assets/js/bootstrap.min.js"></script>
         <script src="${pageContext.request.contextPath}/assets/js/script.js"></script>
 
     </body>
-
-
-
 
 </html>

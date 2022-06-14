@@ -1,6 +1,9 @@
+controller\AddRoomController.class
 controller\UpdateRoomController.class
+dao\ContractDAO.class
 dao\HostelDAO.class
 controller\HostelManagerController.class
+dao\CustomerDAO.class
 dto\RoomDTO.class
 dto\UserDTO.class
 controller\MainController.class
@@ -11,8 +14,10 @@ utils\DBUtils.class
 controller\AddHostelController.class
 dto\Contract.class
 dao\UserDAO.class
+dto\ContractDTO.class
 dto\FurnitureDTO.class
 controller\UserPageController.class
+controller\RoomPageController.class
 controller\DeleteRoomController.class
 dao\RoomDAO.class
 dto\CustomerDTO.class
