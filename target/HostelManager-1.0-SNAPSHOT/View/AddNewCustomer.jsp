@@ -37,48 +37,41 @@
             <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
-                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="#!">Profile</a></li>
-                        <li><a class="dropdown-item" href="#!">Settings</a></li>
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">                        
+                        <li><a class="dropdown-item" href="#!">Cài đặt</a></li>
 
                         <li>
                             <hr class="dropdown-divider" />
                         </li>
-                        <li><a class="dropdown-item" href="#!">Logout</a></li>
+                        <li><a class="dropdown-item" href="#!">Đăng Xuất</a></li>
                     </ul>
                 </li>
             </ul>
         </nav>
         <div id="layoutSidenav">
-            <div id="layoutSidenav_nav">
+             <div id="layoutSidenav_nav">
                 <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
                     <div class="sb-sidenav-menu">
                         <div class="nav">
 
                             <a class="nav-link" href="index.jsp">
                                 <div class="sb-nav-link-icon"><i class="fas fa-palette"></i></div>
-                                Home
+                                Trang Chủ
                             </a>
                             <a class="nav-link collapsed" href="room.jsp">
                                 <div class="sb-nav-link-icon"><i class="fas fa-house"></i></div>
-                                Room                                
+                                Phòng                                
                             </a>
                             <a class="nav-link collapsed" href="service.jsp">
                                 <div class="sb-nav-link-icon"><i class="fas fa-cubes"></i></div>
-                                Service                                
+                                Dịch Vụ                                
                             </a>
-                            <a class="nav-link" href="signup.jsp">
-                                <div class="sb-nav-link-icon"><i class="fas fa-add"></i></div>
-                                New Account
-                            </a>                    
-                            <div class="sb-sidenav-menu-heading">About</div>
-                            <a class="nav-link" href="#">
-                                <div class="sb-nav-link-icon"><i class="fas fa-map"></i></div>
-                                Maps
-                            </a>
+                                               
+                            <div class="sb-sidenav-menu-heading">Khác</div>
+                           
                             <a class="nav-link" href="#">
                                 <div class="sb-nav-link-icon"><i class="fas fa-address-card"></i></div>
-                                Contact
+                                Liên Hệ
                             </a>
                         </div>
                     </div>
@@ -95,13 +88,13 @@
                     <div class="card mb-4">
                         <div class="card-header">
                             <div class="card-header">
-                                <h2><i class="fa fa-plus"></i> Add Customer</h2>                              
+                                <h2><i class="fa fa-plus"></i> Thêm Khách</h2>                              
                             </div>
                             <div class="mt-3 text-center" style="float:right; display: flex">
                                 <a href="room.jsp">
-                                    <button class="btn btn-warning" type="button" id="cancelButton"><i class="fa fa-mail-reply"></i> Return</button>
+                                    <button class="btn btn-warning" type="button" id="cancelButton"><i class="fa fa-mail-reply"></i> Trở Lại</button>
                                 </a>
-                                <button class="btn btn-success" type="button" id="sumbitButton"><i class="fa fa-check"></i> Save</button>
+                                <button class="btn btn-success" type="button" id="sumbitButton"><i class="fa fa-check"></i> Lưu</button>
                             </div>                      
                         </div>
                     </div>
@@ -113,16 +106,16 @@
 
                             <ul class=" col-12 nav nav-tabs mb-4">
                                 <li class="nav-item">
-                                    <a class="nav-link active" href="#cusInfor" role="tab" data-toggle="tab">Customer Information</a>
+                                    <a class="nav-link active" href="#cusInfor" role="tab" data-toggle="tab">Thông Tin Khách Thuê</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#service" role="tab" data-toggle="tab">Service</a>
+                                    <a class="nav-link" href="#service" role="tab" data-toggle="tab">Dịch Vụ</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#member" role="tab" data-toggle="tab">Member</a>
+                                    <a class="nav-link" href="#member" role="tab" data-toggle="tab">Thành Viên</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#contract" role="tab" data-toggle="tab">Contract</a>
+                                    <a class="nav-link" href="#contract" role="tab" data-toggle="tab">Hợp Đồng</a>
                                 </li>
                             </ul>
 
@@ -130,20 +123,20 @@
                                 <div role="tabpanel" class=" tab-pane fade show active" id="cusInfor" >
                                     <div class="card px-5 py-5">
                                         <div class="form-group row mt-2">
-                                            <label  class="col-sm-2 col-form-label">Name</label>
+                                            <label  class="col-sm-2 col-form-label">Tên</label>
                                             <div class="col-sm-10">
                                                 <input type="text" class="form-control" placeholder="Enter your name">
                                             </div>
                                         </div>
                                         <div class="form-group row mt-2">
-                                            <label  class="col-sm-2 col-form-label">Sex</label>
+                                            <label  class="col-sm-2 col-form-label">Giới Tính</label>
                                             <div class="col-sm-10">
-                                                <input type="radio" name="radio" id="sex"  /> Male
-                                                <input type="radio" name="radio" checked /> Female
+                                                <input type="radio" name="radio" id="sex"  />Nam
+                                                <input type="radio" name="radio" checked /> Nữ
                                             </div>
                                         </div>
                                         <div class="form-group row mt-2">
-                                            <label  class="col-sm-2 col-form-label">Day of Birth (DOB)</label>
+                                            <label  class="col-sm-2 col-form-label">Ngày Sinh</label>
                                             <div class="col-sm-10">
                                                 <input type="date" class="form-control" placeholder="Enter your DOB">
                                             </div>
@@ -155,25 +148,25 @@
                                             </div>
                                         </div>
                                         <div class="form-group row mt-2">
-                                            <label  class="col-sm-2 col-form-label">Phone</label>
+                                            <label  class="col-sm-2 col-form-label">Số Điện Thoại</label>
                                             <div class="col-sm-10">
                                                 <input type="text" class="form-control" placeholder="Enter your phone">
                                             </div>
                                         </div>
                                         <div class="form-group row mt-2">
-                                            <label  class="col-sm-2 col-form-label">Address</label>
+                                            <label  class="col-sm-2 col-form-label">Địa Chỉ</label>
                                             <div class="col-sm-10">
                                                 <input type="text" class="form-control" placeholder="Enter your address">
                                             </div>
                                         </div>
                                         <div class="form-group row mt-2">
-                                            <label  class="col-sm-2 col-form-label">Room</label>
+                                            <label  class="col-sm-2 col-form-label">Phòng</label>
                                             <div class="col-sm-10">
-                                                <input type="text" value="Room 1.01" class="form-control" placeholder="Enter your Room" disabled="disabled">
+                                                <input type="text" value="Room 3" class="form-control" placeholder="Enter your Room" disabled="disabled">
                                             </div>
                                         </div>
                                         <div class="form-group row mt-2">
-                                            <label  class="col-sm-2 col-form-label">Start Day</label>
+                                            <label  class="col-sm-2 col-form-label">Ngày Thuê</label>
                                             <div class="col-sm-10">
                                                 <input type="date" class="form-control" >
                                             </div>
@@ -186,21 +179,21 @@
                                             <thead>
                                                 <tr>
                                                     <th style="width: 5%">Choose</th>
-                                                    <th style="width: 55%; text-align: center">Service Name</th>
-                                                    <th style="width: 20%; text-align: center ">Price (VNĐ)</th>
-                                                    <th style="width: 20%; text-align: center">Quantity</th>
+                                                    <th style="width: 55%; text-align: center">Dịch Vụ</th>
+                                                    <th style="width: 20%; text-align: center ">Giá (VNĐ)</th>
+                                                    <th style="width: 20%; text-align: center">Số Lượng</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
                                                 <tr>
                                                     <td ><input type="checkbox"></td>
-                                                    <td style="text-align: center">Electricity</td>
+                                                    <td style="text-align: center">Điện</td>
                                                     <td><input type="text" name="price" style="width: 100%; text-align: right" value="3000"></td>
                                                     <td><input type="text" name="quantity" style="width: 100%; text-align: right" value="1"></td>
                                                 </tr>
                                                 <tr>
                                                     <td><input type="checkbox"></td>
-                                                    <td style="text-align: center">Water</th>
+                                                    <td style="text-align: center">Nước</td>
                                                     <td><input type="text" name="price" style="width: 100%; text-align: right" value="10000"></td>
                                                     <td><input type="text" name="quantity" style="width: 100%; text-align: right" value="1"></td>
                                                 </tr>
@@ -214,12 +207,12 @@
                                         <table  class="table table-striped table-bordered "  >
                                             <thead>
                                                 <tr>
-                                                    <th style=" text-align: center">Name</th>
-                                                    <th style=" text-align: center">DOB</th>
-                                                    <th style=" text-align: center">Sex</th>
+                                                    <th style=" text-align: center">Tên</th>
+                                                    <th style=" text-align: center">Ngày Sinh</th>
+                                                    <th style=" text-align: center">Giới Tính</th>
                                                     <th style=" text-align: center">CMND/CCCD</th>
-                                                    <th style=" text-align: center">Address</th>
-                                                    <th style=" text-align: center">Phone</th>
+                                                    <th style=" text-align: center">Địa Chỉ</th>
+                                                    <th style=" text-align: center">Số Điện Thoại</th>
                                                     <th style=""></th>
                                                 </tr>
                                             </thead>
@@ -228,8 +221,8 @@
                                                     <td><input type="text" name="name" style="width: 100% ;text-align: center"></td>
                                                     <td><input type="date" name="date"></td>
                                                     <td style="text-align: center">
-                                                        <input type="radio" name="radio" id="sex"  /> Male
-                                                        <input type="radio" name="radio" checked /> Female
+                                                        <input type="radio" name="radio" id="sex"  />Nam
+                                                        <input type="radio" name="radio" checked /> Nữ
                                                     </td>
                                                     <td><input type="text" name="cmnd" style=" text-align: center"></td>
                                                     <td><input type="text" name="address" style="width: 100%; text-align: center"></td>
@@ -240,8 +233,8 @@
                                                     <td><input type="text" name="name" style="width: 100% ;text-align: center"></td>
                                                     <td><input type="date" name="date"></td>
                                                     <td style="text-align: center">
-                                                        <input type="radio" name="radio" id="sex"  /> Male
-                                                        <input type="radio" name="radio" checked /> Female
+                                                        <input type="radio" name="radio" id="sex"  />Nam
+                                                        <input type="radio" name="radio" checked /> Nữ
                                                     </td>
                                                     <td><input type="text" name="cmnd" style=" text-align: center"></td>
                                                     <td><input type="text" name="address" style="width: 100%; text-align: center"></td>
@@ -262,20 +255,20 @@
                                 <div role="tabpanel" class="tab-pane fade show " id="contract" >
                                     <div class="card px-3 py-3">
                                         <div class="form-group row mt-2">
-                                            <label  class="col-sm-2 col-form-label">ID Contract</label>
+                                            <label  class="col-sm-2 col-form-label">Số Hợp Đồng</label>
                                             <div class="col-sm-10">
                                                 <input type="text" class="form-control" placeholder="Enter your ID">
                                             </div>
                                         </div>
                                         <div class="row mt-2">
                                             <div class="form-group row col-md-6 mt-2">
-                                                <label  class="col-sm-4 col-form-label">Contract Start Date</label>
+                                                <label  class="col-sm-4 col-form-label">Ngày Bắt Đầu</label>
                                                 <div class="col col-sm-8">
                                                     <input type="date" class="form-control">
                                                 </div>
                                             </div>
                                             <div class="form-group row col-md-6 mt-2">
-                                                <label  class="col-sm-4 col-form-label">Contract End Date</label>
+                                                <label  class="col-sm-4 col-form-label">Ngày Hết Hạn</label>
                                                 <div class="col-sm-8">
                                                     <input type="date" class="form-control">
                                                 </div>

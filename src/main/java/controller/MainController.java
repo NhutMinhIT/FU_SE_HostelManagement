@@ -32,7 +32,7 @@ public class MainController extends HttpServlet {
     private static final String UPDATE_ROOM = "UpdateRoomController";
     private static final String UPDATE_HOSTEL = "UpdateHostelController";
     private static final String DELETE_ROOM = "DeleteRoomController";
-    private static final String DELETE_HOSTEL = "DelelteHostelController";
+    private static final String DELETE_HOSTEL = "DeleteHostelController";
 
 
     
