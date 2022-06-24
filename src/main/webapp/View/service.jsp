@@ -5,7 +5,7 @@
 --%>
 
 
-
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -16,144 +16,127 @@
         <meta name="description" content="" />
         <meta name="author" content="" />
         <title>MoonHostel</title>
-        <link rel="icon" type="image/png" href="../assets/img/logo.png" sizes="16x16">
+        <link rel="icon" type="image/png" href="${pageContext.request.contextPath}/assets/img/logo.png" sizes="16x16">
         <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-        <link href="../css/styles.css" rel="stylesheet" />
+        <link href="${pageContext.request.contextPath}/css/styles.css" rel="stylesheet" />
 
     </head>
     <body class="sb-nav-fixed">
-        <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
-            <!-- Navbar Brand-->
-            <a class="navbar-brand ps-3" href="index.jsp">MoonHostel
-                <img src="../assets/img/logo.png" class="rounded-circle"  alt="logo"width="40" height="36">
-            </a>
-            <!-- Sidebar Toggle-->
-            <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
-            <!-- Navbar Search-->
-            <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
-                <div class="input-group">
-                    <input class="form-control" type="text" placeholder="Search for..." aria-label="Search for..." aria-describedby="btnNavbarSearch" />
-                    <button class="btn btn-primary" id="btnNavbarSearch" type="button"><i class="fas fa-search"></i></button>
+
+        <%@include file="/View/layout/header.jsp" %>
+
+        <div id="layoutSidenav_content">
+            <main class="container-fluid">
+                <div class="container-fluid px-4">
+                    <div class="card mt-4">
+                        <div class="card-header">
+                            <h1 class="text-info">Danh sách dịch vụ</h1>
+                        </div>
+                        <div class="card-body ml-auto">
+                            <a href="${pageContext.request.contextPath}/MainController?action=AddService">
+                                <button class="btn btn-success"><i class="fa fa-plus"></i> Thêm dịch vụ</button>
+                            </a>
+                        </div>
+
+                        <div class="card-body">
+                            <table id="datatablesSimple">
+                                <thead>
+                                    <tr>
+                                        <th>Tên dịch vụ</th>
+                                        <th>Loại dịch vụ</th>
+                                        <th>Ngày cập nhật</th> 
+                                        <th>Địa điểm</th>
+                                        <th>Giá</th>                                     
+                                        <th>Đơn vị</th>
+                                        <th>Đang dùng</th>
+                                        <th>Chức Năng</th>
+                                    </tr>
+                                </thead>
+                                <tfoot>
+                                    <tr>
+                                        <th>Tên dịch vụ</th>
+                                        <th>Loại dịch vụ</th>
+                                        <th>Ngày cập nhật</th> 
+                                        <th>Địa điểm</th>
+                                        <th>Giá</th>                                     
+                                        <th>Đơn vị</th>
+                                        <th style="width: 20%">Đang sử dụng</th>
+                                        <th>Chức Năng</th>
+                                    </tr>
+                                </tfoot>
+                                <tbody>
+                                    <c:forEach items="${ServiceDetailList}" var="SD">   
+                                        <tr>
+                                            <td>${SD.detailname}</td>
+                                            <c:forEach items="${ServiceTypeList}" var="ST">   
+                                                <c:if test="${ST.serviceID == SD.serviceID}">
+                                                    <td>${ST.service_name}</td>
+                                                </c:if>                                                
+                                            </c:forEach>
+
+                                            <td>${SD.updated_date}</td>
+
+                                            <c:forEach items="${HostelList}" var="H">   
+                                                <c:if test="${H.hostelID == SD.hostelID}">
+                                                    <td>${H.hostelname}</td>
+                                                </c:if>                                                
+                                            </c:forEach>
+
+                                            <td><input type="text" name="" class="money form-control" value="${SD.unit_price}" disabled="disable" style="width: 100%"/></td>                                     
+                                            <td>${SD.calUnit}</td>
+
+                                            <c:choose>
+                                                <c:when test="${SD.status == 'ACTIVE'}">
+                                                    <td style="text-align: center"><input type="checkbox" checked disabled="disabled" /></td>
+                                                </c:when>
+                                                <c:otherwise>
+                                                    <td style="text-align: center"><input type="checkbox" disabled="disabled" /></td>
+                                                </c:otherwise>
+                                            </c:choose>
+
+                                            <td>
+                                                <a href="${pageContext.request.contextPath}/MainController?action=UpdateService&detailID=${SD.detailID}">
+                                                    <button class="btn btn-primary"><i class="fa fa-edit"></i></button>
+                                                </a>
+                                                <a href="${pageContext.request.contextPath}/MainController?action=DeleteService&detailID=${SD.detailID}">
+                                                    <button class="btn btn-danger"><i class="fa fa-remove"></i></button>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    </c:forEach>
+              
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
                 </div>
-            </form>
-            <!-- Navbar-->
-            <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
-                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="#!">Profile</a></li>
-                        <li><a class="dropdown-item" href="#!">Settings</a></li>
 
-                        <li>
-                            <hr class="dropdown-divider" />
-                        </li>
-                        <li><a class="dropdown-item" href="#!">Logout</a></li>
-                    </ul>
-                </li>
-            </ul>
-        </nav>
-        <div id="layoutSidenav">
-             <div id="layoutSidenav_nav">
-                <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
-                    <div class="sb-sidenav-menu">
-                        <div class="nav">
-
-                            <a class="nav-link" href="index.jsp">
-                                <div class="sb-nav-link-icon"><i class="fas fa-palette"></i></div>
-                                Trang Chủ
-                            </a>
-                            <a class="nav-link collapsed" href="room.jsp">
-                                <div class="sb-nav-link-icon"><i class="fas fa-house"></i></div>
-                                Phòng                                
-                            </a>
-                            <a class="nav-link collapsed" href="service.jsp">
-                                <div class="sb-nav-link-icon"><i class="fas fa-cubes"></i></div>
-                                Dịch Vụ                                
-                            </a>
-                                               
-                            <div class="sb-sidenav-menu-heading">Khác</div>
-                           
-                            <a class="nav-link" href="#">
-                                <div class="sb-nav-link-icon"><i class="fas fa-address-card"></i></div>
-                                Liên Hệ
-                            </a>
-                        </div>
+            </main>
+            <footer class="py-4 bg-light mt-auto">
+                <div class="container-fluid px-4">
+                    <div class="d-flex align-items-center justify-content-between small">
+                        <div class="text-muted ">Copyright &copy; by MoonHostel</div>
                     </div>
-                    <div class="sb-sidenav-footer">
-                        <div class="small">Logged in as:</div>
-                        MoonHostel
-                        <img src="../assets/img/logo.png" class="rounded-circle"  alt="regisster"width="40" height="36">
-                    </div>
-                </nav>
-            </div>
-            <div id="layoutSidenav_content">
-                <main class="container-fluid">
-                    <div class="container-fluid px-4">
-                        <div class="card mt-4">
-                            <div class="card-header">
-                                <h1 class="text-info">Thêm dịch vụ</h1>
-                            </div>
-                            <div class="card-body">
-
-                                <form action="#">
-                                    <table  class="table table-striped table-bordered "  width="100%">
-                                        <thead>
-                                            <tr>
-                                                <th style=" text-align: center">Tên dịch vụ</th>
-                                                <th style=" text-align: center">Địa điểm</th>
-                                                <th style=" text-align: center">Ngày cập nhật</th>
-                                                <th style=" text-align: center ">Giá (VND)</th>
-                                                <th style=" text-align: center ">Đơn vị</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td style="text-align: center" >Điện</td>
-                                                <td style="text-align: center" >District 9</td>
-                                                <td style="text-align: center">16/03/2022</td>
-                                                <td><input type="text" name="price" style="width: 100%; text-align: right" value="3000"></td>
-                                                <td><input type="text" name="" value="Kilogam (Kg)" disabled="" style="width: 100%; text-align: right"></td>
-                                            </tr>
-                                            <tr>
-                                                <td style="text-align: center" >Nước</td>
-                                                <td style="text-align: center" >District 1</td>
-                                                <td style="text-align: center">16/03/2022</td>
-                                                <td><input type="text" name="price" style="width: 100%; text-align: right" value="10000"></td>
-                                                <td><input type="text" name="" style="width: 100%; text-align: right" value="Khối" disabled=""></td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                    <div class="mt-3 text-center">
-                                        <button class="btn btn-success" type="button" id="sumbitButton"><i class="fa fa-check"></i> Save</button>
-                                    </div>
-                                </form>
-
-                            </div>
-
-                        </div>
-                    </div>
-
-                </main>
-                <footer class="py-4 bg-light mt-auto">
-                    <div class="container-fluid px-4">
-                        <div class="d-flex align-items-center justify-content-between small">
-                            <div class="text-muted ">Copyright &copy; by MoonHostel</div>
-                        </div>
-                    </div>
-                </footer>
-            </div>
+                </div>
+            </footer>
         </div>
-        <script src="../js/scripts.js"></script>
-        <script src="../js/datatables-simple-demo.js"></script>
-        <script src="../assets/demo/chart-area-demo.js"></script>
-        <script src="../assets/demo/chart-bar-demo.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>    
-        <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
-        <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+    
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+        <script type="text/javascript" src="${pageContext.request.contextPath}/js/simple.money.format.js"></script>
+        <script type="text/javascript">
+            $('.money').simpleMoneyFormat();
+        </script>
+    <script src="${pageContext.request.contextPath}/js/scripts.js"></script>
+    <script src="${pageContext.request.contextPath}/js/datatables-simple-demo.js"></script>
+    <script src="${pageContext.request.contextPath}/assets/demo/chart-area-demo.js"></script>
+    <script src="${pageContext.request.contextPath}/assets/demo/chart-bar-demo.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>    
+    <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+    <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
 
-    </body>
+</body>
 
 </html>

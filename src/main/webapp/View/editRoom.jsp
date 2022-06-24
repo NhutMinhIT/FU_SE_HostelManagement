@@ -18,7 +18,7 @@
         <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-        <link href="../css/styles.css" rel="stylesheet" />
+        <link href="${pageContext.request.contextPath}/css/styles.css" rel="stylesheet" />
 
     </head>
     <body class="sb-nav-fixed">
@@ -35,18 +35,18 @@
                             </div>
                             <div class="card-body">
 
-                                <form action="MainController">
-                                    <input  type="hidden" name="${Room.roomID}"/>
+                                <form action="MainController" method="POST">
+                                    <input type="hidden" name="RoomID" value="${RoomInfo.roomID}"/>
                                     <div class="form-group row">
                                         <label  class="col-sm-2 col-form-label">Số Phòng</label>
                                         <div class="col-sm-10">
-                                            <input type="text" class="form-control" value="${Room.roomnumber}" disabled="disabled">
+                                            <input type="text" class="form-control" value="${RoomInfo.roomnumber}" name="roomnumber">
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label">Tên Nhà</label>
                                         <div class="col-sm-10">
-                                            <input type="text" class="form-control"  value="${HostelName}" disabled="disabled">
+                                            <input type="text" class="form-control"  value="${HostelInfo.hostelname}" disabled="disabled">
                                         </div>
                                     </div>
                                     <div class="form-row">
@@ -55,7 +55,7 @@
                                         </div>
                                         <div class="form-group col-md-10">
 
-                                            <input type="text" class="form-control"  value="${Room.price}" name="RoomPrice">
+                                            <input type="text" class="form-control"  value="${RoomInfo.price}" name="RoomPrice">
                                         </div>
                                     </div>
 
@@ -64,7 +64,7 @@
                                             <label>Trạng Thái </label>
                                         </div>
                                         <div class="form-group col-md-10">
-                                            <input type="text" class="form-control"  value="${Room.status}" disabled="disabled">
+                                            <input type="text" class="form-control"  value="${RoomInfo.status}" disabled="disabled">
                                         </div>
                                     </div>
 
@@ -74,7 +74,7 @@
                                             <button class="btn btn-warning" type="button" id="cancelButton"><i class="fa fa-mail-reply"></i> Trở Về</button>
                                         </a>
                                         <a href="">
-                                            <button class="btn btn-success" type="button" id="sumbitButton"><input type="submit" class="btn btn"  name="action" value="UpdateRoom"></button>
+                                             <button class="btn btn-success" type="submit" name="action" id="sumbitButton" value="UpdateRoom"><i class="fa fa-check"></i> Lưu</button>
                                         </a>
                                     </div>
                                 </form>

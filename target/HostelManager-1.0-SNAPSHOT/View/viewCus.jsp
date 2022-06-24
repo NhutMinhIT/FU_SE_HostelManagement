@@ -85,24 +85,24 @@
             <div id="layoutSidenav_content">
 
 
-                <div class="card mb-4">
-                    <div class="card-header">
+               <div class="card mb-4">
                         <div class="card-header">
-                            <h2><i class="fa fa-eye"></i> Thông Tin Khách Thuê</h2>                              
-                        </div>
-                        <div class="card-header ml-3">
-                            <h4><i class="fa fa-home"></i> Phòng 1</h4>                              
-                        </div>
-                        <div class="mt-3 text-center" style="float:right; display: flex">                               
-                            <a href="room.jsp">
-                                <button class="btn btn-warning" type="button" id="cancelButton"><i class="fa fa-mail-reply"></i> Trở Lại</button>
-                            </a>
-                            <a href="editCus.jsp">
+                            <div class="card-header">
+                                <h2><i class="fa fa-eye"></i> Thông Tin Khách Thuê</h2>                              
+                            </div>
+                            <div class="card-header ml-3">
+                                <h4><i class="fa fa-home"></i> Phòng 1</h4>                              
+                            </div>
+                            <div class="mt-3 text-center" style="float:right; display: flex">                               
+                                <a href="room.jsp">
+                                    <button class="btn btn-warning" type="button" id="cancelButton"><i class="fa fa-mail-reply"></i> Trở Lại</button>
+                                </a>
+                                <a href="editCus.jsp">
                                 <button class="btn btn-success" type="button" id="sumbitButton"><i class="fa fa-edit"></i> Sửa</button>   
-                            </a>
-                        </div>                      
+                                </a>
+                            </div>                      
+                        </div>
                     </div>
-                </div>
 
 
                 <main class="container-fluid">
@@ -354,27 +354,26 @@
                                 </div>
 
                             </div>
-                        </div>
-                </main>
+                            </main>
 
-                <footer class="py-4 bg-light mt-auto jumbotron">
-                    <div class="container-fluid px-4">
-                        <div class="d-flex align-items-center justify-content-between small">
-                            <div class="text-muted ">Copyright &copy; by MoonHostel</div>
+                            <footer class="py-4 bg-light mt-auto jumbotron">
+                                <div class="container-fluid px-4">
+                                    <div class="d-flex align-items-center justify-content-between small">
+                                        <div class="text-muted ">Copyright &copy; by MoonHostel</div>
+                                    </div>
+                                </div>
+                            </footer>
                         </div>
                     </div>
-                </footer>
-            </div>
-        </div>
-        <script src="../js/scripts.js"></script>
-        <script src="../js/datatables-simple-demo.js"></script>
-        <script src="../assets/demo/chart-area-demo.js"></script>
-        <script src="../assets/demo/chart-bar-demo.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>    
-        <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
-        <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+                    <script src="../js/scripts.js"></script>
+                    <script src="../js/datatables-simple-demo.js"></script>
+                    <script src="../assets/demo/chart-area-demo.js"></script>
+                    <script src="../assets/demo/chart-bar-demo.js"></script>
+                    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>    
+                    <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
+                    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+                    <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
 
-    </body>
+                    </body>
 
-</html>
+                    </html>

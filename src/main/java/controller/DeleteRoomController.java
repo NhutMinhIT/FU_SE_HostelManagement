@@ -20,14 +20,14 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet(name = "DeleteRoomController", urlPatterns = {"/DeleteRoomController"})
 public class DeleteRoomController extends HttpServlet {
 
-    private static final String ERROR = "UserPageController"; 
+    private static final String ERROR = "RoomPageController"; 
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         String url = ERROR;
         try {
-            String RoomID = request.getParameter("roomID");
+            String RoomID = request.getParameter("RoomID");
             RoomDAO dao = new RoomDAO();
             boolean check = dao.DeleteRoom(RoomID);
             if (check) {

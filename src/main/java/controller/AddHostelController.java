@@ -7,6 +7,7 @@ package controller;
 
 import dao.RoomDAO;
 import dto.HostelDTO;
+import dto.UserDTO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -14,6 +15,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -22,30 +24,13 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet(name = "AddHostelController",urlPatterns = {"/AddHostelController"})
 public class AddHostelController extends HttpServlet {
 
-    private static final String ERROR = "UserPageController";
-    private static final String SUCCESS = "UserPageController"; 
+    private static final String ERROR = "View/addNewHostel.jsp";
+    private static final String SUCCESS = "MainController?action=RoomPage"; 
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        String url = ERROR;
-        try {
-            String hostelID = request.getParameter("hostelID");
-            String hostelname = request.getParameter("hostelname");
-            String address = request.getParameter("address");
-            String phone = request.getParameter("phone");
-            String userID = request.getParameter("userID");
-
-            RoomDAO dao = new RoomDAO();
-            boolean check = dao.AddHostel(new HostelDTO(hostelID, hostelname, address, phone, userID));
-            if (check) {
-                url = SUCCESS;
-            }
-        } catch (Exception e) {
-            log("Error at AddHostelController: " + e.toString());
-        } finally {
-            request.getRequestDispatcher(url).forward(request, response);
-        }
+        
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -60,7 +45,14 @@ public class AddHostelController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        String url = ERROR;
+        try {
+
+        } catch (Exception e) {
+            log("Error at AddHostelController(doGet): " + e.toString());
+        } finally {
+            request.getRequestDispatcher(url).forward(request, response);
+        }
     }
 
     /**
@@ -74,7 +66,29 @@ public class AddHostelController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        String url = SUCCESS;
+        try {
+            HttpSession ss = request.getSession();
+            UserDTO us =  (UserDTO) ss.getAttribute("LOGIN_USER");
+ 
+            String hostelname = request.getParameter("hostelname");
+            String city = request.getParameter("city");
+            String district = request.getParameter("district");
+            String ward = request.getParameter("ward");
+            String address = request.getParameter("address");
+            String Address = address + ", " + ward + ", " + district + ", " + city;
+
+            RoomDAO dao = new RoomDAO();
+            int hostelID = dao.CountHostel();
+            boolean check = dao.AddHostel(new HostelDTO(String.valueOf(hostelID), hostelname, Address, us.getPhone(), us.getUserID()));
+            if (check) {
+                url = SUCCESS;
+            }
+        } catch (Exception e) {
+            log("Error at AddHostelController(doPost): " + e.toString());
+        } finally {
+            request.getRequestDispatcher(url).forward(request, response);
+        }
     }
 
     /**

@@ -20,16 +20,16 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet(name = "DeleteHostelController", urlPatterns = {"/DeleteHostelController"})
 public class DeleteHostelController extends HttpServlet {
 
-    private static final String ERROR = "UserPageController"; 
+    private static final String ERROR = "RoomPageController"; 
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         String url = ERROR;
         try {
-            String RoomID = request.getParameter("roomID");
+            String  hostelID = request.getParameter("HostelID");
             RoomDAO dao = new RoomDAO();
-            boolean check = dao.DeleteHostel(RoomID);
+            boolean check = dao.DeleteHostel(hostelID);
             if (check) {
                 url = ERROR;
             }

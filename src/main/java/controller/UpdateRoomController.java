@@ -23,8 +23,8 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet(name = "UpdateRoomController", urlPatterns = {"/UpdateRoomController"})
 public class UpdateRoomController extends HttpServlet {
 
-    private static final String ERROR = "View/editRoom";
-    private static final String SUCCESS = "UserPageController";
+    private static final String ERROR = "View/editRoom.jsp";
+    private static final String SUCCESS = "MainController?action=RoomPage";
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -48,7 +48,7 @@ public class UpdateRoomController extends HttpServlet {
         try {
             RoomDAO dao = new RoomDAO();
             RoomDTO RoomInfo = dao.GetARoom(request.getParameter("RoomID"));
-            HostelDTO HostelInfo = dao.GetAHostel(request.getParameter("HostelID"));
+            HostelDTO HostelInfo = dao.GetAHostel(RoomInfo.getHostelID());
 
             request.setAttribute("HostelInfo",HostelInfo);
             request.setAttribute("RoomInfo",RoomInfo);
@@ -76,14 +76,9 @@ public class UpdateRoomController extends HttpServlet {
         try {
             RoomDAO dao = new RoomDAO();
             RoomDTO NewRoom = dao.GetARoom(request.getParameter("RoomID"));
-            Double price = Double.parseDouble(request.getParameter("price"));
-            NewRoom.setPrice(price);
-//            String roomID = request.getParameter("roomID");
-//            String hostelID = request.getParameter("hostelID");
-//            String roomnumber = request.getParameter("roomnumber");
-//            String roomsize = request.getParameter("roomsize");          
-//            String description = request.getParameter("description");
-//            String status = request.getParameter("status");
+            NewRoom.setPrice(Double.parseDouble(request.getParameter("RoomPrice")));
+            NewRoom.setRoomnumber(request.getParameter("roomnumber"));
+
 
             
             boolean check = dao.UpdateRoom(NewRoom);

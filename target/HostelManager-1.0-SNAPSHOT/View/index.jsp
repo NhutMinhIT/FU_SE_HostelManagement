@@ -30,7 +30,7 @@
                     <h1 class="mt-4"><i class="fa fa-house"></i> Trang chủ</h1>
                     <div class="row mt-3">
                         <div class="col-xl-6">
-                            <div class="card bg-warning text-white mb-4">
+                            <div class="card text-primary mb-4" style="background-color: rgba(240,240,240,1)">
                                 <div class="card-body">
                                     <h1>Trạng thái phòng</h1>
                                     <hr>
@@ -43,21 +43,21 @@
                         </div>
 
                         <div class="col-xl-6">
-                            <div class="card bg-warning text-white mb-4">
+                          <div class="card text-primary mb-4" style="background-color: rgba(240,240,240,1)">
                                 <div class="card-body">
                                     <h1>Tổng doanh thu</h1>
                                     <hr>
                                 </div>
                                 <div class="card-body">
-                                    <canvas id="myBarChart" ></canvas>
+                                    <canvas id="myLinechart" ></canvas>
                                 </div>
                                 
                             </div>
                         </div>
                         <div class="col-xl-6 ">
-                            <div class="card bg-warning text-white mb-4">
+                            <div class="card text-primary mb-4" style="background-color: rgba(240,240,240,1)">
                                 <div class="card-body">
-                                    <h1>Danh sách phòng đang thuê</h1>
+                                    <h1>Danh sách phòng còn trống</h1>
                                     <hr>
                                 </div>
                                 <div class="card-body">
@@ -79,7 +79,7 @@
                                                                 <td scope="row">${h.hostelname}</td>
                                                             </c:if>
                                                         </c:forEach> 
-                                                        <td>Room ${o.roomID}</td>
+                                                        <td>Room ${o.roomnumber}</td>
                                                     </tr>
                                                 </c:if>
                                             </c:forEach>     
@@ -92,7 +92,7 @@
                             </div>
                         </div>
                         <div class="col-xl-6 ">
-                            <div class="card bg-warning text-white mb-4">
+                           <div class="card text-primary mb-4" style="background-color: rgba(240,240,240,1)">
                                 <div class="card-body">
                                     <h1>Danh sách người thuê còn nợ</h1>
                                     <hr>
@@ -150,7 +150,7 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
          <script src="${pageContext.request.contextPath}/js/scripts.js"></script>        
         <script src="${pageContext.request.contextPath}/assets/demo/chart-pie-demo.js"></script>
-        <script src="${pageContext.request.contextPath}/assets/demo/chart-bar-demo.js"></script>
+        <script src="${pageContext.request.contextPath}/assets/demo/chart-line-demo.js"></script>
         
        
     </body>
