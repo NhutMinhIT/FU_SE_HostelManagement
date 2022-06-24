@@ -90,23 +90,23 @@
                                             <c:choose>
                                                 <c:when test="${SD.status == 'ACTIVE'}">
                                                     <td style="text-align: center"><input type="checkbox" checked disabled="disabled" /></td>
-                                                </c:when>
-                                                <c:otherwise>
+                                                    </c:when>
+                                                    <c:otherwise>
                                                     <td style="text-align: center"><input type="checkbox" disabled="disabled" /></td>
-                                                </c:otherwise>
-                                            </c:choose>
+                                                    </c:otherwise>
+                                                </c:choose>
 
                                             <td>
                                                 <a href="${pageContext.request.contextPath}/MainController?action=UpdateService&detailID=${SD.detailID}">
                                                     <button class="btn btn-primary"><i class="fa fa-edit"></i></button>
                                                 </a>
                                                 <a href="${pageContext.request.contextPath}/MainController?action=DeleteService&detailID=${SD.detailID}">
-                                                    <button class="btn btn-danger"><i class="fa fa-remove"></i></button>
+                                                    <button Onclick="return ConfirmDelete();" class="btn btn-danger"><i class="fa fa-remove"></i></button>
                                                 </a>
                                             </td>
                                         </tr>
                                     </c:forEach>
-              
+
                                 </tbody>
                             </table>
                         </div>
@@ -122,21 +122,31 @@
                 </div>
             </footer>
         </div>
-    
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+
+        <script>
+            function ConfirmDelete()
+            {
+                var x = confirm("Are you sure you want to delete?");
+                if (x)
+                    return true;
+                else
+                    return false;
+            }
+        </script>
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
         <script type="text/javascript" src="${pageContext.request.contextPath}/js/simple.money.format.js"></script>
         <script type="text/javascript">
-            $('.money').simpleMoneyFormat();
+                                    $('.money').simpleMoneyFormat();
         </script>
-    <script src="${pageContext.request.contextPath}/js/scripts.js"></script>
-    <script src="${pageContext.request.contextPath}/js/datatables-simple-demo.js"></script>
-    <script src="${pageContext.request.contextPath}/assets/demo/chart-area-demo.js"></script>
-    <script src="${pageContext.request.contextPath}/assets/demo/chart-bar-demo.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>    
-    <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
-    <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+        <script src="${pageContext.request.contextPath}/js/scripts.js"></script>
+        <script src="${pageContext.request.contextPath}/js/datatables-simple-demo.js"></script>
+        <script src="${pageContext.request.contextPath}/assets/demo/chart-area-demo.js"></script>
+        <script src="${pageContext.request.contextPath}/assets/demo/chart-bar-demo.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>    
+        <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+        <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
 
-</body>
+    </body>
 
 </html>
