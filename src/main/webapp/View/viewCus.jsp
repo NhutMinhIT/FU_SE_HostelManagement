@@ -87,10 +87,10 @@
 
                <div class="card mb-4">
                         <div class="card-header">
-                            <div class="card-header">
+                            <div class="card-header text-info">
                                 <h2><i class="fa fa-eye"></i> Thông Tin Khách Thuê</h2>                              
                             </div>
-                            <div class="card-header ml-3">
+                            <div class="card-header" style="padding-left: 5%;">
                                 <h4><i class="fa fa-home"></i> Phòng 1</h4>                              
                             </div>
                             <div class="mt-3 text-center" style="float:right; display: flex">                               

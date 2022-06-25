@@ -24,7 +24,7 @@
         <%@include file="/View/layout/header.jsp" %>
 
         <div id="layoutSidenav_content">
-            <h1 class="mt-4 col-md-4"><i class="fa fa-house"></i> Quản Lí Phòng</h1>
+            <h1 class="m-4 col-md-4 text-info"><i class="fa fa-house"></i> Quản Lí Phòng</h1>
             <table>
                 <div class="card mb-4">
                     <div class="card-header">
@@ -72,7 +72,7 @@
                                         </c:otherwise>
                                     </c:choose>
 
-                                    <div class="breadcrumb mb-4 "style="margin-left: 82%;" >
+                                    <div class="breadcrumb mb-4 "style="margin-left: 75%;" >
                                         <div class="row" >
 
                                             <a href="${pageContext.request.contextPath}/MainController?action=AddRoom&HostelID=${Hos.hostelID}" >

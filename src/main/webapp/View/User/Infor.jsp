@@ -11,7 +11,7 @@
         <title>MoonHostel</title>
         <link rel="icon" type="image/png" href="../assets/img/logo.png" sizes="16x16">
         <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
-
+        <link rel="icon" type="image/png" href="../../assets/img/logo.png" sizes="16x16">
         <link href="../../css/styles.css" rel="stylesheet" />
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
@@ -38,7 +38,7 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">                        
-                        <li><a class="dropdown-item" href="#!">Cài đặt</a></li>
+                        <li><a class="dropdown-item" href="changePass.jsp">Đổi Mật Khẩu</a></li>
 
                         <li>
                             <hr class="dropdown-divider" />
@@ -88,9 +88,9 @@
                 <div class="card mb-4">
                     <div class="card-header">
                         <div class="card-header">
-                            <h2><i class="fa fa-eye"></i> Thông Tin Cá Nhân</h2>                              
+                            <h2 class="text-info""><i class="fa fa-eye"></i> Thông Tin Cá Nhân</h2>                              
                         </div>
-                        <div class="card-header ml-3">
+                        <div class="card-header ml-3"   style="padding-left:5%">
                             <h4><i class="fa fa-home"></i> Phòng 1</h4>                              
                         </div>
 

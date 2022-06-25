@@ -11,7 +11,7 @@
         <title>MoonHostel</title>
         <link rel="icon" type="image/png" href="../assets/img/logo.png" sizes="16x16">
         <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
-
+        <link rel="icon" type="image/png" href="../../assets/img/logo.png" sizes="16x16">
         <link href="../../css/styles.css" rel="stylesheet" />
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
@@ -38,7 +38,7 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">                        
-                        <li><a class="dropdown-item" href="#!">Cài đặt</a></li>
+                        <li><a class="dropdown-item" href="changePass.jsp">Đổi Mật Khẩu</a></li>
 
                         <li>
                             <hr class="dropdown-divider" />
@@ -53,12 +53,12 @@
                 <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
                     <div class="sb-sidenav-menu">
                         <div class="nav">
+
                             <a class="nav-link" href="Infor.jsp">
-                                <div class="sb-nav-link-icon"><i class="fas fa-info-circle"></i></div>
+                                <div class="sb-nav-link-icon"><i class="fas fa-palette"></i></div>
                                 Thông Tin
                             </a>
-
-                            <a class="nav-link collapsed" href="Bill.jsp.">
+                            <a class="nav-link collapsed" href="Bill.jsp">
                                 <div class="sb-nav-link-icon"><i class="fab fa-cc-paypal "></i></div>
                                 Hóa Đơn                                
                             </a>
@@ -88,11 +88,11 @@
                 <div class="card mb-4">
                     <div class="card-header">
                         <div class="card-header">
-                            <h2><i class="fa fa-eye"></i> Thông Tin Khách Thuê</h2>                              
+                            <h2 class="text-info"><i class="fa fa-eye"></i> Thông Tin Hóa Đơn</h2>                              
                         </div>
-                        <div class="card-header ml-3">
+                        <div class="card-header" style="padding-left:5%">
                             <h4><i class="fa fa-home"></i> Phòng 1</h4>                              
-                        </div>                                             
+                        </div>                                          
                     </div>
                 </div>
 
@@ -101,19 +101,14 @@
 
                     <div class="room container-fluid px-4">                        
 
-                        <ul class=" col-12 nav nav-tabs mb-4">
-
+                        <ul class=" col-12 nav nav-tabs mb-4">                           
                             <li class="nav-item">
-                                <a class="nav-link" href="#service" role="tab" data-toggle="tab">Hóa Đơn</a>
-                            </li>                            
-                            <li class="nav-item">
-                                <a class="nav-link" href="#contract" role="tab" data-toggle="tab">Hợp Đồng</a>
-                            </li>
+                                <a class="nav-link" href="#service" role="tab" data-toggle="tab">Chi Tiết Hóa Đơn</a>
+                            </li>                           
                         </ul>
 
-                        <div class="tab-content ">
-
-                            <div role="tabpanel" class="tab-pane fade show active" id="service" >
+                        <div class="tab-content ">                            
+                            <div role="tabpanel" class="tab-pane fade active show " id="service" >
                                 <h4>Tháng 1/2021</h4>
                                 <div class="card px-3 py-3">
                                     <table  class="table table-striped table-bordered "  width="100%">
@@ -122,75 +117,48 @@
                                             <tr>                                                    
                                                 <th style="width: 15%; text-align: center">Tên Dịch Vụ</th>
                                                 <th style="width: 15%; text-align: center ">Giá (VNĐ)</th>
-                                                <th style="width: 10%; text-align: center">Số Lượng</th>                                                                                         
-                                            </tr>                                   
-                                        </thead>
-
+                                                <th style="width: 10%; text-align: center">Số Cũ</th>
+                                                <th style="width: 10%; text-align: center">Số Mới</th>
+                                                <th style="width: 10%; text-align: center">Tổng</th>                                                 
+                                            </tr>
+                                        </thead>                                    
 
                                         <tbody>
                                             <tr>                                                   
-                                                <td style="text-align: center" disabled="">Điện</td>
-                                                <td><input type="text" name="price" style="width: 100%; text-align: right" value="3000" disabled=""></td>
-                                                <td><input type="text" name="quantity" style="width: 100%; text-align: right" value="100 kW" disabled=""></td>
-
+                                                <td style="text-align: center" disabled="">Điện (KW)</td>  
+                                                <td style="text-align: center" disabled="">3000</td> 
+                                                <td style="text-align: center" disabled="">2600</td> 
+                                                <td style="text-align: center" disabled="">2700</td> 
+                                                <td style="text-align: center" disabled="">300,000</td>
                                             </tr>                                         
                                             <tr>                                                  
-                                                <td style="text-align: center">Nước</td>
-                                                <td><input type="text" name="price" style="width: 100%; text-align: right" value="10000" disabled=""></td>
-                                                <td><input type="text" name="quantity" style="width: 100%; text-align: right" value="10 Khối" disabled=""></td>                                                
-                                            </tr>                                            
-
-                                        </tbody>
-                                    </table>
-                                    <form>
-                                        <table class="table table-striped table-bordered "  width="100%">
-                                            <thead>
-                                                <tr>
-                                                    <th>Tổng</th>
-                                                </tr>
-
-                                            </thead>
-                                            <tr>
-                                                <td><input type="text" name="price" style="width: 100%; text-align: right" value="400000 VND" disabled=""></td>
-                                                <td><button type="submit" style="border-radius: 10px;" class="btn btn-success"><i class="fab fa-cc-paypal"></i> Thanh Toán</button></td>
+                                                <td style="text-align: center" disabled="">Nước (Khối)</td>  
+                                                <td style="text-align: center" disabled="">15,000</td> 
+                                                <td style="text-align: center" disabled="">40</td> 
+                                                <td style="text-align: center" disabled="">50</td> 
+                                                <td style="text-align: center" disabled="">150,000</td>                                               
                                             </tr>
-                                        </table>
-                                    </form>
-
-                                </div>                            
-                            </div>
-                            <div role="tabpanel" class="tab-pane fade show " id="contract" >
-                                <div class="card px-3 py-3">                                        
-                                    <div class="form-group row mt-2">
-                                        <label  class="col-sm-2 col-form-label">Số Hợp Đồng</label>
-                                        <div class="col-sm-10">
-                                            <input type="text" class="form-control" placeholder="Enter your ID"
-                                                   value="01" disabled="">
-                                        </div>
-                                    </div>
-                                    <div class="row mt-2">
-                                        <div class="form-group row col-md-6 mt-2">
-                                            <label  class="col-sm-4 col-form-label">Ngày Bắt Đầu</label>
-                                            <div class="col col-sm-8">
-                                                <input type="text" class="form-control"
-                                                       value="25/05/2019" disabled="">
-                                            </div>
-                                        </div>
-                                        <div class="form-group row col-md-6 mt-2">
-                                            <label  class="col-sm-4 col-form-label">Ngày Hết Hạn</label>
-                                            <div class="col-sm-8">
-                                                <input type="text" class="form-control"
-                                                       value="25/05/2023" disabled=""/>
-                                            </div>
-                                        </div>                                        
+                                            <tr>                                                   
+                                                <td style="text-align: center" disabled="">Khác</td>  
+                                                <td style="text-align: center" disabled="">30,000</td> 
+                                                <td style="text-align: center" disabled=""></td> 
+                                                <td style="text-align: center" disabled=""></td> 
+                                                <td style="text-align: center" disabled="">30,000</td>
+                                            </tr> 
+                                        </tbody>                                        
+                                    </table>
+                                    <div>
+                                        <h5>Tổng</h5>
+                                        <input type="text" value="2,780,000 VND" disabled="sumBill" style="text-align: center"/>
+                                        <button class="btn btn-primary" title="payment"><i class="fab fa-cc-paypal"></i> Thanh Toán</button>                
 
                                     </div>
 
-                                </div>
+                                </div> 
 
-                            </div>
+                            </div>                         
+
                         </div>
-                    </div>
                 </main>
 
                 <footer class="py-4 bg-light mt-auto jumbotron">

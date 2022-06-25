@@ -29,10 +29,10 @@
                 <div class="card mb-4">
                     <div class="card-header">
                         <div class="card-header">
-                            <h2><i class="fa fa-plus"></i> Thêm Khách</h2>                              
+                            <h2 class="text-info"><i class="fa fa-plus"></i> Thêm Khách</h2>                              
                         </div>
-                        <div class="card-header ml-3 ">
-                            <h4 style="margin-left: 20px;"><i class="fa fa-home"></i> Phòng 1</h4>                              
+                        <div class="card-header">
+                            <h4 style="padding-left: 20px;"><i class="fa fa-home"></i> Phòng 1</h4>                              
                         </div>
                         <div class="mt-3 text-center" style="float:right; display: flex">
                             <a href="${pageContext.request.contextPath}/MainController?action=RoomPage">

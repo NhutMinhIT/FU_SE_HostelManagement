@@ -88,9 +88,9 @@
                     <div class="card mb-4">
                         <div class="card-header">
                             <div class="card-header">
-                                <h2><i class="fa fa-eye"></i> Chỉnh Sửa Thông Tin Khách Thuê</h2>                              
+                                <h2 class="text-info"><i class="fa fa-edit"></i> Chỉnh Sửa Thông Tin Khách Thuê</h2>                              
                             </div>
-                            <div class="card-header">
+                            <div class="card-header" style="padding-left: 5%;">
                                 <h4><i class="fa fa-home"></i> Phòng 1</h4>                              
                             </div>
                             <div class="mt-3 text-center" style="float:right; display: flex">                               
