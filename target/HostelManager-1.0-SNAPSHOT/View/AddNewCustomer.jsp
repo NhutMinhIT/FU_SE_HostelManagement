@@ -169,7 +169,7 @@
 
                             <div role="tabpanel" class="tab-pane fade show " id="member" >
                                 <div class="card px-3 py-3">
-                                    <table  class="table table-striped table-bordered "  >
+                                   <table  class="table table-striped table-bordered "  >
                                         <thead>
                                             <tr>
                                                 <th style=" text-align: center">Tên</th>
@@ -181,7 +181,7 @@
                                                 <th style=""></th>
                                             </tr>
                                         </thead>
-                                        <tbody>
+                                        <tbody id="tblSample">
                                             <tr>
                                                 <td><input type="text" name="name" style="width: 100% ;text-align: center"></td>
                                                 <td><input type="date" name="date"></td>
@@ -192,7 +192,7 @@
                                                 <td><input type="text" name="cmnd" style=" text-align: center"></td>
                                                 <td><input type="text" name="address" style="width: 100%; text-align: center"></td>
                                                 <td><input type="text" name="phone" style="width: 100%; text-align: center"></td>
-                                                <td><button class="btn btn-danger"><i class="fa fa-minus-circle"></i></button></td>
+                                                <td><button onclick="deleterow('tblSample')" class="btn btn-danger delete-row"><i class="fa fa-minus-circle"></i></button></td>
                                             </tr>
                                             <tr>
                                                 <td><input type="text" name="name" style="width: 100% ;text-align: center"></td>
@@ -204,14 +204,13 @@
                                                 <td><input type="text" name="cmnd" style=" text-align: center"></td>
                                                 <td><input type="text" name="address" style="width: 100%; text-align: center"></td>
                                                 <td><input type="text" name="phone" style="width: 100%; text-align: center"></td>
-                                                <td><button class="btn btn-danger"><i class="fa fa-minus-circle"></i></button></td>
+                                                <td><button onclick="deleterow('tblSample')" class="btn btn-danger"><i class="fa fa-minus-circle"></i></button></td>
                                             </tr>
                                         </tbody>
                                     </table>
-
                                     <div>
                                         <div style="float:right">
-                                            <button id="addRowPerson" type="button" class="btn btn-success pull-right"><i class="fa fa-plus-circle"></i></button>
+                                            <button onclick="addRow('tblSample')" type="button" class="btn btn-success pull-right add-row"><i class="fa fa-plus-circle"></i></button>
                                         </div>
                                     </div>
                                 </div>
@@ -270,6 +269,31 @@
     <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
     <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+
+            function deleterow(tblId)
+            {
+
+                var table = document.getElementById(tblId);
+                var row = table.getElementsByTagName('tr');
+                if (row.length != '0') {
+                    row[row.length - 1].outerHTML = '';
+                }
+            }
+
+            function addRow(myTable) {
+                var table = document.getElementById(myTable);
+                var row = table.getElementsByTagName('tr');
+                if (row.length != '4') {
+                    var row = row[row.length - 1].outerHTML;
+                    table.innerHTML = table.innerHTML + row;
+                    for (i = 0; i < row.length; i++) {
+                        row[i].innerHTML = '';
+                    }
+                }
+
+            }
+        </script>
     <!--<script>
         const reader = new FileReader();
 
