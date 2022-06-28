@@ -32,7 +32,10 @@
                             <h2 class="text-info"><i class="fa fa-plus"></i> Thêm Khách</h2>                              
                         </div>
                         <div class="card-header">
-                            <h4 style="padding-left: 20px;"><i class="fa fa-home"></i> Phòng 1</h4>                              
+                            <h4 style="padding-left: 20px;"><i class="fa fa-home"></i> Moon</h4>                              
+                        </div>
+                        <div class="card-header">
+                            <h4 style="padding-left: 20px;"><i class="fa fa-person-shelter"></i> Phòng 1</h4>                              
                         </div>
                         <div class="mt-3 text-center" style="float:right; display: flex">
                             <a href="${pageContext.request.contextPath}/MainController?action=RoomPage">
@@ -103,14 +106,8 @@
                                             <input type="text" class="form-control" placeholder="Enter your address" name="address">
                                         </div>
                                     </div>
-                                    <div class="form-group row mt-2">
-                                        <label  class="col-sm-2 col-form-label">Phòng</label>
-                                        <div class="col-sm-10">
-                                            <input type="text" value="${Room.roomnumber}" class="form-control" placeholder="Enter your Room" name="roomnumber" disabled="disabled">
-                                            <input type="hidden" value="${Room.roomID}" name="roomID">
-                                        </div>
-                                    </div>
-                                    
+
+
                                 </div>
                             </div>
                             <div role="tabpanel" class="tab-pane fade show " id="service" >
@@ -124,7 +121,7 @@
                                                 <th>Ngày cập nhật</th> 
                                                 <th>Địa điểm</th>
                                                 <th>Giá</th>                                     
-        
+
                                             </tr>
                                         </thead>
                                         <tfoot>
@@ -158,7 +155,7 @@
                                                     </c:forEach>
 
                                                     <td><input type="text" name="" class="money form-control" value="${SD.unit_price}" disabled="disable" style="width: 100%"/></td>                                     
-                                                    
+
                                                 </tr>
                                             </c:forEach>
 
@@ -169,7 +166,7 @@
 
                             <div role="tabpanel" class="tab-pane fade show " id="member" >
                                 <div class="card px-3 py-3">
-                                   <table  class="table table-striped table-bordered "  >
+                                    <table  class="table table-striped table-bordered "  >
                                         <thead>
                                             <tr>
                                                 <th style=" text-align: center">Tên</th>
@@ -271,29 +268,36 @@
     <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
     <script type="text/javascript">
 
-            function deleterow(tblId)
-            {
+                                                function deleterow(tblId)
+                                                {
 
-                var table = document.getElementById(tblId);
-                var row = table.getElementsByTagName('tr');
-                if (row.length != '0') {
-                    row[row.length - 1].outerHTML = '';
-                }
-            }
+                                                    var table = document.getElementById(tblId);
+                                                    var row = table.getElementsByTagName('tr');
+                                                    if (row.length > '1') {
+                                                        row[row.length - 1].outerHTML = '';
+                                                    }
+                                                    else{
+                                                        window.alert('Cần ít nhất 1 thành viên hoặc chọn xóa phòng');
+                                                    }
+                                                }
 
-            function addRow(myTable) {
-                var table = document.getElementById(myTable);
-                var row = table.getElementsByTagName('tr');
-                if (row.length != '4') {
-                    var row = row[row.length - 1].outerHTML;
-                    table.innerHTML = table.innerHTML + row;
-                    for (i = 0; i < row.length; i++) {
-                        row[i].innerHTML = '';
-                    }
-                }
+                                                function addRow(myTable) {
+                                                    var table = document.getElementById(myTable);
+                                                    var row = table.getElementsByTagName('tr');
+                                                    if (row.length < '4') {
+                                                        var row = row[row.length - 1].outerHTML;
+                                                        table.innerHTML = table.innerHTML + row;
+                                                        for (i = 0; i < row.length; i++) {
+                                                            row[i].innerHTML = '';
+                                                        }
 
-            }
-        </script>
+                                                    } else {
+                                                        window.alert('Phòng tối đa 4 người');
+                                                    }
+
+
+                                                }
+    </script>
     <!--<script>
         const reader = new FileReader();
 

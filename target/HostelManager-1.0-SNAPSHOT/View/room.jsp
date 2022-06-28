@@ -176,6 +176,9 @@
                                                                             <a href="${pageContext.request.contextPath}/MainController?action=AddCustomer&RoomID=${R.roomID}">
                                                                                 <button class="btn btn-warning" title="Add"><i class="fa fa-add"></i> Thêm Khách</button>
                                                                             </a>  
+                                                                            <a href="${pageContext.request.contextPath}/MainController?action=UpdateRoom&RoomID=${R.roomID}">
+                                                                                <button class="btn btn-primary" title="Edit"><i class="fa fa-edit"></i></button>
+                                                                            </a>
                                                                             <a  href="${pageContext.request.contextPath}/MainController?action=DeleteRoom&RoomID=${R.roomID}">                                                                                        
                                                                                 <button Onclick="return ConfirmDelete();" class="btn btn-danger" title="Remove"><i class="fa fa-remove"></i></button>                
                                                                             </a>

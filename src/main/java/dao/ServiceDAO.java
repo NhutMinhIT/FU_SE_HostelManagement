@@ -33,7 +33,7 @@ public class ServiceDAO {
 
     private static final String DELETE_SERVICEDETAIL = "UPDATE dbo.[ServiceDetail] SET status ='DELETE' WHERE detail_id = ?";
 
-
+    private static final String UPDATE_SERVICEDETAIL = "UPDATE dbo.[ServiceDetail] SET detail_name = ?, unit_price = ?, updated_date = ?,description = ?,status = ? WHERE detail_id = ?";
 
     public List<ServiceTypeDTO> GetListService() throws SQLException {
         List<ServiceTypeDTO> list = new ArrayList<>();
@@ -291,18 +291,51 @@ public class ServiceDAO {
         return check;
     }
 
+    public boolean UpdateServiceDetail(ServiceDetailDTO s) throws SQLException {
+        boolean check = false;
+        Connection conn = null;
+        PreparedStatement ptm = null;
+        try {
+            conn = DBUtils.getConnection();
+            if (conn != null) {
+                ptm = conn.prepareStatement(UPDATE_SERVICEDETAIL);
+                ptm.setString(1, s.getDetailname());
+                ptm.setDouble(2, s.getUnit_price());
+                ptm.setDate(3, s.getUpdated_date());
+                ptm.setString(4, s.getDescription());
+                ptm.setString(5, s.getDetailID());
+
+                check = ptm.executeUpdate() > 0 ? true : false;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            if (ptm != null) {
+                ptm.close();
+            }
+            if (conn != null) {
+                conn.close();
+            }
+        }
+        return check;
+    }
+
 public static void main(String[] args) throws SQLException {
     List<ServiceDetailDTO> list = new ArrayList<>();
     ServiceDAO dao = new ServiceDAO();
     RoomDAO rdao = new RoomDAO();
+
+double s = Double.parseDouble("50,0000,000".replaceAll(",", ""));
+System.out.println(s);
+//
+//
+//dao.AddServiceDetail(new ServiceDetailDTO("1","Internet","",13200,Date.valueOf("2022-06-06"),"Non","ACTIVE","1","3"));
 //    List<HostelDTO> ho = rdao.GetListHostel("1");
 //    List<ServiceDetailDTO> s = dao.GetListServiceDetail(ho);
 //    for(ServiceDetailDTO ss : s){
 //         System.out.println(ss.getDetailname());
 //    }
-ServiceDetailDTO d = dao.GetAServiceDetail("1");
-System.out.println(d.getDetailname());
-   
+//   
 
 }
 

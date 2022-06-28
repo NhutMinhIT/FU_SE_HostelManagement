@@ -21,7 +21,7 @@
         <%@include file="/View/layout/header.jsp" %>
 
         <div id="layoutSidenav_content">
-            <main class="container-fluid">
+            <main class="container-fluid" style="font-size: 17px">
                 <div class="container-fluid px-4">
                     <div class="card mt-4">
                         <div class="card-header">

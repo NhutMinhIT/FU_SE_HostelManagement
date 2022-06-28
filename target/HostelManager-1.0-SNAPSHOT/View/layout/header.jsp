@@ -7,7 +7,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-   <head>
+    <head>
         <meta charset="utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
@@ -39,7 +39,7 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                        
+
                         <li><a class="dropdown-item" href="#!">Settings</a></li>
                         <li>
                             <hr class="dropdown-divider" />
@@ -49,7 +49,7 @@
                 </li>
             </ul>
         </nav>
-          <div id="layoutSidenav">
+        <div id="layoutSidenav">
             <div id="layoutSidenav_nav">
                 <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
                     <div class="sb-sidenav-menu">
@@ -67,9 +67,19 @@
                                 <div class="sb-nav-link-icon"><i class="fas fa-cubes"></i></div>
                                 Dịch Vụ                                
                             </a>
-                                               
+                            <a class="nav-link collapsed" href="${pageContext.request.contextPath}">
+                                <div class="sb-nav-link-icon"><i class="fas fa-bolt"></i></div>
+                                Chỉ Số Điện                               
+                            </a>
+                            <a class="nav-link collapsed" href="${pageContext.request.contextPath}">
+                                <div class="sb-nav-link-icon"><i class="fas fa-faucet"></i></div>
+                                Chỉ Số Nước                               
+                            </a>
+
+
+
                             <div class="sb-sidenav-menu-heading">Khác</div>
-                           
+
                             <a class="nav-link" href="#">
                                 <div class="sb-nav-link-icon"><i class="fas fa-address-card"></i></div>
                                 Liên Hệ
@@ -78,7 +88,7 @@
                     </div>
                     <div class="sb-sidenav-footer">
                         <div class="small">Logged in as:</div>
-                            ${sessionScope.LOGIN_USER.fullname}                      
+                        ${sessionScope.LOGIN_USER.fullname}                      
                     </div>
                 </nav>
             </div>

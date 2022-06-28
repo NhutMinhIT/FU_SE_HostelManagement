@@ -84,14 +84,17 @@
             </div>
             <div id="layoutSidenav_content">
 
-                <form action="">
+                <form action="#">
                     <div class="card mb-4">
                         <div class="card-header">
                             <div class="card-header">
                                 <h2 class="text-info"><i class="fa fa-edit"></i> Chỉnh Sửa Thông Tin Khách Thuê</h2>                              
                             </div>
-                            <div class="card-header" style="padding-left: 5%;">
-                                <h4><i class="fa fa-home"></i> Phòng 1</h4>                              
+                            <div class="card-header">
+                                <h4 style="padding-left: 20px;"><i class="fa fa-home"></i> Moon</h4>                              
+                            </div>
+                            <div class="card-header">
+                                <h4 style="padding-left: 20px;"><i class="fa fa-person-shelter"></i> Phòng 1</h4>                              
                             </div>
                             <div class="mt-3 text-center" style="float:right; display: flex">                               
                                 <a href="viewCus.jsp">
@@ -111,11 +114,11 @@
                                 <li class="nav-item">
                                     <a class="nav-link active" href="#cusInfor" role="tab" data-toggle="tab">Thông Tin</a>
                                 </li>
-                                
+
                                 <li class="nav-item">
                                     <a class="nav-link" href="#member" role="tab" data-toggle="tab">Thành Viên</a>
                                 </li>
-                                
+
                             </ul>
 
                             <div class="tab-content ">
@@ -156,24 +159,19 @@
                                             <label  class="col-sm-2 col-form-label">Địa chỉ</label>
                                             <div class="col-sm-10">
                                                 <input type="text" class="form-control" placeholder="Enter your address" 
-                                                       value="288/3 Man Thiên, phường Tăng Nhơn Phú A, Quận 9, Tp. Hồ Chí Minh." disabled=address>
+                                                       value="288/3 Man Thiên, phường Tăng Nhơn Phú A, Quận 9, Tp. Hồ Chí Minh." disabled="disabled">
                                             </div>
                                         </div>
-                                        <div class="form-group row mt-2">
-                                            <label  class="col-sm-2 col-form-label">Phòng</label>
-                                            <div class="col-sm-10">
-                                                <input type="text" value="Room 1" class="form-control" placeholder="Enter your Room" disabled="disabled">
-                                            </div>
-                                        </div>
+
                                         <div class="form-group row mt-2">
                                             <label  class="col-sm-2 col-form-label">Ngày Thuê</label>
                                             <div class="col-sm-10">
-                                                <input type="text" class="form-control"placeholder="" value="25/05/2019" disabled="disable" >
+                                                <input type="text" class="form-control" value="25/05/2019" disabled="disabled" >
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                               
+
 
                                 <div role="tabpanel" class="tab-pane fade show " id="member" >
                                     <div class="card px-3 py-3">
@@ -189,7 +187,7 @@
                                                     <th style=""></th>
                                                 </tr>
                                             </thead>
-                                            <tbody>
+                                            <tbody id="tblSample">
                                                 <tr>
                                                     <td><input type="text" name="name" value="Phan Minh Tri" style="width: 100% ;text-align: center"></td>
                                                     <td><input type="text" name="date" value="24/09/2001" ></td>
@@ -197,46 +195,48 @@
                                                         <input type="radio" checked="">Nam <br/>
                                                         <input type="radio" name="radio"  /> Nữ
                                                     </td>
-                                                    <td><input type="text" name="cmnd" value="1234567890"style=" text-align: center"></td>
+                                                    <td><input type="text" name="cmnd" value="1234567890" style=" text-align: center"></td>
                                                     <td><input type="text" name="address" style="width: 100%; text-align: center"
                                                                value="288/3 Man Thiên, phường Tăng Nhơn Phú A, Quận 9, Tp. Hồ Chí Minh."
-                                                               disabled="address"></td>
+                                                               disabled="disabled">
+                                                    </td>
                                                     <td><input type="text" name="phone" value="0986785483" style="width: 100%; text-align: center"></td>
                                                     <td style="display: flex;">
-                                                        <button class="btn btn-danger" title="Xóa thành viên"><i class="fa fa-minus-circle"></i></button>                                                        
-                                                    </td>
+                                                    <td><button onclick="deleterow('tblSample')" class="btn btn-danger"><i class="fa fa-minus-circle"></i></button></td>                                                        
+
                                                 </tr>
                                                 <tr>
-                                                    <td><input type="text" name="name" value="Trần Quang Hùng"style="width: 100% ;text-align: center"></td>
-                                                    <td><input type="text" name="date" value="25/05/2001" ></td>
+                                                    <td><input type="text" name="name" value="" style="width: 100% ;text-align: center"></td>
+                                                    <td><input type="text" name="date" value="" ></td>
                                                     <td style="text-align: center">
                                                         <input type="radio" checked="">Nam <br/>
                                                         <input type="radio" name="radio" /> Nữ
                                                     </td>
-                                                    <td><input type="text" name="cmnd" value="2987986756"style=" text-align: center"></td>
+                                                    <td><input type="text" name="cmnd" value="" style=" text-align: center"></td>
                                                     <td><input type="text" name="address" style="width: 100%; text-align: center"
-                                                               value="288/3 Man Thiên, phường Tăng Nhơn Phú A, Quận 9, Tp. Hồ Chí Minh."
-                                                               disabled="address"></td>
-                                                    <td><input type="text" name="phone" value="0987689006"style="width: 100%; text-align: center"></td>
-                                                    <td style="display: flex;">
-                                                        <button class="btn btn-danger" title="Xóa thành viên"><i class="fa fa-minus-circle"></i></button>                                                     
+                                                               value=""
+                                                               disabled="disabled">
                                                     </td>
+                                                    <td><input type="text" name="phone" value="" style="width: 100%; text-align: center"></td>
+                                                    <td style="display: flex;">
+                                                    <td><button onclick="deleterow('tblSample')" class="btn btn-danger"><i class="fa fa-minus-circle"></i></button></td>                                                   
+
                                                 </tr>
                                             </tbody>
-                                           
+
                                         </table>
 
                                         <div>
                                             <div style="float:right">
-                                                <button id="addRowPerson" type="button" class="btn btn-success pull-right"><i class="fa fa-plus-circle"></i></button>
+                                                <button onclick="addRow('tblSample')" type="button" class="btn btn-success pull-right add-row"><i class="fa fa-plus-circle"></i></button>
                                             </div>
 
                                         </div>
                                     </div>
-                                      
-                                </div>
-                                
 
+                                </div>
+
+                            </div>
                     </main>
                 </form>
                 <footer class="py-4 bg-light mt-auto jumbotron">
@@ -248,6 +248,8 @@
                 </footer>
             </div>
         </div>
+
+
         <script src="../js/scripts.js"></script>
         <script src="../js/datatables-simple-demo.js"></script>
         <script src="../assets/demo/chart-area-demo.js"></script>
@@ -256,6 +258,37 @@
         <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
         <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+        <script type="text/javascript">
+
+                                                    function deleterow(tblId)
+                                                    {
+
+                                                        var table = document.getElementById(tblId);
+                                                        var row = table.getElementsByTagName('tr');
+                                                        if (row.length > '1') {
+                                                            row[row.length - 1].outerHTML = '';
+                                                        } else {
+                                                            window.alert('Cần ít nhất 1 thành viên hoặc chọn xóa phòng');
+                                                        }
+                                                    }
+
+                                                    function addRow(myTable) {
+                                                        var table = document.getElementById(myTable);
+                                                        var row = table.getElementsByTagName('tr');
+                                                        if (row.length < '4') {
+                                                            var row = row[row.length - 1].outerHTML;
+                                                            table.innerHTML = table.innerHTML + row;
+                                                            for (i = 0; i < row.length; i++) {
+                                                                row[i].innerHTML = '';
+                                                            }
+
+                                                        } else {
+                                                            window.alert('Phòng tối đa 4 người');
+                                                        }
+
+
+                                                    }
+        </script>
 
     </body>
 

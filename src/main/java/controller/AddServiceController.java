@@ -89,14 +89,15 @@ public class AddServiceController extends HttpServlet {
   
             String detail_name = request.getParameter("detail_name");
             String calUnit = "";
-            Double unit_price = Double.parseDouble(request.getParameter("unit_price"));
+            String unit_price = request.getParameter("unit_price").replaceAll(",", "");
+            Double unitprice = Double.parseDouble(unit_price);
             String updated_date = request.getParameter("updated_date");
             String description = request.getParameter("description");
             String hostel_id = request.getParameter("hostel_id");
             String service_id = request.getParameter("service_id"); 
             if (service_id.equals("1")) calUnit = "kWh"; else if (service_id.equals("2")) calUnit = "m3";
             
-            boolean check = dao.AddServiceDetail(new ServiceDetailDTO("",detail_name,calUnit,unit_price,Date.valueOf(updated_date),description,"ACTIVE",hostel_id,service_id));
+            boolean check = dao.AddServiceDetail(new ServiceDetailDTO("",detail_name,calUnit,unitprice,Date.valueOf(updated_date),description,"ACTIVE",hostel_id,service_id));
             if (check) {
                 url = SUCCESS;
             }

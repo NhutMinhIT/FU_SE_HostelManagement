@@ -2,7 +2,6 @@ controller\AddRoomController.class
 controller\UpdateRoomController.class
 controller\DeleteServiceController.class
 dao\ContractDAO.class
-dao\HostelDAO.class
 controller\HostelManagerController.class
 dao\CustomerDAO.class
 dto\RoomDTO.class
@@ -21,7 +20,6 @@ controller\UpdateServiceController.class
 controller\UserPageController.class
 controller\RoomPageController.class
 controller\DeleteRoomController.class
-dto\ServiceDTO.class
 dao\RoomDAO.class
 controller\AddCustomerController.class
 controller\AddServiceController.class

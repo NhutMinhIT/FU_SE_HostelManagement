@@ -12,6 +12,7 @@ import dto.ServiceTypeDTO;
 import dto.UserDTO;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.Date;
 import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -84,7 +85,30 @@ public class UpdateServiceController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        response.setContentType("text/html;charset=UTF-8");
+        String url = SUCCESS;
+        try {
+            HttpSession ss = request.getSession();
+            UserDTO us =  (UserDTO) ss.getAttribute("LOGIN_USER");
+            ServiceDAO dao = new ServiceDAO();
+            String detail_id = request.getParameter("detail_id");
+            String detail_name = request.getParameter("detail_name");
+
+            String unit_price = request.getParameter("unit_price").replaceAll(",", "");
+            Double unitprice = Double.parseDouble(unit_price);
+            String updated_date = request.getParameter("updated_date");
+            String status = request.getParameter("status");
+            String description = request.getParameter("description");
+            
+            boolean check = dao.UpdateServiceDetail(new ServiceDetailDTO(detail_id,detail_name,"",unitprice,Date.valueOf(updated_date),description,status,"",""));
+            if (check) {
+                url = SUCCESS;
+            }
+        } catch (Exception e) {
+            log("Error at AddServiceController(doPost): " + e.toString());
+        } finally {
+            request.getRequestDispatcher(url).forward(request, response);
+        }
     }
 
     /**
