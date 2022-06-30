@@ -15,20 +15,24 @@ public class CustomerDTO {
     private String password;
     private String fullname;
     private String email;
+    private String gender;
     private Date dob;
     private String phone;
     private String status;
     private String address;
+    private String wardID;
 
-    public CustomerDTO(String customerID, String password, String fullname, String email, Date dob, String phone, String status, String address) {
+    public CustomerDTO(String customerID, String password, String fullname, String email, String gender, Date dob, String phone, String status, String address, String wardID) {
         this.customerID = customerID;
         this.password = password;
         this.fullname = fullname;
         this.email = email;
+        this.gender = gender;
         this.dob = dob;
         this.phone = phone;
         this.status = status;
         this.address = address;
+        this.wardID = wardID;
     }
 
     public String getCustomerID() {
@@ -63,6 +67,14 @@ public class CustomerDTO {
         this.email = email;
     }
 
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
     public Date getDob() {
         return dob;
     }
@@ -95,9 +107,16 @@ public class CustomerDTO {
         this.address = address;
     }
 
+    public String getWardID() {
+        return wardID;
+    }
 
- 
+    public void setWardID(String wardID) {
+        this.wardID = wardID;
+    }
 
+   
+  
     
 
    

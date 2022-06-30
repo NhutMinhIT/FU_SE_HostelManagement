@@ -29,10 +29,10 @@ public class RoomDAO {
     private static final String GETAROOM = "SELECT * FROM dbo.[Room] where room_id = ?";
 
     private static final String ADDROOM = "INSERT INTO dbo.[Room](hostel_id, room_number, price, description, status) VALUES(?,?,?,?,?)";
-    private static final String ADDHOSTEL = "INSERT INTO dbo.[Hostel](hostel_name, address, phone,status, user_id) VALUES(?,?,?,'ACTIVE',?)";
+    private static final String ADDHOSTEL = "INSERT INTO dbo.[Hostel](hostel_name, address, phone,status, user_id, ward_id) VALUES(?,?,?,'ACTIVE',?,?)";
 
     private static final String UPDATEROOM = "UPDATE dbo.[Room] SET hostel_id = ?, room_number = ?, price = ?, description = ?, status = ? where room_id = ?";
-    private static final String UPDATEHOSTEL = "UPDATE dbo.[Hostel] SET hostel_name = ?, address = ?, phone = ? where hostel_id =?"; 
+    private static final String UPDATEHOSTEL = "UPDATE dbo.[Hostel] SET hostel_name = ?, address = ?, phone = ?, ward_id = ? where hostel_id =?"; 
 
     private static final String DELETEROOM = "UPDATE dbo.[Room] SET status ='DISABLED' WHERE room_id = ?";
     private static final String DELETEHOSTEL = "UPDATE dbo.[Hostel] SET status ='DISABLED' WHERE hostel_id = ?";
@@ -56,7 +56,8 @@ public class RoomDAO {
                     String HostelName = rs.getString("hostel_name");
                     String address = rs.getString("address");
                     String phone = rs.getString("phone");
-                    list.add(new HostelDTO(HostelID,HostelName,address,phone,userID));
+                    String wardID = rs.getString("ward_id");
+                    list.add(new HostelDTO(HostelID,HostelName,address,phone,userID,wardID));
                 }
             }
         } catch (Exception e) {
@@ -129,8 +130,9 @@ public class RoomDAO {
                     String HostelName = rs.getString("hostel_name");
                     String address = rs.getString("address");
                     String phone = rs.getString("phone");
-                    String userID = rs.getString("user_id");
-                    return new HostelDTO(HostelID,HostelName,address,phone,userID);
+                    String userID = rs.getString("user_id");                   
+                    String wardID = rs.getString("ward_id");
+                    return new HostelDTO(HostelID,HostelName,address,phone,userID,wardID);
                 }
             }
         } catch (Exception e) {
@@ -271,6 +273,8 @@ public class RoomDAO {
                 ptm.setString(3, Hostel.getPhone());
                 ptm.setString(4, Hostel.getPhone());
                 ptm.setString(5, Hostel.getHostelID());
+                ptm.setString(6, Hostel.getWardID());
+                ptm.setString(7, Hostel.getWardID());
                 check = ptm.executeUpdate() > 0 ? true : false;
             }
         } catch (Exception e) {
@@ -324,6 +328,7 @@ public class RoomDAO {
                 ptm.setString(2, h.getAddress());
                 ptm.setString(3, h.getPhone());
                 ptm.setString(4, h.getUserID());
+                ptm.setString(5, h.getWardID());
                 check = ptm.executeUpdate() > 0 ? true : false;
             }
         } catch (Exception e) {

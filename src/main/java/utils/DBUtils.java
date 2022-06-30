@@ -26,8 +26,8 @@ public class DBUtils {
     private final static String dbName = "HostelDB";
     private final static String portNumber = "1433";
     private final static String instance = "";//LEAVE THIS ONE EMPTY IF YOUR SQL IS A SINGLE INSTANCE
-    private final static String userID = "fptnhutminh";
-    private final static String password = "221200";
+    private final static String userID = "avillX";
+    private final static String password = "0711";
     public static void main(String[] args) {
         try{
             System.out.println(DBUtils.getConnection());

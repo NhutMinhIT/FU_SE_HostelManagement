@@ -4,7 +4,7 @@
     Author     : Dell
 --%>
 
-
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -37,10 +37,11 @@
                         <div class="card-body">
                             <form action="${pageContext.request.contextPath}/MainController" method="POST">
                                 <div class="row">
+                                    <input type="hidden" name="detail_id" value="${ServiceDetail.detailID}" />
                                     <div class="form-group row col-md-6 mt-2">
                                         <label  class="col-sm-4 col-form-label">Tên dịch vụ:</label>
                                         <div class="col col-sm-8">
-                                            <input type="text" class="form-control" value="${ServiceDetail.detailname}" required pattern="\S+">
+                                            <input name="detail_name"type="text" class="form-control" value="${ServiceDetail.detailname}" required pattern="\S+">
                                         </div>
                                     </div>
                                     <div class="form-group row col-md-6 mt-2">
@@ -50,7 +51,7 @@
                                                 <c:forEach items="${ServiceTypeList}" var="ST">
                                                     <c:choose>
                                                         <c:when test="${ST.serviceID == ServiceDetail.serviceID}">
-                                                            <option value="${ST.serviceID}" checked="">${ST.service_name}</option>
+                                                            <option value="${ST.serviceID}" selected>${ST.service_name}</option>
                                                         </c:when>
                                                         <c:otherwise>
                                                             <option value="${ST.serviceID}">${ST.service_name}</option>
@@ -74,7 +75,15 @@
                                         <div class="col-sm-8">
                                             <select id="#" name="hostel_id" style="padding:6px 0; border-radius: 3px; width: 50%" >
                                                 <c:forEach items="${HostelList}" var="H">
-                                                    <option value="${H.hostelID}">${H.hostelname}</option>                                                
+                                                    <c:choose>
+                                                        <c:when test="${ST.hostelID == ServiceDetail.hostelID}">
+                                                            <option value="${H.hostelID}" selected>${H.hostelname}</option> 
+                                                        </c:when>
+                                                        <c:otherwise>
+                                                            <option value="${H.hostelID}">${H.hostelname}</option> 
+                                                        </c:otherwise>
+                                                    </c:choose>
+                                                                                                   
                                                 </c:forEach>
                                             </select>
 
@@ -86,7 +95,9 @@
                                     <div class="form-group row col-md-6 mt-2">
                                         <label  class="col-sm-4 col-form-label">Giá:</label>
                                         <div class="col col-sm-8">
-                                            <input class="money form-control" type="text" name="unit_price"  placeholder="Giá" value="${ServiceDetail.unit_price}">
+                                            
+                                            <input class="form-control" type="text" name="unit_price"  placeholder="Giá" 
+                                                   value="${ServiceDetail.unit_price}"/>
                                         </div>
                                     </div>
                                     <div class="form-group row col-md-6 mt-2">

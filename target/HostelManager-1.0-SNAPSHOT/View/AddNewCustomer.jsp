@@ -1,5 +1,7 @@
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,7 +12,7 @@
         <meta name="description" content="" />
         <meta name="author" content="" />
         <title>MoonHostel</title>
-        <link rel="icon" type="image/png" href="../assets/img/logo.png" sizes="16x16">
+        <link rel="icon" type="image/png" href="${pageContext.request.contextPath}/assets/img/logo.png" sizes="16x16">
         <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
 
         <link href="${pageContext.request.contextPath}/css/styles.css" rel="stylesheet" />
@@ -29,10 +31,11 @@
                 <div class="card mb-4">
                     <div class="card-header">
                         <div class="card-header">
-                            <h2 class="text-info"><i class="fa fa-plus"></i> Thêm Khách</h2>                              
+                            <h2 class="text-info"><i class="fa fa-plus"></i> Thêm Khách</h2>       
+
                         </div>
                         <div class="card-header">
-                            <h4 style="padding-left: 20px;"><i class="fa fa-home"></i> Moon</h4>                              
+                            <h4 style="padding-left: 20px;"><i class="fa fa-home"></i> ${Hostel}</h4>                              
                         </div>
                         <div class="card-header">
                             <h4 style="padding-left: 20px;"><i class="fa fa-person-shelter"></i> Phòng 1</h4>                              
@@ -138,7 +141,7 @@
                                         <tbody>
                                             <c:forEach items="${ServiceDetailList}" var="SD">   
                                                 <tr>
-                                                    <td style="text-align: center"><input type="checkbox" name="choose" value="${SD.detailID}" /></td>
+                                                    <td style="text-align: center"><input type="checkbox" name="chooseDetail" value="${SD.detailID}" /></td>
                                                     <td>${SD.detailname}</td>
                                                     <c:forEach items="${ServiceTypeList}" var="ST">   
                                                         <c:if test="${ST.serviceID == SD.serviceID}">
@@ -146,7 +149,7 @@
                                                         </c:if>                                                
                                                     </c:forEach>
 
-                                                    <td>${SD.updated_date}</td>
+                                                    <td><fmt:formatDate pattern="dd-MM-yyyy" value="${SD.updated_date}"/></td>
 
                                                     <c:forEach items="${HostelList}" var="H">   
                                                         <c:if test="${H.hostelID == SD.hostelID}">
@@ -154,7 +157,7 @@
                                                         </c:if>                                                
                                                     </c:forEach>
 
-                                                    <td><input type="text" name="" class="money form-control" value="${SD.unit_price}" disabled="disable" style="width: 100%"/></td>                                     
+                                                    <td><input type="text" name="" class="money form-control" value="<fmt:formatNumber type="number" maxFractionDigits="0" value="${SD.unit_price}"/>" disabled="disable" style="width: 100%"/></td>                                     
 
                                                 </tr>
                                             </c:forEach>
@@ -183,8 +186,8 @@
                                                 <td><input type="text" name="name" style="width: 100% ;text-align: center"></td>
                                                 <td><input type="date" name="date"></td>
                                                 <td style="text-align: center">
-                                                    <input type="radio" name="radio" id="sex"  />Nam
-                                                    <input type="radio" name="radio" checked /> Nữ
+                                                    <input type="radio" name="gender" />Nam
+                                                    <input type="radio" name="gender" checked /> Nữ
                                                 </td>
                                                 <td><input type="text" name="cmnd" style=" text-align: center"></td>
                                                 <td><input type="text" name="address" style="width: 100%; text-align: center"></td>
@@ -196,7 +199,7 @@
                                                 <td><input type="date" name="date"></td>
                                                 <td style="text-align: center">
                                                     <input type="radio" name="radio" id="sex"  />Nam
-                                                    <input type="radio" name="radio" checked /> Nữ
+                                                    <input type="radio" name="radio" id="sex" checked /> Nữ
                                                 </td>
                                                 <td><input type="text" name="cmnd" style=" text-align: center"></td>
                                                 <td><input type="text" name="address" style="width: 100%; text-align: center"></td>
@@ -216,10 +219,7 @@
                             <div role="tabpanel" class="tab-pane fade show " id="contract" >
                                 <div class="card px-3 py-3">
                                     <div class="form-group row mt-2">
-                                        <label  class="col-sm-2 col-form-label">Số Hợp Đồng</label>
-                                        <div class="col-sm-10">
-                                            <input type="text" class="form-control" placeholder="Enter your ID">
-                                        </div>
+                                        
                                     </div>
                                     <div class="row mt-2">
                                         <div class="form-group row col-md-6 mt-2">
@@ -237,7 +237,7 @@
                                         <div class="form-group row col-md-8 mt-2">
                                             <label  class="col-sm-4 col-form-label"></label>
                                             <div class="col col-sm-8">
-                                                <input type="file" accept=".jpg, .png" multiple/>
+                                                <input name="contract"type="file" accept=".jpg, .png" multiple/>
                                             </div>
                                         </div>
                                     </div> 

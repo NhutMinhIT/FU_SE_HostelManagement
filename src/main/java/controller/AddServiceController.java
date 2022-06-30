@@ -81,7 +81,7 @@ public class AddServiceController extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        String url = SUCCESS;
+        String url = ERROR;
         try {
             HttpSession ss = request.getSession();
             UserDTO us =  (UserDTO) ss.getAttribute("LOGIN_USER");

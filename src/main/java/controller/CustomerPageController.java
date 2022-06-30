@@ -7,13 +7,17 @@ package controller;
 import dao.ContractDAO;
 import dao.CustomerDAO;
 import dao.RoomDAO;
+import dao.ServiceDAO;
 import dto.ContractDTO;
 import dto.CustomerDTO;
 import dto.HostelDTO;
 import dto.RoomDTO;
+import dto.ServiceDetailDTO;
+import dto.ServiceTypeDTO;
 import dto.UserDTO;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -26,16 +30,17 @@ import javax.servlet.http.HttpSession;
  *
  * @author avillX
  */
-@WebServlet(name = "UpdateHostelController", urlPatterns = {"/UpdateHostelController"})
-public class UpdateHostelController extends HttpServlet {
+@WebServlet(name = "CustomerPageController", urlPatterns = {"/CustomerPageController"})
+public class CustomerPageController extends HttpServlet {
 
-    private static final String ERROR = "UserPageController";
-    private static final String SUCCESS = "UserPageController";   
+    private static final String ERROR = "View/editCus.jsp";
+    private static final String SUCCESS = "CustomerPageController";  
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        response.setContentType("text/html;charset=UTF-8");
+    }
 
-}
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
@@ -49,20 +54,46 @@ public class UpdateHostelController extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        String url = SUCCESS;
+        String url = ERROR;
         try {
             HttpSession ss = request.getSession();
             UserDTO us =  (UserDTO) ss.getAttribute("LOGIN_USER");
             RoomDAO dao = new RoomDAO();
+            CustomerDAO Cusdao = new CustomerDAO();
+            ContractDAO Cdao = new ContractDAO();
+            ServiceDAO SerDAO = new ServiceDAO();
 
-            String HostelID = request.getParameter("HostelID");
+            String CusID = request.getParameter("CusID");
+            RoomDTO room = dao.GetARoom(request.getParameter("roomID"));
 
-            HostelDTO Hostel = dao.GetAHostel(HostelID);
+            List<ServiceTypeDTO> ServiceTypeList = SerDAO.GetListService();
+            List<RoomDTO> Room = new ArrayList<>();
+            Room.add(room);
 
-            request.setAttribute("Hostel",Hostel);            
+            ContractDTO Contract = Cdao.GetAContract(CusID);
+            HostelDTO Hostel = dao.GetAHostel(room.getHostelID());
+            List<ContractDTO> ContractList = Cdao.GetListContract(Room);
+            List<CustomerDTO> RoomMate = Cusdao.GetListCustomer(ContractList);
+            CustomerDTO Customer = Cusdao.GetACustomer(CusID);
+
+
+
+            List<HostelDTO> HostelList = dao.GetListHostel(us.getUserID());
+            List<RoomDTO> RoomList = dao.GetListRoom(HostelList);
+
+            List<CustomerDTO> CusList = Cusdao.GetListCustomer(ContractList);
+
+            List<ServiceDetailDTO> ServiceDetailList = SerDAO.GetListServiceDetail(HostelList);
+
+            request.setAttribute("ServiceTypeList",ServiceTypeList);
+            request.setAttribute("Contract",Contract); 
+            request.setAttribute("Hostel",Hostel);
+            request.setAttribute("Customer",Customer);
+            request.setAttribute("Room",room);
+            request.setAttribute("RoomMate",RoomMate);
 
         } catch (Exception e) {
-            log("Error at UpdateHostelController(doGet):"+e.toString());
+            log("Error at CustomerPageController(doGet):"+e.toString());
         } finally {
             request.getRequestDispatcher(url).forward(request, response);
         }
@@ -79,26 +110,7 @@ public class UpdateHostelController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        String url = ERROR;
-        try {
-            String hostelID = request.getParameter("hostelID");
-            String hostelname = request.getParameter("hostelname");
-            String address = request.getParameter("address");
-            String phone = request.getParameter("phone");
-            String userID = request.getParameter("userID");
-            String wardID = request.getParameter("wardID");
-
-            RoomDAO dao = new RoomDAO();
-            boolean check = dao.UpdateHostel(new HostelDTO(hostelID, hostelname, address, phone, userID, wardID));
-            if (check) {
-                url = SUCCESS;
-            }
-        } catch (Exception e) {
-            log("Error at UpdateHostelController(doPost): " + e.toString());
-        } finally {
-            request.getRequestDispatcher(url).forward(request, response);
-        }
+        processRequest(request, response);
     }
 
     /**

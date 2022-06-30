@@ -94,8 +94,7 @@ public class UpdateServiceController extends HttpServlet {
             String detail_id = request.getParameter("detail_id");
             String detail_name = request.getParameter("detail_name");
 
-            String unit_price = request.getParameter("unit_price").replaceAll(",", "");
-            Double unitprice = Double.parseDouble(unit_price);
+            Double unitprice = Double.parseDouble(request.getParameter("unit_price"));
             String updated_date = request.getParameter("updated_date");
             String status = request.getParameter("status");
             String description = request.getParameter("description");

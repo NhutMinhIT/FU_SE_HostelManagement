@@ -1,6 +1,7 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 
@@ -131,13 +132,13 @@
                                                                             <c:forEach items="${CusList}" var="Cus">
                                                                                 <c:if test="${Cus.customerID == Contract.customerID}">
                                                                                     <td>
-                                                                                        <a href="${pageContext.request.contextPath}/MainController?action=CustomerInfo&CusID=${Cus.customerID}">
+                                                                                        <a href="${pageContext.request.contextPath}/MainController?action=CustomerPage&CusID=${Cus.customerID}&roomID=${R.roomID}">
                                                                                             ${Cus.fullname}
                                                                                         </a>
                                                                                     </td>
                                                                                     <td>${Cus.phone}</td>
                                                                                     <td>${Cus.email}</td>
-                                                                                    <td>${Contract.signed_date}</td>
+                                                                                    <td><fmt:formatDate pattern="dd-MM-yyyy" value="${Contract.signed_date}"/></td>
                                                                                 </c:if>
                                                                             </c:forEach>
                                                                         </c:when>
@@ -150,10 +151,13 @@
                                                                     </c:choose>
                                                                 </c:forEach>
 
-                                                                <td>${R.price}</td>
+                                                                <td>
+                                                                    <input class="money form-control" type="text" name="unit_price"  placeholder="Giá" 
+                                                                           value="<fmt:formatNumber type="number" maxFractionDigits="0" value="${R.price}"/>">
+                                                                </td>
                                                                 <c:choose>
                                                                     <c:when test="${R.status == 'RENTING'}">
-                                                                        <td class="text-success">${R.status}</td>
+                                                                        <td class="text-success"><strong>${R.status}</strong></td>
                                                                     </c:when>
                                                                     <c:otherwise>
                                                                         <td class="text-warning">${R.status}</td>

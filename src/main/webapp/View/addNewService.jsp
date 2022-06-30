@@ -1,7 +1,7 @@
- n bd <%-- 
-    Document   : addnewrom
-    Created on : May 31, 2022, 7:17:06 AM
-    Author     : Dell
+n bd <%-- 
+   Document   : addnewrom
+   Created on : May 31, 2022, 7:17:06 AM
+   Author     : Dell
 --%>
 
 
@@ -89,16 +89,16 @@
                                         </label>
                                     </div>
                                 </div> 
-                                    <div class="form-group">
-                                        <label for="inputAddress2">Mô Tả:</label>
-                                        <textarea rows="3" class="form-control" id="remarks" name="description"></textarea>
-                                    </div>
+                                <div class="form-group">
+                                    <label for="inputAddress2">Mô Tả:</label>
+                                    <textarea rows="3" class="form-control" id="remarks" name="description"></textarea>
+                                </div>
 
                                 <div class="mt-3 text-center">
                                     <a href="${pageContext.request.contextPath}/MainController?action=ServicePage">
                                         <button class="btn btn-warning" type="button" id="cancelButton"><i class="fa fa-mail-reply"></i> Trở Về</button>
                                     </a>
-                                        <button class="btn btn-success" type="submit" name="action" id="sumbitButton" value="AddService"><i class="fa fa-check"></i> Lưu</button>
+                                    <button class="btn btn-success" type="submit" name="action" id="sumbitButton" value="AddService"><i class="fa fa-check"></i> Lưu</button>
                                 </div>
                             </form>
                         </div>
@@ -115,11 +115,11 @@
             </footer>
         </div>
     </div>
-        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
-        <script type="text/javascript" src="${pageContext.request.contextPath}/js/simple.money.format.js"></script>
-        <script type="text/javascript">
-            $('.money').simpleMoneyFormat();
-        </script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script type="text/javascript" src="${pageContext.request.contextPath}/js/simple.money.format.js"></script>
+    <script type="text/javascript">
+        $('.money').simpleMoneyFormat();
+    </script>
     <script src="${pageContext.request.contextPath}/js/scripts.js"></script>
     <script src="${pageContext.request.contextPath}/js/datatables-simple-demo.js"></script>
     <script src="${pageContext.request.contextPath}/assets/demo/chart-area-demo.js"></script>

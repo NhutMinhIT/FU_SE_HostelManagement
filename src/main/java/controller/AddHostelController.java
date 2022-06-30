@@ -76,11 +76,11 @@ public class AddHostelController extends HttpServlet {
             String district = request.getParameter("district");
             String ward = request.getParameter("ward");
             String address = request.getParameter("address");
-            String Address = address + ", " + ward + ", " + district + ", " + city;
+            String wardID = request.getParameter("wardID");
 
             RoomDAO dao = new RoomDAO();
             int hostelID = dao.CountHostel();
-            boolean check = dao.AddHostel(new HostelDTO(String.valueOf(hostelID), hostelname, Address, us.getPhone(), us.getUserID()));
+            boolean check = dao.AddHostel(new HostelDTO(String.valueOf(hostelID), hostelname, address, us.getPhone(), us.getUserID(),wardID));
             if (check) {
                 url = SUCCESS;
             }

@@ -17,6 +17,9 @@ import dto.ServiceTypeDTO;
 import dto.UserDTO;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
@@ -25,13 +28,14 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import javax.servlet.http.Part;
 
 /**
  *
  * @author avillX
  */
-@WebServlet(name = "AddCustomerController", urlPatterns = {"/AddCustomerController"})
 @MultipartConfig
+@WebServlet(name = "AddCustomerController", urlPatterns = {"/AddCustomerController"})
 public class AddCustomerController extends HttpServlet {
 
     private static final String ERROR = "View/AddNewCustomer.jsp";
@@ -104,17 +108,21 @@ public class AddCustomerController extends HttpServlet {
             HttpSession ss = request.getSession();
             UserDTO us =  (UserDTO) ss.getAttribute("LOGIN_USER");
 
-            String fullname = request.getParameter("fullname");
-            String gender = request.getParameter("gender");
-            String dob = request.getParameter("dob");
-            String customerID = request.getParameter("customerID");
-            String phone = request.getParameter("phone");
-            String address = request.getParameter("address");
-            String roomID = request.getParameter("roomID");
-            String signed_date = request.getParameter("signed_date");
+//            String fullname = request.getParameter("fullname");
+//            String gender = request.getParameter("gender");
+//            String dob = request.getParameter("dob");
+//            String customerID = request.getParameter("customerID");
+//            String phone = request.getParameter("phone");
+//            String address = request.getParameter("address");
+//            String roomID = request.getParameter("roomID");
+//            String signed_date = request.getParameter("signed_date");
+//
+//            String[] checked_DetailIDs = request.getParameterValues("chooseDetail");
 
-            String[] checked_DetailIDs = request.getParameterValues("choose");
-
+            Part part = request.getPart("contract");
+            String realPath = request.getServletContext().getRealPath("/img/contract");
+            String filename = request.getParameter("customerID");
+            part.write(realPath+"/"+filename);
 
         } catch (Exception e) {
             log("Error at AddCustomerController(doPost):"+e.toString());

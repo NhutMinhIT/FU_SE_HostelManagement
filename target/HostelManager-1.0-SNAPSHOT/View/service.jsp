@@ -4,7 +4,7 @@
     Author     : Dell
 --%>
 
-
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -76,36 +76,38 @@
                                                 </c:if>                                                
                                             </c:forEach>
 
-                                            <td>${SD.updated_date}</td>
+                                            <td><fmt:formatDate pattern="dd-MM-yyyy" value="${SD.updated_date}"/></td>
 
                                             <c:forEach items="${HostelList}" var="H">   
                                                 <c:if test="${H.hostelID == SD.hostelID}">
                                                     <td>${H.hostelname}</td>
                                                 </c:if>                                                
                                             </c:forEach>
-
-                                            <td><input type="text" name="" class="money form-control" value="${SD.unit_price}" disabled="disable" style="width: 100%"/></td>                                     
-                                            <td>${SD.calUnit}</td>
-
-                                            <c:choose>
-                                                <c:when test="${SD.status == 'ACTIVE'}">
-                                                    <td style="text-align: center"><input type="checkbox" checked disabled="disabled" /></td>
-                                                    </c:when>
-                                                    <c:otherwise>
-                                                    <td style="text-align: center"><input type="checkbox" disabled="disabled" /></td>
-                                                    </c:otherwise>
-                                                </c:choose>
-
                                             <td>
-                                                <a href="${pageContext.request.contextPath}/MainController?action=UpdateService&detailID=${SD.detailID}">
-                                                    <button class="btn btn-primary"><i class="fa fa-edit"></i></button>
-                                                </a>
-                                                <a href="${pageContext.request.contextPath}/MainController?action=DeleteService&detailID=${SD.detailID}">
-                                                    <button Onclick="return ConfirmDelete();" class="btn btn-danger"><i class="fa fa-remove"></i></button>
-                                                </a>
-                                            </td>
-                                        </tr>
-                                    </c:forEach>
+                                                <input class="form-control" type="text" name="unit_price"  placeholder="Giá" value="<fmt:formatNumber type="number" maxFractionDigits="0" value="${SD.unit_price}"/>" disabled="disable" style="width: 100%"disabled="disable" style="width: 100%">
+                                            </td>  
+                                                                      
+                                    <td>${SD.calUnit}</td>
+
+                                    <c:choose>
+                                        <c:when test="${SD.status == 'ACTIVE'}">
+                                            <td style="text-align: center"><input type="checkbox" checked disabled="disabled" /></td>
+                                            </c:when>
+                                            <c:otherwise>
+                                            <td style="text-align: center"><input type="checkbox" disabled="disabled" /></td>
+                                            </c:otherwise>
+                                        </c:choose>
+
+                                    <td>
+                                        <a href="${pageContext.request.contextPath}/MainController?action=UpdateService&detailID=${SD.detailID}">
+                                            <button class="btn btn-primary"><i class="fa fa-edit"></i></button>
+                                        </a>
+                                        <a href="${pageContext.request.contextPath}/MainController?action=DeleteService&detailID=${SD.detailID}">
+                                            <button Onclick="return ConfirmDelete();" class="btn btn-danger"><i class="fa fa-remove"></i></button>
+                                        </a>
+                                    </td>
+                                    </tr>
+                                </c:forEach>
 
                                 </tbody>
                             </table>
@@ -136,7 +138,7 @@
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
         <script type="text/javascript" src="${pageContext.request.contextPath}/js/simple.money.format.js"></script>
         <script type="text/javascript">
-                                    $('.money').simpleMoneyFormat();
+            $('.money').simpleMoneyFormat();
         </script>
         <script src="${pageContext.request.contextPath}/js/scripts.js"></script>
         <script src="${pageContext.request.contextPath}/js/datatables-simple-demo.js"></script>

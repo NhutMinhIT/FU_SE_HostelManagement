@@ -40,11 +40,13 @@ public class CustomerDAO {
                         String password = rs.getString("password");
                         String fullname = rs.getString("fullname");
                         String email = rs.getString("email");
+                        String gender = rs.getString("gender");
                         Date dob = rs.getDate("dob");
                         String phone = rs.getString("phone");
                         String status = rs.getString("status");
                         String address = rs.getString("address");
-                        list.add(new CustomerDTO(i.getCustomerID(),password,fullname,email,dob,phone,status,address));
+                        String wardID = rs.getString("ward_id");
+                        list.add(new CustomerDTO(i.getCustomerID(),password,fullname,email,gender,dob,phone,status,address,wardID));
                     }
                 }
             } catch (Exception e) {
@@ -62,6 +64,45 @@ public class CustomerDAO {
             }
         }
         return list;
+    }
+
+    public CustomerDTO GetACustomer(String CustomerID) throws SQLException {
+            Connection conn = null;
+            PreparedStatement ptm = null;
+            ResultSet rs = null;
+            try {
+                conn = DBUtils.getConnection();
+                if (conn != null) {
+                    ptm = conn.prepareStatement(GETALLCUSTOMER);
+                    ptm.setString(1, CustomerID);
+                    rs = ptm.executeQuery();
+                    while (rs.next()) {
+                        String password = rs.getString("password");
+                        String fullname = rs.getString("fullname");
+                        String email = rs.getString("email");
+                        String gender = rs.getString("gender");
+                        Date dob = rs.getDate("dob");
+                        String phone = rs.getString("phone");
+                        String status = rs.getString("status");
+                        String address = rs.getString("address");
+                        String wardID = rs.getString("ward_id");
+                        return new CustomerDTO(CustomerID,password,fullname,email,gender,dob,phone,status,address,wardID);
+                    }
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            } finally {
+                if (rs != null) {
+                    rs.close();
+                }
+                if (ptm != null) {
+                    ptm.close();
+                }
+                if (conn != null) {
+                    conn.close();
+                }
+            }
+        return null;
     }
 
 }

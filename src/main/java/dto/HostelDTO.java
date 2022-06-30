@@ -14,13 +14,15 @@ public class HostelDTO {
     private String address;
     private String phone;
     private String userID;
+    private String wardID;
 
-    public HostelDTO(String hostelID, String hostelname, String address, String phone, String userID) {
+    public HostelDTO(String hostelID, String hostelname, String address, String phone, String userID, String wardID) {
         this.hostelID = hostelID;
         this.hostelname = hostelname;
         this.address = address;
         this.phone = phone;
         this.userID = userID;
+        this.wardID = wardID;
     }
 
     public String getHostelID() {
@@ -63,6 +65,14 @@ public class HostelDTO {
         this.userID = userID;
     }
 
+    public String getWardID() {
+        return wardID;
+    }
 
+    public void setWardID(String wardID) {
+        this.wardID = wardID;
+    }
+
+   
 
 }
