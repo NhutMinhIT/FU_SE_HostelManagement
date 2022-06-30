@@ -31,7 +31,7 @@
                 <div class="container-fluid px-4">
                     <div class="card mt-4">
                         <div class="card-header">
-                            <h1 class="text-info"><i class="fa fa-faucet"></i> Chỉ Số Nước</h1>
+                            <h1 class="text-info"><i class="fa fa-faucet fa-beat"></i> Chỉ Số Nước</h1>
                         </div>                      
 
                         <div class="card-body">

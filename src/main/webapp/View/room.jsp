@@ -25,16 +25,16 @@
         <%@include file="/View/layout/header.jsp" %>
 
         <div id="layoutSidenav_content">
-            <h1 class="m-4 col-md-4 text-info"><i class="fa fa-house"></i> Quản Lí Phòng</h1>
+            <h1 class="m-4 col-md-4 text-info"><i class="fa fa-house fa-beat"></i> Quản Lí Phòng</h1>
             <table>
                 <div class="card mb-4">
                     <div class="card-header">
                         <div class="card-header">
-                            <i class="fas fa-table me-1"></i>Quản Lí Nhà Trọ                              
+                            <i class="fas fa-table me-1 "></i>Quản Lí Nhà Trọ                              
                         </div>
                         <div class="row " style="float:right; display: flex; margin-right: 9px">
                             <a href="View/addNewHostel.jsp">
-                                <button type="button"  class="btn btn-success m-2"><i class="fa fa-bank"></i> Thêm Nhà Trọ</button>
+                                <button type="button"  class="btn btn-success m-2"><i class="fa fa-bank fa-beat"></i> Thêm Nhà Trọ</button>
                             </a>
                         </div>
 
@@ -51,10 +51,10 @@
                             <li class="nav-item">
                                 <c:choose>
                                     <c:when test="${Ho.hostelID == '1'}">
-                                        <a class="nav-link active" href="#${Ho.hostelname}" role="tab" data-toggle="tab">${Ho.hostelname}</a>   
+                                        <a class="nav-link active" href="#${Ho.hostelname}" role="tab" data-toggle="tab" title="${Ho.address}">${Ho.hostelname} </a>   
                                     </c:when>
                                     <c:otherwise>
-                                        <a class="nav-link" href="#${Ho.hostelname}" role="tab" data-toggle="tab">${Ho.hostelname}</a>
+                                        <a class="nav-link" href="#${Ho.hostelname}" role="tab" data-toggle="tab" title="${Ho.address}">${Ho.hostelname}</a>
                                     </c:otherwise>
                                 </c:choose>
                             </li>
@@ -77,12 +77,12 @@
                                         <div class="row" >
 
                                             <a href="${pageContext.request.contextPath}/MainController?action=AddRoom&HostelID=${Hos.hostelID}" >
-                                                <button type="button"  class="btn btn-success"><i class="fa fa-add"></i> Thêm Phòng</button>
+                                                <button type="button"  class="btn btn-success"><i class="fa fa-add fa-beat"></i> Thêm Phòng</button>
                                             </a>
                                         </div>
                                         <div class="row "style="margin-left: 10px">
                                             <a href="${pageContext.request.contextPath}/MainController?action=DeleteHostel&HostelID=${Hos.hostelID}">
-                                                <button type="button" Onclick="return ConfirmDelete();" class="btn btn-danger"><i class="fa fa-remove"></i> Xóa Nhà Trọ</button>
+                                                <button type="button" Onclick="return ConfirmDelete();" class="btn btn-danger"><i class="fa fa-remove fa-beat"></i> Xóa Nhà Trọ</button>
                                             </a>
                                         </div>                             
                                         <!-- comment -->
@@ -178,13 +178,13 @@
                                                                     <c:otherwise>
                                                                         <td>                                                    
                                                                             <a href="${pageContext.request.contextPath}/MainController?action=AddCustomer&RoomID=${R.roomID}">
-                                                                                <button class="btn btn-warning" title="Add"><i class="fa fa-add"></i> Thêm Khách</button>
+                                                                                <button class="btn btn-warning" title="Add"><i class="fa fa-add fa-beat"></i> Thêm Khách</button>
                                                                             </a>  
                                                                             <a href="${pageContext.request.contextPath}/MainController?action=UpdateRoom&RoomID=${R.roomID}">
-                                                                                <button class="btn btn-primary" title="Edit"><i class="fa fa-edit"></i></button>
+                                                                                <button class="btn btn-primary" title="Edit"><i class="fa fa-edit fa-beat"></i></button>
                                                                             </a>
                                                                             <a  href="${pageContext.request.contextPath}/MainController?action=DeleteRoom&RoomID=${R.roomID}">                                                                                        
-                                                                                <button Onclick="return ConfirmDelete();" class="btn btn-danger" title="Remove"><i class="fa fa-remove"></i></button>                
+                                                                                <button Onclick="return ConfirmDelete();" class="btn btn-danger" title="Remove"><i class="fa fa-remove fa-beat"></i></button>                
                                                                             </a>
                                                                         </td>
                                                                     </c:otherwise>    

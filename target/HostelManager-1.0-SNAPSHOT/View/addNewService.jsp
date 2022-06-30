@@ -22,6 +22,9 @@ n bd <%--
 
         <link href="${pageContext.request.contextPath}/css/styles.css" rel="stylesheet" />
 
+        <link href="https://cdn.jsdelivr.net/npm/tom-select@2.0.0-rc.4/dist/css/tom-select.css" rel="stylesheet">
+        <script src="https://cdn.jsdelivr.net/npm/tom-select@2.0.0-rc.4/dist/js/tom-select.complete.min.js"></script>
+
     </head>
     <body class="sb-nav-fixed">
 
@@ -32,7 +35,7 @@ n bd <%--
                 <div class="container-fluid px-4">
                     <div class="card mt-4">
                         <div class="card-header">
-                            <h1 class="text-info"><i class="fab fa-servicestack"></i> Thêm Dịch Vụ</h1>
+                            <h1 class="text-info"><i class="fab fa-servicestack fa-beat"></i> Thêm Dịch Vụ</h1>
                         </div>
                         <div class="card-body">
                             <form action="${pageContext.request.contextPath}/MainController" method="POST">
@@ -46,8 +49,9 @@ n bd <%--
                                     <div class="form-group row col-md-6 mt-2">
                                         <label  class="col-sm-4 col-form-label">Loại dịch vụ:</label>
                                         <div class="col-sm-8">
-                                            <select id="#" name="service_id" style="padding:6px 0; border-radius: 3px; width: 50%" >
+                                            <select  id="select-state" name="service_id" placeholder="Chọn dịch vụ..." style="padding:6px 0; border-radius: 3px; width: 50%" >
                                                 <c:forEach items="${ServiceTypeList}" var="ST">
+                                                    <option></option>
                                                     <option value="${ST.serviceID}">${ST.service_name}</option>                                                
                                                 </c:forEach>
                                             </select> 
@@ -65,11 +69,12 @@ n bd <%--
                                     <div class="form-group row col-md-6 mt-2">
                                         <label  class="col-sm-4 col-form-label">Địa điểm:</label>
                                         <div class="col-sm-8">
-                                            <select id="#" name="hostel_id" style="padding:6px 0; border-radius: 3px; width: 50%" >
+                                            <select id="select-state1"  name="hostel_id"  placeholder="Chọn nhà..." style="padding:6px 0; border-radius: 3px; width: 50%" >
                                                 <c:forEach items="${HostelList}" var="H">
+                                                    <option></option>
                                                     <option value="${H.hostelID}">${H.hostelname}</option>                                                
                                                 </c:forEach>
-                                            </select> 
+                                            </select>  
 
                                         </div>
                                     </div>
@@ -115,6 +120,23 @@ n bd <%--
             </footer>
         </div>
     </div>
+
+    <script>
+        new TomSelect("#select-state", {
+            create: false,
+            sortField: {
+                field: "text",
+                direction: "asc"
+            }
+        });
+        new TomSelect("#select-state1", {
+            create: false,
+            sortField: {
+                field: "text",
+                direction: "asc"
+            }
+        });
+    </script>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
     <script type="text/javascript" src="${pageContext.request.contextPath}/js/simple.money.format.js"></script>
     <script type="text/javascript">

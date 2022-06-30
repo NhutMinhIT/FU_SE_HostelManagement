@@ -34,7 +34,7 @@
                 <div class="container-fluid px-4">
                     <div class="card mt-4">
                         <div class="card-header">
-                            <h1 class="text-info"><i class="fa fa-bolt"></i> Chỉ Số Điện</h1>
+                            <h1 class="text-info"><i class="fa fa-bolt fa-beat"></i> Chỉ Số Điện</h1>
                         </div>                      
 
                         <div class="card-body">

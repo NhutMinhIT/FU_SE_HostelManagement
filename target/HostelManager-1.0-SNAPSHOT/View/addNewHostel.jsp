@@ -25,7 +25,7 @@
                 <div class="container-fluid px-4">
                     <div class="card mt-4">
                         <div class="card-header">
-                            <h1 class="text-info"><i class="fa-solid fa-house-chimney-medical"></i> Thêm Nhà Trọ</h1>
+                            <h1 class="text-info"><i class="fa-solid fa-house-chimney-medical fa-beat"></i> Thêm Nhà Trọ</h1>
 
                         </div>
                         <div class="card-body">

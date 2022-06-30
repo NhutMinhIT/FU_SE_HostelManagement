@@ -2,6 +2,7 @@ controller\AddRoomController.class
 controller\UpdateRoomController.class
 controller\DeleteServiceController.class
 dao\ContractDAO.class
+controller\CustomerPageController.class
 controller\HostelManagerController.class
 dao\CustomerDAO.class
 dto\RoomDTO.class
@@ -10,13 +11,17 @@ dto\ServiceDetailDTO.class
 controller\ServicePageController.class
 controller\MainController.class
 controller\UpdateHostelController.class
+dto\Address\City.class
 controller\LoginController.class
 dto\HostelDTO.class
+dto\Address\Ward.class
 utils\DBUtils.class
 controller\AddHostelController.class
 dao\UserDAO.class
 dto\ContractDTO.class
+dao\AddressDAO.class
 controller\UpdateServiceController.class
+dto\Address\District.class
 controller\UserPageController.class
 controller\RoomPageController.class
 controller\DeleteRoomController.class
