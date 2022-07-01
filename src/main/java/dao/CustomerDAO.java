@@ -23,6 +23,7 @@ import utils.DBUtils;
  */
 public class CustomerDAO {
     private final static String GETALLCUSTOMER = "SELECT * FROM dbo.[Customer] WHERE customer_id = ?";
+    private static final String ADDCUSTOMER = "INSERT INTO dbo.[Customer](customer_id,password,fullname,email,gender,dob,phone,status,address,ward_id) VALUES(?,?,?,?,?,?,?,?,?,?)";
     
     public List<CustomerDTO> GetListCustomer(List<ContractDTO> ContractList) throws SQLException {
         List<CustomerDTO> list = new ArrayList<>();
@@ -105,4 +106,36 @@ public class CustomerDAO {
         return null;
     }
 
+    public boolean AddCustomer(CustomerDTO Cus) throws SQLException {
+        boolean check = false;
+        Connection conn = null;
+        PreparedStatement ptm = null;
+        try {
+            conn = DBUtils.getConnection();
+            if (conn != null) {
+                ptm = conn.prepareStatement(ADDCUSTOMER);
+                ptm.setString(1, Cus.getCustomerID());
+                ptm.setString(2, Cus.getPassword());
+                ptm.setString(3, Cus.getFullname());
+                ptm.setString(4, Cus.getEmail());
+                ptm.setString(5, Cus.getGender());
+                ptm.setDate(6, Cus.getDob());
+                ptm.setString(7, Cus.getPhone());
+                ptm.setString(8, Cus.getStatus());
+                ptm.setString(9, Cus.getAddress());
+                ptm.setString(10, Cus.getWardID());
+                check = ptm.executeUpdate() > 0 ? true : false;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            if (ptm != null) {
+                ptm.close();
+            }
+            if (conn != null) {
+                conn.close();
+            }
+        }
+        return check;
+    }
 }

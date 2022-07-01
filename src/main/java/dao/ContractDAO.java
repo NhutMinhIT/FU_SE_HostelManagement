@@ -23,7 +23,8 @@ import utils.DBUtils;
 public class ContractDAO {
     private final static String GETCONTRACT = "SELECT * FROM dbo.[Contract] WHERE room_id = ?";
     private final static String GETACONTRACT = "SELECT * FROM dbo.[Contract] WHERE customer_id = ?";
-    
+    private final static String ADDCONTRACT = "INSERT INTO dbo.[Contract](customer_id,room_id,signed_date,due_date,status,description) VALUES(?,?,?,?,?,?)";    
+
     public List<ContractDTO> GetListContract(List<RoomDTO> roomList) throws SQLException {
         List<ContractDTO> list = new ArrayList<>();
         for( RoomDTO i: roomList){
@@ -96,5 +97,33 @@ public class ContractDAO {
                 }
             }
         return null;
+    }
+    public boolean AddContract(ContractDTO Ct) throws SQLException {
+        boolean check = false;
+        Connection conn = null;
+        PreparedStatement ptm = null;
+        try {
+            conn = DBUtils.getConnection();
+            if (conn != null) {
+                ptm = conn.prepareStatement(ADDCONTRACT);
+                ptm.setString(1, Ct.getCustomerID());
+                ptm.setString(2, Ct.getRoomID());
+                ptm.setDate(3, Ct.getSigned_date());
+                ptm.setDate(4, Ct.getDue_date());
+                ptm.setString(5, Ct.getStatus());
+                ptm.setString(6, Ct.getDescription());
+                check = ptm.executeUpdate() > 0 ? true : false;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            if (ptm != null) {
+                ptm.close();
+            }
+            if (conn != null) {
+                conn.close();
+            }
+        }
+        return check;
     }
 }

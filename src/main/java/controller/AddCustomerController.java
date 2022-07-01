@@ -20,6 +20,7 @@ import java.io.PrintWriter;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.sql.Date;
 import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
@@ -39,7 +40,7 @@ import javax.servlet.http.Part;
 public class AddCustomerController extends HttpServlet {
 
     private static final String ERROR = "View/AddNewCustomer.jsp";
-    private static final String SUCCESS = "RoomPageController";   
+    private static final String SUCCESS = "RoomPageController";
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -62,7 +63,7 @@ public class AddCustomerController extends HttpServlet {
         String url = ERROR;
         try {
             HttpSession ss = request.getSession();
-            UserDTO us =  (UserDTO) ss.getAttribute("LOGIN_USER");
+            UserDTO us = (UserDTO) ss.getAttribute("LOGIN_USER");
             RoomDAO dao = new RoomDAO();
             CustomerDAO Cusdao = new CustomerDAO();
             ContractDAO Cdao = new ContractDAO();
@@ -76,20 +77,20 @@ public class AddCustomerController extends HttpServlet {
             List<ServiceDetailDTO> ServiceDetailList = SerDAO.GetListServiceDetail(HostelList);
 
             RoomDTO room = dao.GetARoom(request.getParameter("RoomID"));
-
-            request.setAttribute("Room",room);
-            request.setAttribute("CusList",CusList);   
-            request.setAttribute("ServiceTypeList",ServiceList);
-            request.setAttribute("HostelList",HostelList);
-            request.setAttribute("ServiceDetailList",ServiceDetailList);         
+            HostelDTO hostel = dao.GetAHostel(room.getHostelID());
+            request.setAttribute("Room", room);
+            request.setAttribute("CusList", CusList);
+            request.setAttribute("ServiceTypeList", ServiceList);
+            request.setAttribute("Hostel", hostel);
+            request.setAttribute("HostelList", HostelList);
+            request.setAttribute("ServiceDetailList", ServiceDetailList);
 
         } catch (Exception e) {
-            log("Error at AddCustomerController(doGet):"+e.toString());
+            log("Error at AddCustomerController(doGet):" + e.toString());
         } finally {
             request.getRequestDispatcher(url).forward(request, response);
         }
     }
-    
 
     /**
      * Handles the HTTP <code>POST</code> method.
@@ -106,26 +107,37 @@ public class AddCustomerController extends HttpServlet {
         String url = ERROR;
         try {
             HttpSession ss = request.getSession();
-            UserDTO us =  (UserDTO) ss.getAttribute("LOGIN_USER");
+            UserDTO us = (UserDTO) ss.getAttribute("LOGIN_USER");
+            CustomerDAO Cusdao = new CustomerDAO();
+            ContractDAO Ctdao = new ContractDAO();
 
-//            String fullname = request.getParameter("fullname");
-//            String gender = request.getParameter("gender");
-//            String dob = request.getParameter("dob");
-//            String customerID = request.getParameter("customerID");
-//            String phone = request.getParameter("phone");
-//            String address = request.getParameter("address");
-//            String roomID = request.getParameter("roomID");
-//            String signed_date = request.getParameter("signed_date");
-//
+            String fullname = request.getParameter("fullname");
+            String gender = request.getParameter("gender");
+            String dob = request.getParameter("dob");
+            String customerID = request.getParameter("customerID");
+            String email = request.getParameter("email");
+            String phone = request.getParameter("phone");
+            String address = request.getParameter("address");
+            String wardID = request.getParameter("wardID");
+
+            String roomID = request.getParameter("roomID");
+            String signed_date = request.getParameter("signed_date");
+            String due_date = request.getParameter("due_date");
+
+            //customer_id,password,fullname,email,gender,dob,phone,status,address,ward_id
+            //contract_id,customer_id,room_id,signed_date,due_date,status,description
 //            String[] checked_DetailIDs = request.getParameterValues("chooseDetail");
-
-            Part part = request.getPart("contract");
-            String realPath = request.getServletContext().getRealPath("/img/contract");
-            String filename = request.getParameter("customerID");
-            part.write(realPath+"/"+filename);
-
+//            Part part = request.getPart("contract");
+//            String realPath = request.getServletContext().getRealPath("/img/contract");
+//            part.write(realPath+"/"+filename);
+         
+            boolean checkCus = Cusdao.AddCustomer(new CustomerDTO(customerID,"",fullname,email,gender,Date.valueOf(dob),phone,"ACTIVE",address,wardID));
+            boolean checkContract = Ctdao.AddContract(new ContractDTO("",customerID,roomID,Date.valueOf(signed_date),Date.valueOf(due_date),"ACTIVE",""));
+            if (checkCus && checkContract) {
+                url = SUCCESS;
+            } 
         } catch (Exception e) {
-            log("Error at AddCustomerController(doPost):"+e.toString());
+            log("Error at AddCustomerController(doPost):" + e.toString());
         } finally {
             request.getRequestDispatcher(url).forward(request, response);
         }
