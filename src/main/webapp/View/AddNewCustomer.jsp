@@ -31,7 +31,7 @@
                 <div class="card mb-4">
                     <div class="card-header">
                         <div class="card-header">
-                            <h2 class="text-info"><i class="fa fa-plus"></i> Thêm Khách</h2>       
+                            <h2 class="text-info"><i class="fa fa-plus fa-beat"></i> Thêm Khách</h2>       
 
                         </div>
                         <div class="card-header">

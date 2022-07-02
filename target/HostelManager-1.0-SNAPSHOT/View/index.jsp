@@ -27,7 +27,7 @@
         <div id="layoutSidenav_content">
             <main class="container-fluid">
                 <div class="container-fluid px-4">
-                    <h1 class="m-4 text-info"><i class="fa fa-house"></i> Trang chủ</h1>
+                    <h1 class="m-4 text-info"><i class="fa fa-house fa-beat"></i> Trang chủ</h1>
                     <div class="row mt-3">
                         <div class="col-xl-6">
                             <div class="card text-primary mb-4" style="background-color: rgba(240,240,240,1)">

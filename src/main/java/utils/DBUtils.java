@@ -17,7 +17,7 @@ public class DBUtils {
     public static Connection getConnection() throws Exception {
         String url = "jdbc:sqlserver://" + serverName + ":" + portNumber + "\\" + instance + ";databaseName=" + dbName;
         if (instance == null || instance.trim().isEmpty()) {
-            url = "jdbc:sqlserver://" + serverName + ":" + portNumber + ";databaseName=" + dbName;
+            url = "jdbc:sqlserver://" + serverName + ":" + portNumber + ";datab aseName=" + dbName;
         }
         Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
         return DriverManager.getConnection(url, userID, password);
@@ -26,8 +26,8 @@ public class DBUtils {
     private final static String dbName = "HostelDB";
     private final static String portNumber = "1433";
     private final static String instance = "";//LEAVE THIS ONE EMPTY IF YOUR SQL IS A SINGLE INSTANCE
-    private final static String userID = "avillX";
-    private final static String password = "0711";
+    private final static String userID = "sas";
+    private final static String password = "123456";
     public static void main(String[] args) {
         try{
             System.out.println(DBUtils.getConnection());

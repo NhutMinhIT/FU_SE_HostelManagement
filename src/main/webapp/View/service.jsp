@@ -32,11 +32,11 @@
                 <div class="container-fluid px-4">
                     <div class="card mt-4">
                         <div class="card-header">
-                            <h1 class="text-info"><i class="fa fa-list"></i> Danh sách dịch vụ</h1>
+                            <h1 class="text-info"><i class="fa fa-list fa-beat"></i> Danh sách dịch vụ</h1>
                         </div>
                         <div class="card-body ml-auto">
                             <a href="${pageContext.request.contextPath}/MainController?action=AddService">
-                                <button class="btn btn-success"><i class="fa fa-plus"></i> Thêm dịch vụ</button>
+                                <button class="btn btn-success"><i class="fa fa-plus "></i> Thêm dịch vụ</button>
                             </a>
                         </div>
 

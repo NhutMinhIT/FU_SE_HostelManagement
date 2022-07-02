@@ -67,13 +67,9 @@
                                 <div class="sb-nav-link-icon"><i class="fas fa-cubes"></i></div>
                                 Dịch Vụ                                
                             </a>
-                            <a class="nav-link collapsed" href="${pageContext.request.contextPath}/View/RecordElec.jsp">
+                            <a class="nav-link collapsed" href="${pageContext.request.contextPath}/View/ManagerActivitie.jsp">
                                 <div class="sb-nav-link-icon"><i class="fas fa-bolt"></i></div>
-                                Chỉ Số Điện                               
-                            </a>
-                            <a class="nav-link collapsed" href="${pageContext.request.contextPath}/View/RecordWater.jsp">
-                                <div class="sb-nav-link-icon"><i class="fas fa-faucet"></i></div>
-                                Chỉ Số Nước                               
+                                Quản Lý Tiêu                               
                             </a>
 
 
