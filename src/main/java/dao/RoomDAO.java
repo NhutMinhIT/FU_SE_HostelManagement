@@ -23,7 +23,7 @@ import utils.DBUtils;
  */
 public class RoomDAO {
     private static final String GETHOSTEL = "SELECT * FROM dbo.Hostel where user_id = ? AND status Not IN ('DISABLED')";
-    private static final String GETROOM = "SELECT * FROM dbo.[Room] where hostel_id = ? AND status Not IN ('DISABLED')";
+    private static final String GETROOM = "SELECT * FROM dbo.[Room] where hostel_id = ? AND status Not IN ('DISABLED') ORDER BY room_number";
 
     private static final String GETAHOSTEL = "SELECT * FROM dbo.[Hostel] where hostel_id = ?";
     private static final String GETAROOM = "SELECT * FROM dbo.[Room] where room_id = ?";

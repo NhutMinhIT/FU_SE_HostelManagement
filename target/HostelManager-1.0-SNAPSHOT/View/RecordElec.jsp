@@ -44,22 +44,23 @@
                                         <th>Nhà</th>
                                         <th>Phòng</th>
                                         <th>Khách Thuê</th> 
-                                        <th>Chỉ Số Điện Cũ</th>                                        
-                                        <th>Chỉ Số Điện Mới</th> 
+                                        <th>Chỉ Số Điện Mới</th>                                        
+                                        <th>Chỉ Số Điện Cũ</th> 
                                         <th>Sử Dụng</th>
                                         <th></th>
 
                                     </tr>
                                 </thead>
                                 <tfoot style="font-size: 17px">
-                                    <tr>
+                                 <tr>
                                         <th>Nhà</th>
                                         <th>Phòng</th>
                                         <th>Khách Thuê</th> 
-                                        <th>Chỉ Số Điện Cũ</th>
-                                        <th>Chỉ Số Điện Mới</th>
+                                        <th>Chỉ Số Điện Mới</th>                                        
+                                        <th>Chỉ Số Điện Cũ</th> 
                                         <th>Sử Dụng</th>
                                         <th></th>
+
                                     </tr>
                                 </tfoot>
                                 <tbody>
@@ -68,35 +69,21 @@
                                         <td>2</td>
                                         <td>Phạm Minh Trí</td>
                                         <td>
-                                            <input name="chisodien" value="0" style="width: 100%" />
+                                            <input oninput="checkNumber()" type="number" id="n1">                                    
                                         </td>
                                         <td>
-                                            <input name="chisodien" value="0" style="width: 100%"/>
+                                            <input type="number" id="n2">
+                                        </td>
+
+                                        <td>    
+                                            <input type="text" id="result">
                                         </td>
                                         <td>
-                                            <input name="sudung" value="0"disabled="" style="width: 100%"/>
-                                        </td>
-                                        <td>                                            
-                                            <button type="button" class="rounded-3" ><i class="fa fa-save" ></i> Lưu</button> 
+                                            <button onclick="myFunction()"><i class="fa fa-save" ></i>Lưu</button>
+
                                         </td>
                                     </tr>
-                                    <tr>
-                                        <td>Moon</td>
-                                        <td>1</td>
-                                        <td>Phạm Minh Trí</td>
-                                        <td>
-                                            <input name="chisodien" value="0"style="width: 100%" />
-                                        </td>
-                                        <td>
-                                            <input name="chisodien" value="0"style="width: 100%" />
-                                        </td>
-                                        <td>
-                                            <input name="sudung" value="0" disabled="" style="width: 100%"/>
-                                        </td>
-                                        <td>                                            
-                                            <button type="button" class="rounded-3" ><i class="fa fa-save" ></i> Lưu</button> 
-                                        </td>
-                                    </tr>
+
 
                                 </tbody>
                             </table>
@@ -122,6 +109,24 @@
                     return true;
                 else
                     return false;
+            }
+        </script>
+        <script type="text/javascript">
+            function myFunction() {
+                var n1 = document.getElementById('n1').value;
+                var n2 = document.getElementById('n2').value;
+                var result = 0;
+                result = parseInt(n1) - parseInt(n2);
+                document.getElementById('result').value = result;
+
+            }
+            function checkNumber() {
+                var x = document.getElementById('n1').value;
+                if (isNaN(x)) {
+                    document.getElementById('n1').style.borderColor = "red";
+                } else {
+                    document.getElementById('n1').style.borderColor = "green";
+                }
             }
         </script>
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>

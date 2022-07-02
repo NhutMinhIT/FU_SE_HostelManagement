@@ -30,7 +30,7 @@
                 <div class="container-fluid px-4">
                     <div class="card mt-4">
                         <div class="card-header">
-                            <h1 class="text-info"><i class="fa fa-edit fa-beat"></i> Sửa Thông Tin Phòng</h1>
+                            <h1 class="text-info"><i class="fa fa-edit"></i> Sửa Thông Tin Phòng</h1>
 
                         </div>
                         <div class="card-body">

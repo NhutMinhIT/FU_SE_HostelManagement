@@ -31,14 +31,15 @@
                 <div class="card mb-4">
                     <div class="card-header">
                         <div class="card-header">
-                            <h2 class="text-info"><i class="fa fa-plus fa-beat"></i> Thêm Khách</h2>       
+                            <h2 class="text-info"><i class="fa fa-plus"></i> Thêm Khách</h2>       
 
                         </div>
                         <div class="card-header">
-                            <h4 style="padding-left: 20px;"><i class="fa fa-home"></i> ${Hostel}</h4>                              
+                            <h4 style="padding-left: 20px;"><i class="fa fa-home"></i> Nhà trọ ${Hostel.hostelname}</h4>                              
                         </div>
                         <div class="card-header">
-                            <h4 style="padding-left: 20px;"><i class="fa fa-person-shelter"></i> Phòng 1</h4>                              
+                            <h4 style="padding-left: 20px;"><i class="fa fa-person-shelter"></i> Phòng ${Room.roomnumber}</h4> 
+                            <input type="hidden" name="roomID"value="${Room.roomID}"/>
                         </div>
                         <div class="mt-3 text-center" style="float:right; display: flex">
                             <a href="${pageContext.request.contextPath}/MainController?action=RoomPage">
@@ -81,7 +82,7 @@
                                     <div class="form-group row mt-2">
                                         <label  class="col-sm-2 col-form-label">Giới Tính</label>
                                         <div class="col-sm-10">
-                                            <input type="radio" name="gender" id="sex"  value="Nam"/>Nam
+                                            <input type="radio" name="gender" value="Nam"/>Nam
                                             <input type="radio" name="gender" value="Nữ"/> Nữ
                                         </div>
                                     </div>
@@ -95,6 +96,12 @@
                                         <label  class="col-sm-2 col-form-label">CMND/CCCD</label>
                                         <div class="col-sm-10">
                                             <input type="text" class="form-control" placeholder="Enter your CMND/CCCD" name="customerID">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row mt-2">
+                                        <label  class="col-sm-2 col-form-label">Email</label>
+                                        <div class="col-sm-10">
+                                            <input type="text" class="form-control" placeholder="Enter your email" name="email">
                                         </div>
                                     </div>
                                     <div class="form-group row mt-2">
@@ -219,7 +226,7 @@
                             <div role="tabpanel" class="tab-pane fade show " id="contract" >
                                 <div class="card px-3 py-3">
                                     <div class="form-group row mt-2">
-                                        
+
                                     </div>
                                     <div class="row mt-2">
                                         <div class="form-group row col-md-6 mt-2">
@@ -275,8 +282,7 @@
                                                     var row = table.getElementsByTagName('tr');
                                                     if (row.length > '1') {
                                                         row[row.length - 1].outerHTML = '';
-                                                    }
-                                                    else{
+                                                    } else {
                                                         window.alert('Cần ít nhất 1 thành viên hoặc chọn xóa phòng');
                                                     }
                                                 }

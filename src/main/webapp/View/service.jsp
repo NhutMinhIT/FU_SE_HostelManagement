@@ -32,7 +32,7 @@
                 <div class="container-fluid px-4">
                     <div class="card mt-4">
                         <div class="card-header">
-                            <h1 class="text-info"><i class="fa fa-list fa-beat"></i> Danh sách dịch vụ</h1>
+                            <h1 class="text-info"><i class="fa fa-list"></i> Danh sách dịch vụ</h1>
                         </div>
                         <div class="card-body ml-auto">
                             <a href="${pageContext.request.contextPath}/MainController?action=AddService">
@@ -76,7 +76,7 @@
                                                 </c:if>                                                
                                             </c:forEach>
 
-                                            <td><fmt:formatDate pattern="dd-MM-yyyy" value="${SD.updated_date}"/></td>
+                                            <td><fmt:formatDate pattern="dd/MM/yyyy" value="${SD.updated_date}"/></td>
 
                                             <c:forEach items="${HostelList}" var="H">   
                                                 <c:if test="${H.hostelID == SD.hostelID}">

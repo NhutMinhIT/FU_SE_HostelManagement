@@ -25,16 +25,16 @@
         <%@include file="/View/layout/header.jsp" %>
 
         <div id="layoutSidenav_content">
-            <h1 class="m-4 col-md-4 text-info"><i class="fa fa-house fa-beat"></i> Quản Lí Phòng</h1>
+            <h1 class="m-4 col-md-4 text-info"><i class="fa fa-house"></i> Quản Lí Phòng</h1>
             <table>
                 <div class="card mb-4">
                     <div class="card-header">
                         <div class="card-header">
-                            <i class="fas fa-table me-1 "></i>Quản Lí Nhà Trọ                              
+                            <i class="fas fa-table me-1"></i>Quản Lí Nhà Trọ                              
                         </div>
                         <div class="row " style="float:right; display: flex; margin-right: 9px">
                             <a href="View/addNewHostel.jsp">
-                                <button type="button"  class="btn btn-success m-2"><i class="fa fa-bank fa-beat"></i> Thêm Nhà Trọ</button>
+                                <button type="button"  class="btn btn-success m-2"><i class="fa fa-bank"></i> Thêm Nhà Trọ</button>
                             </a>
                         </div>
 
@@ -51,10 +51,10 @@
                             <li class="nav-item">
                                 <c:choose>
                                     <c:when test="${Ho.hostelID == '1'}">
-                                        <a class="nav-link active" href="#${Ho.hostelname}" role="tab" data-toggle="tab" title="${Ho.address}">${Ho.hostelname} </a>   
+                                        <a class="nav-link active" href="#${Ho.hostelname}" role="tab" data-toggle="tab">${Ho.hostelname}</a>   
                                     </c:when>
                                     <c:otherwise>
-                                        <a class="nav-link" href="#${Ho.hostelname}" role="tab" data-toggle="tab" title="${Ho.address}">${Ho.hostelname}</a>
+                                        <a class="nav-link" href="#${Ho.hostelname}" role="tab" data-toggle="tab">${Ho.hostelname}</a>
                                     </c:otherwise>
                                 </c:choose>
                             </li>
@@ -77,124 +77,116 @@
                                         <div class="row" >
 
                                             <a href="${pageContext.request.contextPath}/MainController?action=AddRoom&HostelID=${Hos.hostelID}" >
-                                                <button type="button"  class="btn btn-success"><i class="fa fa-add fa-beat"></i> Thêm Phòng</button>
+                                                <button type="button"  class="btn btn-success"><i class="fa fa-add"></i> Thêm Phòng</button>
                                             </a>
                                         </div>
                                         <div class="row "style="margin-left: 10px">
                                             <a href="${pageContext.request.contextPath}/MainController?action=DeleteHostel&HostelID=${Hos.hostelID}">
-                                                <button type="button" Onclick="return ConfirmDelete();" class="btn btn-danger"><i class="fa fa-remove fa-beat"></i> Xóa Nhà Trọ</button>
+                                                <button type="button" Onclick="return ConfirmDelete();" class="btn btn-danger"><i class="fa fa-remove"></i> Xóa Nhà Trọ</button>
                                             </a>
                                         </div>                             
                                         <!-- comment -->
                                     </div>
                                     <div class="card-body">
-                                        <c:choose>
-                                            <c:when test="${Hos.hostelID == '1'}">
-                                                <table id="datatablesSimple">  
-                                                </c:when>
-                                                <c:otherwise>
-                                                    <table id="datatablesSimple1">
-                                                    </c:otherwise>
-                                                </c:choose>
-
-                                                <thead>
-                                                    <tr>
-                                                        <th>Phòng</th>
-                                                        <th>Người Thuê</th>
-                                                        <th>Số Điện Thoại</th> 
-                                                        <th>Email</th>                                     
-                                                        <th>Ngày Thuê</th>
-                                                        <th>Giá (VND)</th>
-                                                        <th>Trạng Thái</th>
-                                                        <th>Chức Năng</th>
-                                                    </tr>
-                                                </thead>
-                                                <tfoot>
-                                                    <tr>
-                                                        <th>Phòng</th>
-                                                        <th>Người Thuê</th>
-                                                        <th>Số Điện Thoại</th> 
-                                                        <th>Email</th>                                     
-                                                        <th>Ngày Thuê</th>
-                                                        <th>Giá (VND)</th>
-                                                        <th>Trạng Thái</th>
-                                                        <th>Chức Năng</th>
-                                                    </tr>
-                                                </tfoot>
-                                                <tbody>
-                                                    <c:forEach items="${RoomList}" var="R">
-                                                        <c:if test="${R.hostelID == Hos.hostelID}"> 
-                                                            <tr>                                                
-                                                                <td>${R.roomnumber}</td>
-                                                                <c:forEach items="${ContractList}" var="Contract">
-                                                                    <c:choose>
-                                                                        <c:when test="${Contract.roomID == R.roomID}">                                                            
-                                                                            <c:forEach items="${CusList}" var="Cus">
-                                                                                <c:if test="${Cus.customerID == Contract.customerID}">
-                                                                                    <td>
-                                                                                        <a href="${pageContext.request.contextPath}/MainController?action=CustomerPage&CusID=${Cus.customerID}&roomID=${R.roomID}">
-                                                                                            ${Cus.fullname}
-                                                                                        </a>
-                                                                                    </td>
-                                                                                    <td>${Cus.phone}</td>
-                                                                                    <td>${Cus.email}</td>
-                                                                                    <td><fmt:formatDate pattern="dd-MM-yyyy" value="${Contract.signed_date}"/></td>
-                                                                                </c:if>
-                                                                            </c:forEach>
-                                                                        </c:when>
-                                                                        <c:otherwise>
-                                                                            <td></td>
-                                                                            <td></td>
-                                                                            <td></td>
-                                                                            <td></td>
-                                                                        </c:otherwise>
-                                                                    </c:choose>
-                                                                </c:forEach>
-
-                                                                <td>
-                                                                    <input class="money form-control" type="text" name="unit_price"  placeholder="Giá" 
-                                                                           value="<fmt:formatNumber type="number" maxFractionDigits="0" value="${R.price}"/>">
-                                                                </td>
+                                        <table id="datatablesSimple${Hos.hostelID}"> 
+                                            <thead>
+                                                <tr>
+                                                    <th>Phòng</th>
+                                                    <th>Người Thuê</th>
+                                                    <th>Số Điện Thoại</th> 
+                                                    <th>Email</th>                                     
+                                                    <th>Ngày Thuê</th>
+                                                    <th>Giá (VND)</th>
+                                                    <th>Trạng Thái</th>
+                                                    <th>Chức Năng</th>
+                                                </tr>
+                                            </thead>
+                                            <tfoot>
+                                                <tr>
+                                                    <th>Phòng</th>
+                                                    <th>Người Thuê</th>
+                                                    <th>Số Điện Thoại</th> 
+                                                    <th>Email</th>                                     
+                                                    <th>Ngày Thuê</th>
+                                                    <th>Giá (VND)</th>
+                                                    <th>Trạng Thái</th>
+                                                    <th>Chức Năng</th>
+                                                </tr>
+                                            </tfoot>
+                                            <tbody>
+                                                <c:forEach items="${RoomList}" var="R">
+                                                    <c:if test="${R.hostelID == Hos.hostelID}"> 
+                                                        <tr>                                                
+                                                            <td>${R.roomnumber}</td>
+                                                            <c:forEach items="${ContractList}" var="Contract">
                                                                 <c:choose>
-                                                                    <c:when test="${R.status == 'RENTING'}">
-                                                                        <td class="text-success"><strong>${R.status}</strong></td>
+                                                                    <c:when test="${Contract.roomID == R.roomID}">                                                            
+                                                                        <c:forEach items="${CusList}" var="Cus">
+                                                                            <c:if test="${Cus.customerID == Contract.customerID}">
+                                                                                <td>
+                                                                                    <a href="${pageContext.request.contextPath}/MainController?action=CustomerPage&CusID=${Cus.customerID}&roomID=${R.roomID}">
+                                                                                        ${Cus.fullname}
+                                                                                    </a>
+                                                                                </td>
+                                                                                <td>${Cus.phone}</td>
+                                                                                <td>${Cus.email}</td>
+                                                                                <td><fmt:formatDate pattern="dd/MM/yyyy" value="${Contract.signed_date}"/></td>
+                                                                            </c:if>
+                                                                        </c:forEach>
                                                                     </c:when>
                                                                     <c:otherwise>
-                                                                        <td class="text-warning">${R.status}</td>
+                                                                        <td></td>
+                                                                        <td></td>
+                                                                        <td></td>
+                                                                        <td></td>
                                                                     </c:otherwise>
                                                                 </c:choose>
-                                                                <c:choose>
-                                                                    <c:when test="${R.status == 'RENTING'}">
-                                                                        <td>                                                    
+                                                            </c:forEach>
 
-                                                                            <a href="${pageContext.request.contextPath}/MainController?action=UpdateRoom&RoomID=${R.roomID}">
-                                                                                <button class="btn btn-primary" title="Edit"><i class="fa fa-edit"></i></button>
-                                                                            </a>
-                                                                            <a href="${pageContext.request.contextPath}/MainController?action=DeleteRoom&RoomID=${R.roomID}">                                                                                        
-                                                                                <button Onclick="return ConfirmDelete();" class="btn btn-danger" title="Remove"><i class="fa fa-remove"></i></button>                
-                                                                            </a>
-                                                                        </td>
-                                                                    </c:when>                                                                   
-                                                                    <c:otherwise>
-                                                                        <td>                                                    
-                                                                            <a href="${pageContext.request.contextPath}/MainController?action=AddCustomer&RoomID=${R.roomID}">
-                                                                                <button class="btn btn-warning" title="Add"><i class="fa fa-add fa-beat"></i> Thêm Khách</button>
-                                                                            </a>  
-                                                                            <a href="${pageContext.request.contextPath}/MainController?action=UpdateRoom&RoomID=${R.roomID}">
-                                                                                <button class="btn btn-primary" title="Edit"><i class="fa fa-edit fa-beat"></i></button>
-                                                                            </a>
-                                                                            <a  href="${pageContext.request.contextPath}/MainController?action=DeleteRoom&RoomID=${R.roomID}">                                                                                        
-                                                                                <button Onclick="return ConfirmDelete();" class="btn btn-danger" title="Remove"><i class="fa fa-remove fa-beat"></i></button>                
-                                                                            </a>
-                                                                        </td>
-                                                                    </c:otherwise>    
-                                                                </c:choose>                                      
-                                                            </tr>
-                                                        </c:if> 
-                                                    </c:forEach>
+                                                            <td>
+                                                                <input class="money form-control" type="text" name="unit_price"  placeholder="Giá" 
+                                                                       value="<fmt:formatNumber type="number" maxFractionDigits="0" value="${R.price}"/>" disabled="disabled">
+                                                            </td>
+                                                            <c:choose>
+                                                                <c:when test="${R.status == 'RENTING'}">
+                                                                    <td class="text-success"><strong>${R.status}</strong></td>
+                                                                        </c:when>
+                                                                        <c:otherwise>
+                                                                    <td class="text-warning">${R.status}</td>
+                                                                </c:otherwise>
+                                                            </c:choose>
+                                                            <c:choose>
+                                                                <c:when test="${R.status == 'RENTING'}">
+                                                                    <td>                                                    
 
-                                                </tbody>
-                                            </table>
+                                                                        <a href="${pageContext.request.contextPath}/MainController?action=UpdateRoom&RoomID=${R.roomID}">
+                                                                            <button class="btn btn-primary" title="Edit"><i class="fa fa-edit"></i></button>
+                                                                        </a>
+                                                                        <a href="${pageContext.request.contextPath}/MainController?action=DeleteRoom&RoomID=${R.roomID}">                                                                                        
+                                                                            <button Onclick="return ConfirmDelete();" class="btn btn-danger" title="Remove"><i class="fa fa-remove"></i></button>                
+                                                                        </a>
+                                                                    </td>
+                                                                </c:when>                                                                   
+                                                                <c:otherwise>
+                                                                    <td>                                                    
+                                                                        <a href="${pageContext.request.contextPath}/MainController?action=AddCustomer&RoomID=${R.roomID}">
+                                                                            <button class="btn btn-warning" title="Add"><i class="fa fa-add"></i> Thêm Khách</button>
+                                                                        </a>  
+                                                                        <a href="${pageContext.request.contextPath}/MainController?action=UpdateRoom&RoomID=${R.roomID}">
+                                                                            <button class="btn btn-primary" title="Edit"><i class="fa fa-edit"></i></button>
+                                                                        </a>
+                                                                        <a  href="${pageContext.request.contextPath}/MainController?action=DeleteRoom&RoomID=${R.roomID}">                                                                                        
+                                                                            <button Onclick="return ConfirmDelete();" class="btn btn-danger" title="Remove"><i class="fa fa-remove"></i></button>                
+                                                                        </a>
+                                                                    </td>
+                                                                </c:otherwise>    
+                                                            </c:choose>                                      
+                                                        </tr>
+                                                    </c:if> 
+                                                </c:forEach>
+
+                                            </tbody>
+                                        </table>
                                     </div>
 
                                 </div>

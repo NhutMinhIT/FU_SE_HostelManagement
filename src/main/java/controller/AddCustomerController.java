@@ -40,7 +40,7 @@ import javax.servlet.http.Part;
 public class AddCustomerController extends HttpServlet {
 
     private static final String ERROR = "View/AddNewCustomer.jsp";
-    private static final String SUCCESS = "RoomPageController";
+    private static final String SUCCESS = "MainController?action=RoomPage";
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -110,6 +110,7 @@ public class AddCustomerController extends HttpServlet {
             UserDTO us = (UserDTO) ss.getAttribute("LOGIN_USER");
             CustomerDAO Cusdao = new CustomerDAO();
             ContractDAO Ctdao = new ContractDAO();
+            RoomDAO dao = new RoomDAO();
 
             String fullname = request.getParameter("fullname");
             String gender = request.getParameter("gender");
@@ -130,12 +131,19 @@ public class AddCustomerController extends HttpServlet {
 //            Part part = request.getPart("contract");
 //            String realPath = request.getServletContext().getRealPath("/img/contract");
 //            part.write(realPath+"/"+filename);
-         
-            boolean checkCus = Cusdao.AddCustomer(new CustomerDTO(customerID,"",fullname,email,gender,Date.valueOf(dob),phone,"ACTIVE",address,wardID));
-            boolean checkContract = Ctdao.AddContract(new ContractDTO("",customerID,roomID,Date.valueOf(signed_date),Date.valueOf(due_date),"ACTIVE",""));
-            if (checkCus && checkContract) {
-                url = SUCCESS;
-            } 
+            if (Cusdao.GetACustomer(customerID) != null) {
+                request.setAttribute("ERROR", "CMND/CCCD " + Cusdao.GetACustomer(customerID).getCustomerID() + "đã được đăng ký !");
+            } else {
+                boolean AddCus = Cusdao.AddCustomer(new CustomerDTO(customerID, "", fullname, email, gender, Date.valueOf(dob), phone, "ACTIVE", address, wardID));
+                boolean AddContract = Ctdao.AddContract(new ContractDTO("", customerID, roomID, Date.valueOf(signed_date), Date.valueOf(due_date), "ACTIVE", ""));
+                
+                RoomDTO room = dao.GetARoom(roomID);
+                room.setStatus("RENTING"); 
+                boolean UpdateRoom = dao.UpdateRoom(room);
+                if (AddCus && AddContract) {
+                    url = SUCCESS;
+                }
+            }
         } catch (Exception e) {
             log("Error at AddCustomerController(doPost):" + e.toString());
         } finally {

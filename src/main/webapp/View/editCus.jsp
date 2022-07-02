@@ -31,7 +31,7 @@
                 <div class="card mb-4">
                     <div class="card-header">
                         <div class="card-header">
-                            <h2 class="text-info"><i class="fa fa-edit fa-beat"></i> Chỉnh Sửa Thông Tin Khách Thuê</h2>                              
+                            <h2 class="text-info"><i class="fa fa-edit"></i> Chỉnh Sửa Thông Tin Khách Thuê</h2>                              
                         </div>
                         <div class="card-header">
                             <h4 style="padding-left: 20px;"><i class="fa fa-home"></i> ${Hostel.hostelname}</h4>                              

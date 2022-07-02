@@ -85,7 +85,7 @@
                     <div class="container-fluid px-4">
                         <div class="card mt-4">
                             <div class="card-header">
-                                <h1 class="text-info"><i class="fa fa-eye fa-beat"></i> Xem Thông Tin Phòng</h1>
+                                <h1 class="text-info"><i class="fa fa-eye"></i> Xem Thông Tin Phòng</h1>
 
                             </div>
                             <div class="card-body">
