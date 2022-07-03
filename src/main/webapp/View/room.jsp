@@ -25,7 +25,7 @@
 
         <div id="layoutSidenav_content">
             <h1 class="m-4 col-md-4 text-info"><i class="fa fa-house fa-beat"></i> Quản Lí Phòng</h1>
-            <div style="margin-left: 65rem">
+            <div style="margin-left: auto">
                 <a href="View/addNewHostel.jsp">
                     <button type="button"  class="btn btn-success m-2"><i class="fa fa-bank"></i> Thêm Nhà Trọ</button>
                 </a>

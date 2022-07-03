@@ -27,93 +27,21 @@
 
         <div id="layoutSidenav_content">
             <h1 class="m-4 col-md-4 text-info"><i class="fas fa-bolt fa-beat"></i> Quản Lí Tiêu</h1>
-            <ul class="nav nav-tabs">
-                <li class="nav-item">
-                    <a class="nav-link active" href="#moon" role="tab" data-toggle="tab">Moon Hostel</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#bae1" role="tab" data-toggle="tab">Bae Hostel</a>
-                </li>
-            </ul>
-            <div class="tab-content">
-                <div role="tabpanel" class="tab-pane fade show active" id="moon">
+            <main class="container-fluid">
+                <ul class="nav nav-tabs">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#moon" role="tab" data-toggle="tab">Moon Hostel</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#bae1" role="tab" data-toggle="tab">Bae Hostel</a>
+                    </li>
+                </ul>
+                <div class="tab-content">
+                    <div role="tabpanel" class="tab-pane fade show active" id="moon">
 
-                    <h2>Moon Hostel</h2>
-                    <div class="container-fluid">  
-                        <h3>Nước</h3>
-                        <input type="search" oninput="filter_table(this, 'table_filter')" class="form_control"
-                               placeholder="Filter This Table...">
-                        <table class="_table table_sort">
-                            <thead>
-                                <tr>
-                                    <th style="width: 6%">Nhà</th>
-                                    <th style="width: 7%">Phòng</th>
-                                    <th style="width: 20%">Khách Thuê</th>
-                                    <th>Số Điện Mới</th>
-                                    <th>Số Điện Cũ</th>
-                                    <th>Sử Dụng</th>
-                                    <th style="width:7%">Action</th>
-                                </tr>
-                            </thead>
-                            <tbody id="table_filter">
-                                <tr>
-                                    <td>Moon</td>
-                                    <td>02</td>
-                                    <td>Nhựt Minh</td>
-                                    <td>
-                                        <input style="width: 100%" oninput="checkNumber()" type="number" id="n1">                                    
-                                    </td>
-                                    <td>
-                                        <input style="width: 100%" type="number" id="n2">
-                                    </td>
-                                    <td>
-                                        <input style="width: 100%" type="text" id="result">
-                                    </td>
-                                    <td>
-                                        <button onclick="myFunction()"><i class="fa fa-save" ></i>Lưu</button>
-
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Moon</td>
-                                    <td>02</td>
-                                    <td>Quang Hùng</td>
-                                    <td>
-                                        <input style="width: 100%" oninput="checkNumber()" type="number" id="n1">                                    
-                                    </td>
-                                    <td>
-                                        <input style="width: 100%" type="number" id="n2">
-                                    </td>
-                                    <td>
-                                        <input style="width: 100%" type="text" id="result">
-                                    </td>
-                                    <td>
-                                        <button onclick="myFunction()"><i class="fa fa-save" ></i>Lưu</button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Moon</td>
-                                    <td>02</td>
-                                    <td>Minh Trí</td>
-                                    <td>
-                                        <input style="width: 100%" oninput="checkNumber()" type="number" id="n1">                                    
-                                    </td>
-                                    <td>
-                                        <input style="width: 100%" type="number" id="n2">
-                                    </td>
-                                    <td>
-                                        <input style="width: 100%" type="text" id="result">
-                                    </td>
-                                    <td>
-                                        <button onclick="myFunction()"><i class="fa fa-save" ></i>Lưu</button>
-
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-
+                        <h2>Moon Hostel</h2>
                         <div class="container-fluid">  
-                            <h3>Điện</h3>
+                            <h3 class="mt-3">Nước</h3>
                             <input type="search" oninput="filter_table(this, 'table_filter')" class="form_control"
                                    placeholder="Filter This Table...">
                             <table class="_table table_sort">
@@ -184,86 +112,9 @@
                                     </tr>
                                 </tbody>
                             </table>
-                        </div>
-                    </div>
-                </div>
-                <div role="tabpanel" class="tab-pane fade show" id="bae1">
-                    <h2>Bae Hostel</h2>
-                    <div class="container-fluid">  
-                        <h3>Nước</h3>
-                        <input type="search" oninput="filter_table(this, 'table_filter')" class="form_control"
-                               placeholder="Filter This Table...">
-                        <table class="_table table_sort">
-                            <thead>
-                                <tr>
-                                        <th style="width: 6%">Nhà</th>
-                                        <th style="width: 7%">Phòng</th>
-                                        <th style="width: 20%">Khách Thuê</th>
-                                        <th>Số Điện Mới</th>
-                                        <th>Số Điện Cũ</th>
-                                        <th>Sử Dụng</th>
-                                        <th style="width:7%">Action</th>
-                                    </tr>
-                            </thead>
-                            <tbody id="table_filter">
-                                <tr>
-                                    <td>Moon</td>
-                                    <td>02</td>
-                                    <td>Nhựt Minh</td>
-                                    <td>
-                                        <input style="width: 100%" oninput="checkNumber()" type="number" id="n1">                                    
-                                    </td>
-                                    <td>
-                                        <input style="width: 100%" type="number" id="n2">
-                                    </td>
-                                    <td>
-                                        <input style="width: 100%" type="text" id="result">
-                                    </td>
-                                    <td>
-                                        <button onclick="myFunction()"><i class="fa fa-save" ></i>Lưu</button>
 
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Moon</td>
-                                    <td>02</td>
-                                    <td>Quang Hùng</td>
-                                    <td>
-                                        <input style="width: 100%" oninput="checkNumber()" type="number" id="n1">                                    
-                                    </td>
-                                    <td>
-                                        <input style="width: 100%" type="number" id="n2">
-                                    </td>
-                                    <td>
-                                        <input style="width: 100%" type="text" id="result">
-                                    </td>
-                                    <td>
-                                        <button onclick="myFunction()"><i class="fa fa-save" ></i>Lưu</button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Moon</td>
-                                    <td>02</td>
-                                    <td>Minh Trí</td>
-                                    <td>
-                                        <input style="width: 100%" oninput="checkNumber()" type="number" id="n1">                                    
-                                    </td>
-                                    <td>
-                                        <input style="width: 100%" type="number" id="n2">
-                                    </td>
-                                    <td>
-                                        <input style="width: 100%" type="text" id="result">
-                                    </td>
-                                    <td>
-                                        <button onclick="myFunction()"><i class="fa fa-save" ></i>Lưu</button>
 
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-
-                        <div class="container-fluid">  
-                            <h3>Điện</h3>
+                            <h3 class="mt-3">Điện</h3>
                             <input type="search" oninput="filter_table(this, 'table_filter')" class="form_control"
                                    placeholder="Filter This Table...">
                             <table class="_table table_sort">
@@ -334,122 +185,272 @@
                                     </tr>
                                 </tbody>
                             </table>
+
                         </div>
+                    </div>
+                    <div role="tabpanel" class="tab-pane fade show" id="bae1">
+                        <h2>Bae Hostel</h2>
+                        <div class="container-fluid">  
+                            <h3 class="mt-3">Nước</h3>
+                            <input type="search" oninput="filter_table(this, 'table_filter')" class="form_control"
+                                   placeholder="Filter This Table...">
+                            <table class="_table table_sort">
+                                <thead>
+                                    <tr>
+                                        <th style="width: 6%">Nhà</th>
+                                        <th style="width: 7%">Phòng</th>
+                                        <th style="width: 20%">Khách Thuê</th>
+                                        <th>Số Điện Mới</th>
+                                        <th>Số Điện Cũ</th>
+                                        <th>Sử Dụng</th>
+                                        <th style="width:7%">Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="table_filter">
+                                    <tr>
+                                        <td>Moon</td>
+                                        <td>02</td>
+                                        <td>Nhựt Minh</td>
+                                        <td>
+                                            <input style="width: 100%" oninput="checkNumber()" type="number" id="n1">                                    
+                                        </td>
+                                        <td>
+                                            <input style="width: 100%" type="number" id="n2">
+                                        </td>
+                                        <td>
+                                            <input style="width: 100%" type="text" id="result">
+                                        </td>
+                                        <td>
+                                            <button onclick="myFunction()"><i class="fa fa-save" ></i>Lưu</button>
+
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Moon</td>
+                                        <td>02</td>
+                                        <td>Quang Hùng</td>
+                                        <td>
+                                            <input style="width: 100%" oninput="checkNumber()" type="number" id="n1">                                    
+                                        </td>
+                                        <td>
+                                            <input style="width: 100%" type="number" id="n2">
+                                        </td>
+                                        <td>
+                                            <input style="width: 100%" type="text" id="result">
+                                        </td>
+                                        <td>
+                                            <button onclick="myFunction()"><i class="fa fa-save" ></i>Lưu</button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Moon</td>
+                                        <td>02</td>
+                                        <td>Minh Trí</td>
+                                        <td>
+                                            <input style="width: 100%" oninput="checkNumber()" type="number" id="n1">                                    
+                                        </td>
+                                        <td>
+                                            <input style="width: 100%" type="number" id="n2">
+                                        </td>
+                                        <td>
+                                            <input style="width: 100%" type="text" id="result">
+                                        </td>
+                                        <td>
+                                            <button onclick="myFunction()"><i class="fa fa-save" ></i>Lưu</button>
+
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+
+                            <h3 class="mt-2">Điện</h3>
+                            <input type="search" oninput="filter_table(this, 'table_filter')" class="form_control"
+                                   placeholder="Filter This Table...">
+                            <table class="_table table_sort">
+                                <thead>
+                                    <tr>
+                                        <th style="width: 6%">Nhà</th>
+                                        <th style="width: 7%">Phòng</th>
+                                        <th style="width: 20%">Khách Thuê</th>
+                                        <th>Số Điện Mới</th>
+                                        <th>Số Điện Cũ</th>
+                                        <th>Sử Dụng</th>
+                                        <th style="width:7%">Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="table_filter">
+                                    <tr>
+                                        <td>Moon</td>
+                                        <td>02</td>
+                                        <td>Nhựt Minh</td>
+                                        <td>
+                                            <input style="width: 100%" oninput="checkNumber()" type="number" id="n1">                                    
+                                        </td>
+                                        <td>
+                                            <input style="width: 100%" type="number" id="n2">
+                                        </td>
+                                        <td>
+                                            <input style="width: 100%" type="text" id="result">
+                                        </td>
+                                        <td>
+                                            <button onclick="myFunction()"><i class="fa fa-save" ></i>Lưu</button>
+
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Moon</td>
+                                        <td>02</td>
+                                        <td>Quang Hùng</td>
+                                        <td>
+                                            <input style="width: 100%" oninput="checkNumber()" type="number" id="n1">                                    
+                                        </td>
+                                        <td>
+                                            <input style="width: 100%" type="number" id="n2">
+                                        </td>
+                                        <td>
+                                            <input style="width: 100%" type="text" id="result">
+                                        </td>
+                                        <td>
+                                            <button onclick="myFunction()"><i class="fa fa-save" ></i>Lưu</button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Moon</td>
+                                        <td>02</td>
+                                        <td>Minh Trí</td>
+                                        <td>
+                                            <input style="width: 100%" oninput="checkNumber()" type="number" id="n1">                                    
+                                        </td>
+                                        <td>
+                                            <input style="width: 100%" type="number" id="n2">
+                                        </td>
+                                        <td>
+                                            <input style="width: 100%" type="text" id="result">
+                                        </td>
+                                        <td>
+                                            <button onclick="myFunction()"><i class="fa fa-save" ></i>Lưu</button>
+
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                        </div>
+                    </div>
+
+            </main>
+            <footer class="py-4 bg-light mt-5">
+                <div class="container-fluid px-4">
+                    <div class="d-flex align-items-center justify-content-between small">
+                        <div class="text-muted ">Copyright &copy; by MoonHostel</div>
                     </div>
                 </div>
+            </footer>
+        </div>
+        <script type="text/javascript">
+            function myFunction() {
+                var n1 = document.getElementById('n1').value;
+                var n2 = document.getElementById('n2').value;
+                var result = 0;
+                result = parseInt(n1) - parseInt(n2);
+                document.getElementById('result').value = result;
 
-                </main>
-                <footer class="py-4 bg-light mt-auto">
-                    <div class="container-fluid px-4">
-                        <div class="d-flex align-items-center justify-content-between small">
-                            <div class="text-muted ">Copyright &copy; by MoonHostel</div>
-                        </div>
-                    </div>
-                </footer>
-            </div>
-            <script type="text/javascript">
-                function myFunction() {
-                    var n1 = document.getElementById('n1').value;
-                    var n2 = document.getElementById('n2').value;
-                    var result = 0;
-                    result = parseInt(n1) - parseInt(n2);
-                    document.getElementById('result').value = result;
-
+            }
+            function checkNumber() {
+                var x = document.getElementById('n1').value;
+                if (isNaN(x)) {
+                    document.getElementById('n1').style.borderColor = "red";
+                } else {
+                    document.getElementById('n1').style.borderColor = "green";
                 }
-                function checkNumber() {
-                    var x = document.getElementById('n1').value;
-                    if (isNaN(x)) {
-                        document.getElementById('n1').style.borderColor = "red";
-                    } else {
-                        document.getElementById('n1').style.borderColor = "green";
-                    }
-                }
-            </script> 
-            <script type="text/javascript">
-                let table_sort_elements = document.querySelectorAll('.table_sort');
-                if (table_sort_elements)
-                {
-                    table_sort_elements = Array.isArray(table_sort_elements) ? table_sort_elements : Object.values(table_sort_elements);
-                    table_sort_elements.forEach(table_sort_element => {
-                        let thead_cells = table_sort_element.querySelectorAll('thead>tr>*');
-                        if (thead_cells)
-                        {
-                            thead_cells = Array.from(thead_cells);
+            }
+        </script> 
+        <script type="text/javascript">
+            let table_sort_elements = document.querySelectorAll('.table_sort');
+            if (table_sort_elements)
+            {
+                table_sort_elements = Array.isArray(table_sort_elements) ? table_sort_elements : Object.values(table_sort_elements);
+                table_sort_elements.forEach(table_sort_element => {
+                    let thead_cells = table_sort_element.querySelectorAll('thead>tr>*');
+                    if (thead_cells)
+                    {
+                        thead_cells = Array.from(thead_cells);
 
-                            thead_cells.forEach((thead_cell, index) => {
-                                thead_cell.addEventListener('click', function () {
-                                    this.classList.toggle('asc');
-                                    sortTableByColumn(table_sort_element, index, !this.classList.contains('asc'));
-                                });
+                        thead_cells.forEach((thead_cell, index) => {
+                            thead_cell.addEventListener('click', function () {
+                                this.classList.toggle('asc');
+                                sortTableByColumn(table_sort_element, index, !this.classList.contains('asc'));
                             });
+                        });
+                    }
+                });
+            }
+
+
+            function sortTableByColumn(table, column, desc = false)
+            {
+                let tbody = table.querySelector('tbody'),
+                        rows = tbody.querySelectorAll('tr');
+
+                rows = rows.isArray ? rows : Object.values(rows);
+
+                function compare(a, b) {
+                    // console.log(a.children[column], b.children[column]);
+                    let aText = a.children[column].innerText.trim(),
+                            bText = b.children[column].innerText.trim();
+
+                    return (aText < bText) ? -1 : 1;
+                }
+
+                rows.sort(compare);
+
+                if (desc)
+                    rows.reverse();
+
+                tbody.innerHTML = '';
+
+                let i = 0;
+                while (i < rows.length) {
+                    tbody.appendChild(rows[i]);
+                    i++;
+            }
+            }
+
+
+
+
+            /* <a href="https://freetoolssite.com/how-to-create-a-popup-in-html-css-and-javascript/">html table filter javaScript</a> code start */
+            function filter_table(This, table_id)
+            {
+                let recordLists = document.querySelectorAll(`#${table_id}>*`);
+                if (recordLists)
+                {
+                    hide_tr(recordLists);
+                    recordLists.forEach(recordList => {
+                        let str = recordList.innerText.toLowerCase(),
+                                value = This.value.toLowerCase();
+
+                        if (str.indexOf(value) >= 0)
+                        {
+                            recordList.style.display = '';
                         }
                     });
                 }
+            }
 
 
-                function sortTableByColumn(table, column, desc = false)
-                {
-                    let tbody = table.querySelector('tbody'),
-                            rows = tbody.querySelectorAll('tr');
+            function hide_tr(recordLists) {
+                recordLists.forEach(recordList => {
+                    recordList.style.display = 'none';
+                });
+            }
+            /* <a href="https://freetoolssite.com/css-text-animation-using-html-css-and-javascript/">html table filter javaScript</a> code end */
+        </script>
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+        <script src="${pageContext.request.contextPath}/js/scripts.js"></script>
 
-                    rows = rows.isArray ? rows : Object.values(rows);
-
-                    function compare(a, b) {
-                        // console.log(a.children[column], b.children[column]);
-                        let aText = a.children[column].innerText.trim(),
-                                bText = b.children[column].innerText.trim();
-
-                        return (aText < bText) ? -1 : 1;
-                    }
-
-                    rows.sort(compare);
-
-                    if (desc)
-                        rows.reverse();
-
-                    tbody.innerHTML = '';
-
-                    let i = 0;
-                    while (i < rows.length) {
-                        tbody.appendChild(rows[i]);
-                        i++;
-                }
-                }
-
-
-
-
-                /* <a href="https://freetoolssite.com/how-to-create-a-popup-in-html-css-and-javascript/">html table filter javaScript</a> code start */
-                function filter_table(This, table_id)
-                {
-                    let recordLists = document.querySelectorAll(`#${table_id}>*`);
-                    if (recordLists)
-                    {
-                        hide_tr(recordLists);
-                        recordLists.forEach(recordList => {
-                            let str = recordList.innerText.toLowerCase(),
-                                    value = This.value.toLowerCase();
-
-                            if (str.indexOf(value) >= 0)
-                            {
-                                recordList.style.display = '';
-                            }
-                        });
-                    }
-                }
-
-
-                function hide_tr(recordLists) {
-                    recordLists.forEach(recordList => {
-                        recordList.style.display = 'none';
-                    });
-                }
-                /* <a href="https://freetoolssite.com/css-text-animation-using-html-css-and-javascript/">html table filter javaScript</a> code end */
-            </script>
-            <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
-            <script src="${pageContext.request.contextPath}/js/scripts.js"></script>
-
-            <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+        <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
 
     </body>
 
