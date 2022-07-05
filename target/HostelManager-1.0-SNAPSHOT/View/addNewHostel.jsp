@@ -1,4 +1,10 @@
 
+<%@page import="java.sql.PreparedStatement"%>
+<%@page import="java.sql.ResultSet"%>
+<%@page import="java.sql.Statement"%>
+<%@page import="java.sql.Connection"%>
+<%@page import="java.sql.DriverManager"%>
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -31,44 +37,104 @@
                         <div class="card-body">
 
                             <form action="${pageContext.request.contextPath}/MainController" method="POST">
-                                <div class="form-group row">
-                                    <label  class="col-sm-2 col-form-label">Tên Nhà</label>
-                                    <div class="col-sm-10">
-                                        <input type="text" name="hostelname" class="form-control" placeholder="Nhập tên nhà">
+                                <div class="row">
+                                    <div class="form-group row col-md-6 mt-2">
+                                        <label  class="col-sm-4 col-form-label">Tên nhà</label>
+                                        <div class="col-sm-8">
+                                            <input type="text" name="hostelname" class="form-control" placeholder="Nhập tên nhà">
+                                        </div>
                                     </div>
-                                </div>
+                                    
+                                        <div class="form-group row col-md-6 mt-2">
+                                            <label  class="col-sm-4 col-form-label">Thành Phố</label>
+                                            <div class="col-sm-8">
+                                                <select id="city"  name="city"   style="padding:6px 0; border-radius: 3px; width: 50%" >
+                                                    <option value="0">Chọn Thành phố</option>
+                                                    <%
+                                                        try {
+                                                            String query = "Select * from dbo.City";
+                                                            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver").newInstance();
+                                                            Connection conn = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=HostelDB", "sas", "123456");
+                                                            Statement stm = conn.createStatement();
+                                                            ResultSet rs = stm.executeQuery(query);
+                                                            while (rs.next()) {
+                                                    %>
+                                                    <option value="<%=rs.getString("city_id")%>"
 
-                                <div class="form-group row">
-                                    <label  class="col-sm-2 col-form-label">Địa Chỉ</label>
-                                    <div class="col-sm-10">
-                                        <input type="text" name="address" class="form-control" placeholder="Nhập địa chỉ">
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label  class="col-sm-2 col-form-label">Phường</label>
-                                    <div class="col-sm-10">
-                                        <input type="text" name="ward" class="form-control" placeholder="Nhập tên phường">
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label  class="col-sm-2 col-form-label">Quận</label>
-                                    <div class="col-sm-10">
-                                        <input type="text" name="district" class="form-control" placeholder="Nhập tên quận">
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label  class="col-sm-2 col-form-label">Thành Phố</label>
-                                    <div class="col-sm-10">
-                                        <input type="text" name="city" class="form-control" placeholder="Nhập thành phố">
-                                    </div>
-                                </div>
+                                                            <%
+                                                                if (request.getParameter("city") != null) {
+                                                                    if (rs.getString("city_id") == request.getParameter("city")) {
+                                                                        out.print("selected");
+                                                                    }
+                                                                }
 
-                                <div class="mt-3 text-center">
-                                    <a href="${pageContext.request.contextPath}/MainController?action=RoomPage">
-                                        <button class="btn btn-warning" type="button" id="cancelButton"><i class="fa fa-mail-reply"></i> Trở Về</button>
-                                    </a>
-                                        <button class="btn btn-success" type="submit" name="action" id="sumbitButton" value="AddHostel"><i class="fa fa-check"></i> Lưu</button>
-                                </div>
+                                                            %>
+
+                                                            ><%=rs.getString("city_name")%></option>
+                                                    <%
+                                                            }
+
+                                                        } catch (Exception e) {
+                                                            e.printStackTrace();
+                                                        }
+                                                    %>
+                                                </select>  
+                                            </div>
+                                        </div>
+                                </div>     
+
+                                <div class="row">
+                                    <div class="form-group row col-md-6 mt-2">
+                                        <label  class="col-sm-4 col-form-label">Quận/Huyện</label>
+                                        <div class="col-sm-8">
+                                            <select id="select-state1"  name="district"  style="padding:6px 0; border-radius: 3px; width: 50%" >
+                                                <option value="0">Chọn Quận/Huyện</option>
+                                                <%
+                                                    try {
+                                                        String query = "Select * from dbo.District where city_id=?";
+                                                        Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver").newInstance();
+                                                        Connection con = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=HostelDB", "sas", "123456");
+                                                        PreparedStatement pstm = con.prepareStatement(query);
+                                                        pstm.setString(1, request.getParameter("city"));
+                                                        ResultSet rs = pstm.executeQuery();
+                                                        while (rs.next()) {
+                                                %>
+                                                <option value="<%=rs.getString("district_id")%>"><%=rs.getString("district_name")%></option>
+                                                <%
+                                                        }
+
+                                                    } catch (Exception e) {
+                                                        e.printStackTrace();
+                                                    }
+                                                %>
+                                            </select>  
+                                        </div>
+                                    </div>
+                                    <div class="form-group row col-md-6 mt-2">
+                                        <label  class="col-sm-4 col-form-label">Phường Xã</label>
+                                        <div class="col-sm-8">
+                                            <select id="select-state1"  name="ward"  placeholder="Chọn Quận/Huyện..." style="padding:6px 0; border-radius: 3px; width: 50%" >
+                                                <option></option>
+                                            </select>  
+                                        </div>
+                                    </div>
+                                </div> 
+                            
+                            <div class="row">
+                                <div class="form-group row col-md-12 mt-2">
+                                    <label  class="col-sm-2 col-form-label">Địa chỉ cụ thể</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" name="address" class="form-control" placeholder="Nhập địa chỉ cụ thể">
+                                    </div>
+                                </div>                                 
+                            </div>
+
+                            <div class="mt-3 text-center">
+                                <a href="${pageContext.request.contextPath}/MainController?action=RoomPage">
+                                    <button class="btn btn-warning" type="button" id="cancelButton"><i class="fa fa-mail-reply"></i> Trở Về</button>
+                                </a>
+                                <button class="btn btn-success" onchange="this.form.submit()" type="submit" name="action" id="sumbitButton" value="AddHostel"><i class="fa fa-check"></i> Lưu</button>
+                            </div>
                             </form>
 
 
