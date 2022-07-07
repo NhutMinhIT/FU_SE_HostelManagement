@@ -76,7 +76,7 @@
 
                             <div class="sb-sidenav-menu-heading">Khác</div>
 
-                            <a class="nav-link" href="#">
+                            <a class="nav-link" href="${pageContext.request.contextPath}/View/contact.jsp">
                                 <div class="sb-nav-link-icon"><i class="fas fa-address-card"></i></div>
                                 Liên Hệ
                             </a>

@@ -36,7 +36,7 @@
                         </div>
                         <div class="card-body">
 
-                            <form action="${pageContext.request.contextPath}/MainController" method="POST">
+                            <form action="" method="POST">
                                 <div class="row">
                                     <div class="form-group row col-md-6 mt-2">
                                         <label  class="col-sm-4 col-form-label">Tên nhà</label>
@@ -48,13 +48,13 @@
                                         <div class="form-group row col-md-6 mt-2">
                                             <label  class="col-sm-4 col-form-label">Thành Phố</label>
                                             <div class="col-sm-8">
-                                                <select id="city"  name="city"   style="padding:6px 0; border-radius: 3px; width: 50%" >
+                                                <select id="city"  name="city"  onchange="this.form.submit()"  style="padding:6px 0; border-radius: 3px; width: 50%" >
                                                     <option value="0">Chọn Thành phố</option>
                                                     <%
                                                         try {
                                                             String query = "Select * from dbo.City";
                                                             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver").newInstance();
-                                                            Connection conn = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=HostelDB", "sas", "123456");
+                                                            Connection conn = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=HostelDB", "sas", "12345");
                                                             Statement stm = conn.createStatement();
                                                             ResultSet rs = stm.executeQuery(query);
                                                             while (rs.next()) {
@@ -65,6 +65,7 @@
                                                                 if (request.getParameter("city") != null) {
                                                                     if (rs.getString("city_id") == request.getParameter("city")) {
                                                                         out.print("selected");
+                                                                        
                                                                     }
                                                                 }
 
@@ -93,7 +94,7 @@
                                                     try {
                                                         String query = "Select * from dbo.District where city_id=?";
                                                         Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver").newInstance();
-                                                        Connection con = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=HostelDB", "sas", "123456");
+                                                        Connection con = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=HostelDB", "sas", "12345");
                                                         PreparedStatement pstm = con.prepareStatement(query);
                                                         pstm.setString(1, request.getParameter("city"));
                                                         ResultSet rs = pstm.executeQuery();
@@ -133,7 +134,7 @@
                                 <a href="${pageContext.request.contextPath}/MainController?action=RoomPage">
                                     <button class="btn btn-warning" type="button" id="cancelButton"><i class="fa fa-mail-reply"></i> Trở Về</button>
                                 </a>
-                                <button class="btn btn-success" onchange="this.form.submit()" type="submit" name="action" id="sumbitButton" value="AddHostel"><i class="fa fa-check"></i> Lưu</button>
+                                <button class="btn btn-success"  type="submit" name="action" id="sumbitButton" value="AddHostel"><i class="fa fa-check"></i> Lưu</button>
                             </div>
                             </form>
 
