@@ -67,7 +67,7 @@
                                 <div class="sb-nav-link-icon"><i class="fas fa-cubes"></i></div>
                                 Dịch Vụ                                
                             </a>
-                            <a class="nav-link collapsed" href="${pageContext.request.contextPath}/View/ManagerActivitie.jsp">
+                            <a class="nav-link collapsed" href="${pageContext.request.contextPath}/View/ManagerActivitie1.jsp">
                                 <div class="sb-nav-link-icon"><i class="fas fa-bolt"></i></div>
                                 Quản Lý Tiêu                               
                             </a>
