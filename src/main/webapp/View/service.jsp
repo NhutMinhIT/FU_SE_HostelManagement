@@ -37,148 +37,66 @@
 
             <main class="container-fluid">
                 <ul class=" col-12 nav nav-tabs mb-4">
-
-                    <li class="nav-item">
-                        <a class="nav-link active" href="#moon" role="tab" data-toggle="tab">Moon Hostel</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#bae1" role="tab" data-toggle="tab">Bae Hostel</a>
-                    </li>
-
+                    <c:forEach items="${HostelList}" var="Ho">   
+                        <li class="nav-item">
+                            <c:choose>
+                                <c:when test="${Ho.hostelID == '1'}">
+                                    <a class="nav-link active" href="#${Ho.hostelname}" role="tab" data-toggle="tab">${Ho.hostelname}</a>   
+                                </c:when>
+                                <c:otherwise>
+                                    <a class="nav-link" href="#${Ho.hostelname}" role="tab" data-toggle="tab">${Ho.hostelname}</a>
+                                </c:otherwise>
+                            </c:choose>
+                        </li>
+                    </c:forEach>
                 </ul>
                 <div class="tab-content ">                       
                     <div class="tab-content">
-                        <div role="tabpanel" class="tab-pane fade show active" id="moon">
-                            <div class="container-fluid">  
-                                <input type="search" oninput="filter_table(this, 'table_filter')" class="form_control"
-                                       placeholder="Filter This Table...">
-                                <table class="_table table_sort">
-                                    <thead>
-                                        <tr>
-                                            <th style="width: 12%">Tên dịch vụ</th>
-                                            <th style="width: 12%">Loại dịch vụ</th>
-                                            <th style="width: 8%">Ngày cập nhật</th> 
-                                            <th style="width: 10%">Địa điểm</th>                                     
-                                            <th style="width: 17%">Giá</th>
-                                            <th style="width: 10%">Đơn vị</th>
-                                            <th style="width: 10%">Đang dùng</th>
-                                            <th style="width: 10%">Chức Năng</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody id="table_filter">
-                                        <tr>
-                                            <td>Điện</td>
-                                            <td>Điện</td>
-                                            <td><input pattern="dd-MM-yyyy" value="16/02/2022" disabled="disabled"/></td>
-                                            <td>Moon</td>
-                                            <td>
-                                                <input name="DOB" type="text" value="3000" disabled="disabled">
-                                            </td>
 
-                                            <td>kWh</td>
-                                            <td style="text-align: center"><input type="checkbox" checked disabled="disabled" /></td>
-                                            <td>
-                                                <a href="${pageContext.request.contextPath}/MainController?action=UpdateService&detailID=${SD.detailID}">
-                                                    <button class="btn btn-primary"><i class="fa fa-edit"></i></button>
-                                                </a>
-                                                <a href="${pageContext.request.contextPath}/MainController?action=DeleteService&detailID=${SD.detailID}">
-                                                    <button Onclick="return ConfirmDelete();" class="btn btn-danger"><i class="fa fa-remove"></i></button>
-                                                </a>
-                                            </td>
-                                        </tr>
 
-                                        <tr>
-                                            <td>Nước</td>
-                                            <td>Nước</td>
-                                            <td><input pattern="dd-MM-yyyy" value="16/02/2022" disabled="disabled"/></td>
-                                            <td>Moon</td>
-                                            <td>
-                                                <input name="DOB" type="text" value="18000" disabled="disabled">
-                                            </td>
+                        <c:forEach items="${HostelList}" var="Hos">
+                            <c:choose>
+                                <c:when test="${Hos.hostelID == '1'}">
+                                    <div role="tabpanel" class=" tab-pane fade show active" id="${Hos.hostelname}" >   
+                                    </c:when>
+                                    <c:otherwise>
+                                        <div role="tabpanel" class=" tab-pane fade show" id="${Hos.hostelname}" >
+                                        </c:otherwise>
+                                    </c:choose>
 
-                                            <td>m3</td>
-                                            <td style="text-align: center"><input type="checkbox" checked disabled="disabled" /></td>
-                                            <td>
-                                                <a href="${pageContext.request.contextPath}/MainController?action=UpdateService&detailID=${SD.detailID}">
-                                                    <button class="btn btn-primary"><i class="fa fa-edit"></i></button>
-                                                </a>
-                                                <a href="${pageContext.request.contextPath}/MainController?action=DeleteService&detailID=${SD.detailID}">
-                                                    <button Onclick="return ConfirmDelete();" class="btn btn-danger"><i class="fa fa-remove"></i></button>
-                                                </a>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
+
+                                    <div class="container-fluid">  
+                                        <input type="search" oninput="filter_table(this, 'table_filter')" class="form_control"
+                                               placeholder="Filter This Table...">
+                                        <table class="_table table_sort">
+                                            <thead>
+                                                <tr>
+                                                    <th style="width: 12%">Tên dịch vụ</th>
+                                                    <th style="width: 12%">Loại dịch vụ</th>
+                                                    <th style="width: 8%">Ngày cập nhật</th> 
+                                                    <th style="width: 10%">Địa điểm</th>                                     
+                                                    <th style="width: 17%">Giá</th>
+                                                    <th style="width: 10%">Đơn vị</th>
+                                                    <th style="width: 10%">Đang dùng</th>
+                                                    <th style="width: 10%">Chức Năng</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody id="table_filter">
+                                                <c:forEach items="${ServiceDetailList}" var="SD">
+                                                    <c:if test="${SD.hostelID == Hos.hostelID}">
+                                                        
+                                                    </c:if>
+                                                </c:forEach>
+                                            </tbody>
+                                        </table>
+                                    </div>
+
+                                </div>
+                            </c:forEach>
+
 
                         </div>
-                        <div role="tabpanel" class="tab-pane fade show" id="bae1">
-                            <div class="container-fluid">  
-                                <input type="search" oninput="filter_table(this, 'table_filter')" class="form_control"
-                                       placeholder="Filter This Table...">
-                                <table class="_table table_sort">
-                                    <thead>
-                                        <tr>
-                                            <th style="width: 12%">Tên dịch vụ</th>
-                                            <th style="width: 12%">Loại dịch vụ</th>
-                                            <th style="width: 8%">Ngày cập nhật</th> 
-                                            <th style="width: 10%">Địa điểm</th>                                     
-                                            <th style="width: 17%">Giá</th>
-                                            <th style="width: 10%">Đơn vị</th>
-                                            <th style="width: 10%">Đang dùng</th>
-                                            <th style="width: 10%">Chức Năng</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody id="table_filter">
-                                        <tr>
-                                            <td>Điện</td>
-                                            <td>Điện</td>
-                                            <td><input pattern="dd-MM-yyyy" value="16/02/2022" disabled="disabled"/></td>
-                                            <td>Bae</td>
-                                            <td>
-                                                <input name="DOB" type="text" value="3000" disabled="disabled">
-                                            </td>
-
-                                            <td>kWh</td>
-                                            <td style="text-align: center"><input type="checkbox" checked disabled="disabled" /></td>
-                                            <td>
-                                                <a href="${pageContext.request.contextPath}/MainController?action=UpdateService&detailID=${SD.detailID}">
-                                                    <button class="btn btn-primary"><i class="fa fa-edit"></i></button>
-                                                </a>
-                                                <a href="${pageContext.request.contextPath}/MainController?action=DeleteService&detailID=${SD.detailID}">
-                                                    <button Onclick="return ConfirmDelete();" class="btn btn-danger"><i class="fa fa-remove"></i></button>
-                                                </a>
-                                            </td>
-                                        </tr>
-
-                                        <tr>
-                                            <td>Nước</td>
-                                            <td>Nước</td>
-                                            <td><input pattern="dd-MM-yyyy" value="16/02/2022" disabled="disabled"/></td>
-                                            <td>Bae</td>
-                                            <td>
-                                                <input name="DOB" type="text" value="18000" disabled="disabled">
-                                            </td>
-
-                                            <td>m3</td>
-                                            <td style="text-align: center"><input type="checkbox" checked disabled="disabled" /></td>
-                                            <td>
-                                                <a href="${pageContext.request.contextPath}/MainController?action=UpdateService&detailID=${SD.detailID}">
-                                                    <button class="btn btn-primary"><i class="fa fa-edit"></i></button>
-                                                </a>
-                                                <a href="${pageContext.request.contextPath}/MainController?action=DeleteService&detailID=${SD.detailID}">
-                                                    <button Onclick="return ConfirmDelete();" class="btn btn-danger"><i class="fa fa-remove"></i></button>
-                                                </a>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-
-
                     </div>
-                </div>
 
             </main>
 

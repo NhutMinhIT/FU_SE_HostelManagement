@@ -33,35 +33,30 @@
 
             <main class="container-fluid">
                 <ul class=" col-12 nav nav-tabs mb-4">
-
-                    <li class="nav-item">
-                        <a class="nav-link active" href="#moon" role="tab" data-toggle="tab">Moon Hostel</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#bae1" role="tab" data-toggle="tab">Bae Hostel</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link " href="#tri" role="tab" data-toggle="tab">Tri Hostel</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#hung" role="tab" data-toggle="tab">Hùng Hostel</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link " href="#minh" role="tab" data-toggle="tab">Minh Hostel</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#mai" role="tab" data-toggle="tab">Mai Hostel</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link " href="#hau" role="tab" data-toggle="tab">Hậu Hostel</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#duong" role="tab" data-toggle="tab">Dương Hostel</a>
-                    </li>
-                </ul>
+                        <c:forEach items="${HostelList}" var="Ho">   
+                            <li class="nav-item">
+                                <c:choose>
+                                    <c:when test="${Ho.hostelID == '1'}">
+                                        <a class="nav-link active" href="#${Ho.hostelname}" role="tab" data-toggle="tab">${Ho.hostelname}</a>   
+                                    </c:when>
+                                    <c:otherwise>
+                                        <a class="nav-link" href="#${Ho.hostelname}" role="tab" data-toggle="tab">${Ho.hostelname}</a>
+                                    </c:otherwise>
+                                </c:choose>
+                            </li>
+                        </c:forEach>
+                    </ul>
                 <div class="tab-content ">                       
                     <div class="tab-content">
-                        <div role="tabpanel" class="tab-pane fade show active" id="moon">
+                        <c:forEach items="${HostelList}" var="Hos">
+                            <c:choose>
+                                <c:when test="${Hos.hostelID == '1'}">
+                                    <div role="tabpanel" class=" tab-pane fade show active" id="${Hos.hostelname}" >   
+                                    </c:when>
+                                    <c:otherwise>
+                                        <div role="tabpanel" class=" tab-pane fade show" id="${Hos.hostelname}" >
+                                        </c:otherwise>
+                                    </c:choose>
 
                             <div class="breadcrumb mb-4 " style="margin-left: 75%;" >
                                 <div class="row" >
@@ -92,818 +87,83 @@
                                         </tr>
                                     </thead>
                                     <tbody id="table_filter">
-                                        <tr>
-                                            <td>1</td>
-                                            <td>Nhựt Minh</td>
-                                            <td>123456789</td>
-                                            <td>minhnnse150140@fpt.edu.vn</td>
-                                            <td>
-                                                <input name="DOB" type="text" value="22/06/2022" disabled="disabled">
-                                            </td>
-                                            <td>
-                                                <input type="text" name="price" value="3000000" disabled="disabled">
-                                            </td>
-                                            <td>EMPTY</td>
-                                            <td>                                                    
-                                                <a href="${pageContext.request.contextPath}/MainController?action=AddCustomer&RoomID=${R.roomID}">
-                                                    <button class="btn btn-warning" title="Add"><i class="fa fa-add fa-beat"></i> Thêm Khách</button>
-                                                </a> 
-                                                <a href="${pageContext.request.contextPath}/MainController?action=UpdateRoom&RoomID=${R.roomID}">
-                                                    <button class="btn btn-primary" title="Edit"><i class="fa fa-edit"></i></button>
-                                                </a>
-                                                <a href="${pageContext.request.contextPath}/MainController?action=DeleteRoom&RoomID=${R.roomID}">                                                                                        
-                                                    <button Onclick="return ConfirmDelete();" class="btn btn-danger" title="Remove"><i class="fa fa-remove"></i></button>                
-                                                </a>
-                                            </td>
+                                        <c:forEach items="${RoomList}" var="R">
+                                                    <c:if test="${R.hostelID == Hos.hostelID}"> 
+                                                        <tr>                                                
+                                                            <td>${R.roomnumber}</td>
+                                                            <c:forEach items="${ContractList}" var="Contract">
+                                                                <c:choose>
+                                                                    <c:when test="${Contract.roomID == R.roomID}">                                                            
+                                                                        <c:forEach items="${CusList}" var="Cus">
+                                                                            <c:if test="${Cus.customerID == Contract.customerID}">
+                                                                                <td>
+                                                                                    <a href="${pageContext.request.contextPath}/MainController?action=CustomerPage&CusID=${Cus.customerID}&roomID=${R.roomID}">
+                                                                                        ${Cus.fullname}
+                                                                                    </a>
+                                                                                </td>
+                                                                                <td>${Cus.phone}</td>
+                                                                                <td>${Cus.email}</td>
+                                                                                <td><fmt:formatDate pattern="dd/MM/yyyy" value="${Contract.signed_date}"/></td>
+                                                                            </c:if>
+                                                                        </c:forEach>
+                                                                    </c:when>
+                                                                    <c:otherwise>
+                                                                        <td></td>
+                                                                        <td></td>
+                                                                        <td></td>
+                                                                        <td></td>
+                                                                    </c:otherwise>
+                                                                </c:choose>
+                                                            </c:forEach>
 
-                                        </tr>
+                                                            <td>
+                                                                <input class="money form-control" type="text" name="unit_price"  placeholder="Giá" 
+                                                                       value="<fmt:formatNumber type="number" maxFractionDigits="0" value="${R.price}"/>" disabled="disabled">
+                                                            </td>
+                                                            <c:choose>
+                                                                <c:when test="${R.status == 'RENTING'}">
+                                                                    <td class="text-success"><strong>${R.status}</strong></td>
+                                                                        </c:when>
+                                                                        <c:otherwise>
+                                                                    <td class="text-warning">${R.status}</td>
+                                                                </c:otherwise>
+                                                            </c:choose>
+                                                            <c:choose>
+                                                                <c:when test="${R.status == 'RENTING'}">
+                                                                    <td>                                                    
 
-                                        <tr>
-                                            <td>2</td>
-                                            <td>Nhựt Minh</td>
-                                            <td>123456789</td>
-                                            <td>minhnnse150140@fpt.edu.vn</td>
-                                            <td>
-                                                <input name="DOB" type="text" value="22/06/2022" disabled="disabled">
-                                            </td>
-                                            <td>
-                                                <input type="text" name="price" value="3000000" disabled="disabled">
-                                            </td>
-                                            <td>RENTING</td>
-                                            <td>                                                    
-
-                                                <a href="${pageContext.request.contextPath}/MainController?action=UpdateRoom&RoomID=${R.roomID}">
-                                                    <button class="btn btn-primary" title="Edit"><i class="fa fa-edit"></i></button>
-                                                </a>
-                                                <a href="${pageContext.request.contextPath}/MainController?action=DeleteRoom&RoomID=${R.roomID}">                                                                                        
-                                                    <button Onclick="return ConfirmDelete();" class="btn btn-danger" title="Remove"><i class="fa fa-remove"></i></button>                
-                                                </a>
-                                            </td>
-
-                                        </tr>
+                                                                        <a href="${pageContext.request.contextPath}/MainController?action=UpdateRoom&RoomID=${R.roomID}">
+                                                                            <button class="btn btn-primary" title="Edit"><i class="fa fa-edit"></i></button>
+                                                                        </a>
+                                                                        <a href="${pageContext.request.contextPath}/MainController?action=DeleteRoom&RoomID=${R.roomID}">                                                                                        
+                                                                            <button Onclick="return ConfirmDelete();" class="btn btn-danger" title="Remove"><i class="fa fa-remove"></i></button>                
+                                                                        </a>
+                                                                    </td>
+                                                                </c:when>                                                                   
+                                                                <c:otherwise>
+                                                                    <td>                                                    
+                                                                        <a href="${pageContext.request.contextPath}/MainController?action=AddCustomer&RoomID=${R.roomID}">
+                                                                            <button class="btn btn-warning" title="Add"><i class="fa fa-add"></i> Thêm Khách</button>
+                                                                        </a>  
+                                                                        <a href="${pageContext.request.contextPath}/MainController?action=UpdateRoom&RoomID=${R.roomID}">
+                                                                            <button class="btn btn-primary" title="Edit"><i class="fa fa-edit"></i></button>
+                                                                        </a>
+                                                                        <a  href="${pageContext.request.contextPath}/MainController?action=DeleteRoom&RoomID=${R.roomID}">                                                                                        
+                                                                            <button Onclick="return ConfirmDelete();" class="btn btn-danger" title="Remove"><i class="fa fa-remove"></i></button>                
+                                                                        </a>
+                                                                    </td>
+                                                                </c:otherwise>    
+                                                            </c:choose>                                      
+                                                        </tr>
+                                                    </c:if> 
+                                                </c:forEach>
                                     </tbody>
                                 </table>
                             </div>
 
                         </div>
-                        <div role="tabpanel" class="tab-pane fade show" id="bae1">
-                            <div class="breadcrumb mb-4 " style="margin-left: 75%;" >
-                                <div class="row" >
-
-                                    <a href="${pageContext.request.contextPath}/MainController?action=AddRoom&HostelID=${Hos.hostelID}" >
-                                        <button type="button"  class="btn btn-success"><i class="fa fa-add"></i> Thêm Phòng</button>
-                                    </a>
-                                </div>
-                                <div class="row " style="margin-left: 10px">
-                                    <a href="${pageContext.request.contextPath}/MainController?action=DeleteHostel&HostelID=${Hos.hostelID}">
-                                        <button type="button" Onclick="return ConfirmDelete();" class="btn btn-danger"><i class="fa fa-remove"></i> Xóa Nhà Trọ</button>
-                                    </a>
-                                </div>                             
-
-                            </div>
-                            <div class="container-fluid">  
-
-                                <input type="search" oninput="filter_table(this, 'table_filter')" class="form_control"
-                                       placeholder="Filter This Table...">
-                                <table class="_table table_sort">
-                                    <thead>
-                                        <tr>
-                                            <th style="width: 7%">Phòng</th>
-                                            <th style="width: 15%">Người Thuê</th>
-                                            <th style="width: 8%">Số Điện Thoại</th> 
-                                            <th style="width: 10%">Email</th>                                     
-                                            <th style="width: 17%">Ngày Thuê</th>
-                                            <th style="width: 17%">Giá (VND)</th>
-                                            <th style="width: 7%">Trạng Thái</th>
-                                            <th style="width: 19%">Chức Năng</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody id="table_filter">
-                                        <tr>
-                                            <td>5</td>
-                                            <td>Nhựt Trí</td>
-                                            <td>123456789</td>
-                                            <td>minhnnse150140@fpt.edu.vn</td>
-                                            <td>
-                                                <input name="DOB" type="text" value="22/06/2022" disabled="disabled">
-                                            </td>
-                                            <td>
-                                                <input type="text" name="price" value="3000000" disabled="disabled">
-                                            </td>
-                                            <td>RENTING</td>
-                                            <td>                                                    
-
-                                                <a href="${pageContext.request.contextPath}/MainController?action=UpdateRoom&RoomID=${R.roomID}">
-                                                    <button class="btn btn-primary" title="Edit"><i class="fa fa-edit"></i></button>
-                                                </a>
-                                                <a href="${pageContext.request.contextPath}/MainController?action=DeleteRoom&RoomID=${R.roomID}">                                                                                        
-                                                    <button Onclick="return ConfirmDelete();" class="btn btn-danger" title="Remove"><i class="fa fa-remove"></i></button>                
-                                                </a>
-                                            </td>
-
-                                        </tr>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>Nhựt Minh</td>
-                                            <td>123456789</td>
-                                            <td>minhnnse150140@fpt.edu.vn</td>
-                                            <td>
-                                                <input name="DOB" type="text" value="22/06/2022" disabled="disabled">
-                                            </td>
-                                            <td>
-                                                <input type="text" name="price" value="3000000" disabled="disabled">
-                                            </td>
-                                            <td>EMPTY</td>
-                                            <td>                                                    
-                                                <a href="${pageContext.request.contextPath}/MainController?action=AddCustomer&RoomID=${R.roomID}">
-                                                    <button class="btn btn-warning" title="Add"><i class="fa fa-add fa-beat"></i> Thêm Khách</button>
-                                                </a> 
-                                                <a href="${pageContext.request.contextPath}/MainController?action=UpdateRoom&RoomID=${R.roomID}">
-                                                    <button class="btn btn-primary" title="Edit"><i class="fa fa-edit"></i></button>
-                                                </a>
-                                                <a href="${pageContext.request.contextPath}/MainController?action=DeleteRoom&RoomID=${R.roomID}">                                                                                        
-                                                    <button Onclick="return ConfirmDelete();" class="btn btn-danger" title="Remove"><i class="fa fa-remove"></i></button>                
-                                                </a>
-                                            </td>
-
-                                        </tr>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>Nhựt Minh</td>
-                                            <td>123456789</td>
-                                            <td>minhnnse150140@fpt.edu.vn</td>
-                                            <td>
-                                                <input name="DOB" type="text" value="22/06/2022" disabled="disabled">
-                                            </td>
-                                            <td>
-                                                <input type="text" name="price" value="3000000" disabled="disabled">
-                                            </td>
-                                            <td>RENTING</td>
-                                            <td>                                                    
-
-                                                <a href="${pageContext.request.contextPath}/MainController?action=UpdateRoom&RoomID=${R.roomID}">
-                                                    <button class="btn btn-primary" title="Edit"><i class="fa fa-edit"></i></button>
-                                                </a>
-                                                <a href="${pageContext.request.contextPath}/MainController?action=DeleteRoom&RoomID=${R.roomID}">                                                                                        
-                                                    <button Onclick="return ConfirmDelete();" class="btn btn-danger" title="Remove"><i class="fa fa-remove"></i></button>                
-                                                </a>
-                                            </td>
-
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-
-                        <div role="tabpanel" class="tab-pane fade show" id="tri">
-                            <div class="breadcrumb mb-4 " style="margin-left: 75%;" >
-                                <div class="row" >
-
-                                    <a href="${pageContext.request.contextPath}/MainController?action=AddRoom&HostelID=${Hos.hostelID}" >
-                                        <button type="button"  class="btn btn-success"><i class="fa fa-add"></i> Thêm Phòng</button>
-                                    </a>
-                                </div>
-                                <div class="row " style="margin-left: 10px">
-                                    <a href="${pageContext.request.contextPath}/MainController?action=DeleteHostel&HostelID=${Hos.hostelID}">
-                                        <button type="button" Onclick="return ConfirmDelete();" class="btn btn-danger"><i class="fa fa-remove"></i> Xóa Nhà Trọ</button>
-                                    </a>
-                                </div>                             
-
-                            </div>
-                            <div class="container-fluid">  
-
-                                <input type="search" oninput="filter_table(this, 'table_filter')" class="form_control"
-                                       placeholder="Filter This Table...">
-                                <table class="_table table_sort">
-                                    <thead>
-                                        <tr>
-                                            <th style="width: 7%">Phòng</th>
-                                            <th style="width: 15%">Người Thuê</th>
-                                            <th style="width: 8%">Số Điện Thoại</th> 
-                                            <th style="width: 10%">Email</th>                                     
-                                            <th style="width: 17%">Ngày Thuê</th>
-                                            <th style="width: 17%">Giá (VND)</th>
-                                            <th style="width: 7%">Trạng Thái</th>
-                                            <th style="width: 19%">Chức Năng</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody id="table_filter">
-                                        <tr>
-                                            <td>6</td>
-                                            <td>Nhựt Trí</td>
-                                            <td>123456789</td>
-                                            <td>minhnnse150140@fpt.edu.vn</td>
-                                            <td>
-                                                <input name="DOB" type="text" value="22/06/2022" disabled="disabled">
-                                            </td>
-                                            <td>
-                                                <input type="text" name="price" value="3000000" disabled="disabled">
-                                            </td>
-                                            <td>RENTING</td>
-                                            <td>                                                    
-
-                                                <a href="${pageContext.request.contextPath}/MainController?action=UpdateRoom&RoomID=${R.roomID}">
-                                                    <button class="btn btn-primary" title="Edit"><i class="fa fa-edit"></i></button>
-                                                </a>
-                                                <a href="${pageContext.request.contextPath}/MainController?action=DeleteRoom&RoomID=${R.roomID}">                                                                                        
-                                                    <button Onclick="return ConfirmDelete();" class="btn btn-danger" title="Remove"><i class="fa fa-remove"></i></button>                
-                                                </a>
-                                            </td>
-
-                                        </tr>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>Nhựt Minh</td>
-                                            <td>123456789</td>
-                                            <td>minhnnse150140@fpt.edu.vn</td>
-                                            <td>
-                                                <input name="DOB" type="text" value="22/06/2022" disabled="disabled">
-                                            </td>
-                                            <td>
-                                                <input type="text" name="price" value="3000000" disabled="disabled">
-                                            </td>
-                                            <td>EMPTY</td>
-                                            <td>                                                    
-                                                <a href="${pageContext.request.contextPath}/MainController?action=AddCustomer&RoomID=${R.roomID}">
-                                                    <button class="btn btn-warning" title="Add"><i class="fa fa-add fa-beat"></i> Thêm Khách</button>
-                                                </a> 
-                                                <a href="${pageContext.request.contextPath}/MainController?action=UpdateRoom&RoomID=${R.roomID}">
-                                                    <button class="btn btn-primary" title="Edit"><i class="fa fa-edit"></i></button>
-                                                </a>
-                                                <a href="${pageContext.request.contextPath}/MainController?action=DeleteRoom&RoomID=${R.roomID}">                                                                                        
-                                                    <button Onclick="return ConfirmDelete();" class="btn btn-danger" title="Remove"><i class="fa fa-remove"></i></button>                
-                                                </a>
-                                            </td>
-
-                                        </tr>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>Nhựt Minh</td>
-                                            <td>123456789</td>
-                                            <td>minhnnse150140@fpt.edu.vn</td>
-                                            <td>
-                                                <input name="DOB" type="text" value="22/06/2022" disabled="disabled">
-                                            </td>
-                                            <td>
-                                                <input type="text" name="price" value="3000000" disabled="disabled">
-                                            </td>
-                                            <td>RENTING</td>
-                                            <td>                                                    
-
-                                                <a href="${pageContext.request.contextPath}/MainController?action=UpdateRoom&RoomID=${R.roomID}">
-                                                    <button class="btn btn-primary" title="Edit"><i class="fa fa-edit"></i></button>
-                                                </a>
-                                                <a href="${pageContext.request.contextPath}/MainController?action=DeleteRoom&RoomID=${R.roomID}">                                                                                        
-                                                    <button Onclick="return ConfirmDelete();" class="btn btn-danger" title="Remove"><i class="fa fa-remove"></i></button>                
-                                                </a>
-                                            </td>
-
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                        <div role="tabpanel" class="tab-pane fade show" id="hung">
-                            <div class="breadcrumb mb-4 " style="margin-left: 75%;" >
-                                <div class="row" >
-
-                                    <a href="${pageContext.request.contextPath}/MainController?action=AddRoom&HostelID=${Hos.hostelID}" >
-                                        <button type="button"  class="btn btn-success"><i class="fa fa-add"></i> Thêm Phòng</button>
-                                    </a>
-                                </div>
-                                <div class="row " style="margin-left: 10px">
-                                    <a href="${pageContext.request.contextPath}/MainController?action=DeleteHostel&HostelID=${Hos.hostelID}">
-                                        <button type="button" Onclick="return ConfirmDelete();" class="btn btn-danger"><i class="fa fa-remove"></i> Xóa Nhà Trọ</button>
-                                    </a>
-                                </div>                             
-
-                            </div>
-                            <div class="container-fluid">  
-
-                                <input type="search" oninput="filter_table(this, 'table_filter')" class="form_control"
-                                       placeholder="Filter This Table...">
-                                <table class="_table table_sort">
-                                    <thead>
-                                        <tr>
-                                            <th style="width: 7%">Phòng</th>
-                                            <th style="width: 15%">Người Thuê</th>
-                                            <th style="width: 8%">Số Điện Thoại</th> 
-                                            <th style="width: 10%">Email</th>                                     
-                                            <th style="width: 17%">Ngày Thuê</th>
-                                            <th style="width: 17%">Giá (VND)</th>
-                                            <th style="width: 7%">Trạng Thái</th>
-                                            <th style="width: 19%">Chức Năng</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody id="table_filter">
-                                        <tr>
-                                            <td>7</td>
-                                            <td>Nhựt Trí</td>
-                                            <td>123456789</td>
-                                            <td>minhnnse150140@fpt.edu.vn</td>
-                                            <td>
-                                                <input name="DOB" type="text" value="22/06/2022" disabled="disabled">
-                                            </td>
-                                            <td>
-                                                <input type="text" name="price" value="3000000" disabled="disabled">
-                                            </td>
-                                            <td>RENTING</td>
-                                            <td>                                                    
-
-                                                <a href="${pageContext.request.contextPath}/MainController?action=UpdateRoom&RoomID=${R.roomID}">
-                                                    <button class="btn btn-primary" title="Edit"><i class="fa fa-edit"></i></button>
-                                                </a>
-                                                <a href="${pageContext.request.contextPath}/MainController?action=DeleteRoom&RoomID=${R.roomID}">                                                                                        
-                                                    <button Onclick="return ConfirmDelete();" class="btn btn-danger" title="Remove"><i class="fa fa-remove"></i></button>                
-                                                </a>
-                                            </td>
-
-                                        </tr>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>Nhựt Minh</td>
-                                            <td>123456789</td>
-                                            <td>minhnnse150140@fpt.edu.vn</td>
-                                            <td>
-                                                <input name="DOB" type="text" value="22/06/2022" disabled="disabled">
-                                            </td>
-                                            <td>
-                                                <input type="text" name="price" value="3000000" disabled="disabled">
-                                            </td>
-                                            <td>EMPTY</td>
-                                            <td>                                                    
-                                                <a href="${pageContext.request.contextPath}/MainController?action=AddCustomer&RoomID=${R.roomID}">
-                                                    <button class="btn btn-warning" title="Add"><i class="fa fa-add fa-beat"></i> Thêm Khách</button>
-                                                </a> 
-                                                <a href="${pageContext.request.contextPath}/MainController?action=UpdateRoom&RoomID=${R.roomID}">
-                                                    <button class="btn btn-primary" title="Edit"><i class="fa fa-edit"></i></button>
-                                                </a>
-                                                <a href="${pageContext.request.contextPath}/MainController?action=DeleteRoom&RoomID=${R.roomID}">                                                                                        
-                                                    <button Onclick="return ConfirmDelete();" class="btn btn-danger" title="Remove"><i class="fa fa-remove"></i></button>                
-                                                </a>
-                                            </td>
-
-                                        </tr>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>Nhựt Minh</td>
-                                            <td>123456789</td>
-                                            <td>minhnnse150140@fpt.edu.vn</td>
-                                            <td>
-                                                <input name="DOB" type="text" value="22/06/2022" disabled="disabled">
-                                            </td>
-                                            <td>
-                                                <input type="text" name="price" value="3000000" disabled="disabled">
-                                            </td>
-                                            <td>RENTING</td>
-                                            <td>                                                    
-
-                                                <a href="${pageContext.request.contextPath}/MainController?action=UpdateRoom&RoomID=${R.roomID}">
-                                                    <button class="btn btn-primary" title="Edit"><i class="fa fa-edit"></i></button>
-                                                </a>
-                                                <a href="${pageContext.request.contextPath}/MainController?action=DeleteRoom&RoomID=${R.roomID}">                                                                                        
-                                                    <button Onclick="return ConfirmDelete();" class="btn btn-danger" title="Remove"><i class="fa fa-remove"></i></button>                
-                                                </a>
-                                            </td>
-
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                        <div role="tabpanel" class="tab-pane fade show" id="minh">
-                            <div class="breadcrumb mb-4 " style="margin-left: 75%;" >
-                                <div class="row" >
-
-                                    <a href="${pageContext.request.contextPath}/MainController?action=AddRoom&HostelID=${Hos.hostelID}" >
-                                        <button type="button"  class="btn btn-success"><i class="fa fa-add"></i> Thêm Phòng</button>
-                                    </a>
-                                </div>
-                                <div class="row " style="margin-left: 10px">
-                                    <a href="${pageContext.request.contextPath}/MainController?action=DeleteHostel&HostelID=${Hos.hostelID}">
-                                        <button type="button" Onclick="return ConfirmDelete();" class="btn btn-danger"><i class="fa fa-remove"></i> Xóa Nhà Trọ</button>
-                                    </a>
-                                </div>                             
-
-                            </div>
-                            <div class="container-fluid">  
-
-                                <input type="search" oninput="filter_table(this, 'table_filter')" class="form_control"
-                                       placeholder="Filter This Table...">
-                                <table class="_table table_sort">
-                                    <thead>
-                                        <tr>
-                                            <th style="width: 7%">Phòng</th>
-                                            <th style="width: 15%">Người Thuê</th>
-                                            <th style="width: 8%">Số Điện Thoại</th> 
-                                            <th style="width: 10%">Email</th>                                     
-                                            <th style="width: 17%">Ngày Thuê</th>
-                                            <th style="width: 17%">Giá (VND)</th>
-                                            <th style="width: 7%">Trạng Thái</th>
-                                            <th style="width: 19%">Chức Năng</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody id="table_filter">
-                                        <tr>
-                                            <td>8</td>
-                                            <td>Nhựt Trí</td>
-                                            <td>123456789</td>
-                                            <td>minhnnse150140@fpt.edu.vn</td>
-                                            <td>
-                                                <input name="DOB" type="text" value="22/06/2022" disabled="disabled">
-                                            </td>
-                                            <td>
-                                                <input type="text" name="price" value="3000000" disabled="disabled">
-                                            </td>
-                                            <td>RENTING</td>
-                                            <td>                                                    
-
-                                                <a href="${pageContext.request.contextPath}/MainController?action=UpdateRoom&RoomID=${R.roomID}">
-                                                    <button class="btn btn-primary" title="Edit"><i class="fa fa-edit"></i></button>
-                                                </a>
-                                                <a href="${pageContext.request.contextPath}/MainController?action=DeleteRoom&RoomID=${R.roomID}">                                                                                        
-                                                    <button Onclick="return ConfirmDelete();" class="btn btn-danger" title="Remove"><i class="fa fa-remove"></i></button>                
-                                                </a>
-                                            </td>
-
-                                        </tr>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>Nhựt Minh</td>
-                                            <td>123456789</td>
-                                            <td>minhnnse150140@fpt.edu.vn</td>
-                                            <td>
-                                                <input name="DOB" type="text" value="22/06/2022" disabled="disabled">
-                                            </td>
-                                            <td>
-                                                <input type="text" name="price" value="3000000" disabled="disabled">
-                                            </td>
-                                            <td>EMPTY</td>
-                                            <td>                                                    
-                                                <a href="${pageContext.request.contextPath}/MainController?action=AddCustomer&RoomID=${R.roomID}">
-                                                    <button class="btn btn-warning" title="Add"><i class="fa fa-add fa-beat"></i> Thêm Khách</button>
-                                                </a> 
-                                                <a href="${pageContext.request.contextPath}/MainController?action=UpdateRoom&RoomID=${R.roomID}">
-                                                    <button class="btn btn-primary" title="Edit"><i class="fa fa-edit"></i></button>
-                                                </a>
-                                                <a href="${pageContext.request.contextPath}/MainController?action=DeleteRoom&RoomID=${R.roomID}">                                                                                        
-                                                    <button Onclick="return ConfirmDelete();" class="btn btn-danger" title="Remove"><i class="fa fa-remove"></i></button>                
-                                                </a>
-                                            </td>
-
-                                        </tr>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>Nhựt Minh</td>
-                                            <td>123456789</td>
-                                            <td>minhnnse150140@fpt.edu.vn</td>
-                                            <td>
-                                                <input name="DOB" type="text" value="22/06/2022" disabled="disabled">
-                                            </td>
-                                            <td>
-                                                <input type="text" name="price" value="3000000" disabled="disabled">
-                                            </td>
-                                            <td>RENTING</td>
-                                            <td>                                                    
-
-                                                <a href="${pageContext.request.contextPath}/MainController?action=UpdateRoom&RoomID=${R.roomID}">
-                                                    <button class="btn btn-primary" title="Edit"><i class="fa fa-edit"></i></button>
-                                                </a>
-                                                <a href="${pageContext.request.contextPath}/MainController?action=DeleteRoom&RoomID=${R.roomID}">                                                                                        
-                                                    <button Onclick="return ConfirmDelete();" class="btn btn-danger" title="Remove"><i class="fa fa-remove"></i></button>                
-                                                </a>
-                                            </td>
-
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                        <div role="tabpanel" class="tab-pane fade show" id="mai">
-                            <div class="breadcrumb mb-4 " style="margin-left: 75%;" >
-                                <div class="row" >
-
-                                    <a href="${pageContext.request.contextPath}/MainController?action=AddRoom&HostelID=${Hos.hostelID}" >
-                                        <button type="button"  class="btn btn-success"><i class="fa fa-add"></i> Thêm Phòng</button>
-                                    </a>
-                                </div>
-                                <div class="row " style="margin-left: 10px">
-                                    <a href="${pageContext.request.contextPath}/MainController?action=DeleteHostel&HostelID=${Hos.hostelID}">
-                                        <button type="button" Onclick="return ConfirmDelete();" class="btn btn-danger"><i class="fa fa-remove"></i> Xóa Nhà Trọ</button>
-                                    </a>
-                                </div>                             
-
-                            </div>
-                            <div class="container-fluid">  
-
-                                <input type="search" oninput="filter_table(this, 'table_filter')" class="form_control"
-                                       placeholder="Filter This Table...">
-                                <table class="_table table_sort">
-                                    <thead>
-                                        <tr>
-                                            <th style="width: 7%">Phòng</th>
-                                            <th style="width: 15%">Người Thuê</th>
-                                            <th style="width: 8%">Số Điện Thoại</th> 
-                                            <th style="width: 10%">Email</th>                                     
-                                            <th style="width: 17%">Ngày Thuê</th>
-                                            <th style="width: 17%">Giá (VND)</th>
-                                            <th style="width: 7%">Trạng Thái</th>
-                                            <th style="width: 19%">Chức Năng</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody id="table_filter">
-                                        <tr>
-                                            <td>9</td>
-                                            <td>Nhựt Trí</td>
-                                            <td>123456789</td>
-                                            <td>minhnnse150140@fpt.edu.vn</td>
-                                            <td>
-                                                <input name="DOB" type="text" value="22/06/2022" disabled="disabled">
-                                            </td>
-                                            <td>
-                                                <input type="text" name="price" value="3000000" disabled="disabled">
-                                            </td>
-                                            <td>RENTING</td>
-                                            <td>                                                    
-
-                                                <a href="${pageContext.request.contextPath}/MainController?action=UpdateRoom&RoomID=${R.roomID}">
-                                                    <button class="btn btn-primary" title="Edit"><i class="fa fa-edit"></i></button>
-                                                </a>
-                                                <a href="${pageContext.request.contextPath}/MainController?action=DeleteRoom&RoomID=${R.roomID}">                                                                                        
-                                                    <button Onclick="return ConfirmDelete();" class="btn btn-danger" title="Remove"><i class="fa fa-remove"></i></button>                
-                                                </a>
-                                            </td>
-
-                                        </tr>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>Nhựt Minh</td>
-                                            <td>123456789</td>
-                                            <td>minhnnse150140@fpt.edu.vn</td>
-                                            <td>
-                                                <input name="DOB" type="text" value="22/06/2022" disabled="disabled">
-                                            </td>
-                                            <td>
-                                                <input type="text" name="price" value="3000000" disabled="disabled">
-                                            </td>
-                                            <td>EMPTY</td>
-                                            <td>                                                    
-                                                <a href="${pageContext.request.contextPath}/MainController?action=AddCustomer&RoomID=${R.roomID}">
-                                                    <button class="btn btn-warning" title="Add"><i class="fa fa-add fa-beat"></i> Thêm Khách</button>
-                                                </a> 
-                                                <a href="${pageContext.request.contextPath}/MainController?action=UpdateRoom&RoomID=${R.roomID}">
-                                                    <button class="btn btn-primary" title="Edit"><i class="fa fa-edit"></i></button>
-                                                </a>
-                                                <a href="${pageContext.request.contextPath}/MainController?action=DeleteRoom&RoomID=${R.roomID}">                                                                                        
-                                                    <button Onclick="return ConfirmDelete();" class="btn btn-danger" title="Remove"><i class="fa fa-remove"></i></button>                
-                                                </a>
-                                            </td>
-
-                                        </tr>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>Nhựt Minh</td>
-                                            <td>123456789</td>
-                                            <td>minhnnse150140@fpt.edu.vn</td>
-                                            <td>
-                                                <input name="DOB" type="text" value="22/06/2022" disabled="disabled">
-                                            </td>
-                                            <td>
-                                                <input type="text" name="price" value="3000000" disabled="disabled">
-                                            </td>
-                                            <td>RENTING</td>
-                                            <td>                                                    
-
-                                                <a href="${pageContext.request.contextPath}/MainController?action=UpdateRoom&RoomID=${R.roomID}">
-                                                    <button class="btn btn-primary" title="Edit"><i class="fa fa-edit"></i></button>
-                                                </a>
-                                                <a href="${pageContext.request.contextPath}/MainController?action=DeleteRoom&RoomID=${R.roomID}">                                                                                        
-                                                    <button Onclick="return ConfirmDelete();" class="btn btn-danger" title="Remove"><i class="fa fa-remove"></i></button>                
-                                                </a>
-                                            </td>
-
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                        <div role="tabpanel" class="tab-pane fade show" id="hau">
-                            <div class="breadcrumb mb-4 " style="margin-left: 75%;" >
-                                <div class="row" >
-
-                                    <a href="${pageContext.request.contextPath}/MainController?action=AddRoom&HostelID=${Hos.hostelID}" >
-                                        <button type="button"  class="btn btn-success"><i class="fa fa-add"></i> Thêm Phòng</button>
-                                    </a>
-                                </div>
-                                <div class="row " style="margin-left: 10px">
-                                    <a href="${pageContext.request.contextPath}/MainController?action=DeleteHostel&HostelID=${Hos.hostelID}">
-                                        <button type="button" Onclick="return ConfirmDelete();" class="btn btn-danger"><i class="fa fa-remove"></i> Xóa Nhà Trọ</button>
-                                    </a>
-                                </div>                             
-
-                            </div>
-                            <div class="container-fluid">  
-
-                                <input type="search" oninput="filter_table(this, 'table_filter')" class="form_control"
-                                       placeholder="Filter This Table...">
-                                <table class="_table table_sort">
-                                    <thead>
-                                        <tr>
-                                            <th style="width: 7%">Phòng</th>
-                                            <th style="width: 15%">Người Thuê</th>
-                                            <th style="width: 8%">Số Điện Thoại</th> 
-                                            <th style="width: 10%">Email</th>                                     
-                                            <th style="width: 17%">Ngày Thuê</th>
-                                            <th style="width: 17%">Giá (VND)</th>
-                                            <th style="width: 7%">Trạng Thái</th>
-                                            <th style="width: 19%">Chức Năng</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody id="table_filter">
-                                        <tr>
-                                            <td>5</td>
-                                            <td>Nhựt Trí</td>
-                                            <td>123456789</td>
-                                            <td>minhnnse150140@fpt.edu.vn</td>
-                                            <td>
-                                                <input name="DOB" type="text" value="22/06/2022" disabled="disabled">
-                                            </td>
-                                            <td>
-                                                <input type="text" name="price" value="3000000" disabled="disabled">
-                                            </td>
-                                            <td>RENTING</td>
-                                            <td>                                                    
-
-                                                <a href="${pageContext.request.contextPath}/MainController?action=UpdateRoom&RoomID=${R.roomID}">
-                                                    <button class="btn btn-primary" title="Edit"><i class="fa fa-edit"></i></button>
-                                                </a>
-                                                <a href="${pageContext.request.contextPath}/MainController?action=DeleteRoom&RoomID=${R.roomID}">                                                                                        
-                                                    <button Onclick="return ConfirmDelete();" class="btn btn-danger" title="Remove"><i class="fa fa-remove"></i></button>                
-                                                </a>
-                                            </td>
-
-                                        </tr>
-                                        <tr>
-                                            <td>10</td>
-                                            <td>Nhựt Minh</td>
-                                            <td>123456789</td>
-                                            <td>minhnnse150140@fpt.edu.vn</td>
-                                            <td>
-                                                <input name="DOB" type="text" value="22/06/2022" disabled="disabled">
-                                            </td>
-                                            <td>
-                                                <input type="text" name="price" value="3000000" disabled="disabled">
-                                            </td>
-                                            <td>EMPTY</td>
-                                            <td>                                                    
-                                                <a href="${pageContext.request.contextPath}/MainController?action=AddCustomer&RoomID=${R.roomID}">
-                                                    <button class="btn btn-warning" title="Add"><i class="fa fa-add fa-beat"></i> Thêm Khách</button>
-                                                </a> 
-                                                <a href="${pageContext.request.contextPath}/MainController?action=UpdateRoom&RoomID=${R.roomID}">
-                                                    <button class="btn btn-primary" title="Edit"><i class="fa fa-edit"></i></button>
-                                                </a>
-                                                <a href="${pageContext.request.contextPath}/MainController?action=DeleteRoom&RoomID=${R.roomID}">                                                                                        
-                                                    <button Onclick="return ConfirmDelete();" class="btn btn-danger" title="Remove"><i class="fa fa-remove"></i></button>                
-                                                </a>
-                                            </td>
-
-                                        </tr>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>Nhựt Minh</td>
-                                            <td>123456789</td>
-                                            <td>minhnnse150140@fpt.edu.vn</td>
-                                            <td>
-                                                <input name="DOB" type="text" value="22/06/2022" disabled="disabled">
-                                            </td>
-                                            <td>
-                                                <input type="text" name="price" value="3000000" disabled="disabled">
-                                            </td>
-                                            <td>RENTING</td>
-                                            <td>                                                    
-
-                                                <a href="${pageContext.request.contextPath}/MainController?action=UpdateRoom&RoomID=${R.roomID}">
-                                                    <button class="btn btn-primary" title="Edit"><i class="fa fa-edit"></i></button>
-                                                </a>
-                                                <a href="${pageContext.request.contextPath}/MainController?action=DeleteRoom&RoomID=${R.roomID}">                                                                                        
-                                                    <button Onclick="return ConfirmDelete();" class="btn btn-danger" title="Remove"><i class="fa fa-remove"></i></button>                
-                                                </a>
-                                            </td>
-
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                        <div role="tabpanel" class="tab-pane fade show" id="duong">
-                            <div class="breadcrumb mb-4 " style="margin-left: 75%;" >
-                                <div class="row" >
-
-                                    <a href="${pageContext.request.contextPath}/MainController?action=AddRoom&HostelID=${Hos.hostelID}" >
-                                        <button type="button"  class="btn btn-success"><i class="fa fa-add"></i> Thêm Phòng</button>
-                                    </a>
-                                </div>
-                                <div class="row " style="margin-left: 10px">
-                                    <a href="${pageContext.request.contextPath}/MainController?action=DeleteHostel&HostelID=${Hos.hostelID}">
-                                        <button type="button" Onclick="return ConfirmDelete();" class="btn btn-danger"><i class="fa fa-remove"></i> Xóa Nhà Trọ</button>
-                                    </a>
-                                </div>                             
-
-                            </div>
-                            <div class="container-fluid">  
-
-                                <input type="search" oninput="filter_table(this, 'table_filter')" class="form_control"
-                                       placeholder="Filter This Table...">
-                                <table class="_table table_sort">
-                                    <thead>
-                                        <tr>
-                                            <th style="width: 7%">Phòng</th>
-                                            <th style="width: 15%">Người Thuê</th>
-                                            <th style="width: 8%">Số Điện Thoại</th> 
-                                            <th style="width: 10%">Email</th>                                     
-                                            <th style="width: 17%">Ngày Thuê</th>
-                                            <th style="width: 17%">Giá (VND)</th>
-                                            <th style="width: 7%">Trạng Thái</th>
-                                            <th style="width: 19%">Chức Năng</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody id="table_filter">
-                                        <tr>
-                                            <td>12</td>
-                                            <td>Nhựt Trí</td>
-                                            <td>123456789</td>
-                                            <td>minhnnse150140@fpt.edu.vn</td>
-                                            <td>
-                                                <input name="DOB" type="text" value="22/06/2022" disabled="disabled">
-                                            </td>
-                                            <td>
-                                                <input type="text" name="price" value="3000000" disabled="disabled">
-                                            </td>
-                                            <td>RENTING</td>
-                                            <td>                                                    
-
-                                                <a href="${pageContext.request.contextPath}/MainController?action=UpdateRoom&RoomID=${R.roomID}">
-                                                    <button class="btn btn-primary" title="Edit"><i class="fa fa-edit"></i></button>
-                                                </a>
-                                                <a href="${pageContext.request.contextPath}/MainController?action=DeleteRoom&RoomID=${R.roomID}">                                                                                        
-                                                    <button Onclick="return ConfirmDelete();" class="btn btn-danger" title="Remove"><i class="fa fa-remove"></i></button>                
-                                                </a>
-                                            </td>
-
-                                        </tr>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>Nhựt Minh</td>
-                                            <td>123456789</td>
-                                            <td>minhnnse150140@fpt.edu.vn</td>
-                                            <td>
-                                                <input name="DOB" type="text" value="22/06/2022" disabled="disabled">
-                                            </td>
-                                            <td>
-                                                <input type="text" name="price" value="3000000" disabled="disabled">
-                                            </td>
-                                            <td>EMPTY</td>
-                                            <td>                                                    
-                                                <a href="${pageContext.request.contextPath}/MainController?action=AddCustomer&RoomID=${R.roomID}">
-                                                    <button class="btn btn-warning" title="Add"><i class="fa fa-add fa-beat"></i> Thêm Khách</button>
-                                                </a> 
-                                                <a href="${pageContext.request.contextPath}/MainController?action=UpdateRoom&RoomID=${R.roomID}">
-                                                    <button class="btn btn-primary" title="Edit"><i class="fa fa-edit"></i></button>
-                                                </a>
-                                                <a href="${pageContext.request.contextPath}/MainController?action=DeleteRoom&RoomID=${R.roomID}">                                                                                        
-                                                    <button Onclick="return ConfirmDelete();" class="btn btn-danger" title="Remove"><i class="fa fa-remove"></i></button>                
-                                                </a>
-                                            </td>
-
-                                        </tr>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>Nhựt Minh</td>
-                                            <td>123456789</td>
-                                            <td>minhnnse150140@fpt.edu.vn</td>
-                                            <td>
-                                                <input name="DOB" type="text" value="22/06/2022" disabled="disabled">
-                                            </td>
-                                            <td>
-                                                <input type="text" name="price" value="3000000" disabled="disabled">
-                                            </td>
-                                            <td>RENTING</td>
-                                            <td>                                                    
-
-                                                <a href="${pageContext.request.contextPath}/MainController?action=UpdateRoom&RoomID=${R.roomID}">
-                                                    <button class="btn btn-primary" title="Edit"><i class="fa fa-edit"></i></button>
-                                                </a>
-                                                <a href="${pageContext.request.contextPath}/MainController?action=DeleteRoom&RoomID=${R.roomID}">                                                                                        
-                                                    <button Onclick="return ConfirmDelete();" class="btn btn-danger" title="Remove"><i class="fa fa-remove"></i></button>                
-                                                </a>
-                                            </td>
-
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-
+                        
+                        </c:forEach>
                     </div>
                 </div>
 
