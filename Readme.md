@@ -47,11 +47,6 @@ Through research, we have found that there are very few developed applications i
     - Linkedin:
     - Github: https://github.com/AvilXx
     
-- Ho Bao Anh 
-    - Gmail: baoanhho.211@gmail.com
-    - Linkedin:
-    - Github: https://github.com/BaoAnhHo211
-    
 - Phan Minh Tri
     - Gmail: phanminhtri269@gmail.com
     - Linkedin:
