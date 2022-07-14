@@ -37,7 +37,7 @@
                             <h4 style="padding-left: 20px;"><i class="fa fa-home"></i> ${Hostel.hostelname}</h4>                              
                         </div>
                         <div class="card-header">
-                            <h4 style="padding-left: 20px;"><i class="fa fa-person-shelter"></i> Phòng ${Room.roomnumber}</h4>                              
+                            <h4 style="padding-left: 40px;"><i class="fa fa-person-shelter"></i> Phòng ${Room.roomnumber}</h4>                              
                         </div>
                         <div class="mt-3 text-center" style="float:right; display: flex">                               
                             <a href="${pageContext.request.contextPath}/MainController?action=RoomPage">
@@ -78,9 +78,19 @@
                                     </div>
                                     <div class="form-group row mt-2">
                                         <label  class="col-sm-2 col-form-label">Giới tính</label>
-                                        <div class="col-sm-10">  
-                                            <input type="radio" name="gender" value="${Customer.gender}"  />Nữ
-                                            <input type="radio" name="gender" value="${Customer.gender}"checked/> Nam
+                                        <div class="col-sm-10"> 
+                                            <c:choose>
+                                                <c:when test="${Customer.gender == 'Male'}" >
+                                                    <input type="radio" name="gender" value="Male"checked/> Nam
+                                                    <input type="radio" name="gender" value="Female" />Nữ
+                                                </c:when>
+                                                <c:otherwise>
+                                                    <input type="radio" name="gender" value="Male"/> Nam
+                                                    <input type="radio" name="gender" value="Female" checked/>Nữ                                                   
+                                                </c:otherwise>
+                                            </c:choose>
+
+
                                         </div>
                                     </div>
                                     <div class="form-group row mt-2">

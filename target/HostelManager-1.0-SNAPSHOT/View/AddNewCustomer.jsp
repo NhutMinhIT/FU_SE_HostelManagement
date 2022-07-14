@@ -35,10 +35,14 @@
 
                         </div>
                         <div class="card-header">
-                            <h4 style="padding-left: 20px;"><i class="fa fa-home"></i> ${Hostel}</h4>                              
+                            <h4 style="padding-left: 20px;"><i class="fa fa-home"></i> ${Hostel.hostelname}</h4>                              
                         </div>
                         <div class="card-header">
-                            <h4 style="padding-left: 20px;"><i class="fa fa-person-shelter"></i> Phòng 1</h4>                              
+                            <h4 style="padding-left: 40px;"><i class="fa fa-person-shelter"></i> Phòng ${Room.roomnumber}</h4> 
+                            <input type="hidden" name="roomID" value="${Room.roomID}">
+                        </div>
+                        <div>
+                            <h3 style="margin-top: 20px;margin-left: 60px; color: red">${ERROR}</h3>
                         </div>
                         <div class="mt-3 text-center" style="float:right; display: flex">
                             <a href="${pageContext.request.contextPath}/MainController?action=RoomPage">
@@ -75,14 +79,14 @@
                                     <div class="form-group row mt-2">
                                         <label  class="col-sm-2 col-form-label">Tên</label>
                                         <div class="col-sm-10">
-                                            <input type="text" class="form-control" placeholder="Enter your name" name="fullname">
+                                            <input type="text" class="form-control" placeholder="Enter your name" name="fullname" value="${fullname}">
                                         </div>
                                     </div>
                                     <div class="form-group row mt-2">
                                         <label  class="col-sm-2 col-form-label">Giới Tính</label>
                                         <div class="col-sm-10">
-                                            <input type="radio" name="gender" id="sex"  value="Nam"/>Nam
-                                            <input type="radio" name="gender" value="Nữ"/> Nữ
+                                            <input type="radio" name="gender" value="Male"/>Nam
+                                            <input type="radio" name="gender" value="Female"/> Nữ
                                         </div>
                                     </div>
                                     <div class="form-group row mt-2">
@@ -103,6 +107,32 @@
                                             <input type="text" class="form-control" placeholder="Enter your phone" name="phone">
                                         </div>
                                     </div>
+
+                                    <!--Address-->
+
+                                    <div class="form-group row mt-2">
+                                        <label  class="col-sm-2 col-form-label">Tỉnh/Thành Phố</label>
+                                        <div class="col-sm-8">
+                                            <select id="province" style="padding:6px 0; border-radius: 3px; width: 50%" >
+                                            </select>  
+                                        </div>
+                                    </div>
+                                    <div class="form-group row mt-2">
+                                        <label  class="col-sm-2 col-form-label">Quận/Huyện</label>
+                                        <div class="col-sm-8">
+                                            <select id="district" style="padding:6px 0; border-radius: 3px; width: 50%" >
+                                            </select>  
+                                        </div>
+                                    </div>
+                                    <div class="form-group row mt-2">
+                                        <label  class="col-sm-2 col-form-label">Phường/Xã</label>
+                                        <div class="col-sm-8">
+                                            <select id="ward" style="padding:6px 0; border-radius: 3px; width: 50%" name="wardID">
+                                            </select>  
+                                        </div>
+                                    </div>
+
+
                                     <div class="form-group row mt-2">
                                         <label  class="col-sm-2 col-form-label">Địa Chỉ</label>
                                         <div class="col-sm-10">
@@ -186,26 +216,15 @@
                                                 <td><input type="text" name="name" style="width: 100% ;text-align: center"></td>
                                                 <td><input type="date" name="date"></td>
                                                 <td style="text-align: center">
-                                                    <input type="radio" name="gender" />Nam
-                                                    <input type="radio" name="gender" checked /> Nữ
+                                                    <input type="radio" name="gender" checked/>Nam
+                                                    <input type="radio" name="gender"  /> Nữ
                                                 </td>
                                                 <td><input type="text" name="cmnd" style=" text-align: center"></td>
                                                 <td><input type="text" name="address" style="width: 100%; text-align: center"></td>
                                                 <td><input type="text" name="phone" style="width: 100%; text-align: center"></td>
                                                 <td><button onclick="deleterow('tblSample')" class="btn btn-danger delete-row"><i class="fa fa-minus-circle"></i></button></td>
                                             </tr>
-                                            <tr>
-                                                <td><input type="text" name="name" style="width: 100% ;text-align: center"></td>
-                                                <td><input type="date" name="date"></td>
-                                                <td style="text-align: center">
-                                                    <input type="radio" name="radio" id="sex"  />Nam
-                                                    <input type="radio" name="radio" id="sex" checked /> Nữ
-                                                </td>
-                                                <td><input type="text" name="cmnd" style=" text-align: center"></td>
-                                                <td><input type="text" name="address" style="width: 100%; text-align: center"></td>
-                                                <td><input type="text" name="phone" style="width: 100%; text-align: center"></td>
-                                                <td><button onclick="deleterow('tblSample')" class="btn btn-danger"><i class="fa fa-minus-circle"></i></button></td>
-                                            </tr>
+
                                         </tbody>
                                     </table>
                                     <div>
@@ -219,20 +238,24 @@
                             <div role="tabpanel" class="tab-pane fade show " id="contract" >
                                 <div class="card px-3 py-3">
                                     <div class="form-group row mt-2">
-                                        
+
                                     </div>
                                     <div class="row mt-2">
                                         <div class="form-group row col-md-6 mt-2">
                                             <label  class="col-sm-4 col-form-label">Ngày Bắt Đầu</label>
                                             <div class="col col-sm-8">
-                                                <input type="date" class="form-control" name="signed-date">
+                                                <input type="date" class="form-control" name="signed_date">
                                             </div>
                                         </div>
                                         <div class="form-group row col-md-6 mt-2">
                                             <label  class="col-sm-4 col-form-label">Ngày Hết Hạn</label>
                                             <div class="col-sm-8">
-                                                <input type="date" class="form-control" name="due-date">
+                                                <input type="date" class="form-control" name="due_date">
                                             </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="inputAddress2">Mô Tả</label>
+                                            <textarea rows="3" class="form-control" id="remarks" name="description"></textarea>
                                         </div>
                                         <div class="form-group row col-md-8 mt-2">
                                             <label  class="col-sm-4 col-form-label"></label>
@@ -258,6 +281,9 @@
             </footer>
         </div>
     </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.26.1/axios.min.js" integrity="sha512-bPh3uwgU5qEMipS/VOmRqynnMXGGSRv+72H/N260MQeXZIK4PG48401Bsby9Nq5P5fz7hy5UGNmC/W1Z51h2GQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="${pageContext.request.contextPath}/js/index.js"></script>
     <script src="${pageContext.request.contextPath}/js/scripts.js"></script>
     <script src="${pageContext.request.contextPath}/js/datatables-simple-demo.js"></script>
     <script src="${pageContext.request.contextPath}/assets/demo/chart-area-demo.js"></script>
@@ -275,8 +301,7 @@
                                                     var row = table.getElementsByTagName('tr');
                                                     if (row.length > '1') {
                                                         row[row.length - 1].outerHTML = '';
-                                                    }
-                                                    else{
+                                                    } else {
                                                         window.alert('Cần ít nhất 1 thành viên hoặc chọn xóa phòng');
                                                     }
                                                 }

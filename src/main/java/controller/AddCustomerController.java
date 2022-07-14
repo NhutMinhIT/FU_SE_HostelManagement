@@ -124,23 +124,29 @@ public class AddCustomerController extends HttpServlet {
             String roomID = request.getParameter("roomID");
             String signed_date = request.getParameter("signed_date");
             String due_date = request.getParameter("due_date");
+            String description = request.getParameter("description");
+
+//            String[] checked_DetailIDs = request.getParameterValues("chooseDetail");
+//
+//            for (int i = 1; i < checked_DetailIDs.length; i++) {
+//
+//            }
 
             //customer_id,password,fullname,email,gender,dob,phone,status,address,ward_id
             //contract_id,customer_id,room_id,signed_date,due_date,status,description
-//            String[] checked_DetailIDs = request.getParameterValues("chooseDetail");
 //            Part part = request.getPart("contract");
 //            String realPath = request.getServletContext().getRealPath("/img/contract");
 //            part.write(realPath+"/"+filename);
             if (Cusdao.GetACustomer(customerID) != null) {
-                request.setAttribute("ERROR", "CMND/CCCD " + Cusdao.GetACustomer(customerID).getCustomerID() + "đã được đăng ký !");
+                request.setAttribute("ERROR", "CMND/CCCD [" + Cusdao.GetACustomer(customerID).getCustomerID() + "] đã được đăng ký !");
             } else {
                 boolean AddCus = Cusdao.AddCustomer(new CustomerDTO(customerID, "", fullname, email, gender, Date.valueOf(dob), phone, "ACTIVE", address, wardID));
-                boolean AddContract = Ctdao.AddContract(new ContractDTO("", customerID, roomID, Date.valueOf(signed_date), Date.valueOf(due_date), "ACTIVE", ""));
-                
+                boolean AddContract = Ctdao.AddContract(new ContractDTO("", customerID, roomID, Date.valueOf(signed_date), Date.valueOf(due_date), "ACTIVE", description));
+
                 RoomDTO room = dao.GetARoom(roomID);
-                room.setStatus("RENTING"); 
+                room.setStatus("RENTING");
                 boolean UpdateRoom = dao.UpdateRoom(room);
-                if (AddCus && AddContract) {
+                if (AddCus && AddContract && UpdateRoom) {
                     url = SUCCESS;
                 }
             }

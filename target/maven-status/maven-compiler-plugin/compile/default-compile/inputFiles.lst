@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 D:\j2yD9gmz\Majors 5\SWP391\Git\Group\Git 3\HostelManager\src\main\java\dao\AddressDAO.java
 D:\j2yD9gmz\Majors 5\SWP391\Git\Group\Git 3\HostelManager\src\main\java\controller\UpdateRoomController.java
 D:\j2yD9gmz\Majors 5\SWP391\Git\Group\Git 3\HostelManager\src\main\java\dao\UserDAO.java
@@ -34,40 +33,3 @@ D:\j2yD9gmz\Majors 5\SWP391\Git\Group\Git 3\HostelManager\src\main\java\dto\Cust
 D:\j2yD9gmz\Majors 5\SWP391\Git\Group\Git 3\HostelManager\src\main\java\controller\LoginController.java
 D:\j2yD9gmz\Majors 5\SWP391\Git\Group\Git 3\HostelManager\src\main\java\controller\UpdateServiceController.java
 D:\j2yD9gmz\Majors 5\SWP391\Git\Group\Git 3\HostelManager\src\main\java\controller\HostelManagerController.java
-=======
-C:\Users\ASUS\Desktop\Moon 7.7\HostelManager\src\main\java\dto\ServiceDetailDTO.java
-C:\Users\ASUS\Desktop\Moon 7.7\HostelManager\src\main\java\dto\ServiceTypeDTO.java
-C:\Users\ASUS\Desktop\Moon 7.7\HostelManager\src\main\java\controller\AddServiceController.java
-C:\Users\ASUS\Desktop\Moon 7.7\HostelManager\src\main\java\controller\AddRoomController.java
-C:\Users\ASUS\Desktop\Moon 7.7\HostelManager\src\main\java\controller\AddHostelController.java
-C:\Users\ASUS\Desktop\Moon 7.7\HostelManager\src\main\java\dao\ContractDAO.java
-C:\Users\ASUS\Desktop\Moon 7.7\HostelManager\src\main\java\controller\ServicePageController.java
-C:\Users\ASUS\Desktop\Moon 7.7\HostelManager\src\main\java\controller\HostelManagerController.java
-C:\Users\ASUS\Desktop\Moon 7.7\HostelManager\src\main\java\dto\Address\Ward.java
-C:\Users\ASUS\Desktop\Moon 7.7\HostelManager\src\main\java\controller\CustomerPageController.java
-C:\Users\ASUS\Desktop\Moon 7.7\HostelManager\src\main\java\dto\Address\City.java
-C:\Users\ASUS\Desktop\Moon 7.7\HostelManager\src\main\java\dao\RoomDAO.java
-C:\Users\ASUS\Desktop\Moon 7.7\HostelManager\src\main\java\utils\DBUtils.java
-C:\Users\ASUS\Desktop\Moon 7.7\HostelManager\src\main\java\dao\CustomerDAO.java
-C:\Users\ASUS\Desktop\Moon 7.7\HostelManager\src\main\java\dto\RoomDTO.java
-C:\Users\ASUS\Desktop\Moon 7.7\HostelManager\src\main\java\controller\AddCustomerController.java
-C:\Users\ASUS\Desktop\Moon 7.7\HostelManager\src\main\java\controller\DeleteServiceController.java
-C:\Users\ASUS\Desktop\Moon 7.7\HostelManager\src\main\java\controller\UpdateRoomController.java
-C:\Users\ASUS\Desktop\Moon 7.7\HostelManager\src\main\java\controller\UpdateHostelController.java
-C:\Users\ASUS\Desktop\Moon 7.7\HostelManager\src\main\java\controller\UserPageController.java
-C:\Users\ASUS\Desktop\Moon 7.7\HostelManager\src\main\java\dto\HostelDTO.java
-C:\Users\ASUS\Desktop\Moon 7.7\HostelManager\src\main\java\controller\DeleteRoomController.java
-C:\Users\ASUS\Desktop\Moon 7.7\HostelManager\src\main\java\dao\ServiceDAO.java
-C:\Users\ASUS\Desktop\Moon 7.7\HostelManager\src\main\java\dao\AddressDAO.java
-C:\Users\ASUS\Desktop\Moon 7.7\HostelManager\src\main\java\controller\UpdateServiceController.java
-C:\Users\ASUS\Desktop\Moon 7.7\HostelManager\src\main\java\controller\DeleteHostelController.java
-C:\Users\ASUS\Desktop\Moon 7.7\HostelManager\src\main\java\dao\UserDAO.java
-C:\Users\ASUS\Desktop\Moon 7.7\HostelManager\src\main\java\dto\Address\District.java
-C:\Users\ASUS\Desktop\Moon 7.7\HostelManager\src\main\java\dto\UserDTO.java
-C:\Users\ASUS\Desktop\Moon 7.7\HostelManager\src\main\java\controller\LoginController.java
-C:\Users\ASUS\Desktop\Moon 7.7\HostelManager\src\main\java\dto\ContractDTO.java
-C:\Users\ASUS\Desktop\Moon 7.7\HostelManager\src\main\java\controller\RoomPageController.java
-C:\Users\ASUS\Desktop\Moon 7.7\HostelManager\src\main\java\controller\LogoutController.java
-C:\Users\ASUS\Desktop\Moon 7.7\HostelManager\src\main\java\controller\MainController.java
-C:\Users\ASUS\Desktop\Moon 7.7\HostelManager\src\main\java\dto\CustomerDTO.java
->>>>>>> dc0c9def02389b7cef8b3d157286402f156c51a9

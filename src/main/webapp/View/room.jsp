@@ -33,19 +33,19 @@
 
             <main class="container-fluid">
                 <ul class=" col-12 nav nav-tabs mb-4">
-                        <c:forEach items="${HostelList}" var="Ho">   
-                            <li class="nav-item">
-                                <c:choose>
-                                    <c:when test="${Ho.hostelID == '1'}">
-                                        <a class="nav-link active" href="#${Ho.hostelname}" role="tab" data-toggle="tab">${Ho.hostelname}</a>   
-                                    </c:when>
-                                    <c:otherwise>
-                                        <a class="nav-link" href="#${Ho.hostelname}" role="tab" data-toggle="tab">${Ho.hostelname}</a>
-                                    </c:otherwise>
-                                </c:choose>
-                            </li>
-                        </c:forEach>
-                    </ul>
+                    <c:forEach items="${HostelList}" var="Ho">   
+                        <li class="nav-item">
+                            <c:choose>
+                                <c:when test="${Ho.hostelID == '1'}">
+                                    <a class="nav-link active" href="#${Ho.hostelname}" role="tab" data-toggle="tab">${Ho.hostelname}</a>   
+                                </c:when>
+                                <c:otherwise>
+                                    <a class="nav-link" href="#${Ho.hostelname}" role="tab" data-toggle="tab">${Ho.hostelname}</a>
+                                </c:otherwise>
+                            </c:choose>
+                        </li>
+                    </c:forEach>
+                </ul>
                 <div class="tab-content ">                       
                     <div class="tab-content">
                         <c:forEach items="${HostelList}" var="Hos">
@@ -58,36 +58,36 @@
                                         </c:otherwise>
                                     </c:choose>
 
-                            <div class="breadcrumb mb-4 " style="margin-left: 75%;" >
-                                <div class="row" >
-                                    <a href="${pageContext.request.contextPath}/MainController?action=AddRoom&HostelID=${Hos.hostelID}" >
-                                        <button type="button"  class="btn btn-success"><i class="fa fa-add"></i> Thêm Phòng</button>
-                                    </a>
-                                </div>
-                                <div class="row " style="margin-left: 10px">
-                                    <a href="${pageContext.request.contextPath}/MainController?action=DeleteHostel&HostelID=${Hos.hostelID}">
-                                        <button type="button" Onclick="return ConfirmDelete();" class="btn btn-danger"><i class="fa fa-remove"></i> Xóa Nhà Trọ</button>
-                                    </a>
-                                </div>                             
-                            </div>
-                            <div class="container-fluid">  
-                                <input type="search" oninput="filter_table(this, 'table_filter')" class="form_control"
-                                       placeholder="Filter This Table...">
-                                <table class="_table table_sort">
-                                    <thead>
-                                        <tr>
-                                            <th style="width: 7%">Phòng</th>
-                                            <th style="width: 15%">Người Thuê</th>
-                                            <th style="width: 8%">Số Điện Thoại</th> 
-                                            <th style="width: 10%">Email</th>                                     
-                                            <th style="width: 17%">Ngày Thuê</th>
-                                            <th style="width: 17%">Giá (VND)</th>
-                                            <th style="width: 7%">Trạng Thái</th>
-                                            <th style="width: 19%">Chức Năng</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody id="table_filter">
-                                        <c:forEach items="${RoomList}" var="R">
+                                    <div class="breadcrumb mb-4 " style="margin-left: 75%;" >
+                                        <div class="row" >
+                                            <a href="${pageContext.request.contextPath}/MainController?action=AddRoom&HostelID=${Hos.hostelID}" >
+                                                <button type="button"  class="btn btn-success"><i class="fa fa-add"></i> Thêm Phòng</button>
+                                            </a>
+                                        </div>
+                                        <div class="row " style="margin-left: 10px">
+                                            <a href="${pageContext.request.contextPath}/MainController?action=DeleteHostel&HostelID=${Hos.hostelID}">
+                                                <button type="button" Onclick="return ConfirmDelete();" class="btn btn-danger"><i class="fa fa-remove"></i> Xóa Nhà Trọ</button>
+                                            </a>
+                                        </div>                             
+                                    </div>
+                                    <div class="container-fluid">  
+                                        <input type="search" oninput="filter_table(this, 'table_filter')" class="form_control"
+                                               placeholder="Filter This Table...">
+                                        <table class="_table table_sort">
+                                            <thead>
+                                                <tr>
+                                                    <th style="width: 7%">Phòng</th>
+                                                    <th style="width: 15%">Người Thuê</th>
+                                                    <th style="width: 8%">Số Điện Thoại</th> 
+                                                    <th style="width: 10%">Email</th>                                     
+                                                    <th style="width: 17%">Ngày Thuê</th>
+                                                    <th style="width: 17%">Giá (VND)</th>
+                                                    <th style="width: 7%">Trạng Thái</th>
+                                                    <th style="width: 19%">Chức Năng</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody id="table_filter">
+                                                <c:forEach items="${RoomList}" var="R">
                                                     <c:if test="${R.hostelID == Hos.hostelID}"> 
                                                         <tr>                                                
                                                             <td>${R.roomnumber}</td>
@@ -108,10 +108,10 @@
                                                                         </c:forEach>
                                                                     </c:when>
                                                                     <c:otherwise>
+<!--                                                                        <td></td>
                                                                         <td></td>
                                                                         <td></td>
-                                                                        <td></td>
-                                                                        <td></td>
+                                                                        <td></td>-->
                                                                     </c:otherwise>
                                                                 </c:choose>
                                                             </c:forEach>
@@ -135,9 +135,12 @@
                                                                         <a href="${pageContext.request.contextPath}/MainController?action=UpdateRoom&RoomID=${R.roomID}">
                                                                             <button class="btn btn-primary" title="Edit"><i class="fa fa-edit"></i></button>
                                                                         </a>
-                                                                        <a href="${pageContext.request.contextPath}/MainController?action=DeleteRoom&RoomID=${R.roomID}">                                                                                        
-                                                                            <button Onclick="return ConfirmDelete();" class="btn btn-danger" title="Remove"><i class="fa fa-remove"></i></button>                
-                                                                        </a>
+                                                                        <c:if test="${RoomInfo.status == 'EMPTY'}">
+                                                                            <a href="${pageContext.request.contextPath}/MainController?action=DeleteRoom&RoomID=${R.roomID}">                                                                                        
+                                                                                <button Onclick="return ConfirmDelete();" class="btn btn-danger" title="Remove"><i class="fa fa-remove"></i></button>                
+                                                                            </a>
+                                                                        </c:if>
+
                                                                     </td>
                                                                 </c:when>                                                                   
                                                                 <c:otherwise>
@@ -157,15 +160,15 @@
                                                         </tr>
                                                     </c:if> 
                                                 </c:forEach>
-                                    </tbody>
-                                </table>
-                            </div>
+                                            </tbody>
+                                        </table>
+                                    </div>
 
+                                </div>
+
+                            </c:forEach>
                         </div>
-                        
-                        </c:forEach>
                     </div>
-                </div>
 
             </main>
 

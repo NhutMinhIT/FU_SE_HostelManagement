@@ -38,34 +38,37 @@
 
                             <form action="${pageContext.request.contextPath}/MainController" method="POST">
                                 <div class="row">
-                                    <div class="form-group row col-md-6 mt-2">
-                                        <label  class="col-sm-4 col-form-label">Tên nhà</label>
-                                        <div class="col-sm-8">
+                                    <div class="form-group row col-md-12 mt-2">
+                                        <label  class="col-sm-2 col-form-label">Tên nhà</label>
+                                        <div class="col-sm-10">
                                             <input type="text" name="hostelname" class="form-control" placeholder="Nhập tên nhà">
                                         </div>
                                     </div>
-
-                                    <div class="form-group row col-md-6 mt-2">
-                                        <label  class="col-sm-4 col-form-label">Tỉnh/Thành Phố</label>
-                                        <div class="col-sm-8">
-                                            <select id="province" style="padding:6px 0; border-radius: 3px; width: 50%" >
+                                </div>
+                                <div class="row">
+                                    <div class="form-group row col-md-12 mt-2">
+                                        <label  class="col-sm-2 col-form-label">Tỉnh/Thành Phố</label>
+                                        <div class="col-sm-10">
+                                            <select id="province" style="padding:6px 0; border-radius: 3px; width: 40%" >
                                             </select>  
                                         </div>
                                     </div>
                                 </div>     
 
                                 <div class="row">
-                                    <div class="form-group row col-md-6 mt-2">
-                                        <label  class="col-sm-4 col-form-label">Quận/Huyện</label>
-                                        <div class="col-sm-8">
-                                            <select id="district" style="padding:6px 0; border-radius: 3px; width: 50%" >
+                                    <div class="form-group row col-md-12 mt-2">
+                                        <label  class="col-sm-2 col-form-label">Quận/Huyện</label>
+                                        <div class="col-sm-10">
+                                            <select id="district" style="padding:6px 0; border-radius: 3px; width: 40%" >
                                             </select>  
                                         </div>
                                     </div>
-                                    <div class="form-group row col-md-6 mt-2">
-                                        <label  class="col-sm-4 col-form-label">Phường/Xã</label>
-                                        <div class="col-sm-8">
-                                            <select id="ward" style="padding:6px 0; border-radius: 3px; width: 50%" >
+                                </div>
+                                <div class="row">
+                                    <div class="form-group row col-md-12 mt-2">
+                                        <label  class="col-sm-2 col-form-label">Phường/Xã</label>
+                                        <div class="col-sm-10">
+                                            <select id="ward" style="padding:6px 0; border-radius: 3px; width: 40%" >
                                             </select>  
                                         </div>
                                     </div>
@@ -74,8 +77,8 @@
                                 <div class="row">
                                     <div class="form-group row col-md-12 mt-2">
                                         <label  class="col-sm-2 col-form-label">Địa chỉ cụ thể</label>
-                                        <div class="col-sm-8">
-                                            <input type="text" name="address" class="form-control" placeholder="Nhập địa chỉ cụ thể">
+                                        <div class="col-sm-10">
+                                            <input  type="text" name="address" class="form-control" placeholder="Nhập địa chỉ cụ thể">
                                         </div>
                                     </div>                                 
                                 </div>

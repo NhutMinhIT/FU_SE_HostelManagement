@@ -4,6 +4,7 @@
     Author     : ASUS
 --%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -59,8 +60,15 @@
                                 <div class="form-row">
                                         <label class="col-sm-2 col-form-label ml-5">Trạng Thái </label>
                                     <div class="col-sm-7">
-                                        <input type="text" class="form-control text-success"  value="${RoomInfo.status}" 
-                                               disabled="disabled" style="font-weight: bold">
+                                        <c:choose>
+                                            <c:when test="${RoomInfo.status == 'EMPTY'}">
+                                                <input type="text" class="form-control text-warning"  value="${RoomInfo.status}"disabled="disabled" style="font-weight: bold">
+                                            </c:when>
+                                            <c:otherwise>
+                                                <input type="text" class="form-control text-success"  value="${RoomInfo.status}"disabled="disabled" style="font-weight: bold">
+                                            </c:otherwise>
+                                        </c:choose>
+                                        
                                     </div>
                                 </div>
 
