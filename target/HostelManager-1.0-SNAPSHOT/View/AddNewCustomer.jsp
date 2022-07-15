@@ -170,6 +170,7 @@
                                         </tfoot>
                                         <tbody>
                                             <c:forEach items="${ServiceDetailList}" var="SD">   
+                                                <c:if test="${SD.hostelID == Hostel.hostelID}">
                                                 <tr>
                                                     <td style="text-align: center"><input type="checkbox" name="chooseDetail" value="${SD.detailID}" /></td>
                                                     <td>${SD.detailname}</td>
@@ -179,7 +180,7 @@
                                                         </c:if>                                                
                                                     </c:forEach>
 
-                                                    <td><fmt:formatDate pattern="dd-MM-yyyy" value="${SD.updated_date}"/></td>
+                                                    <td><fmt:formatDate pattern="dd/MM/yyyy" value="${SD.updated_date}"/></td>
 
                                                     <c:forEach items="${HostelList}" var="H">   
                                                         <c:if test="${H.hostelID == SD.hostelID}">
@@ -190,6 +191,7 @@
                                                     <td><input type="text" name="" class="money form-control" value="<fmt:formatNumber type="number" maxFractionDigits="0" value="${SD.unit_price}"/>" disabled="disable" style="width: 100%"/></td>                                     
 
                                                 </tr>
+                                                </c:if>
                                             </c:forEach>
 
                                         </tbody>
@@ -253,7 +255,7 @@
                                                 <input type="date" class="form-control" name="due_date">
                                             </div>
                                         </div>
-                                        <div class="form-group">
+                                        <div class="form-group" style="margin-top: 10px">
                                             <label for="inputAddress2">Mô Tả</label>
                                             <textarea rows="3" class="form-control" id="remarks" name="description"></textarea>
                                         </div>

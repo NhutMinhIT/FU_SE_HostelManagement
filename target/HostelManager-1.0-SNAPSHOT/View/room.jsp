@@ -92,26 +92,35 @@
                                                         <tr>                                                
                                                             <td>${R.roomnumber}</td>
                                                             <c:forEach items="${ContractList}" var="Contract">
+                                                                <!--Check already Contract-->
+                                                                <c:set value="0" var="Required" scope="session"/>
+                                                                <c:forEach items="${ContractList}" var="C">
+                                                                    <c:if test="${C.roomID == R.roomID}" >
+                                                                        <c:set value="1" var="Required" scope="session"/>     
+                                                                    </c:if>
+                                                                </c:forEach>
+
                                                                 <c:choose>
-                                                                    <c:when test="${Contract.roomID == R.roomID}">                                                            
-                                                                        <c:forEach items="${CusList}" var="Cus">
-                                                                            <c:if test="${Cus.customerID == Contract.customerID}">
-                                                                                <td>
-                                                                                    <a href="${pageContext.request.contextPath}/MainController?action=CustomerPage&CusID=${Cus.customerID}&roomID=${R.roomID}">
-                                                                                        ${Cus.fullname}
-                                                                                    </a>
-                                                                                </td>
-                                                                                <td>${Cus.phone}</td>
-                                                                                <td>${Cus.email}</td>
-                                                                                <td><fmt:formatDate pattern="dd/MM/yyyy" value="${Contract.signed_date}"/></td>
-                                                                            </c:if>
-                                                                        </c:forEach>
+                                                                    <c:when test="${Required == 1}">
+                                                                        <c:if test="${Contract.roomID == R.roomID}">                                                            
+                                                                            <c:forEach items="${CusList}" var="Cus">
+                                                                                <c:if test="${Cus.customerID == Contract.customerID}">
+                                                                                    <td>
+                                                                                        <a href="${pageContext.request.contextPath}/MainController?action=CustomerPage&CusID=${Cus.customerID}&roomID=${R.roomID}">
+                                                                                            ${Cus.fullname}
+                                                                                        </a>
+                                                                                    </td>
+                                                                                    <td>${Cus.phone}</td>
+                                                                                    <td>${Cus.email}</td>
+                                                                                    <td><fmt:formatDate pattern="dd/MM/yyyy" value="${Contract.signed_date}"/></td>
+                                                                                </c:if>
+
+                                                                            </c:forEach>
+
+                                                                        </c:if>
                                                                     </c:when>
                                                                     <c:otherwise>
-<!--                                                                        <td></td>
                                                                         <td></td>
-                                                                        <td></td>
-                                                                        <td></td>-->
                                                                     </c:otherwise>
                                                                 </c:choose>
                                                             </c:forEach>
@@ -125,11 +134,11 @@
                                                                     <td class="text-success"><strong>${R.status}</strong></td>
                                                                         </c:when>
                                                                         <c:otherwise>
-                                                                    <td class="text-warning">${R.status}</td>
-                                                                </c:otherwise>
-                                                            </c:choose>
-                                                            <c:choose>
-                                                                <c:when test="${R.status == 'RENTING'}">
+                                                                    <td class="text-warning"><strong>${R.status}</strong></td>
+                                                                        </c:otherwise>
+                                                                    </c:choose>
+                                                                    <c:choose>
+                                                                        <c:when test="${R.status == 'RENTING'}">
                                                                     <td>                                                    
 
                                                                         <a href="${pageContext.request.contextPath}/MainController?action=UpdateRoom&RoomID=${R.roomID}">
