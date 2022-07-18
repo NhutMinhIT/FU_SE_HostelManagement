@@ -1,7 +1,7 @@
- <%-- 
-   Document   : addnewrom
-   Created on : May 31, 2022, 7:17:06 AM
-   Author     : Dell
+<%-- 
+  Document   : addnewrom
+  Created on : May 31, 2022, 7:17:06 AM
+  Author     : Dell
 --%>
 
 
@@ -59,7 +59,7 @@
                                     <div class="form-group row col-md-6 mt-2">
                                         <label  class="col-sm-4 col-form-label">Ngày thêm:</label>
                                         <div class="col col-sm-8">
-                                            <input type="date" name="updated_date"class="form-control">
+                                            <input type="date" name="updated_date" class="form-control" value="${CurrentDate}">
                                         </div>
                                     </div>
                                     <div class="form-group row col-md-6 mt-2">
@@ -67,9 +67,17 @@
                                         <div class="col-sm-8">
                                             <select id="#" name="hostel_id" style="padding:6px 0; border-radius: 3px; width: 50%" >
                                                 <c:forEach items="${HostelList}" var="H">
-                                                    <option value="${H.hostelID}">${H.hostelname}</option>                                                
+                                                    <c:choose>
+                                                        <c:when test="${H.hostelID == CurrentHostel.hostelID}">
+                                                            <option value="${H.hostelID}" selected>${H.hostelname}</option> 
+                                                        </c:when>
+                                                        <c:otherwise>
+                                                            <option value="${H.hostelID}">${H.hostelname}</option> 
+                                                        </c:otherwise>
+                                                    </c:choose>
+
                                                 </c:forEach>
-                                            </select> 
+                                            </select>
 
                                         </div>
                                     </div>

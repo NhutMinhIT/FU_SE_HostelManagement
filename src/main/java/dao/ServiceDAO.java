@@ -12,6 +12,8 @@ import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 import utils.DBUtils;
@@ -37,89 +39,18 @@ public class ServiceDAO {
 
     public List<ServiceTypeDTO> GetListService() throws SQLException {
         List<ServiceTypeDTO> list = new ArrayList<>();
-            Connection conn = null;
-            PreparedStatement ptm = null;
-            ResultSet rs = null;
-            try {
-                conn = DBUtils.getConnection();
-                if (conn != null) {
-                    ptm = conn.prepareStatement(GET_SERVICETYPE);
-                    rs = ptm.executeQuery();
-                    while (rs.next()) {
-                        String service_id = rs.getString("service_id");
-                        String service_name = rs.getString("service_name");
-                        list.add(new ServiceTypeDTO(service_id,service_name));
-                    }
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
-            } finally {
-                if (rs != null) {
-                    rs.close();
-                }
-                if (ptm != null) {
-                    ptm.close();
-                }
-                if (conn != null) {
-                    conn.close();
-                }
-            }    
-        return list;
-    }
-
-    public List<ServiceDetailDTO> GetListServiceDetail(List<HostelDTO> HostelList) throws SQLException {
-        List<ServiceDetailDTO> list = new ArrayList<>();
-        for( HostelDTO i: HostelList){
-            Connection conn = null;
-            PreparedStatement ptm = null;
-            ResultSet rs = null;
-            try {
-                conn = DBUtils.getConnection();
-                if (conn != null) {
-                    ptm = conn.prepareStatement(GET_SERVICEDETAIL);
-                    ptm.setString(1, i.getHostelID());
-                    rs = ptm.executeQuery();
-                    while (rs.next()) {
-                        String detailname = rs.getString("detail_name");
-                        String detail_id = rs.getString("detail_id");
-                        String Calculation_Unit = rs.getString("calculation_unit");
-                        Double unit_price = rs.getDouble("unit_price");
-                        Date updated_date = rs.getDate("updated_date");
-                        String description = rs.getString("description");
-                        String status = rs.getString("status");
-                        String service_id = rs.getString("service_id");
-                        list.add(new ServiceDetailDTO(detail_id,detailname,Calculation_Unit,unit_price,updated_date,description,status, i.getHostelID(),service_id));
-                    }
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
-            } finally {
-                if (rs != null) {
-                    rs.close();
-                }
-                if (ptm != null) {
-                    ptm.close();
-                }
-                if (conn != null) {
-                    conn.close();
-                }
-            }
-        }
-        return list;
-    }
-    public ServiceTypeDTO GetAService(String ServiceID) throws SQLException {
         Connection conn = null;
         PreparedStatement ptm = null;
         ResultSet rs = null;
         try {
             conn = DBUtils.getConnection();
             if (conn != null) {
-                ptm = conn.prepareStatement(GET_A_SERVICETYPE);
-                ptm.setString(1, ServiceID);
+                ptm = conn.prepareStatement(GET_SERVICETYPE);
                 rs = ptm.executeQuery();
                 while (rs.next()) {
+                    int service_id = rs.getInt("service_id");
                     String service_name = rs.getString("service_name");
-                    return new ServiceTypeDTO(ServiceID,service_name);
+                    list.add(new ServiceTypeDTO(service_id, service_name));
                 }
             }
         } catch (Exception e) {
@@ -135,7 +66,79 @@ public class ServiceDAO {
                 conn.close();
             }
         }
-        return null; 
+        return list;
+    }
+
+    public List<ServiceDetailDTO> GetListServiceDetail(List<HostelDTO> HostelList) throws SQLException {
+        List<ServiceDetailDTO> list = new ArrayList<>();
+        for (HostelDTO i : HostelList) {
+            Connection conn = null;
+            PreparedStatement ptm = null;
+            ResultSet rs = null;
+            try {
+                conn = DBUtils.getConnection();
+                if (conn != null) {
+                    ptm = conn.prepareStatement(GET_SERVICEDETAIL);
+                    ptm.setString(1, i.getHostelID());
+                    rs = ptm.executeQuery();
+                    while (rs.next()) {
+                        String detailname = rs.getString("detail_name");
+                        int detail_id = rs.getInt("detail_id");
+                        String Calculation_Unit = rs.getString("calculation_unit");
+                        Double unit_price = rs.getDouble("unit_price");
+                        Date updated_date = rs.getDate("updated_date");
+                        String description = rs.getString("description");
+                        String status = rs.getString("status");
+                        String service_id = rs.getString("service_id");
+                        list.add(new ServiceDetailDTO(detail_id, detailname, Calculation_Unit, unit_price, updated_date, description, status, i.getHostelID(), service_id));
+                    }
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            } finally {
+                if (rs != null) {
+                    rs.close();
+                }
+                if (ptm != null) {
+                    ptm.close();
+                }
+                if (conn != null) {
+                    conn.close();
+                }
+            }
+        }
+        return list;
+    }
+
+    public ServiceTypeDTO GetAService(int ServiceID) throws SQLException {
+        Connection conn = null;
+        PreparedStatement ptm = null;
+        ResultSet rs = null;
+        try {
+            conn = DBUtils.getConnection();
+            if (conn != null) {
+                ptm = conn.prepareStatement(GET_A_SERVICETYPE);
+                ptm.setInt(1, ServiceID);
+                rs = ptm.executeQuery();
+                while (rs.next()) {
+                    String service_name = rs.getString("service_name");
+                    return new ServiceTypeDTO(ServiceID, service_name);
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            if (rs != null) {
+                rs.close();
+            }
+            if (ptm != null) {
+                ptm.close();
+            }
+            if (conn != null) {
+                conn.close();
+            }
+        }
+        return null;
     }
 
     public ServiceDetailDTO GetLatestServiceDetail(String ServiceID, String HostelID) throws SQLException {
@@ -150,14 +153,14 @@ public class ServiceDAO {
                 ptm.setString(2, HostelID);
                 rs = ptm.executeQuery();
                 while (rs.next()) {
-                        String detail_id = rs.getString("detail_id");
-                        String detailname = rs.getString("detail_name");
-                        String Calculation_Unit = rs.getString("calculation_unit");
-                        Double unit_price = rs.getDouble("unit_price");
-                        Date updated_date = rs.getDate("updated_date");
-                        String status = rs.getString("status");
-                        String description = rs.getString("description");
-                    return new ServiceDetailDTO(detail_id,detailname,Calculation_Unit,unit_price,updated_date,description,status, HostelID,ServiceID);
+                    int detail_id = rs.getInt("detail_id");
+                    String detailname = rs.getString("detail_name");
+                    String Calculation_Unit = rs.getString("calculation_unit");
+                    Double unit_price = rs.getDouble("unit_price");
+                    Date updated_date = rs.getDate("updated_date");
+                    String status = rs.getString("status");
+                    String description = rs.getString("description");
+                    return new ServiceDetailDTO(detail_id, detailname, Calculation_Unit, unit_price, updated_date, description, status, HostelID, ServiceID);
                 }
             }
         } catch (Exception e) {
@@ -173,10 +176,10 @@ public class ServiceDAO {
                 conn.close();
             }
         }
-        return null; 
+        return null;
     }
 
-    public ServiceDetailDTO GetAServiceDetail(String DetailID) throws SQLException {
+    public ServiceDetailDTO GetAServiceDetail(int DetailID) throws SQLException {
         Connection conn = null;
         PreparedStatement ptm = null;
         ResultSet rs = null;
@@ -184,19 +187,19 @@ public class ServiceDAO {
             conn = DBUtils.getConnection();
             if (conn != null) {
                 ptm = conn.prepareStatement(GET_A_SERVICEDETAIL);
-                ptm.setString(1, DetailID);
+                ptm.setInt(1, DetailID);
                 rs = ptm.executeQuery();
                 while (rs.next()) {
-                        String detailname = rs.getString("detail_name");
-                        String Calculation_Unit = rs.getString("calculation_unit");
-                        Double unit_price = rs.getDouble("unit_price");
-                        Date updated_date = rs.getDate("updated_date");
-                        String status = rs.getString("status");
-                        String description = rs.getString("description");
-                        String hostelID = rs.getString("hostel_id");
-                        String ServiceID = rs.getString("service_id");
+                    String detailname = rs.getString("detail_name");
+                    String Calculation_Unit = rs.getString("calculation_unit");
+                    Double unit_price = rs.getDouble("unit_price");
+                    Date updated_date = rs.getDate("updated_date");
+                    String status = rs.getString("status");
+                    String description = rs.getString("description");
+                    String hostelID = rs.getString("hostel_id");
+                    String ServiceID = rs.getString("service_id");
 
-                    return new ServiceDetailDTO(DetailID,detailname,Calculation_Unit,unit_price,updated_date,description,status, hostelID,ServiceID);
+                    return new ServiceDetailDTO(DetailID, detailname, Calculation_Unit, unit_price, updated_date, description, status, hostelID, ServiceID);
                 }
             }
         } catch (Exception e) {
@@ -212,8 +215,9 @@ public class ServiceDAO {
                 conn.close();
             }
         }
-        return null; 
+        return null;
     }
+
     public boolean AddService(ServiceTypeDTO Service) throws SQLException {
         boolean check = false;
         Connection conn = null;
@@ -237,6 +241,7 @@ public class ServiceDAO {
         }
         return check;
     }
+
     public boolean AddServiceDetail(ServiceDetailDTO s) throws SQLException {
         boolean check = false;
         Connection conn = null;
@@ -267,6 +272,7 @@ public class ServiceDAO {
         }
         return check;
     }
+
     public boolean DeleteServiceDetail(String detailID) throws SQLException {
         boolean check = false;
         Connection conn = null;
@@ -303,7 +309,7 @@ public class ServiceDAO {
                 ptm.setDouble(2, s.getUnit_price());
                 ptm.setDate(3, s.getUpdated_date());
                 ptm.setString(4, s.getDescription());
-                ptm.setString(5, s.getDetailID());
+                ptm.setInt(5, s.getDetailID());
 
                 check = ptm.executeUpdate() > 0 ? true : false;
             }
@@ -320,13 +326,18 @@ public class ServiceDAO {
         return check;
     }
 
-public static void main(String[] args) throws SQLException {
-    List<ServiceDetailDTO> list = new ArrayList<>();
-    ServiceDAO dao = new ServiceDAO();
-    RoomDAO rdao = new RoomDAO();
+    public static void main(String[] args) throws SQLException {
+        List<ServiceDetailDTO> list = new ArrayList<>();
+        ServiceDAO dao = new ServiceDAO();
+        RoomDAO rdao = new RoomDAO();
 
-double s = Double.parseDouble("50,0000,000".replaceAll(",", ""));
-System.out.println(s);
+        double s = Double.parseDouble("50,0000,000".replaceAll(",", ""));
+        System.out.println(s);
+
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        LocalDateTime now = LocalDateTime.now();
+        String currentDate = dtf.format(now);
+        System.out.print(currentDate);
 //
 //
 //dao.AddServiceDetail(new ServiceDetailDTO("1","Internet","",13200,Date.valueOf("2022-06-06"),"Non","ACTIVE","1","3"));
@@ -337,7 +348,6 @@ System.out.println(s);
 //    }
 //   
 
-}
-
+    }
 
 }

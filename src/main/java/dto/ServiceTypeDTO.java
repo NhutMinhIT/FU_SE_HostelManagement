@@ -11,21 +11,23 @@ import java.sql.Date;
  * @author avillX
  */
 public class ServiceTypeDTO {
-    private String serviceID;
+    private int serviceID;
     private String service_name; 
 
-    public ServiceTypeDTO(String serviceID, String service_name) {
+    public ServiceTypeDTO(int serviceID, String service_name) {
         this.serviceID = serviceID;
         this.service_name = service_name;
     }
 
-    public String getServiceID() {
+    public int getServiceID() {
         return serviceID;
     }
 
-    public void setServiceID(String serviceID) {
+    public void setServiceID(int serviceID) {
         this.serviceID = serviceID;
     }
+
+   
 
     public String getService_name() {
         return service_name;

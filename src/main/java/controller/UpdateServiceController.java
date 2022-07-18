@@ -59,7 +59,7 @@ public class UpdateServiceController extends HttpServlet {
 
             List<HostelDTO> HostelList = dao.GetListHostel(us.getUserID());
             List<ServiceTypeDTO> ServiceList = SerDAO.GetListService();
-            ServiceDetailDTO SD = SerDAO.GetAServiceDetail(request.getParameter("detailID"));
+            ServiceDetailDTO SD = SerDAO.GetAServiceDetail(Integer.valueOf(request.getParameter("detailID")));
 
 
             request.setAttribute("ServiceTypeList",ServiceList);
@@ -91,7 +91,7 @@ public class UpdateServiceController extends HttpServlet {
             HttpSession ss = request.getSession();
             UserDTO us =  (UserDTO) ss.getAttribute("LOGIN_USER");
             ServiceDAO dao = new ServiceDAO();
-            String detail_id = request.getParameter("detail_id");
+            int detail_id = Integer.valueOf(request.getParameter("detail_id"));
             String detail_name = request.getParameter("detail_name");
 
             Double unitprice = Double.parseDouble(request.getParameter("unit_price"));

@@ -2,12 +2,14 @@ D:\j2yD9gmz\Majors 5\SWP391\Git\Group\Git 3\HostelManager\src\main\java\dao\Addr
 D:\j2yD9gmz\Majors 5\SWP391\Git\Group\Git 3\HostelManager\src\main\java\controller\UpdateRoomController.java
 D:\j2yD9gmz\Majors 5\SWP391\Git\Group\Git 3\HostelManager\src\main\java\dao\UserDAO.java
 D:\j2yD9gmz\Majors 5\SWP391\Git\Group\Git 3\HostelManager\src\main\java\dao\ServiceDAO.java
+D:\j2yD9gmz\Majors 5\SWP391\Git\Group\Git 3\HostelManager\src\main\java\dto\BillDTO.java
 D:\j2yD9gmz\Majors 5\SWP391\Git\Group\Git 3\HostelManager\src\main\java\controller\DeleteServiceController.java
 D:\j2yD9gmz\Majors 5\SWP391\Git\Group\Git 3\HostelManager\src\main\java\dto\Address\City.java
 D:\j2yD9gmz\Majors 5\SWP391\Git\Group\Git 3\HostelManager\src\main\java\controller\AddCustomerController.java
 D:\j2yD9gmz\Majors 5\SWP391\Git\Group\Git 3\HostelManager\src\main\java\controller\AddRoomController.java
 D:\j2yD9gmz\Majors 5\SWP391\Git\Group\Git 3\HostelManager\src\main\java\dto\UserDTO.java
 D:\j2yD9gmz\Majors 5\SWP391\Git\Group\Git 3\HostelManager\src\main\java\dao\ContractDAO.java
+D:\j2yD9gmz\Majors 5\SWP391\Git\Group\Git 3\HostelManager\src\main\java\dao\BillDAO.java
 D:\j2yD9gmz\Majors 5\SWP391\Git\Group\Git 3\HostelManager\src\main\java\dto\ServiceDetailDTO.java
 D:\j2yD9gmz\Majors 5\SWP391\Git\Group\Git 3\HostelManager\src\main\java\dto\ServiceTypeDTO.java
 D:\j2yD9gmz\Majors 5\SWP391\Git\Group\Git 3\HostelManager\src\main\java\dto\ContractDTO.java
@@ -22,6 +24,7 @@ D:\j2yD9gmz\Majors 5\SWP391\Git\Group\Git 3\HostelManager\src\main\java\controll
 D:\j2yD9gmz\Majors 5\SWP391\Git\Group\Git 3\HostelManager\src\main\java\controller\MainController.java
 D:\j2yD9gmz\Majors 5\SWP391\Git\Group\Git 3\HostelManager\src\main\java\controller\UpdateHostelController.java
 D:\j2yD9gmz\Majors 5\SWP391\Git\Group\Git 3\HostelManager\src\main\java\controller\DeleteRoomController.java
+D:\j2yD9gmz\Majors 5\SWP391\Git\Group\Git 3\HostelManager\src\main\java\dto\BillDetailDTO.java
 D:\j2yD9gmz\Majors 5\SWP391\Git\Group\Git 3\HostelManager\src\main\java\controller\RoomPageController.java
 D:\j2yD9gmz\Majors 5\SWP391\Git\Group\Git 3\HostelManager\src\main\java\dto\Address\District.java
 D:\j2yD9gmz\Majors 5\SWP391\Git\Group\Git 3\HostelManager\src\main\java\controller\DeleteHostelController.java

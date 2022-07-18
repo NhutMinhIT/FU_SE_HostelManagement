@@ -93,7 +93,7 @@ public class BillDAO {
                     while (rs.next()) {
                         String BillDetailID = rs.getString("billd_id");
                         ServiceDAO dao = new ServiceDAO();
-                        ServiceDetailDTO DetailID = dao.GetAServiceDetail(rs.getString("detail_id"));
+                        ServiceDetailDTO DetailID = dao.GetAServiceDetail(rs.getInt("detail_id"));
                         int qty = rs.getInt("qty");
                         Double total = DetailID.getUnit_price() * qty ;
                         String description = rs.getString("description");
@@ -154,7 +154,7 @@ public class BillDAO {
             if (conn != null) {
                 ptm = conn.prepareStatement(ADDBILLDETAIL);
                 ptm.setString(1, billID);
-                ptm.setString(2, b.getService().getDetailID());
+                ptm.setInt(2, b.getService().getDetailID());
                 ptm.setInt(3, b.getQty());
                 ptm.setDouble(4, b.getTotal());
                 ptm.setString(5, b.getDescription());
@@ -214,7 +214,7 @@ public class BillDAO {
             if (conn != null) {
                 ptm = conn.prepareStatement(UPDATEBILLDETAIL);
                 ptm.setString(1, billID);
-                ptm.setString(2, b.getService().getDetailID());
+                ptm.setInt(2, b.getService().getDetailID());
                 ptm.setInt(3, b.getQty());
                 ptm.setDouble(4, b.getTotal());
                 ptm.setString(5, b.getDescription());

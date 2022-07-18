@@ -20,6 +20,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.time.format.DateTimeFormatter;
+import java.time.LocalDateTime;
 
 /**
  *
@@ -29,7 +31,7 @@ import javax.servlet.http.HttpSession;
 public class AddServiceController extends HttpServlet {
 
     private static final String ERROR = "View/addNewService.jsp";
-    private static final String SUCCESS = "MainController?action=ServicePage";   
+    private static final String SUCCESS = "MainController?action=ServicePage";
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -52,16 +54,25 @@ public class AddServiceController extends HttpServlet {
         String url = ERROR;
         try {
             HttpSession ss = request.getSession();
-            UserDTO us =  (UserDTO) ss.getAttribute("LOGIN_USER");
+            UserDTO us = (UserDTO) ss.getAttribute("LOGIN_USER");
 
             RoomDAO dao = new RoomDAO();
             ServiceDAO SerDAO = new ServiceDAO();
 
+            String hostelID = request.getParameter("hostelID");
+            HostelDTO hostel = dao.GetAHostel(hostelID);
+
+            DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+            LocalDateTime now = LocalDateTime.now();
+            String currentDate = dtf.format(now);
+
             List<HostelDTO> HostelList = dao.GetListHostel(us.getUserID());
             List<ServiceTypeDTO> ServiceList = SerDAO.GetListService();
 
-            request.setAttribute("HostelList",HostelList);
-            request.setAttribute("ServiceTypeList",ServiceList);
+            request.setAttribute("CurrentDate", currentDate);
+            request.setAttribute("CurrentHostel", hostel);
+            request.setAttribute("HostelList", HostelList);
+            request.setAttribute("ServiceTypeList", ServiceList);
         } catch (Exception e) {
             log("Error at AddServiceController(doGet): " + e.toString());
         } finally {
@@ -84,9 +95,9 @@ public class AddServiceController extends HttpServlet {
         String url = ERROR;
         try {
             HttpSession ss = request.getSession();
-            UserDTO us =  (UserDTO) ss.getAttribute("LOGIN_USER");
+            UserDTO us = (UserDTO) ss.getAttribute("LOGIN_USER");
             ServiceDAO dao = new ServiceDAO();
-  
+
             String detail_name = request.getParameter("detail_name");
             String calUnit = "";
             String unit_price = request.getParameter("unit_price").replaceAll(",", "");
@@ -94,10 +105,14 @@ public class AddServiceController extends HttpServlet {
             String updated_date = request.getParameter("updated_date");
             String description = request.getParameter("description");
             String hostel_id = request.getParameter("hostel_id");
-            String service_id = request.getParameter("service_id"); 
-            if (service_id.equals("1")) calUnit = "kWh"; else if (service_id.equals("2")) calUnit = "m3";
-            
-            boolean check = dao.AddServiceDetail(new ServiceDetailDTO("",detail_name,calUnit,unitprice,Date.valueOf(updated_date),description,"ACTIVE",hostel_id,service_id));
+            String service_id = request.getParameter("service_id");
+            if (service_id.equals("1")) {
+                calUnit = "kWh";
+            } else if (service_id.equals("2")) {
+                calUnit = "m3";
+            }
+
+            boolean check = dao.AddServiceDetail(new ServiceDetailDTO(0, detail_name, calUnit, unitprice, Date.valueOf(updated_date), description, "ACTIVE", hostel_id, service_id));
             if (check) {
                 url = SUCCESS;
             }

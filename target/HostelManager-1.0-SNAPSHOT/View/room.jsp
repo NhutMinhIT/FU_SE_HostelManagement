@@ -36,7 +36,7 @@
                     <c:forEach items="${HostelList}" var="Ho">   
                         <li class="nav-item">
                             <c:choose>
-                                <c:when test="${Ho.hostelID == '1'}">
+                                <c:when test="${Ho.hostelID == HostelList.get(0).hostelID}">
                                     <a class="nav-link active" href="#${Ho.hostelname}" role="tab" data-toggle="tab">${Ho.hostelname}</a>   
                                 </c:when>
                                 <c:otherwise>
@@ -50,7 +50,7 @@
                     <div class="tab-content">
                         <c:forEach items="${HostelList}" var="Hos">
                             <c:choose>
-                                <c:when test="${Hos.hostelID == '1'}">
+                                <c:when test="${Hos.hostelID == HostelList.get(0).hostelID}">
                                     <div role="tabpanel" class=" tab-pane fade show active" id="${Hos.hostelname}" >   
                                     </c:when>
                                     <c:otherwise>

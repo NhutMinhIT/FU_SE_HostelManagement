@@ -29,18 +29,14 @@
 
         <div id="layoutSidenav_content">
             <h1 class="mx-4 col-md-4 text-info"><i class="fa fa-list fa-beat"></i> Danh Sách Dịch Vụ</h1>
-            <div style="margin-left: auto">
-                <a href="View/addNewService.jsp">
-                    <button type="button"  class="btn btn-success m-2"><i class="fa fa-plus"></i> Thêm Dịch Vụ</button>
-                </a>
-            </div>
+            
 
             <main class="container-fluid">
                 <ul class=" col-12 nav nav-tabs mb-4">
                     <c:forEach items="${HostelList}" var="Ho">   
                         <li class="nav-item">
                             <c:choose>
-                                <c:when test="${Ho.hostelID == '1'}">
+                                <c:when test="${Ho.hostelID == HostelList.get(0).hostelID}">
                                     <a class="nav-link active" href="#${Ho.hostelname}" role="tab" data-toggle="tab">${Ho.hostelname}</a>   
                                 </c:when>
                                 <c:otherwise>
@@ -56,7 +52,7 @@
 
                         <c:forEach items="${HostelList}" var="Hos">
                             <c:choose>
-                                <c:when test="${Hos.hostelID == '1'}">
+                                <c:when test="${Hos.hostelID == HostelList.get(0).hostelID}">
                                     <div role="tabpanel" class=" tab-pane fade show active" id="${Hos.hostelname}" >   
                                     </c:when>
                                     <c:otherwise>
@@ -64,7 +60,13 @@
                                         </c:otherwise>
                                     </c:choose>
 
-
+                                    <div class="breadcrumb mb-4 " style="margin-left: 75%;" >
+                                        <div class="row" >
+                                            <a href="${pageContext.request.contextPath}/MainController?action=AddService&hostelID=${Hos.hostelID}" >
+                                                <button type="button"  class="btn btn-success"><i class="fa fa-add"></i> Thêm Dịch vụ</button>
+                                            </a>
+                                        </div>
+                                    </div>
                                     <div class="container-fluid">  
                                         <input type="search" oninput="filter_table(this, 'table_filter')" class="form_control"
                                                placeholder="Filter This Table...">
@@ -73,8 +75,7 @@
                                                 <tr>
                                                     <th style="width: 12%">Tên dịch vụ</th>
                                                     <th style="width: 12%">Loại dịch vụ</th>
-                                                    <th style="width: 8%">Ngày cập nhật</th> 
-                                                    <th style="width: 10%">Địa điểm</th>                                     
+                                                    <th style="width: 8%">Ngày cập nhật</th>                                                                                       
                                                     <th style="width: 17%">Giá</th>
                                                     <th style="width: 10%">Đơn vị</th>
                                                     <th style="width: 10%">Đang dùng</th>
@@ -84,7 +85,33 @@
                                             <tbody id="table_filter">
                                                 <c:forEach items="${ServiceDetailList}" var="SD">
                                                     <c:if test="${SD.hostelID == Hos.hostelID}">
-                                                        
+                                                        <tr>
+                                                            <td>${SD.detailname}</td>
+                                                            <c:forEach items="${ServiceTypeList}" var="ST">
+                                                                <c:if test="${SD.serviceID == ST.serviceID}">
+                                                                    <td>${ST.service_name}</td>
+                                                                </c:if>
+                                                            </c:forEach>
+                                                            <td><fmt:formatDate pattern="dd/MM/yyyy" value="${SD.updated_date}"/></td>    
+
+                                                            <td><input class="money form-control" type="text" name="unit_price"  placeholder="Giá" 
+                                                                       value="<fmt:formatNumber type="number" maxFractionDigits="0" value="${SD.unit_price}"/>" disabled="disabled"></td>
+                                                            <td>${SD.calUnit}</td>
+
+                                                            <c:choose>
+                                                                <c:when test="${SD.status == 'ACTIVE'}">
+                                                                    <td style="text-align: center"><input type="checkbox" checked disabled="disabled" /></td>
+                                                                    </c:when>
+                                                                    <c:otherwise>
+                                                                    <td style="text-align: center"><input type="checkbox" disabled="disabled" /></td>
+                                                                    </c:otherwise>
+                                                                </c:choose>
+                                                            <td>
+                                                                <a href="${pageContext.request.contextPath}/MainController?action=UpdateService&detailID=${SD.detailID}">
+                                                                    <button class="btn btn-primary" title="Edit"><i class="fa fa-edit"></i></button>
+                                                                </a>
+                                                            </td>
+                                                        </tr>  
                                                     </c:if>
                                                 </c:forEach>
                                             </tbody>
