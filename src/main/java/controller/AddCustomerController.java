@@ -4,6 +4,7 @@
  */
 package controller;
 
+import dao.BillDAO;
 import dao.ContractDAO;
 import dao.CustomerDAO;
 import dao.RoomDAO;
@@ -21,6 +22,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.sql.Date;
+import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
@@ -112,6 +114,9 @@ public class AddCustomerController extends HttpServlet {
             ContractDAO Ctdao = new ContractDAO();
             RoomDAO dao = new RoomDAO();
 
+            ServiceDAO Sdao = new ServiceDAO();
+            BillDAO Bdao = new BillDAO();
+
             String fullname = request.getParameter("fullname");
             String gender = request.getParameter("gender");
             String dob = request.getParameter("dob");
@@ -126,45 +131,47 @@ public class AddCustomerController extends HttpServlet {
             String due_date = request.getParameter("due_date");
             String description = request.getParameter("description");
 
-//            String[] checked_DetailIDs = request.getParameterValues("chooseDetail");
-//
-//            for (int i = 1; i < checked_DetailIDs.length; i++) {
-//
-//            }
+            List<ServiceDetailDTO> list = new ArrayList<>();
+            String[] checked_DetailIDs = request.getParameterValues("chooseDetail");
+            for (int i = 0; i < checked_DetailIDs.length; i++) {               
+                list.add(Sdao.GetAServiceDetail(Integer.valueOf(checked_DetailIDs[i])));
+            }
 
-            //customer_id,password,fullname,email,gender,dob,phone,status,address,ward_id
-            //contract_id,customer_id,room_id,signed_date,due_date,status,description
+                //customer_id,password,fullname,email,gender,dob,phone,status,address,ward_id
+                //contract_id,customer_id,room_id,signed_date,due_date,status,description
 //            Part part = request.getPart("contract");
 //            String realPath = request.getServletContext().getRealPath("/img/contract");
 //            part.write(realPath+"/"+filename);
-            if (Cusdao.GetACustomer(customerID) != null) {
-                request.setAttribute("ERROR", "CMND/CCCD [" + Cusdao.GetACustomer(customerID).getCustomerID() + "] đã được đăng ký !");
-            } else {
-                boolean AddCus = Cusdao.AddCustomer(new CustomerDTO(customerID, "", fullname, email, gender, Date.valueOf(dob), phone, "ACTIVE", address, wardID));
-                boolean AddContract = Ctdao.AddContract(new ContractDTO("", customerID, roomID, Date.valueOf(signed_date), Date.valueOf(due_date), "ACTIVE", description));
+                if (Cusdao.GetACustomer(customerID) != null) {
+                    request.setAttribute("ERROR", "CMND/CCCD [" + Cusdao.GetACustomer(customerID).getCustomerID() + "] đã được đăng ký !");
+                } else {
+                    boolean AddCus = Cusdao.AddCustomer(new CustomerDTO(customerID, "", fullname, email, gender, Date.valueOf(dob), phone, "ACTIVE", address, wardID));
+                    boolean AddContract = Ctdao.AddContract(new ContractDTO("", customerID, roomID, Date.valueOf(signed_date), Date.valueOf(due_date), "ACTIVE", description));
 
-                RoomDTO room = dao.GetARoom(roomID);
-                room.setStatus("RENTING");
-                boolean UpdateRoom = dao.UpdateRoom(room);
-                if (AddCus && AddContract && UpdateRoom) {
-                    url = SUCCESS;
+                    RoomDTO room = dao.GetARoom(roomID);
+                    room.setStatus("RENTING");
+                    boolean UpdateRoom = dao.UpdateRoom(room);
+                    if (AddCus && AddContract && UpdateRoom) {
+                        url = SUCCESS;
+                    }
                 }
-            }
-        } catch (Exception e) {
+            }catch (Exception e) {
             log("Error at AddCustomerController(doPost):" + e.toString());
-        } finally {
+        }finally {
             request.getRequestDispatcher(url).forward(request, response);
         }
-    }
+        }
 
-    /**
-     * Returns a short description of the servlet.
-     *
-     * @return a String containing servlet description
-     */
-    @Override
-    public String getServletInfo() {
+        /**
+         * Returns a short description of the servlet.
+         *
+         * @return a String containing servlet description
+         */
+        @Override
+        public String getServletInfo
+        
+            () {
         return "Short description";
-    }// </editor-fold>
+        }// </editor-fold>
 
-}
+    }

@@ -19,9 +19,9 @@ public class ServiceDetailDTO {
     private String description;
     private String status;
     private String hostelID;
-    private String serviceID;
+    private int serviceID;
 
-    public ServiceDetailDTO(int detailID, String detailname, String calUnit, double unit_price, Date updated_date, String description, String status, String hostelID, String serviceID) {
+    public ServiceDetailDTO(int detailID, String detailname, String calUnit, double unit_price, Date updated_date, String description, String status, String hostelID, int serviceID) {
         this.detailID = detailID;
         this.detailname = detailname;
         this.calUnit = calUnit;
@@ -97,13 +97,15 @@ public class ServiceDetailDTO {
         this.hostelID = hostelID;
     }
 
-    public String getServiceID() {
+    public int getServiceID() {
         return serviceID;
     }
 
-    public void setServiceID(String serviceID) {
+    public void setServiceID(int serviceID) {
         this.serviceID = serviceID;
     }
+
+    
 
     
    

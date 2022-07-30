@@ -8,15 +8,14 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html lang="en">
+<html>
     <head>
         <meta charset="utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content="" />
-        <meta name="author" content="" />
+
         <title>MoonHostel</title>
-        <link rel="icon" type="image/png" href="../assets/img/logo.png" sizes="16x16">
+        <link rel="icon" type="image/png" href="${pageContext.request.contextPath}/assets/img/logo.png" sizes="16x16">
         <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
@@ -105,17 +104,17 @@
                                         <label class="col-sm-8">
                                             <c:choose>
                                                 <c:when test="${ServiceDetail.status == 'ACTIVE'}">
-                                                    <input name="status" type="checkbox" value="DISABLED" checked> Đang dùng 
+                                                    <input name="status" type="checkbox" value="ACTIVE" checked> Đang dùng 
                                                 </c:when>
                                                 <c:otherwise>
-                                                    <input name="status" type="checkbox" value="ACTIVE"> Đang dùng 
+                                                    <input name="status" type="checkbox" value="DISABLED"> Đang dùng 
                                                 </c:otherwise>
                                             </c:choose>                                                
                                         </label>
                                     </div>
                                     <div class="form-group">
                                         <label for="inputAddress2">Mô Tả:</label>
-                                        <textarea rows="3" class="form-control" id="remarks" name="description"></textarea>
+                                        <textarea rows="3" class="form-control" id="remarks" name="description">${ServiceDetail.description}</textarea>
                                     </div>
 
                                 </div> 

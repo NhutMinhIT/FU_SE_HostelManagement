@@ -8,13 +8,11 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html lang="en">
+<html>
     <head>
-        <meta charset="utf-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> 
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content="" />
-        <meta name="author" content="" />
         <title>MoonHostel</title>
         <link rel="icon" type="image/png" href="${pageContext.request.contextPath}/assets/img/logo.png" sizes="16x16">
         <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
@@ -87,7 +85,7 @@
                                     <div class="form-group row col-md-6 mt-2">
                                         <label  class="col-sm-4 col-form-label">Giá:</label>
                                         <div class="col col-sm-8">
-                                            <input class="money form-control" type="text" name="unit_price"  placeholder="Giá">
+                                            <input class="form-control" type="text" name="unit_price"  placeholder="Giá">
                                         </div>
                                     </div>
                                     <div class="form-group row col-md-6 mt-2">
@@ -99,7 +97,7 @@
                                 </div> 
                                 <div class="form-group">
                                     <label for="inputAddress2">Mô Tả:</label>
-                                    <textarea rows="3" class="form-control" id="remarks" name="description"></textarea>
+                                    <textarea rows="3" class="form-control" id="remarks" name="description">${ServiceDetail.description}</textarea>
                                 </div>
 
                                 <div class="mt-3 text-center">

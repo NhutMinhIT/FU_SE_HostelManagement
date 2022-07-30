@@ -271,10 +271,8 @@ public class RoomDAO {
                 ptm.setString(1, Hostel.getHostelname());
                 ptm.setString(2, Hostel.getAddress());
                 ptm.setString(3, Hostel.getPhone());
-                ptm.setString(4, Hostel.getPhone());
-                ptm.setString(5, Hostel.getHostelID());
-                ptm.setString(6, Hostel.getWardID());
-                ptm.setString(7, Hostel.getWardID());
+                ptm.setString(4, Hostel.getHostelID());
+                ptm.setString(5, Hostel.getWardID());
                 check = ptm.executeUpdate() > 0 ? true : false;
             }
         } catch (Exception e) {

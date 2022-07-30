@@ -35,7 +35,7 @@ public class ServiceDAO {
 
     private static final String DELETE_SERVICEDETAIL = "UPDATE dbo.[ServiceDetail] SET status ='DELETE' WHERE detail_id = ?";
 
-    private static final String UPDATE_SERVICEDETAIL = "UPDATE dbo.[ServiceDetail] SET detail_name = ?, unit_price = ?, updated_date = ?,description = ?,status = ? WHERE detail_id = ?";
+    private static final String UPDATE_SERVICEDETAIL = "UPDATE dbo.[ServiceDetail] SET detail_name = ?, unit_price = ?, updated_date = ?,description = ?,status = ?,hostel_id = ?, service_id = ? WHERE detail_id = ?";
 
     public List<ServiceTypeDTO> GetListService() throws SQLException {
         List<ServiceTypeDTO> list = new ArrayList<>();
@@ -89,7 +89,7 @@ public class ServiceDAO {
                         Date updated_date = rs.getDate("updated_date");
                         String description = rs.getString("description");
                         String status = rs.getString("status");
-                        String service_id = rs.getString("service_id");
+                        int service_id = rs.getInt("service_id");
                         list.add(new ServiceDetailDTO(detail_id, detailname, Calculation_Unit, unit_price, updated_date, description, status, i.getHostelID(), service_id));
                     }
                 }
@@ -141,7 +141,7 @@ public class ServiceDAO {
         return null;
     }
 
-    public ServiceDetailDTO GetLatestServiceDetail(String ServiceID, String HostelID) throws SQLException {
+    public ServiceDetailDTO GetLatestServiceDetail(int ServiceID, String HostelID) throws SQLException {
         Connection conn = null;
         PreparedStatement ptm = null;
         ResultSet rs = null;
@@ -149,7 +149,7 @@ public class ServiceDAO {
             conn = DBUtils.getConnection();
             if (conn != null) {
                 ptm = conn.prepareStatement(GET_A_LATEST_SERVICEDETAIL);
-                ptm.setString(1, ServiceID);
+                ptm.setInt(1, ServiceID);
                 ptm.setString(2, HostelID);
                 rs = ptm.executeQuery();
                 while (rs.next()) {
@@ -197,7 +197,7 @@ public class ServiceDAO {
                     String status = rs.getString("status");
                     String description = rs.getString("description");
                     String hostelID = rs.getString("hostel_id");
-                    String ServiceID = rs.getString("service_id");
+                    int ServiceID = rs.getInt("service_id");
 
                     return new ServiceDetailDTO(DetailID, detailname, Calculation_Unit, unit_price, updated_date, description, status, hostelID, ServiceID);
                 }
@@ -257,7 +257,7 @@ public class ServiceDAO {
                 ptm.setString(5, s.getDescription());
                 ptm.setString(6, s.getStatus());
                 ptm.setString(7, s.getHostelID());
-                ptm.setString(8, s.getServiceID());
+                ptm.setInt(8, s.getServiceID());
                 check = ptm.executeUpdate() > 0 ? true : false;
             }
         } catch (Exception e) {
@@ -309,7 +309,10 @@ public class ServiceDAO {
                 ptm.setDouble(2, s.getUnit_price());
                 ptm.setDate(3, s.getUpdated_date());
                 ptm.setString(4, s.getDescription());
-                ptm.setInt(5, s.getDetailID());
+                ptm.setString(5, s.getStatus());
+                ptm.setString(6, s.getHostelID());
+                ptm.setInt(7, s.getServiceID());
+                ptm.setInt(8, s.getDetailID());
 
                 check = ptm.executeUpdate() > 0 ? true : false;
             }

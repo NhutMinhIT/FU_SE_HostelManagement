@@ -29,7 +29,7 @@ import javax.servlet.http.HttpSession;
 public class UpdateServiceController extends HttpServlet {
 
     private static final String ERROR = "View/editService.jsp";
-    private static final String SUCCESS = "MainController?action=ServicePage";   
+    private static final String SUCCESS = "MainController?action=ServicePage";
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -53,7 +53,7 @@ public class UpdateServiceController extends HttpServlet {
         String url = ERROR;
         try {
             HttpSession ss = request.getSession();
-            UserDTO us =  (UserDTO) ss.getAttribute("LOGIN_USER");
+            UserDTO us = (UserDTO) ss.getAttribute("LOGIN_USER");
             RoomDAO dao = new RoomDAO();
             ServiceDAO SerDAO = new ServiceDAO();
 
@@ -61,14 +61,12 @@ public class UpdateServiceController extends HttpServlet {
             List<ServiceTypeDTO> ServiceList = SerDAO.GetListService();
             ServiceDetailDTO SD = SerDAO.GetAServiceDetail(Integer.valueOf(request.getParameter("detailID")));
 
-
-            request.setAttribute("ServiceTypeList",ServiceList);
-            request.setAttribute("ServiceDetail",SD);
-            request.setAttribute("HostelList",HostelList);
-
+            request.setAttribute("ServiceTypeList", ServiceList);
+            request.setAttribute("ServiceDetail", SD);
+            request.setAttribute("HostelList", HostelList);
 
         } catch (Exception e) {
-            log("Error at ServicePageController:"+e.toString());
+            log("Error at ServicePageController:" + e.toString());
         } finally {
             request.getRequestDispatcher(url).forward(request, response);
         }
@@ -89,7 +87,7 @@ public class UpdateServiceController extends HttpServlet {
         String url = SUCCESS;
         try {
             HttpSession ss = request.getSession();
-            UserDTO us =  (UserDTO) ss.getAttribute("LOGIN_USER");
+            UserDTO us = (UserDTO) ss.getAttribute("LOGIN_USER");
             ServiceDAO dao = new ServiceDAO();
             int detail_id = Integer.valueOf(request.getParameter("detail_id"));
             String detail_name = request.getParameter("detail_name");
@@ -98,13 +96,24 @@ public class UpdateServiceController extends HttpServlet {
             String updated_date = request.getParameter("updated_date");
             String status = request.getParameter("status");
             String description = request.getParameter("description");
-            
-            boolean check = dao.UpdateServiceDetail(new ServiceDetailDTO(detail_id,detail_name,"",unitprice,Date.valueOf(updated_date),description,status,"",""));
+            String hostel_id = request.getParameter("hostel_id");
+            String service_id = request.getParameter("service_id");
+
+            String calUnit = "";
+            if (service_id.equals("1")) {
+                calUnit = "kWh";
+            } else if (service_id.equals("2")) {
+                calUnit = "m3";
+            } else {
+                calUnit = "---";
+            }
+            boolean update = dao.UpdateServiceDetail(new ServiceDetailDTO(detail_id, detail_name, calUnit, unitprice, Date.valueOf(updated_date), description, "DISABLED", hostel_id, Integer.valueOf(service_id)));
+            boolean check = dao.AddServiceDetail(new ServiceDetailDTO(detail_id, detail_name, calUnit, unitprice, Date.valueOf(updated_date), description, "ACTIVE", hostel_id, Integer.valueOf(service_id)));
             if (check) {
                 url = SUCCESS;
             }
         } catch (Exception e) {
-            log("Error at AddServiceController(doPost): " + e.toString());
+            log("Error at UpdateServiceController(doPost): " + e.toString());
         } finally {
             request.getRequestDispatcher(url).forward(request, response);
         }

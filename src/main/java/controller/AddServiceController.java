@@ -36,6 +36,7 @@ public class AddServiceController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+        request.setCharacterEncoding("utf-8");
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -50,7 +51,6 @@ public class AddServiceController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
         String url = ERROR;
         try {
             HttpSession ss = request.getSession();
@@ -91,7 +91,6 @@ public class AddServiceController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
         String url = ERROR;
         try {
             HttpSession ss = request.getSession();
@@ -110,9 +109,11 @@ public class AddServiceController extends HttpServlet {
                 calUnit = "kWh";
             } else if (service_id.equals("2")) {
                 calUnit = "m3";
+            } else {
+                calUnit = "---";
             }
 
-            boolean check = dao.AddServiceDetail(new ServiceDetailDTO(0, detail_name, calUnit, unitprice, Date.valueOf(updated_date), description, "ACTIVE", hostel_id, service_id));
+            boolean check = dao.AddServiceDetail(new ServiceDetailDTO(0, detail_name, calUnit, unitprice, Date.valueOf(updated_date), description, "ACTIVE", hostel_id, Integer.valueOf(service_id)));
             if (check) {
                 url = SUCCESS;
             }
