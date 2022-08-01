@@ -120,12 +120,25 @@
                                                                                     </tr>
                                                                                     <tr id="detail_${B.billID}" class="collapse cell-1 row-child">
                                                                                         <td colspan="9" style="background-color: #ddd">
-                                                                                            <h4 style="text-align: right; margin-right: 300px">Chi tiết hóa đơn</h4>
+                                                                                            <h4 style="text-align: center">Chi tiết hóa đơn</h4>
 
                                                                                             <c:forEach items="${B.details}" var="BD">                                                                                            
                                                                                                 <div class="row">
-                                                                                                    <div style="text-align: right" class="col-sm-8">${BD.service.detailname}</div>
-                                                                                                    <div  class="col-sm-4"> <input style="border: none" type="text" dir="rtl" value="${BD.total}" disabled="disabled"></div>
+                                                                                                    <table class="_table table_sort">
+                                                                                                        <thead>
+                                                                                                            <tr>
+                                                                                                                <th style="width: 10%">Dịch vụ</th>
+                                                                                                                <th style="width: 20%">Số lượng</th>
+                                                                                                                <th style="width: 15%">Tổng tiền</th>                                                                                                                
+                                                                                                            </tr>
+                                                                                                        </thead>
+                                                                                                        <tbody id="table_filter">
+                                                                                                            <tr>
+                                                                                                                <td>${BD.service.detailname}</td>
+                                                                                                                <td>${BD.qty}</td>
+                                                                                                                <td><fmt:formatNumber type="number" maxFractionDigits="0" value="${BD.total}"/></td>
+                                                                                                            </tr>                                                                                                            
+                                                                                                    </table>
                                                                                                 </div>               
                                                                                             </c:forEach>
 
@@ -198,12 +211,25 @@
                                                                                     </tr>
                                                                                     <tr id="detail_${B.billID}" class="collapse cell-1 row-child">
                                                                                         <td colspan="9" style="background-color: #ddd">
-                                                                                            <h4 style="text-align: right; margin-right: 300px">Chi tiết hóa đơn</h4>
+                                                                                            <h4 style="text-align: center">Chi tiết hóa đơn</h4>
 
                                                                                             <c:forEach items="${B.details}" var="BD">                                                                                            
                                                                                                 <div class="row">
-                                                                                                    <div style="text-align: right" class="col-sm-8">${BD.service.detailname}</div>
-                                                                                                    <div  class="col-sm-4"> <input style="border: none" type="text" dir="rtl" value="${BD.total}" disabled="disabled"></div>
+                                                                                                    <table class="_table table_sort">
+                                                                                                        <thead>
+                                                                                                            <tr>
+                                                                                                                <th style="width: 10%">Dịch vụ</th>
+                                                                                                                <th style="width: 20%">Số lượng</th>
+                                                                                                                <th style="width: 15%">Tổng tiền</th>                                                                                                                
+                                                                                                            </tr>
+                                                                                                        </thead>
+                                                                                                        <tbody id="table_filter">
+                                                                                                            <tr>
+                                                                                                                <td>${BD.service.detailname}</td>
+                                                                                                                <td>${BD.qty}</td>
+                                                                                                                <td><fmt:formatNumber type="number" maxFractionDigits="0" value="${BD.total}"/></td>
+                                                                                                            </tr>                                                                                                            
+                                                                                                    </table>
                                                                                                 </div>               
                                                                                             </c:forEach>
 
