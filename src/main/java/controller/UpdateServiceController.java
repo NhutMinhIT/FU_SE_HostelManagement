@@ -65,6 +65,13 @@ public class UpdateServiceController extends HttpServlet {
             request.setAttribute("ServiceDetail", SD);
             request.setAttribute("HostelList", HostelList);
 
+            String style = request.getParameter("style");
+            if (style.equals("remove")) {
+                SD.setStatus("DELETE");
+                SerDAO.UpdateServiceDetail(SD);
+                url = SUCCESS;
+            }
+
         } catch (Exception e) {
             log("Error at ServicePageController:" + e.toString());
         } finally {
@@ -89,6 +96,8 @@ public class UpdateServiceController extends HttpServlet {
             HttpSession ss = request.getSession();
             UserDTO us = (UserDTO) ss.getAttribute("LOGIN_USER");
             ServiceDAO dao = new ServiceDAO();
+            String style = request.getParameter("style");
+
             int detail_id = Integer.valueOf(request.getParameter("detail_id"));
             String detail_name = request.getParameter("detail_name");
 
@@ -107,8 +116,10 @@ public class UpdateServiceController extends HttpServlet {
             } else {
                 calUnit = "---";
             }
+
             boolean update = dao.UpdateServiceDetail(new ServiceDetailDTO(detail_id, detail_name, calUnit, unitprice, Date.valueOf(updated_date), description, "DISABLED", hostel_id, Integer.valueOf(service_id)));
             boolean check = dao.AddServiceDetail(new ServiceDetailDTO(detail_id, detail_name, calUnit, unitprice, Date.valueOf(updated_date), description, "ACTIVE", hostel_id, Integer.valueOf(service_id)));
+
             if (check) {
                 url = SUCCESS;
             }

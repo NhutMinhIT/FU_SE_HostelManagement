@@ -8,7 +8,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html lang="en">
+<html>
     <head>
         <meta charset="utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -29,7 +29,7 @@
 
         <div id="layoutSidenav_content">
             <h1 class="mx-4 col-md-4 text-info"><i class="fa fa-list fa-beat"></i> Danh Sách Dịch Vụ</h1>
-            
+
 
             <main class="container-fluid">
                 <ul class=" col-12 nav nav-tabs mb-4">
@@ -86,7 +86,7 @@
                                                 <c:forEach items="${ServiceDetailList}" var="SD">
                                                     <c:if test="${SD.hostelID == Hos.hostelID}">
                                                         <tr>
-                                                            <td>${SD.detailname}</td>
+                                                            <td title="${SD.description}" style="cursor:pointer;">${SD.detailname}</td>
                                                             <c:forEach items="${ServiceTypeList}" var="ST">
                                                                 <c:if test="${SD.serviceID == ST.serviceID}">
                                                                     <td>${ST.service_name}</td>
@@ -107,8 +107,11 @@
                                                                     </c:otherwise>
                                                                 </c:choose>
                                                             <td>
-                                                                <a href="${pageContext.request.contextPath}/MainController?action=UpdateService&detailID=${SD.detailID}">
+                                                                <a href="${pageContext.request.contextPath}/MainController?action=UpdateService&detailID=${SD.detailID}&style=edit">
                                                                     <button class="btn btn-primary" title="Edit"><i class="fa fa-edit"></i></button>
+                                                                </a>
+                                                                <a href="${pageContext.request.contextPath}/MainController?action=UpdateService&detailID=${SD.detailID}&style=remove">
+                                                                    <button Onclick="return ConfirmDelete();" class="btn btn-danger" title="Remove"><i class="fa fa-remove"></i></button>
                                                                 </a>
                                                             </td>
                                                         </tr>  

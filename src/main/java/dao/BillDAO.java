@@ -19,11 +19,14 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import utils.DBUtils;
+
 /**
  *
  * @author avillX
  */
 public class BillDAO {
+
+    private static final String GETBILL_LIST = "SELECT * FROM dbo.[Bill] WHERE customer_id = ?";
     private static final String GETBILLBYSTATUS_LIST = "SELECT * FROM dbo.[Bill] WHERE customer_id = ? AND status = ?";
     private static final String GETBILL_LASTEST_COMPLETE = "SELECT TOP (1) * FROM dbo.Bill WHERE customer_id = ? AND status = 'COMPLETE' ORDER BY bill_id DESC ";
     private static final String GETBILL_LASTEST_PROCESS = "SELECT TOP (1) * FROM dbo.Bill WHERE customer_id = ? AND status = 'PROCESS' ORDER BY bill_id DESC ";
@@ -32,72 +35,38 @@ public class BillDAO {
     private static final String GETBILLDETAIL_LIST = "SELECT * FROM dbo.[BillDetail] WHERE bill_id = ?";
 
     private static final String ADDBILL = "INSERT INTO dbo.[Bill]([customer_id],[total],[start_date],[end_date],[created],[status]) VALUES(?,?,?,?,?,'PROCESSING')";
-    private static final String ADDBILLDETAIL = "INSERT INTO dbo.[BillDetail]([bill_id],[detail_id],[qty],[total],[description]) VALUES(?,?,?,?,?)";
+    private static final String ADDBILLDETAIL = "INSERT INTO dbo.[BillDetail]([bill_id],[detail_id],[qty],[total]) VALUES(?,?,?,?)";
 
     private static final String UPDATEBILL = "UPDATE dbo.[Bill] SET customer_id = ?, total = ?, start_date = ?, end_date = ?, created = ?, status = ? where bill_id = ?";
-    private static final String UPDATEBILLDETAIL = "UPDATE dbo.[BillDetail] SET bill_id = ?, detail_id = ?, qty = ?, total = ?, description = ? where billd_id = ?";
+    private static final String UPDATEBILLDETAIL = "UPDATE dbo.[BillDetail] SET bill_id = ?, detail_id = ?, qty = ?, total = ? where billd_id = ?";
 
-
-
-    public BillDTO Get_A_ProcessBill(String CustomerID) throws SQLException {
-        Connection conn = null;
-        PreparedStatement ptm = null;
-        ResultSet rs = null;
-        try {
-            conn = DBUtils.getConnection();
-            if (conn != null) {
-                ptm = conn.prepareStatement(GETBILL_LASTEST_PROCESS);
-                ptm.setString(1, CustomerID);
-                rs = ptm.executeQuery();
-                while (rs.next()) {
-                    String BillID = rs.getString("bill_id");
-                    Date start = rs.getDate("start_date");
-                    Date end = rs.getDate("end_date");
-                    Date created = rs.getDate("created");
-                    String status = rs.getString("status");
-                    Double total = 0.0;
-                    List<BillDetailDTO> DetailList = this.GetListBillDetail(BillID);
-                    for (BillDetailDTO dList : DetailList){
-                        total += dList.getTotal();
-                    }
-                    return new BillDTO(BillID,CustomerID,total,start,end,created,status,DetailList);
-                }
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        } finally {
-            if (rs != null) {
-                rs.close();
-            }
-            if (ptm != null) {
-                ptm.close();
-            }
-            if (conn != null) {
-                conn.close();
-            }
-        }
-        return null; 
-    }
-    public List<BillDetailDTO> GetListBillDetail(String BillID) throws SQLException {
-        List<BillDetailDTO> list = new ArrayList<>();
+    public List<BillDTO> GetListBill(List<CustomerDTO> CusList) throws SQLException {
+        List<BillDTO> list = new ArrayList<>();
+        for (CustomerDTO i : CusList) {
             Connection conn = null;
             PreparedStatement ptm = null;
             ResultSet rs = null;
-
             try {
                 conn = DBUtils.getConnection();
                 if (conn != null) {
-                    ptm = conn.prepareStatement(GETBILLDETAIL_LIST);
-                    ptm.setString(1, BillID);
+                    ptm = conn.prepareStatement(GETBILL_LIST);
+                    ptm.setString(1, i.getCustomerID());
                     rs = ptm.executeQuery();
                     while (rs.next()) {
-                        String BillDetailID = rs.getString("billd_id");
-                        ServiceDAO dao = new ServiceDAO();
-                        ServiceDetailDTO DetailID = dao.GetAServiceDetail(rs.getInt("detail_id"));
-                        int qty = rs.getInt("qty");
-                        Double total = DetailID.getUnit_price() * qty ;
-                        String description = rs.getString("description");
-                        list.add(new BillDetailDTO(BillDetailID,DetailID,qty,total,description));
+                        List<BillDetailDTO> DetailList = new ArrayList<>();
+                        int BillID = rs.getInt("bill_id");
+                        String customerID = rs.getString("customer_id");
+                        Date start = rs.getDate("start_date");
+                        Date end = rs.getDate("end_date");
+                        Date created = rs.getDate("created");
+                        String status = rs.getString("status");
+
+                        DetailList = this.GetListBillDetail(BillID);
+                        Double total = 0.0;
+                        for (BillDetailDTO dList : DetailList) {
+                            total += dList.getTotal();
+                        }
+                        list.add(new BillDTO(BillID, customerID, total, start, end, created, status, DetailList));
                     }
                 }
             } catch (Exception e) {
@@ -113,7 +82,85 @@ public class BillDAO {
                     conn.close();
                 }
             }
-        
+        }
+        return list;
+    }
+
+    public BillDTO Get_A_ProcessBill(String CustomerID) throws SQLException {
+        Connection conn = null;
+        PreparedStatement ptm = null;
+        ResultSet rs = null;
+        try {
+            conn = DBUtils.getConnection();
+            if (conn != null) {
+                ptm = conn.prepareStatement(GETBILL_LASTEST_PROCESS);
+                ptm.setString(1, CustomerID);
+                rs = ptm.executeQuery();
+                while (rs.next()) {
+                    int BillID = rs.getInt("bill_id");
+                    Date start = rs.getDate("start_date");
+                    Date end = rs.getDate("end_date");
+                    Date created = rs.getDate("created");
+                    String status = rs.getString("status");
+                    Double total = 0.0;
+                    List<BillDetailDTO> DetailList = this.GetListBillDetail(BillID);
+                    for (BillDetailDTO dList : DetailList) {
+                        total += dList.getTotal();
+                    }
+                    return new BillDTO(BillID, CustomerID, total, start, end, created, status, DetailList);
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            if (rs != null) {
+                rs.close();
+            }
+            if (ptm != null) {
+                ptm.close();
+            }
+            if (conn != null) {
+                conn.close();
+            }
+        }
+        return null;
+    }
+
+    public List<BillDetailDTO> GetListBillDetail(int BillID) throws SQLException {
+        List<BillDetailDTO> list = new ArrayList<>();
+        Connection conn = null;
+        PreparedStatement ptm = null;
+        ResultSet rs = null;
+
+        try {
+            conn = DBUtils.getConnection();
+            if (conn != null) {
+                ptm = conn.prepareStatement(GETBILLDETAIL_LIST);
+                ptm.setInt(1, BillID);
+                rs = ptm.executeQuery();
+                while (rs.next()) {
+                    int BillDetailID = rs.getInt("billd_id");
+                    ServiceDAO dao = new ServiceDAO();
+                    ServiceDetailDTO DetailID = dao.GetAServiceDetail(rs.getInt("detail_id"));
+                    int qty = rs.getInt("qty");
+                    Double total = rs.getDouble("total");
+                    list.add(new BillDetailDTO(BillDetailID, DetailID, qty, total));
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            if (rs != null) {
+                rs.close();
+            }
+            if (ptm != null) {
+                ptm.close();
+            }
+            if (conn != null) {
+                conn.close();
+            }
+        }
+
         return list;
     }
 
@@ -145,7 +192,7 @@ public class BillDAO {
         return check;
     }
 
-    public boolean AddBillDetail(BillDetailDTO b, String billID) throws SQLException {
+    public boolean AddBillDetail(BillDetailDTO b, int billID) throws SQLException {
         boolean check = false;
         Connection conn = null;
         PreparedStatement ptm = null;
@@ -153,11 +200,10 @@ public class BillDAO {
             conn = DBUtils.getConnection();
             if (conn != null) {
                 ptm = conn.prepareStatement(ADDBILLDETAIL);
-                ptm.setString(1, billID);
+                ptm.setInt(1, billID);
                 ptm.setInt(2, b.getService().getDetailID());
                 ptm.setInt(3, b.getQty());
                 ptm.setDouble(4, b.getTotal());
-                ptm.setString(5, b.getDescription());
                 check = ptm.executeUpdate() > 0 ? true : false;
             }
         } catch (Exception e) {
@@ -187,8 +233,8 @@ public class BillDAO {
                 ptm.setDate(4, b.getEnd_date());
                 ptm.setDate(5, b.getCreated());
                 ptm.setString(6, b.getStatus());
-                ptm.setString(7, b.getBillID());
-                for (BillDetailDTO dList : b.getDetails()){
+                ptm.setInt(7, b.getBillID());
+                for (BillDetailDTO dList : b.getDetails()) {
                     this.UpdateBillDetail(dList, b.getBillID());
                 }
                 check = ptm.executeUpdate() > 0 ? true : false;
@@ -205,7 +251,8 @@ public class BillDAO {
         }
         return check;
     }
-    public boolean UpdateBillDetail(BillDetailDTO b, String billID) throws SQLException {
+
+    public boolean UpdateBillDetail(BillDetailDTO b, int billID) throws SQLException {
         boolean check = false;
         Connection conn = null;
         PreparedStatement ptm = null;
@@ -213,12 +260,11 @@ public class BillDAO {
             conn = DBUtils.getConnection();
             if (conn != null) {
                 ptm = conn.prepareStatement(UPDATEBILLDETAIL);
-                ptm.setString(1, billID);
+                ptm.setInt(1, billID);
                 ptm.setInt(2, b.getService().getDetailID());
                 ptm.setInt(3, b.getQty());
                 ptm.setDouble(4, b.getTotal());
-                ptm.setString(5, b.getDescription());
-                ptm.setString(6, b.getBilldetailID());
+                ptm.setInt(5, b.getBilldetailID());
                 check = ptm.executeUpdate() > 0 ? true : false;
             }
         } catch (Exception e) {
@@ -235,34 +281,37 @@ public class BillDAO {
     }
 
     public static void main(String[] args) throws SQLException {
-    try{
-        List<BillDetailDTO> Des = new ArrayList<>();
-        ServiceDAO dao = new ServiceDAO();
-        BillDAO Bdao = new BillDAO();
-        BillDTO b = Bdao.Get_A_ProcessBill("312469817");
-        System.out.println(b.getBillID()+" "+b.getTotal());
-        for (BillDetailDTO dList : b.getDetails()){
-        System.out.println(dList.getBilldetailID()+"  "+dList.getQty()+" "+dList.getService().getUnit_price()+" "+dList.getTotal());
-        }
+        try {
+            RoomDAO dao = new RoomDAO();
+            CustomerDAO Cusdao = new CustomerDAO();
+            ContractDAO Cdao = new ContractDAO();
+            BillDAO Bdao = new BillDAO();
 
+            List<HostelDTO> HostelList = dao.GetListHostel("1");
+            List<RoomDTO> RoomList = dao.GetListRoom(HostelList);
+            List<ContractDTO> ContractList = Cdao.GetListContract(RoomList);
+            List<CustomerDTO> CusList = Cusdao.GetListCustomer(ContractList);
+            List<BillDTO> BillList = Bdao.GetListBill(CusList);
 
-    }catch(Exception ex){}
-//        List<HostelDTO> list = dao.GetListHostel("1");
-//        room = dao.GetListRoom(list);
-//        Contract = Contractdao.GetListContract(room);
-//        Cus = Cusdao.GetListCustomer(Contract);
-//
-//        for(ContractDTO w : Contract){
-//            System.out.println(w.getContractID());
-//        }
-//        for(CustomerDTO w : Cus){
-//            System.out.println(w.getFullname());
-//        }
-//        ProductSize list = dao.getProductAllSize("1");
-////        for(Product o :list){
-//            System.out.println(list);
+//            List<BillDetailDTO> list = Bdao.GetListBillDetail(3);
+//            for (BillDetailDTO B : list) {
+//                System.out.println(B.getBilldetailID()+", "+B.getService());
+//            }
+//            for (BillDetailDTO B : Bill.getDetails()) {
+//                System.out.println(B.getService().getDetailname()+ ", ");
+//            }
+
+            for (BillDTO B : BillList) {
+                System.out.println(B.getBillID() + ", Price: " + B.getTotal());
+                System.out.print("     ");
+                for (BillDetailDTO BL : B.getDetails()) {
+
+                    System.out.print(BL.getService().getDetailID() + ", ");
+                }
+                System.out.println();
+            }
+        } catch (Exception ex) {
         }
-        
     }
 
-
+}

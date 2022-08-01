@@ -29,7 +29,7 @@ public class ServiceDAO {
     private static final String ADD_SERVICE = "INSERT INTO dbo.[ServiceType](service_name) VALUES(?)";
 
     private final static String GET_A_LATEST_SERVICEDETAIL = "SELECT TOP 1 * FROM dbo.[ServiceDetail] WHERE service_id = ? AND hostel_id = ? AND status = 'ACTIVE' ORDER BY detail_id DESC";
-    private final static String GET_A_SERVICEDETAIL = "SELECT * FROM dbo.[ServiceDetail] WHERE detail_id = ? AND status Not IN ('DELETE')";
+    private final static String GET_A_SERVICEDETAIL = "SELECT * FROM dbo.[ServiceDetail] WHERE detail_id = ?";
     private final static String GET_SERVICEDETAIL = "SELECT * FROM dbo.[ServiceDetail] WHERE hostel_id = ? AND status Not IN ('DELETE')";
     private static final String ADD_SERVICEDETAIL = "INSERT INTO dbo.[ServiceDetail](detail_name, calculation_unit, unit_price, updated_date, description, status, hostel_id, service_id) VALUES(?,?,?,?,?,?,?,?)";
 

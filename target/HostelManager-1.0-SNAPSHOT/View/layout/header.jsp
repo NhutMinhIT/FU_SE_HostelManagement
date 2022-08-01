@@ -8,8 +8,11 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> 
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
         <title>MoonHostel</title>
         <link rel="icon" type="image/png" href="${pageContext.request.contextPath}/assets/img/logo.png" sizes="16x16">
         <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
@@ -68,7 +71,10 @@
                                 <div class="sb-nav-link-icon"><i class="fas fa-bolt"></i></div>
                                 Quản Lý Tiêu                               
                             </a>
-
+                            <a class="nav-link collapsed" href="${pageContext.request.contextPath}/MainController?action=BillPage">
+                                <div class="sb-nav-link-icon"><i class="fas fa-money-bill"></i></div>
+                                Tính tiền                               
+                            </a>
 
 
                             <div class="sb-sidenav-menu-heading">Khác</div>

@@ -28,6 +28,7 @@ public class MainController extends HttpServlet {
     private static final String CUSTOMER_PAGE = "CustomerPageController";
     private static final String ROOM_PAGE = "RoomPageController";
     private static final String SERVICE_PAGE = "ServicePageController";
+    private static final String BILL_PAGE = "BillPageController";
 
     private static final String ADD_ROOM = "AddRoomController";
     private static final String ADD_HOSTEL = "AddHostelController";
@@ -74,6 +75,9 @@ public class MainController extends HttpServlet {
                     break;
                 case "ServicePage":
                     url = SERVICE_PAGE;
+                    break;
+                case "BillPage":
+                    url = BILL_PAGE;
                     break;
 //--ADD------------------------------------------------------------------------------
                 case "AddRoom":

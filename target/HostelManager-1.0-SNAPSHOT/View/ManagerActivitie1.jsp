@@ -39,9 +39,8 @@
                 <div class="tab-content">
                     <div role="tabpanel" class="tab-pane fade show active" id="moon">
                         <form action="">
-                            <h2>Moon Hostel</h2>
-                            <div class="container-fluid">  
-                                <h3 class="mt-3">Nước</h3>
+                            <br/>                           
+                            <div class="container-fluid">
                                 <input type="search" oninput="filter_table(this, 'table_filter')" class="form_control"
                                        placeholder="Filter This Table...">
                                 <table class="_table table_sort">
@@ -52,11 +51,35 @@
                                             <th style="width: 20%">Khách Thuê</th>
                                             <th>Số Điện Mới</th>
                                             <th>Số Điện Cũ</th>
-                                            <th>Sử Dụng</th>
+                                            <th>Số Nước Cũ</th>
+                                            <th>Số Nước Cũ</th>
                                             <th style="width:7%">Action</th>
                                         </tr>
                                     </thead>
                                     <tbody id="table_filter">
+                                        <tr>
+                                            <td>Moon</td>
+                                            <td>01</td>
+                                            <td>Quang Hùng</td>
+                                            <td>
+                                                <input style="width: 100%" oninput="checkNumber()" type="number" id="n1">                                    
+                                            </td>
+                                            <td>
+                                                <input style="width: 100%" type="number" id="n2">
+                                            </td>
+
+                                            <td>
+                                                <input style="width: 100%" type="number" id="n2">
+                                            </td>
+                                            <td>
+                                                <input style="width: 100%" type="number" id="n2">
+                                            </td>
+                                            <td>
+                                                <button onclick="myFunction()" class="btn btn-primary"><i class="fa fa-save fa-beat" ></i>Lưu</button>
+
+                                            </td>
+                                        </tr>
+
                                         <tr>
                                             <td>Moon</td>
                                             <td>02</td>
@@ -67,43 +90,12 @@
                                             <td>
                                                 <input style="width: 100%" type="number" id="n2">
                                             </td>
-                                            <td>
-                                                <input style="width: 100%" type="text" id="result">
-                                            </td>
-                                            <td>
-                                                <button onclick="myFunction()"class="btn btn-primary"><i class="fa fa-save fa-beat" ></i>Lưu</button>
 
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Moon</td>
-                                            <td>02</td>
-                                            <td>Quang Hùng</td>
-                                            <td>
-                                                <input style="width: 100%" oninput="checkNumber()" type="number" id="n1">                                    
-                                            </td>
                                             <td>
                                                 <input style="width: 100%" type="number" id="n2">
                                             </td>
                                             <td>
-                                                <input style="width: 100%" type="text" id="result">
-                                            </td>
-                                            <td>
-                                                <button onclick="myFunction()"class="btn btn-primary"><i class="fa fa-save fa-beat" ></i>Lưu</button>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Moon</td>
-                                            <td>02</td>
-                                            <td>Minh Trí</td>
-                                            <td>
-                                                <input style="width: 100%" oninput="checkNumber()" type="number" id="n1">                                    
-                                            </td>
-                                            <td>
                                                 <input style="width: 100%" type="number" id="n2">
-                                            </td>
-                                            <td>
-                                                <input style="width: 100%" type="text" id="result">
                                             </td>
                                             <td>
                                                 <button onclick="myFunction()" class="btn btn-primary"><i class="fa fa-save fa-beat" ></i>Lưu</button>
@@ -112,236 +104,85 @@
                                         </tr>
                                     </tbody>
                                 </table>
-
-
-                                <h3 class="mt-3">Điện</h3>
-                                <input type="search" oninput="filter_table(this, 'table_filter')" class="form_control"
-                                       placeholder="Filter This Table...">
-                                <table class="_table table_sort">
-                                    <thead>
-                                        <tr>
-                                            <th style="width: 6%">Nhà</th>
-                                            <th style="width: 7%">Phòng</th>
-                                            <th style="width: 20%">Khách Thuê</th>
-                                            <th>Số Điện Mới</th>
-                                            <th>Số Điện Cũ</th>
-                                            <th>Sử Dụng</th>
-                                            <th style="width:7%">Action</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody id="table_filter">
-                                        <tr>
-                                            <td>Moon</td>
-                                            <td>02</td>
-                                            <td>Nhựt Minh</td>
-                                            <td>
-                                                <input style="width: 100%" oninput="checkNumber()" type="number" id="n1">                                    
-                                            </td>
-                                            <td>
-                                                <input style="width: 100%" type="number" id="n2">
-                                            </td>
-                                            <td>
-                                                <input style="width: 100%" type="text" id="result">
-                                            </td>
-                                            <td>
-                                                <button onclick="myFunction()" class="btn btn-primary"><i class="fa fa-save fa-beat" ></i>Lưu</button>
-
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Moon</td>
-                                            <td>02</td>
-                                            <td>Quang Hùng</td>
-                                            <td>
-                                                <input style="width: 100%" oninput="checkNumber()" type="number" id="n1">                                    
-                                            </td>
-                                            <td>
-                                                <input style="width: 100%" type="number" id="n2">
-                                            </td>
-                                            <td>
-                                                <input style="width: 100%" type="text" id="result">
-                                            </td>
-                                            <td>
-                                                <button onclick="myFunction()" class="btn btn-primary"><i class="fa fa-save fa-beat" ></i>Lưu</button>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Moon</td>
-                                            <td>02</td>
-                                            <td>Minh Trí</td>
-                                            <td>
-                                                <input style="width: 100%" oninput="checkNumber()" type="number" id="n1">                                    
-                                            </td>
-                                            <td>
-                                                <input style="width: 100%" type="number" id="n2">
-                                            </td>
-                                            <td>
-                                                <input style="width: 100%" type="text" id="result">
-                                            </td>
-                                            <td>
-                                                <button onclick="myFunction()" class="btn btn-primary"><i class="fa fa-save fa-beat" ></i>Lưu</button>
-
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-
                             </div>
                         </form>
                     </div>
+
                     <div role="tabpanel" class="tab-pane fade show" id="bae1">
                         <form action="">
-                            <h2>Bae Hostel</h2>
-                            <div class="container-fluid">  
-                                <h3 class="mt-3">Nước</h3>
-                                <input type="search" oninput="filter_table(this, 'table_filter')" class="form_control"
-                                       placeholder="Filter This Table...">
-                                <table class="_table table_sort">
-                                    <thead>
-                                        <tr>
+                            <br/>                                
+
+                            <div role="tabpanel" class="tab-pane fade show active" id="bae1Water">
+                                <div class="container-fluid">
+                                    <input type="search" oninput="filter_table(this, 'table_filter')" class="form_control"
+                                           placeholder="Filter This Table...">
+                                    <table class="_table table_sort">
+                                        <thead>
+                                            <tr>
                                             <th style="width: 6%">Nhà</th>
                                             <th style="width: 7%">Phòng</th>
                                             <th style="width: 20%">Khách Thuê</th>
                                             <th>Số Điện Mới</th>
                                             <th>Số Điện Cũ</th>
-                                            <th>Sử Dụng</th>
+                                            <th>Số Nước Cũ</th>
+                                            <th>Số Nước Cũ</th>
                                             <th style="width:7%">Action</th>
                                         </tr>
-                                    </thead>
-                                    <tbody id="table_filter">
-                                        <tr>
-                                            <td>Moon</td>
-                                            <td>02</td>
-                                            <td>Nhựt Minh</td>
+                                        </thead>
+                                        <tbody id="table_filter">
+                                            <tr>
+                                            <td>BAE</td>
+                                            <td>01</td>
+                                            <td>Nhựt MMM</td>
                                             <td>
                                                 <input style="width: 100%" oninput="checkNumber()" type="number" id="n1">                                    
                                             </td>
                                             <td>
                                                 <input style="width: 100%" type="number" id="n2">
                                             </td>
+
                                             <td>
-                                                <input style="width: 100%" type="text" id="result">
+                                                <input style="width: 100%" type="number" id="n2">
+                                            </td>
+                                            <td>
+                                                <input style="width: 100%" type="number" id="n2">
                                             </td>
                                             <td>
                                                 <button onclick="myFunction()" class="btn btn-primary"><i class="fa fa-save fa-beat" ></i>Lưu</button>
 
                                             </td>
                                         </tr>
-                                        <tr>
-                                            <td>Moon</td>
-                                            <td>02</td>
-                                            <td>Quang Hùng</td>
+
+                                            <tr>
+                                            <td>BAE</td>
+                                            <td>04</td>
+                                            <td>Phan Tu</td>
                                             <td>
                                                 <input style="width: 100%" oninput="checkNumber()" type="number" id="n1">                                    
                                             </td>
                                             <td>
                                                 <input style="width: 100%" type="number" id="n2">
                                             </td>
-                                            <td>
-                                                <input style="width: 100%" type="text" id="result">
-                                            </td>
-                                            <td>
-                                                <button onclick="myFunction()" class="btn btn-primary"><i class="fa fa-save fa-beat" ></i>Lưu</button>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Moon</td>
-                                            <td>02</td>
-                                            <td>Minh Trí</td>
-                                            <td>
-                                                <input style="width: 100%" oninput="checkNumber()" type="number" id="n1">                                    
-                                            </td>
+
                                             <td>
                                                 <input style="width: 100%" type="number" id="n2">
                                             </td>
                                             <td>
-                                                <input style="width: 100%" type="text" id="result">
+                                                <input style="width: 100%" type="number" id="n2">
                                             </td>
                                             <td>
                                                 <button onclick="myFunction()" class="btn btn-primary"><i class="fa fa-save fa-beat" ></i>Lưu</button>
 
                                             </td>
                                         </tr>
-                                    </tbody>
-                                </table>
-
-
-                                <h3 class="mt-2">Điện</h3>
-                                <input type="search" oninput="filter_table(this, 'table_filter')" class="form_control"
-                                       placeholder="Filter This Table...">
-                                <table class="_table table_sort">
-                                    <thead>
-                                        <tr>
-                                            <th style="width: 6%">Nhà</th>
-                                            <th style="width: 7%">Phòng</th>
-                                            <th style="width: 20%">Khách Thuê</th>
-                                            <th>Số Điện Mới</th>
-                                            <th>Số Điện Cũ</th>
-                                            <th>Sử Dụng</th>
-                                            <th style="width:7%">Action</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody id="table_filter">
-                                        <tr>
-                                            <td>Moon</td>
-                                            <td>02</td>
-                                            <td>Nhựt Minh</td>
-                                            <td>
-                                                <input style="width: 100%" oninput="checkNumber()" type="number" id="n1">                                    
-                                            </td>
-                                            <td>
-                                                <input style="width: 100%" type="number" id="n2">
-                                            </td>
-                                            <td>
-                                                <input style="width: 100%" type="text" id="result">
-                                            </td>
-                                            <td>
-                                                <button onclick="myFunction()"><i class="fa fa-save" ></i>Lưu</button>
-
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Moon</td>
-                                            <td>02</td>
-                                            <td>Quang Hùng</td>
-                                            <td>
-                                                <input style="width: 100%" oninput="checkNumber()" type="number" id="n1">                                    
-                                            </td>
-                                            <td>
-                                                <input style="width: 100%" type="number" id="n2">
-                                            </td>
-                                            <td>
-                                                <input style="width: 100%" type="text" id="result">
-                                            </td>
-                                            <td>
-                                                <button onclick="myFunction()"><i class="fa fa-save" ></i>Lưu</button>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Moon</td>
-                                            <td>02</td>
-                                            <td>Minh Trí</td>
-                                            <td>
-                                                <input style="width: 100%" oninput="checkNumber()" type="number" id="n1">                                    
-                                            </td>
-                                            <td>
-                                                <input style="width: 100%" type="number" id="n2">
-                                            </td>
-                                            <td>
-                                                <input style="width: 100%" type="text" id="result">
-                                            </td>
-                                            <td>
-                                                <button onclick="myFunction()"><i class="fa fa-save" ></i>Lưu</button>
-
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
+                                        </tbody>
+                                    </table>
+                                </div>
 
                             </div>
                         </form>
                     </div>
-
+                </div>
             </main>
             <footer class="py-4 bg-light mt-5">
                 <div class="container-fluid px-4">

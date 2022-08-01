@@ -75,7 +75,7 @@
                                             <select id="#" name="hostel_id" style="padding:6px 0; border-radius: 3px; width: 50%" >
                                                 <c:forEach items="${HostelList}" var="H">
                                                     <c:choose>
-                                                        <c:when test="${ST.hostelID == ServiceDetail.hostelID}">
+                                                        <c:when test="${H.hostelID == ServiceDetail.hostelID}">
                                                             <option value="${H.hostelID}" selected>${H.hostelname}</option> 
                                                         </c:when>
                                                         <c:otherwise>

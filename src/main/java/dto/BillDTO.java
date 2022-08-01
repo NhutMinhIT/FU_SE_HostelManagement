@@ -14,7 +14,7 @@ import java.util.List;
  */
 public class BillDTO {
 
-    private String billID;
+    private int billID;
     private String customerID;
     private double total;
     private Date start_date;
@@ -24,7 +24,7 @@ public class BillDTO {
     private List<BillDetailDTO> details;
 
 
-    public BillDTO(String billID, String customerID, double total, Date start_date, Date end_date, Date created, String status, List<BillDetailDTO> details) {
+    public BillDTO(int billID, String customerID, double total, Date start_date, Date end_date, Date created, String status, List<BillDetailDTO> details) {
         this.billID = billID;
         this.customerID = customerID;
         this.total = total;
@@ -35,7 +35,7 @@ public class BillDTO {
         this.details = details;
     }
 
-    public BillDetailDTO GetDetailByID(String id) {
+    public BillDetailDTO GetDetailByID(int id) {
         for (BillDetailDTO i : details) {
             if (i.getBilldetailID() == id) {
                 return i;
@@ -44,12 +44,12 @@ public class BillDTO {
         return null;
     }
 
-    public Double getDetailQuantityByID(String id) {
+    public Double getDetailQuantityByID(int id) {
         return GetDetailByID(id).getTotal();
     }
 
-    public void RemoveDetail(String id) {
-        if (GetDetailByID(id).getBilldetailID() != null) {
+    public void RemoveDetail(int id) {
+        if (GetDetailByID(id).getBilldetailID() != 0) {
             details.remove(GetDetailByID(id));
         }
     }
@@ -62,13 +62,15 @@ public class BillDTO {
         this.details = details;
     }
 
-    public String getBillID() {
+    public int getBillID() {
         return billID;
     }
 
-    public void setBillID(String billID) {
+    public void setBillID(int billID) {
         this.billID = billID;
     }
+
+    
 
     public String getCustomerID() {
         return customerID;
