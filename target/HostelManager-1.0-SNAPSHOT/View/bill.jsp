@@ -120,11 +120,11 @@
                                                                                     </tr>
                                                                                     <tr id="detail_${B.billID}" class="collapse cell-1 row-child">
                                                                                         <td colspan="9" style="background-color: #ddd">
-                                                                                            <h4 style="text-align: center">Chi tiết hóa đơn</h4>
+                                                                                            <h4 style="text-align: right; margin-right: 300px">Chi tiết hóa đơn</h4>
 
                                                                                             <c:forEach items="${B.details}" var="BD">                                                                                            
                                                                                                 <div class="row">
-                                                                                                    <div style="text-align: center" class="col-sm-8">${BD.service.detailname}</div>
+                                                                                                    <div style="text-align: right" class="col-sm-8">${BD.service.detailname}</div>
                                                                                                     <div  class="col-sm-4"> <input style="border: none" type="text" dir="rtl" value="${BD.total}" disabled="disabled"></div>
                                                                                                 </div>               
                                                                                             </c:forEach>
@@ -198,11 +198,11 @@
                                                                                     </tr>
                                                                                     <tr id="detail_${B.billID}" class="collapse cell-1 row-child">
                                                                                         <td colspan="9" style="background-color: #ddd">
-                                                                                            <h4 style="text-align: center">Chi tiết hóa đơn</h4>
+                                                                                            <h4 style="text-align: right; margin-right: 300px">Chi tiết hóa đơn</h4>
 
-                                                                                            <c:forEach items="${B.BillDetailList}" var="BD">                                                                                            
+                                                                                            <c:forEach items="${B.details}" var="BD">                                                                                            
                                                                                                 <div class="row">
-                                                                                                    <div style="text-align: center" class="col-sm-8">${BD.service.detailname}</div>
+                                                                                                    <div style="text-align: right" class="col-sm-8">${BD.service.detailname}</div>
                                                                                                     <div  class="col-sm-4"> <input style="border: none" type="text" dir="rtl" value="${BD.total}" disabled="disabled"></div>
                                                                                                 </div>               
                                                                                             </c:forEach>
