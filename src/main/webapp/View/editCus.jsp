@@ -120,19 +120,14 @@
                                         </div>
                                     </div>
 
-                                    <div class="form-group row mt-2">
-                                        <label  class="col-sm-2 col-form-label">Ngày Thuê</label>
-                                        <div class="col-sm-10">
-                                            <input type="date" class="form-control" value="${Contract.signed_date}" disabled="disabled" >
-                                        </div>
-                                    </div>
+
                                 </div>
                             </div>
 
 
                             <div role="tabpanel" class="tab-pane fade show " id="member" >
                                 <div class="card px-3 py-3">
-                                    <table  class="table table-striped table-bordered">                                           
+                                    <table  class="table table-striped table-bordered "  >
                                         <thead>
                                             <tr>
                                                 <th style=" text-align: center">Tên</th>
@@ -145,53 +140,69 @@
                                             </tr>
                                         </thead>
                                         <tbody id="tblSample">
-                                            <tr>
-                                                <td><input type="text" name="name" value="Phan Minh Tri" style="width: 100% ;text-align: center"></td>
-                                                <td><input type="text" name="date" value="24/09/2001" ></td>
-                                                <td style="text-align: center">
-                                                    <input type="radio" checked="">Nam <br/>
-                                                    <input type="radio" name="radio"  /> Nữ
-                                                </td>
-                                                <td><input type="text" name="cmnd" value="1234567890" style=" text-align: center"></td>
-                                                <td><input type="text" name="address" style="width: 100%; text-align: center"
-                                                           value="288/3 Man Thiên, phường Tăng Nhơn Phú A, Quận 9, Tp. Hồ Chí Minh."
-                                                           disabled="disabled">
-                                                </td>
-                                                <td><input type="text" name="phone" value="0986785483" style="width: 100%; text-align: center"></td>
-                                                <td style="display: flex;">
-                                                <td><button onclick="deleterow('tblSample')" class="btn btn-danger"><i class="fa fa-minus-circle"></i></button></td>                                                        
+                                            <c:forEach items="${RoomMate}" var="RM"> 
+                                                <c:if test="${RM.customerID != Customer.customerID}">
+                                                    <tr>
+                                                        <td><input type="text" name="fullname1" style="width: 100% ;text-align: center" value="${RM.fullname}"></td>
+                                                        <td><input type="date" name="dob1"></td>
+                                                        <td style="text-align: center">
+                                                            <c:choose>
+                                                                <c:when test="${RM.gender == 'Male'}" >
+                                                                    <input type="radio" name="gender" value="Male"checked/> Nam
+                                                                    <input type="radio" name="gender" value="Female" />Nữ
+                                                                </c:when>
+                                                                <c:otherwise>
+                                                                    <input type="radio" name="gender" value="Male"/> Nam
+                                                                    <input type="radio" name="gender" value="Female" checked/>Nữ                                                   
+                                                                </c:otherwise>
+                                                            </c:choose>
+                                                        </td>
+                                                        <td><input type="text" name="customerID1" style=" text-align: center" value="${RM.customerID}"></td>
+                                                        <td><input type="text" name="address1" style="width: 100%; text-align: center" value="${RM.address}"></td>
+                                                        <td><input type="text" name="phone1" style="width: 100%; text-align: center" value="${RM.phone}"></td>
+                                                        <td><button type="button" class="btn btn-primary table-elipse" data-toggle="collapse" data-target="#mate_2" title="Thêm thành viên"><i class="fa fa-plus fa-beat" ></i></button></td>
+                                                    </tr>
+                                                </c:if>
+                                            </c:forEach>
+                                            <c:forEach var = "i" begin = "${length}" end = "4">
+                                                <tr id="mate_${i}" class="collapse cell-1 row-child">
+                                                    <td colspan="9">
+                                                        <table class="table table-striped table-bordered "  >
+                                                            <thead>
+                                                                <tr>
+                                                                    <th style="text-align: center">Tên</th>
+                                                                    <th style="text-align: center">Ngày sinh</th>
+                                                                    <th style="text-align: center">Giới tính</th>
+                                                                    <th style="text-align: center">CMND/CCCD</th>   
+                                                                    <th style="text-align: center">Địa chỉ</th> 
+                                                                    <th style="text-align: center">Số điện thoại</th> 
+                                                                    <th style=""></th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody id="table_filter">
+                                                                <tr>
+                                                                    <td><input type="text" name="fullname${i}" style="width: 100% ;text-align: center"></td>
+                                                                    <td><input type="date" name="dob${i}"></td>
+                                                                    <td style="text-align: center">
+                                                                        <input type="radio" name="gender${i}" value="Male" checked/>Nam
+                                                                        <input type="radio" name="gender${i}" value="Female"/> Nữ
+                                                                    </td>
+                                                                    <td><input type="text" name="customerID${i}" style=" text-align: center"></td>
+                                                                    <td><input type="text" name="address${i}" style="width: 100%; text-align: center"></td>
+                                                                    <td><input type="text" name="phone${i}" style="width: 100%; text-align: center"></td>
+                                                                    <td><button type="button" class="btn btn-primary table-elipse" data-toggle="collapse" data-target="#mate_${i+1}" title="Thêm thành viên"><i class="fa fa-plus fa-beat" ></i></button></td>
+                                                                </tr>  
+                                                            </tbody>
+                                                        </table>
 
-                                            </tr>
-                                            <tr>
-                                                <td><input type="text" name="name" value="" style="width: 100% ;text-align: center"></td>
-                                                <td><input type="text" name="date" value="" ></td>
-                                                <td style="text-align: center">
-                                                    <input type="radio" checked="">Nam <br/>
-                                                    <input type="radio" name="radio" /> Nữ
-                                                </td>
-                                                <td><input type="text" name="cmnd" value="" style=" text-align: center"></td>
-                                                <td><input type="text" name="address" style="width: 100%; text-align: center"
-                                                           value=""
-                                                           disabled="disabled">
-                                                </td>
-                                                <td><input type="text" name="phone" value="" style="width: 100%; text-align: center"></td>
-                                                <td style="display: flex;">
-                                                <td><button onclick="deleterow('tblSample')" class="btn btn-danger"><i class="fa fa-minus-circle"></i></button></td>                                                   
-
-                                            </tr>
+                                                    </td>
+                                                </tr>
+                                            </c:forEach>
                                         </tbody>
-
                                     </table>
-
-                                    <div>
-                                        <div style="float:right">
-                                            <button onclick="addRow('tblSample')" type="button" class="btn btn-success pull-right add-row"><i class="fa fa-plus-circle"></i></button>
-                                        </div>
-
-                                    </div>
                                 </div>
-
                             </div>
+
                             <div role="tabpanel" class="tab-pane fade show " id="contract" >
                                 <div class="card px-3 py-3">
                                     <div class="form-group row mt-2">
@@ -244,34 +255,34 @@
     <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
     <script type="text/javascript">
 
-                                                function deleterow(tblId)
-                                                {
+        function deleterow(tblId)
+        {
 
-                                                    var table = document.getElementById(tblId);
-                                                    var row = table.getElementsByTagName('tr');
-                                                    if (row.length > '1') {
-                                                        row[row.length - 1].outerHTML = '';
-                                                    } else {
-                                                        window.alert('Cần ít nhất 1 thành viên hoặc chọn xóa phòng');
-                                                    }
-                                                }
+            var table = document.getElementById(tblId);
+            var row = table.getElementsByTagName('tr');
+            if (row.length > '1') {
+                row[row.length - 1].outerHTML = '';
+            } else {
+                window.alert('Cần ít nhất 1 thành viên hoặc chọn xóa phòng');
+            }
+        }
 
-                                                function addRow(myTable) {
-                                                    var table = document.getElementById(myTable);
-                                                    var row = table.getElementsByTagName('tr');
-                                                    if (row.length < '4') {
-                                                        var row = row[row.length - 1].outerHTML;
-                                                        table.innerHTML = table.innerHTML + row;
-                                                        for (i = 0; i < row.length; i++) {
-                                                            row[i].innerHTML = '';
-                                                        }
+        function addRow(myTable) {
+            var table = document.getElementById(myTable);
+            var row = table.getElementsByTagName('tr');
+            if (row.length < '4') {
+                var row = row[row.length - 1].outerHTML;
+                table.innerHTML = table.innerHTML + row;
+                for (i = 0; i < row.length; i++) {
+                    row[i].innerHTML = '';
+                }
 
-                                                    } else {
-                                                        window.alert('Phòng tối đa 4 người');
-                                                    }
+            } else {
+                window.alert('Phòng tối đa 4 người');
+            }
 
 
-                                                }
+        }
     </script>
 
 </body>

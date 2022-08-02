@@ -34,7 +34,7 @@ public class BillDAO {
     private static final String GETCURRENTBILLDETAIL_ELEMENT = "SELECT TOP (1) * FROM dbo.[BillDetail] WHERE bill_id = ? AND detail_id = ? ORDER BY billd_id DESC ";
     private static final String GETBILLDETAIL_LIST = "SELECT * FROM dbo.[BillDetail] WHERE bill_id = ?";
 
-    private static final String ADDBILL = "INSERT INTO dbo.[Bill]([customer_id],[total],[start_date],[end_date],[created],[status]) VALUES(?,?,?,?,?,'PROCESSING')";
+    private static final String ADDBILL = "INSERT INTO dbo.[Bill]([customer_id],[total],[start_date],[end_date],[created],[status]) VALUES(?,?,?,?,?,'PROCESS')";
     private static final String ADDBILLDETAIL = "INSERT INTO dbo.[BillDetail]([bill_id],[detail_id],[qty],[total]) VALUES(?,?,?,?)";
 
     private static final String UPDATEBILL = "UPDATE dbo.[Bill] SET customer_id = ?, total = ?, start_date = ?, end_date = ?, created = ?, status = ? where bill_id = ?";
@@ -50,6 +50,98 @@ public class BillDAO {
                 conn = DBUtils.getConnection();
                 if (conn != null) {
                     ptm = conn.prepareStatement(GETBILL_LIST);
+                    ptm.setString(1, i.getCustomerID());
+                    rs = ptm.executeQuery();
+                    while (rs.next()) {
+                        List<BillDetailDTO> DetailList = new ArrayList<>();
+                        int BillID = rs.getInt("bill_id");
+                        String customerID = rs.getString("customer_id");
+                        Date start = rs.getDate("start_date");
+                        Date end = rs.getDate("end_date");
+                        Date created = rs.getDate("created");
+                        String status = rs.getString("status");
+
+                        DetailList = this.GetListBillDetail(BillID);
+                        Double total = 0.0;
+                        for (BillDetailDTO dList : DetailList) {
+                            total += dList.getTotal();
+                        }
+                        list.add(new BillDTO(BillID, customerID, total, start, end, created, status, DetailList));
+                    }
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            } finally {
+                if (rs != null) {
+                    rs.close();
+                }
+                if (ptm != null) {
+                    ptm.close();
+                }
+                if (conn != null) {
+                    conn.close();
+                }
+            }
+        }
+        return list;
+    }
+
+    public List<BillDTO> GetListBill_COMPLETE(List<CustomerDTO> CusList) throws SQLException {
+        List<BillDTO> list = new ArrayList<>();
+        for (CustomerDTO i : CusList) {
+            Connection conn = null;
+            PreparedStatement ptm = null;
+            ResultSet rs = null;
+            try {
+                conn = DBUtils.getConnection();
+                if (conn != null) {
+                    ptm = conn.prepareStatement(GETBILL_LASTEST_COMPLETE);
+                    ptm.setString(1, i.getCustomerID());
+                    rs = ptm.executeQuery();
+                    while (rs.next()) {
+                        List<BillDetailDTO> DetailList = new ArrayList<>();
+                        int BillID = rs.getInt("bill_id");
+                        String customerID = rs.getString("customer_id");
+                        Date start = rs.getDate("start_date");
+                        Date end = rs.getDate("end_date");
+                        Date created = rs.getDate("created");
+                        String status = rs.getString("status");
+
+                        DetailList = this.GetListBillDetail(BillID);
+                        Double total = 0.0;
+                        for (BillDetailDTO dList : DetailList) {
+                            total += dList.getTotal();
+                        }
+                        list.add(new BillDTO(BillID, customerID, total, start, end, created, status, DetailList));
+                    }
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            } finally {
+                if (rs != null) {
+                    rs.close();
+                }
+                if (ptm != null) {
+                    ptm.close();
+                }
+                if (conn != null) {
+                    conn.close();
+                }
+            }
+        }
+        return list;
+    }
+
+    public List<BillDTO> GetListBill_PROCESS(List<CustomerDTO> CusList) throws SQLException {
+        List<BillDTO> list = new ArrayList<>();
+        for (CustomerDTO i : CusList) {
+            Connection conn = null;
+            PreparedStatement ptm = null;
+            ResultSet rs = null;
+            try {
+                conn = DBUtils.getConnection();
+                if (conn != null) {
+                    ptm = conn.prepareStatement(GETBILL_LASTEST_PROCESS);
                     ptm.setString(1, i.getCustomerID());
                     rs = ptm.executeQuery();
                     while (rs.next()) {
@@ -111,7 +203,6 @@ public class BillDAO {
                 }
             }
         } catch (Exception e) {
-            e.printStackTrace();
         } finally {
             if (rs != null) {
                 rs.close();
@@ -148,7 +239,7 @@ public class BillDAO {
                 }
             }
         } catch (Exception e) {
-            e.printStackTrace();
+            e.getMessage();
         } finally {
             if (rs != null) {
                 rs.close();
@@ -286,32 +377,36 @@ public class BillDAO {
             CustomerDAO Cusdao = new CustomerDAO();
             ContractDAO Cdao = new ContractDAO();
             BillDAO Bdao = new BillDAO();
+            ServiceDAO Sdao = new ServiceDAO();
 
-            List<HostelDTO> HostelList = dao.GetListHostel("1");
-            List<RoomDTO> RoomList = dao.GetListRoom(HostelList);
-            List<ContractDTO> ContractList = Cdao.GetListContract(RoomList);
-            List<CustomerDTO> CusList = Cusdao.GetListCustomer(ContractList);
-            List<BillDTO> BillList = Bdao.GetListBill(CusList);
+//            List<HostelDTO> HostelList = dao.GetListHostel("1");
+//            List<RoomDTO> RoomList = dao.GetListRoom(HostelList);
+//            List<ContractDTO> ContractList = Cdao.GetListContract(RoomList);
+//            List<CustomerDTO> CusList = Cusdao.GetListCustomer(ContractList);
+//            List<BillDTO> BillList = Bdao.GetListBill(CusList);
+//
+////            List<BillDetailDTO> list = Bdao.GetListBillDetail(3);
+////            for (BillDetailDTO B : list) {
+////                System.out.println(B.getBilldetailID()+", "+B.getService());
+////            }
+////            for (BillDetailDTO B : Bill.getDetails()) {
+////                System.out.println(B.getService().getDetailname()+ ", ");
+////            }
+            BillDTO Bil = Bdao.Get_A_ProcessBill("312469817");
+            ServiceDetailDTO current = Sdao.GetAServiceDetail(12012);
+            BillDetailDTO BD = new BillDetailDTO(1, current, 0, 0.0);
+            Bdao.AddBillDetail(BD, Bil.getBillID());
+            Bdao.GetListBillDetail(Bil.getBillID());
 
-//            List<BillDetailDTO> list = Bdao.GetListBillDetail(3);
-//            for (BillDetailDTO B : list) {
-//                System.out.println(B.getBilldetailID()+", "+B.getService());
-//            }
-//            for (BillDetailDTO B : Bill.getDetails()) {
-//                System.out.println(B.getService().getDetailname()+ ", ");
-//            }
+            System.out.println(Bil.getBillID() + ", Price: " + Bil.getTotal());
+            System.out.print("     ");
+            for (BillDetailDTO BL : Bil.getDetails()) {
 
-            for (BillDTO B : BillList) {
-                System.out.println(B.getBillID() + ", Price: " + B.getTotal());
-                System.out.print("     ");
-                for (BillDetailDTO BL : B.getDetails()) {
-
-                    System.out.print(BL.getService().getDetailID() + ", ");
-                }
-                System.out.println();
+                System.out.print(BL.getService().getDetailID() + ", ");
             }
+            System.out.println();
         } catch (Exception ex) {
         }
-    }
 
+    }
 }

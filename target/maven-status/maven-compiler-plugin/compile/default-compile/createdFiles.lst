@@ -1,5 +1,6 @@
 controller\AddRoomController.class
 controller\UpdateRoomController.class
+controller\BillPageController.class
 controller\DeleteServiceController.class
 dao\ContractDAO.class
 controller\CustomerPageController.class

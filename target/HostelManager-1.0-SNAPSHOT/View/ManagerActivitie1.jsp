@@ -6,7 +6,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html lang="en">
+<html>
     <head>
         <meta charset="utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -29,160 +29,106 @@
             <h1 class="m-4 col-md-4 text-info"><i class="fas fa-bolt fa-beat"></i> Quản Lí Tiêu</h1>
             <main class="container-fluid">
                 <ul class="nav nav-tabs">
-                    <li class="nav-item">
-                        <a class="nav-link active" href="#moon" role="tab" data-toggle="tab">Moon Hostel</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#bae1" role="tab" data-toggle="tab">Bae Hostel</a>
-                    </li>
+                    <c:forEach items="${HostelList}" var="Ho">   
+                        <li class="nav-item">
+                            <c:choose>
+                                <c:when test="${Ho.hostelID == HostelList.get(0).hostelID}">
+                                    <a class="nav-link active" href="#${Ho.hostelname}" role="tab" data-toggle="tab">${Ho.hostelname}</a>   
+                                </c:when>
+                                <c:otherwise>
+                                    <a class="nav-link" href="#${Ho.hostelname}" role="tab" data-toggle="tab">${Ho.hostelname}</a>
+                                </c:otherwise>
+                            </c:choose>
+                        </li>
+                    </c:forEach>
                 </ul>
                 <div class="tab-content">
-                    <div role="tabpanel" class="tab-pane fade show active" id="moon">
-                        <form action="">
-                            <br/>                           
-                            <div class="container-fluid">
-                                <input type="search" oninput="filter_table(this, 'table_filter')" class="form_control"
-                                       placeholder="Filter This Table...">
-                                <table class="_table table_sort">
-                                    <thead>
-                                        <tr>
-                                            <th style="width: 6%">Nhà</th>
-                                            <th style="width: 7%">Phòng</th>
-                                            <th style="width: 20%">Khách Thuê</th>
-                                            <th>Số Điện Mới</th>
-                                            <th>Số Điện Cũ</th>
-                                            <th>Số Nước Cũ</th>
-                                            <th>Số Nước Cũ</th>
-                                            <th style="width:7%">Action</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody id="table_filter">
-                                        <tr>
-                                            <td>Moon</td>
-                                            <td>01</td>
-                                            <td>Quang Hùng</td>
-                                            <td>
-                                                <input style="width: 100%" oninput="checkNumber()" type="number" id="n1">                                    
-                                            </td>
-                                            <td>
-                                                <input style="width: 100%" type="number" id="n2">
-                                            </td>
+                    <c:forEach items="${HostelList}" var="Hos">
+                        <c:choose>
+                            <c:when test="${Hos.hostelID == HostelList.get(0).hostelID}">
+                                <div role="tabpanel" class=" tab-pane fade show active" id="${Hos.hostelname}" >   
+                                </c:when>
+                                <c:otherwise>
+                                    <div role="tabpanel" class=" tab-pane fade show" id="${Hos.hostelname}" >
+                                    </c:otherwise>
+                                </c:choose>
+                                <div>
+                                    <form action="${pageContext.request.contextPath}/MainController" method="POST">
+                                        <br/>                           
+                                        <div class="container-fluid">
+                                            <input type="search" oninput="filter_table(this, 'table_filter')" class="form_control"
+                                                   placeholder="Filter This Table...">
+                                            <table class="_table table_sort">
+                                                <thead>
+                                                    <tr>
+                                                        <th style="width: 7%">Phòng</th>
+                                                        <th style="width: 20%">Khách Thuê</th>
+                                                        <th>Số Điện Cũ</th>
+                                                        <th>Số Điện Mới</th>
+                                                        <th>Số Nước Cũ</th>
+                                                        <th>Số Nước Mới</th>
+                                                        <th style="width:7%">Action</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody id="table_filter">
+                                                    <c:forEach items="${ProcessList}" var="B"> 
+                                                        <c:forEach items="${ContractList}" var="C">
+                                                            <c:if test="${C.customerID == B.customerID}">
 
-                                            <td>
-                                                <input style="width: 100%" type="number" id="n2">
-                                            </td>
-                                            <td>
-                                                <input style="width: 100%" type="number" id="n2">
-                                            </td>
-                                            <td>
-                                                <button onclick="myFunction()" class="btn btn-primary"><i class="fa fa-save fa-beat" ></i>Lưu</button>
+                                                                <c:forEach items="${RoomList}" var="R">
+                                                                    <c:if test="${R.roomID == C.roomID}">
 
-                                            </td>
-                                        </tr>
+                                                                        <c:if test="${R.hostelID == Hos.hostelID}">
+                                                                            <tr>
+                                                                                <td>${R.roomnumber}</td>
+                                                                                <c:forEach items="${CusList}" var="Cus">
+                                                                                    <c:if test="${Cus.customerID == C.customerID}">
+                                                                                        <td><a href="${pageContext.request.contextPath}/MainController?action=CustomerPage&CusID=${Cus.customerID}&roomID=${R.roomID}">${Cus.fullname}</a></td>
+                                                                                        </c:if>
+                                                                                    </c:forEach>
+                                                                                    <c:forEach items="${CompleteList}" var="Com">
+                                                                                        <c:if test="${Com.customerID == B.customerID}">
+                                                                                            <c:if test="${Com.details.service.detailID == 1 }">
+                                                                                            <td>
+                                                                                                <input style="width: 100%" oninput="checkNumber()" type="number" id="n1" value="${Com.details.qty}">  
+                                                                                            </td>
+                                                                                        </c:if>
+                                                                                    </c:if>
+                                                                                </c:forEach>
+                                                                                <td>
+                                                                                    <input style="width: 100%" type="number" id="n2">
+                                                                                </td>
 
-                                        <tr>
-                                            <td>Moon</td>
-                                            <td>02</td>
-                                            <td>Nhựt Minh</td>
-                                            <td>
-                                                <input style="width: 100%" oninput="checkNumber()" type="number" id="n1">                                    
-                                            </td>
-                                            <td>
-                                                <input style="width: 100%" type="number" id="n2">
-                                            </td>
+                                                                                <td>
+                                                                                    <input style="width: 100%" type="number" id="n1">
+                                                                                </td>
+                                                                                <td>
+                                                                                    <input style="width: 100%" type="number" id="n2">
+                                                                                </td>
+                                                                                <td>
+                                                                                    <button onclick="myFunction()" class="btn btn-primary"><i class="fa fa-save fa-beat" ></i>Lưu</button>
 
-                                            <td>
-                                                <input style="width: 100%" type="number" id="n2">
-                                            </td>
-                                            <td>
-                                                <input style="width: 100%" type="number" id="n2">
-                                            </td>
-                                            <td>
-                                                <button onclick="myFunction()" class="btn btn-primary"><i class="fa fa-save fa-beat" ></i>Lưu</button>
+                                                                                </td>
+                                                                            </tr>
+                                                                        </c:if>
 
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </form>
-                    </div>
+                                                                    </c:if>
+                                                                </c:forEach>
 
-                    <div role="tabpanel" class="tab-pane fade show" id="bae1">
-                        <form action="">
-                            <br/>                                
+                                                            </c:if>
+                                                        </c:forEach>
 
-                            <div role="tabpanel" class="tab-pane fade show active" id="bae1Water">
-                                <div class="container-fluid">
-                                    <input type="search" oninput="filter_table(this, 'table_filter')" class="form_control"
-                                           placeholder="Filter This Table...">
-                                    <table class="_table table_sort">
-                                        <thead>
-                                            <tr>
-                                            <th style="width: 6%">Nhà</th>
-                                            <th style="width: 7%">Phòng</th>
-                                            <th style="width: 20%">Khách Thuê</th>
-                                            <th>Số Điện Mới</th>
-                                            <th>Số Điện Cũ</th>
-                                            <th>Số Nước Cũ</th>
-                                            <th>Số Nước Cũ</th>
-                                            <th style="width:7%">Action</th>
-                                        </tr>
-                                        </thead>
-                                        <tbody id="table_filter">
-                                            <tr>
-                                            <td>BAE</td>
-                                            <td>01</td>
-                                            <td>Nhựt MMM</td>
-                                            <td>
-                                                <input style="width: 100%" oninput="checkNumber()" type="number" id="n1">                                    
-                                            </td>
-                                            <td>
-                                                <input style="width: 100%" type="number" id="n2">
-                                            </td>
+                                                    </c:forEach>
 
-                                            <td>
-                                                <input style="width: 100%" type="number" id="n2">
-                                            </td>
-                                            <td>
-                                                <input style="width: 100%" type="number" id="n2">
-                                            </td>
-                                            <td>
-                                                <button onclick="myFunction()" class="btn btn-primary"><i class="fa fa-save fa-beat" ></i>Lưu</button>
-
-                                            </td>
-                                        </tr>
-
-                                            <tr>
-                                            <td>BAE</td>
-                                            <td>04</td>
-                                            <td>Phan Tu</td>
-                                            <td>
-                                                <input style="width: 100%" oninput="checkNumber()" type="number" id="n1">                                    
-                                            </td>
-                                            <td>
-                                                <input style="width: 100%" type="number" id="n2">
-                                            </td>
-
-                                            <td>
-                                                <input style="width: 100%" type="number" id="n2">
-                                            </td>
-                                            <td>
-                                                <input style="width: 100%" type="number" id="n2">
-                                            </td>
-                                            <td>
-                                                <button onclick="myFunction()" class="btn btn-primary"><i class="fa fa-save fa-beat" ></i>Lưu</button>
-
-                                            </td>
-                                        </tr>
-                                        </tbody>
-                                    </table>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </form>
                                 </div>
-
                             </div>
-                        </form>
+
+                        </c:forEach>
                     </div>
-                </div>
             </main>
             <footer class="py-4 bg-light mt-5">
                 <div class="container-fluid px-4">

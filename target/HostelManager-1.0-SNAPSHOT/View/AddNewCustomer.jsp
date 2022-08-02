@@ -79,32 +79,40 @@
                                     <div class="form-group row mt-2">
                                         <label  class="col-sm-2 col-form-label">Tên</label>
                                         <div class="col-sm-10">
-                                            <input type="text" class="form-control" placeholder="Enter your name" name="fullname" value="${fullname}">
+                                            <input type="text" class="form-control" placeholder="Enter your name" name="fullname" value="${Customer.fullname}">
                                         </div>
                                     </div>
                                     <div class="form-group row mt-2">
                                         <label  class="col-sm-2 col-form-label">Giới Tính</label>
                                         <div class="col-sm-10">
-                                            <input type="radio" name="gender" value="Male"/>Nam
-                                            <input type="radio" name="gender" value="Female"/> Nữ
+                                            <c:choose>
+                                                <c:when test="${Customer.gender == 'Male'}" >
+                                                    <input type="radio" name="gender" value="Male"checked/> Nam
+                                                    <input type="radio" name="gender" value="Female" />Nữ
+                                                </c:when>
+                                                <c:otherwise>
+                                                    <input type="radio" name="gender" value="Male"/> Nam
+                                                    <input type="radio" name="gender" value="Female" checked/>Nữ                                                   
+                                                </c:otherwise>
+                                            </c:choose>
                                         </div>
                                     </div>
                                     <div class="form-group row mt-2">
                                         <label  class="col-sm-2 col-form-label">Ngày Sinh</label>
                                         <div class="col-sm-10">
-                                            <input type="date" class="form-control" placeholder="Enter your DOB" name="dob">
+                                            <input type="date" class="form-control" placeholder="Enter your DOB" name="dob" value="${Customer.dob}">
                                         </div>
                                     </div>
                                     <div class="form-group row mt-2">
                                         <label  class="col-sm-2 col-form-label">CMND/CCCD</label>
                                         <div class="col-sm-10">
-                                            <input type="text" class="form-control" placeholder="Enter your CMND/CCCD" name="customerID">
+                                            <input type="text" class="form-control" placeholder="Enter your CMND/CCCD" name="customerID" value="${Customer.customerID}">
                                         </div>
                                     </div>
                                     <div class="form-group row mt-2">
                                         <label  class="col-sm-2 col-form-label">Số Điện Thoại</label>
                                         <div class="col-sm-10">
-                                            <input type="text" class="form-control" placeholder="Enter your phone" name="phone">
+                                            <input type="text" class="form-control" placeholder="Enter your phone" name="phone" value="${Customer.phone}">
                                         </div>
                                     </div>
 
@@ -113,21 +121,21 @@
                                     <div class="form-group row mt-2">
                                         <label  class="col-sm-2 col-form-label">Tỉnh/Thành Phố</label>
                                         <div class="col-sm-8">
-                                            <select id="province" style="padding:6px 0; border-radius: 3px; width: 50%" >
+                                            <select id="province" style="padding:6px 0; border-radius: 3px; width: 50%" value="79">
                                             </select>  
                                         </div>
                                     </div>
                                     <div class="form-group row mt-2">
                                         <label  class="col-sm-2 col-form-label">Quận/Huyện</label>
                                         <div class="col-sm-8">
-                                            <select id="district" style="padding:6px 0; border-radius: 3px; width: 50%" >
+                                            <select id="district" style="padding:6px 0; border-radius: 3px; width: 50%" value="760">
                                             </select>  
                                         </div>
                                     </div>
                                     <div class="form-group row mt-2">
                                         <label  class="col-sm-2 col-form-label">Phường/Xã</label>
                                         <div class="col-sm-8">
-                                            <select id="ward" style="padding:6px 0; border-radius: 3px; width: 50%" name="wardID">
+                                            <select id="ward" style="padding:6px 0; border-radius: 3px; width: 50%" name="wardID" value="26734"> 
                                             </select>  
                                         </div>
                                     </div>
@@ -136,7 +144,7 @@
                                     <div class="form-group row mt-2">
                                         <label  class="col-sm-2 col-form-label">Địa Chỉ</label>
                                         <div class="col-sm-10">
-                                            <input type="text" class="form-control" placeholder="Enter your address" name="address">
+                                            <input type="text" class="form-control" placeholder="Enter your address" name="address" value="${Customer.address}">
                                         </div>
                                     </div>
 
@@ -171,26 +179,34 @@
                                         <tbody>
                                             <c:forEach items="${ServiceDetailList}" var="SD">   
                                                 <c:if test="${SD.hostelID == Hostel.hostelID}">
-                                                <tr>
-                                                    <td style="text-align: center"><input type="checkbox" name="chooseDetail" value="${SD.detailID}" /></td>
-                                                    <td>${SD.detailname}</td>
-                                                    <c:forEach items="${ServiceTypeList}" var="ST">   
-                                                        <c:if test="${ST.serviceID == SD.serviceID}">
-                                                            <td>${ST.service_name}</td>
-                                                        </c:if>                                                
-                                                    </c:forEach>
+                                                    <tr>
+                                                        <c:choose>
+                                                            <c:when test="${ST.serviceID == 1}">
+                                                                <td style="text-align: center"><input type="checkbox" name="chooseDetail" value="${SD.detailID}" checked/></td>
+                                                                </c:when>
+                                                                <c:otherwise>
+                                                                <td style="text-align: center"><input type="checkbox" name="chooseDetail" value="${SD.detailID}" /></td>
+                                                                </c:otherwise>
+                                                            </c:choose>
 
-                                                    <td><fmt:formatDate pattern="dd/MM/yyyy" value="${SD.updated_date}"/></td>
+                                                        <td>${SD.detailname}</td>
+                                                        <c:forEach items="${ServiceTypeList}" var="ST">   
+                                                            <c:if test="${ST.serviceID == SD.serviceID}">
+                                                                <td>${ST.service_name}</td>
+                                                            </c:if>                                                
+                                                        </c:forEach>
 
-                                                    <c:forEach items="${HostelList}" var="H">   
-                                                        <c:if test="${H.hostelID == SD.hostelID}">
-                                                            <td>${H.hostelname}</td>
-                                                        </c:if>                                                
-                                                    </c:forEach>
+                                                        <td><fmt:formatDate pattern="dd/MM/yyyy" value="${SD.updated_date}"/></td>
 
-                                                    <td><input type="text" name="" class="money form-control" value="<fmt:formatNumber type="number" maxFractionDigits="0" value="${SD.unit_price}"/>" disabled="disable" style="width: 100%"/></td>                                     
+                                                        <c:forEach items="${HostelList}" var="H">   
+                                                            <c:if test="${H.hostelID == SD.hostelID}">
+                                                                <td>${H.hostelname}</td>
+                                                            </c:if>                                                
+                                                        </c:forEach>
 
-                                                </tr>
+                                                        <td><input type="text" name="" class="money form-control" value="<fmt:formatNumber type="number" maxFractionDigits="0" value="${SD.unit_price}"/>" disabled="disable" style="width: 100%"/></td>                                     
+
+                                                    </tr>
                                                 </c:if>
                                             </c:forEach>
 
@@ -215,25 +231,53 @@
                                         </thead>
                                         <tbody id="tblSample">
                                             <tr>
-                                                <td><input type="text" name="name" style="width: 100% ;text-align: center"></td>
-                                                <td><input type="date" name="date"></td>
+                                                <td><input type="text" name="fullname1" style="width: 100% ;text-align: center"></td>
+                                                <td><input type="date" name="dob1"></td>
                                                 <td style="text-align: center">
-                                                    <input type="radio" name="gender" checked/>Nam
-                                                    <input type="radio" name="gender"  /> Nữ
+                                                    <input type="radio" name="gender1" value="Male"checked/>Nam
+                                                    <input type="radio" name="gender1" value="Female"/> Nữ
                                                 </td>
-                                                <td><input type="text" name="cmnd" style=" text-align: center"></td>
-                                                <td><input type="text" name="address" style="width: 100%; text-align: center"></td>
-                                                <td><input type="text" name="phone" style="width: 100%; text-align: center"></td>
-                                                <td><button onclick="deleterow('tblSample')" class="btn btn-danger delete-row"><i class="fa fa-minus-circle"></i></button></td>
+                                                <td><input type="text" name="customerID1" style=" text-align: center"></td>
+                                                <td><input type="text" name="address1" style="width: 100%; text-align: center"></td>
+                                                <td><input type="text" name="phone1" style="width: 100%; text-align: center"></td>
+                                                <td><button type="button" class="btn btn-primary table-elipse" data-toggle="collapse" data-target="#mate_2" title="Thêm thành viên"><i class="fa fa-plus fa-beat" ></i></button></td>
                                             </tr>
+                                            <c:forEach var = "i" begin = "2" end = "4">
+                                                <tr id="mate_${i}" class="collapse cell-1 row-child">
+                                                    <td colspan="9">
+                                                        <table class="table table-striped table-bordered "  >
+                                                            <thead>
+                                                                <tr>
+                                                                    <th style="text-align: center">Tên</th>
+                                                                    <th style="text-align: center">Ngày sinh</th>
+                                                                    <th style="text-align: center">Giới tính</th>
+                                                                    <th style="text-align: center">CMND/CCCD</th>   
+                                                                    <th style="text-align: center">Địa chỉ</th> 
+                                                                    <th style="text-align: center">Số điện thoại</th> 
+                                                                    <th style=""></th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody id="table_filter">
+                                                                <tr>
+                                                                    <td><input type="text" name="fullname${i}" style="width: 100% ;text-align: center"></td>
+                                                                    <td><input type="date" name="dob${i}"></td>
+                                                                    <td style="text-align: center">
+                                                                        <input type="radio" name="gender${i}" value="Male" checked/>Nam
+                                                                        <input type="radio" name="gender${i}" value="Female"/> Nữ
+                                                                    </td>
+                                                                    <td><input type="text" name="customerID${i}" style=" text-align: center"></td>
+                                                                    <td><input type="text" name="address${i}" style="width: 100%; text-align: center"></td>
+                                                                    <td><input type="text" name="phone${i}" style="width: 100%; text-align: center"></td>
+                                                                    <td><button type="button" class="btn btn-primary table-elipse" data-toggle="collapse" data-target="#mate_${i+1}" title="Thêm thành viên"><i class="fa fa-plus fa-beat" ></i></button></td>
+                                                                </tr>  
+                                                            </tbody>
+                                                        </table>
 
+                                                    </td>
+                                                </tr>
+                                            </c:forEach>
                                         </tbody>
                                     </table>
-                                    <div>
-                                        <div style="float:right">
-                                            <button onclick="addRow('tblSample')" type="button" class="btn btn-success pull-right add-row"><i class="fa fa-plus-circle"></i></button>
-                                        </div>
-                                    </div>
                                 </div>
                             </div>
 
@@ -296,34 +340,34 @@
     <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
     <script type="text/javascript">
 
-                                                function deleterow(tblId)
-                                                {
+        function deleterow(tblId)
+        {
 
-                                                    var table = document.getElementById(tblId);
-                                                    var row = table.getElementsByTagName('tr');
-                                                    if (row.length > '1') {
-                                                        row[row.length - 1].outerHTML = '';
-                                                    } else {
-                                                        window.alert('Cần ít nhất 1 thành viên hoặc chọn xóa phòng');
-                                                    }
-                                                }
+            var table = document.getElementById(tblId);
+            var row = table.getElementsByTagName('tr');
+            if (row.length > '1') {
+                row[row.length - 1].outerHTML = '';
+            } else {
+                window.alert('Cần ít nhất 1 thành viên hoặc chọn xóa phòng');
+            }
+        }
 
-                                                function addRow(myTable) {
-                                                    var table = document.getElementById(myTable);
-                                                    var row = table.getElementsByTagName('tr');
-                                                    if (row.length < '4') {
-                                                        var row = row[row.length - 1].outerHTML;
-                                                        table.innerHTML = table.innerHTML + row;
-                                                        for (i = 0; i < row.length; i++) {
-                                                            row[i].innerHTML = '';
-                                                        }
+        function addRow(myTable) {
+            var table = document.getElementById(myTable);
+            var row = table.getElementsByTagName('tr');
+            if (row.length < '4') {
+                var row = row[row.length - 1].outerHTML;
+                table.innerHTML = table.innerHTML + row;
+                for (i = 0; i < row.length; i++) {
+                    row[i].innerHTML = '';
+                }
 
-                                                    } else {
-                                                        window.alert('Phòng tối đa 4 người');
-                                                    }
+            } else {
+                window.alert('Phòng tối đa 4 người');
+            }
 
 
-                                                }
+        }
     </script>
     <!--<script>
         const reader = new FileReader();

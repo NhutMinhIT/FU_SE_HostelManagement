@@ -133,20 +133,21 @@ public class AddCustomerController extends HttpServlet {
             String due_date = request.getParameter("due_date");
             String description = request.getParameter("description");
 
-            List<ServiceDetailDTO> ServiceDetail_list = new ArrayList<>();
-            List<BillDetailDTO> BillDetail_list = new ArrayList<>();
-            String[] checked_DetailIDs = request.getParameterValues("chooseDetail");
-
-            for (int i = 0; i < checked_DetailIDs.length; i++) {
-                ServiceDetailDTO current = Sdao.GetAServiceDetail(Integer.valueOf(checked_DetailIDs[i]));
-                ServiceDetail_list.add(current);
-                BillDetail_list.add(new BillDetailDTO(i, current, 0, current.getUnit_price() * 0));
-            }
-            Date nullDate = null;
-            Bdao.AddBill(new BillDTO(0, customerID, 0.0, Date.valueOf(signed_date), nullDate, nullDate, "PROCESS", BillDetail_list));
-            BillDTO currentBill = Bdao.Get_A_ProcessBill(customerID);
-            for (BillDetailDTO dList : BillDetail_list){
-                Bdao.AddBillDetail(dList, Integer.valueOf(currentBill.getBillID()));
+            for (int i = 1; i <= 4; i++) {
+                String Mem_customerID = request.getParameter("customerID" + i);
+                String Mem_fullname = request.getParameter("fullname" + i);
+                String Mem_gender = request.getParameter("gender" + i);
+                String Mem_dob = request.getParameter("dob" + i);
+                String Mem_phone = request.getParameter("phone" + i);
+                String Mem_address = request.getParameter("address" + i);
+                if (!Mem_customerID.isEmpty()) {
+                    if (Cusdao.GetACustomer(Mem_customerID) != null) {
+                        request.setAttribute("ERROR", "CMND/CCCD [" + Cusdao.GetACustomer(Mem_customerID).getCustomerID() + "] đã được đăng ký !");
+                    } else {
+                        Cusdao.AddCustomer(new CustomerDTO(Mem_customerID, "", Mem_fullname, "", Mem_gender, Date.valueOf(Mem_dob), Mem_phone, "MEMBER", Mem_address, wardID));
+                        Ctdao.AddContract(new ContractDTO("", Mem_customerID, roomID, Date.valueOf(signed_date), Date.valueOf(due_date), "MEMBER", ""));
+                    }
+                }
             }
 
             //customer_id,password,fullname,email,gender,dob,phone,status,address,ward_id
@@ -163,7 +164,24 @@ public class AddCustomerController extends HttpServlet {
                 RoomDTO room = dao.GetARoom(roomID);
                 room.setStatus("RENTING");
                 boolean UpdateRoom = dao.UpdateRoom(room);
-                if (AddCus && AddContract && UpdateRoom) {
+
+                //Service----------------------------------------------------------------
+                String[] checked_DetailIDs = request.getParameterValues("chooseDetail");
+                List<BillDetailDTO> BillDetail_list = new ArrayList<>();
+                if (checked_DetailIDs.length > 0) {
+                    for (int i = 0; i < checked_DetailIDs.length; i++) {
+                        ServiceDetailDTO current = Sdao.GetAServiceDetail(Integer.valueOf(checked_DetailIDs[i]));
+                        BillDetail_list.add(new BillDetailDTO(i, current, 0, 0.0));
+                    }
+                }
+                Date nullDate = null;
+                Bdao.AddBill(new BillDTO(0, customerID, 0.0, Date.valueOf(signed_date), nullDate, nullDate, "PROCESS", BillDetail_list));
+                BillDTO currentBill = Bdao.Get_A_ProcessBill(customerID);
+                for (BillDetailDTO dList : BillDetail_list) {
+                    Bdao.AddBillDetail(dList, currentBill.getBillID());
+                }
+                //-------------------------------------------------------------------------
+                if (AddCus) {
                     url = SUCCESS;
                 }
             }

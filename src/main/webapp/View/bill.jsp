@@ -101,7 +101,7 @@
 
                                                                                         <c:forEach items="${CusList}" var="Cus">
                                                                                             <c:if test="${Cus.customerID == C.customerID}">
-                                                                                                <td>${Cus.fullname}</td>
+                                                                                                <td><a href="${pageContext.request.contextPath}/MainController?action=CustomerPage&CusID=${Cus.customerID}&roomID=${R.roomID}">${Cus.fullname}</a></td>
                                                                                             </c:if>
                                                                                         </c:forEach>
 
@@ -119,28 +119,31 @@
                                                                                         </td>
                                                                                     </tr>
                                                                                     <tr id="detail_${B.billID}" class="collapse cell-1 row-child">
-                                                                                        <td colspan="9" style="background-color: #ddd">
+                                                                                        <td colspan="2"></td>
+                                                                                        <td colspan="5" style="background-color: #ddd">
                                                                                             <h4 style="text-align: center">Chi tiết hóa đơn</h4>
-
-                                                                                            <c:forEach items="${B.details}" var="BD">                                                                                            
-                                                                                                <div class="row">
-                                                                                                    <table class="_table table_sort">
-                                                                                                        <thead>
-                                                                                                            <tr>
-                                                                                                                <th style="width: 10%">Dịch vụ</th>
-                                                                                                                <th style="width: 20%">Số lượng</th>
-                                                                                                                <th style="width: 15%">Tổng tiền</th>                                                                                                                
-                                                                                                            </tr>
-                                                                                                        </thead>
-                                                                                                        <tbody id="table_filter">
+                                                                                            <div>
+                                                                                                <table class="_table table_sort">
+                                                                                                    <thead>
+                                                                                                        <tr>
+                                                                                                            <th style="width: 20%">Dịch vụ</th>
+                                                                                                            <th style="width: 10%">Số cũ</th>
+                                                                                                            <th style="width: 10%">Số mới</th>
+                                                                                                            <th style="width: 15%">Tổng tiền</th>                                                                                                                
+                                                                                                        </tr>
+                                                                                                    </thead>
+                                                                                                    <tbody id="table_filter">
+                                                                                                        <c:forEach items="${B.details}" var="BD"> 
                                                                                                             <tr>
                                                                                                                 <td>${BD.service.detailname}</td>
+                                                                                                                <td>0</td>
                                                                                                                 <td>${BD.qty}</td>
                                                                                                                 <td><fmt:formatNumber type="number" maxFractionDigits="0" value="${BD.total}"/></td>
-                                                                                                            </tr>                                                                                                            
-                                                                                                    </table>
-                                                                                                </div>               
-                                                                                            </c:forEach>
+                                                                                                            </tr>  
+                                                                                                        </c:forEach>
+                                                                                                </table>
+                                                                                            </div>               
+
 
                                                                                         </td>
                                                                                     </tr>
@@ -164,7 +167,7 @@
                                         <div class="d-flex justify-content-center row">   
                                             <div class="table-responsive table-borderless">
 
-                                                <table class="table">
+                                                <table class="_table table_sort">
                                                     <thead>
                                                         <tr>
                                                             <th style="width: 10%">Phòng</th>
@@ -194,7 +197,7 @@
 
                                                                                         <c:forEach items="${CusList}" var="Cus">
                                                                                             <c:if test="${Cus.customerID == C.customerID}">
-                                                                                                <td>${Cus.fullname}</td>
+                                                                                                <td><a href="${pageContext.request.contextPath}/MainController?action=CustomerPage&CusID=${Cus.customerID}&roomID=${R.roomID}">${Cus.fullname}</a></td>
                                                                                             </c:if>
                                                                                         </c:forEach>
                                                                                         <td><fmt:formatDate pattern="dd/MM/yyyy" value="${B.created}"/></td>
@@ -210,28 +213,33 @@
                                                                                         </td>
                                                                                     </tr>
                                                                                     <tr id="detail_${B.billID}" class="collapse cell-1 row-child">
-                                                                                        <td colspan="9" style="background-color: #ddd">
+                                                                                        <td colspan="2"></td>
+                                                                                        <td colspan="5" style="background-color: #ddd">
                                                                                             <h4 style="text-align: center">Chi tiết hóa đơn</h4>
 
-                                                                                            <c:forEach items="${B.details}" var="BD">                                                                                            
-                                                                                                <div class="row">
-                                                                                                    <table class="_table table_sort">
-                                                                                                        <thead>
-                                                                                                            <tr>
-                                                                                                                <th style="width: 10%">Dịch vụ</th>
-                                                                                                                <th style="width: 20%">Số lượng</th>
-                                                                                                                <th style="width: 15%">Tổng tiền</th>                                                                                                                
-                                                                                                            </tr>
-                                                                                                        </thead>
-                                                                                                        <tbody id="table_filter">
+
+                                                                                            <div>
+                                                                                                <table class="_table table_sort">
+                                                                                                    <thead>
+                                                                                                        <tr>
+                                                                                                            <th style="width: 20%">Dịch vụ</th>
+                                                                                                            <th style="width: 10%">Số cũ</th>
+                                                                                                            <th style="width: 10%">Số mới</th>
+                                                                                                            <th style="width: 15%">Tổng tiền</th>                                                                                                                
+                                                                                                        </tr>
+                                                                                                    </thead>
+                                                                                                    <tbody id="table_filter">
+                                                                                                        <c:forEach items="${B.details}" var="BD"> 
                                                                                                             <tr>
                                                                                                                 <td>${BD.service.detailname}</td>
+                                                                                                                <td>0</td>
                                                                                                                 <td>${BD.qty}</td>
                                                                                                                 <td><fmt:formatNumber type="number" maxFractionDigits="0" value="${BD.total}"/></td>
-                                                                                                            </tr>                                                                                                            
-                                                                                                    </table>
-                                                                                                </div>               
-                                                                                            </c:forEach>
+                                                                                                            </tr> 
+                                                                                                        </c:forEach>
+                                                                                                </table>
+                                                                                            </div>               
+
 
                                                                                         </td>
                                                                                     </tr>
@@ -251,12 +259,7 @@
                                             </div>
                                         </div>
                                     </div>
-
                                 </div>
-
-
-
-
                             </div>
                         </c:forEach>
 

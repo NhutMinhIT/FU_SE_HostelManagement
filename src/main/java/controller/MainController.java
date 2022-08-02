@@ -29,6 +29,7 @@ public class MainController extends HttpServlet {
     private static final String ROOM_PAGE = "RoomPageController";
     private static final String SERVICE_PAGE = "ServicePageController";
     private static final String BILL_PAGE = "BillPageController";
+    private static final String CART_PAGE = "CartController";
 
     private static final String ADD_ROOM = "AddRoomController";
     private static final String ADD_HOSTEL = "AddHostelController";
@@ -43,10 +44,6 @@ public class MainController extends HttpServlet {
     private static final String DELETE_HOSTEL = "DeleteHostelController";
     private static final String DELETE_SERVICE = "DeleteServiceController";
 
-
-
-
-    
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
@@ -78,6 +75,9 @@ public class MainController extends HttpServlet {
                     break;
                 case "BillPage":
                     url = BILL_PAGE;
+                    break;
+                case "CartPage":
+                    url = CART_PAGE;
                     break;
 //--ADD------------------------------------------------------------------------------
                 case "AddRoom":

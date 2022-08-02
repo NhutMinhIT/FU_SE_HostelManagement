@@ -20,6 +20,8 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
         <link href="${pageContext.request.contextPath}/css/styles.css" rel="stylesheet" />
+        <link href="${pageContext.request.contextPath}/css/toggle.css" rel="stylesheet" />
+
 
     </head>
     <body class="sb-nav-fixed">
@@ -40,14 +42,14 @@
                                     <div class="form-group row col-md-6 mt-2">
                                         <label  class="col-sm-4 col-form-label">Tên dịch vụ:</label>
                                         <div class="col col-sm-8">
-                                            <input name="detail_name"type="text" class="form-control" value="${ServiceDetail.detailname}" required pattern="\S+">
+                                            <input name="detail_name" type="text" class="form-control" value="${ServiceDetail.detailname}" required pattern="\S+">
                                         </div>
                                     </div>
                                     <div class="form-group row col-md-6 mt-2">
                                         <label  class="col-sm-4 col-form-label">Loại dịch vụ:</label>
                                         <div class="col-sm-8">
-                                            <select id="#" name="service_id" style="padding:6px 0; border-radius: 3px; width: 50%" >
-                                                <c:forEach items="${ServiceTypeList}" var="ST">
+                                            <select id="#" name="service_id" style="padding:6px 0; border-radius: 3px; width: 50%; font-weight: bold" disabled="disabled">
+                                                <c:forEach items="${ServiceTypeList}" var="ST" >
                                                     <c:choose>
                                                         <c:when test="${ST.serviceID == ServiceDetail.serviceID}">
                                                             <option value="${ST.serviceID}" selected>${ST.service_name}</option>
@@ -64,15 +66,15 @@
 
                                 <div class="row">
                                     <div class="form-group row col-md-6 mt-2">
-                                        <label  class="col-sm-4 col-form-label">Ngày cập nhật:</label>
+                                        <label  class="col-sm-4 col-form-label">Ngày cập nhật gần nhất:</label>
                                         <div class="col col-sm-8">
-                                            <input type="date" class="form-control" name="updated_date" value="${ServiceDetail.updated_date}">
+                                            <input type="date" class="form-control" name="updated_date" value="${ServiceDetail.updated_date}" disabled="disabled">
                                         </div>
                                     </div>
                                     <div class="form-group row col-md-6 mt-2">
                                         <label  class="col-sm-4 col-form-label">Địa điểm:</label>
                                         <div class="col-sm-8">
-                                            <select id="#" name="hostel_id" style="padding:6px 0; border-radius: 3px; width: 50%" >
+                                            <select id="#" name="hostel_id" style="padding:6px 0; border-radius: 3px; width: 50%;font-weight: bold" disabled="disabled">
                                                 <c:forEach items="${HostelList}" var="H">
                                                     <c:choose>
                                                         <c:when test="${H.hostelID == ServiceDetail.hostelID}">
@@ -82,7 +84,7 @@
                                                             <option value="${H.hostelID}">${H.hostelname}</option> 
                                                         </c:otherwise>
                                                     </c:choose>
-                                                                                                   
+
                                                 </c:forEach>
                                             </select>
 
@@ -94,7 +96,7 @@
                                     <div class="form-group row col-md-6 mt-2">
                                         <label  class="col-sm-4 col-form-label">Giá:</label>
                                         <div class="col col-sm-8">
-                                            
+
                                             <input class="form-control" type="text" name="unit_price"  placeholder="Giá" 
                                                    value="${ServiceDetail.unit_price}"/>
                                         </div>
@@ -104,10 +106,16 @@
                                         <label class="col-sm-8">
                                             <c:choose>
                                                 <c:when test="${ServiceDetail.status == 'ACTIVE'}">
-                                                    <input name="status" type="checkbox" value="ACTIVE" checked> Đang dùng 
+                                                    <label class="switch">
+                                                        <input name="status" type="checkbox" value="ACTIVE" checked> 
+                                                        <span class="slider round"> </span>
+                                                    </label> Đang dùng
                                                 </c:when>
                                                 <c:otherwise>
-                                                    <input name="status" type="checkbox" value="DISABLED"> Đang dùng 
+                                                    <label class="switch">
+                                                        <input name="status" type="checkbox" value="ACTIVE"> 
+                                                        <span class="slider round"> </span>
+                                                    </label> Đang dùng
                                                 </c:otherwise>
                                             </c:choose>                                                
                                         </label>
@@ -143,7 +151,7 @@
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
     <script type="text/javascript" src="${pageContext.request.contextPath}/js/simple.money.format.js"></script>
     <script type="text/javascript">
-        $('.money').simpleMoneyFormat();
+        $('.money').simpleMoneyFormat();             
     </script>
     <script src="${pageContext.request.contextPath}/js/scripts.js"></script>
     <script src="${pageContext.request.contextPath}/js/datatables-simple-demo.js"></script>

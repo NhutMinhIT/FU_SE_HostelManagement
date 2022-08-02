@@ -13,6 +13,8 @@ import dto.UserDTO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Date;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -96,31 +98,40 @@ public class UpdateServiceController extends HttpServlet {
             HttpSession ss = request.getSession();
             UserDTO us = (UserDTO) ss.getAttribute("LOGIN_USER");
             ServiceDAO dao = new ServiceDAO();
-            String style = request.getParameter("style");
 
             int detail_id = Integer.valueOf(request.getParameter("detail_id"));
             String detail_name = request.getParameter("detail_name");
 
+            DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+            LocalDateTime now = LocalDateTime.now();
+            String currentDate = dtf.format(now);
+
             Double unitprice = Double.parseDouble(request.getParameter("unit_price"));
             String updated_date = request.getParameter("updated_date");
-            String status = request.getParameter("status");
             String description = request.getParameter("description");
-            String hostel_id = request.getParameter("hostel_id");
-            String service_id = request.getParameter("service_id");
+            String status = request.getParameter("status");
+            if (status == null) {
+                status = "DISABLED";
+            }
+            boolean update = false;
+            ServiceDetailDTO checkChange = dao.GetAServiceDetail(detail_id);
+            if (!checkChange.getStatus().equals(status)) {
+                checkChange.setStatus(status);
+                update = dao.UpdateServiceDetail(checkChange);
 
-            String calUnit = "";
-            if (service_id.equals("1")) {
-                calUnit = "kWh";
-            } else if (service_id.equals("2")) {
-                calUnit = "m3";
             } else {
-                calUnit = "---";
+                checkChange.setStatus(status);
+                update = dao.UpdateServiceDetail(checkChange);
+
+                checkChange.setDetailname(detail_name);
+                checkChange.setUpdated_date(Date.valueOf(currentDate));
+                checkChange.setDescription(description);
+                checkChange.setUnit_price(unitprice);
+                checkChange.setStatus("ACTIVE");
+                boolean check = dao.AddServiceDetail(checkChange);
             }
 
-            boolean update = dao.UpdateServiceDetail(new ServiceDetailDTO(detail_id, detail_name, calUnit, unitprice, Date.valueOf(updated_date), description, "DISABLED", hostel_id, Integer.valueOf(service_id)));
-            boolean check = dao.AddServiceDetail(new ServiceDetailDTO(detail_id, detail_name, calUnit, unitprice, Date.valueOf(updated_date), description, "ACTIVE", hostel_id, Integer.valueOf(service_id)));
-
-            if (check) {
+            if (update) {
                 url = SUCCESS;
             }
         } catch (Exception e) {
