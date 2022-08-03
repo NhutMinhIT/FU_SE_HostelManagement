@@ -29,43 +29,14 @@ import javax.servlet.http.HttpSession;
  *
  * @author avillX
  */
-@WebServlet(name = "BillPageController", urlPatterns = {"/BillPageController"})
-public class BillPageController extends HttpServlet {
+@WebServlet(name = "UpdateBillController", urlPatterns = {"/UpdateBillController"})
+public class UpdateBillController extends HttpServlet {
 
-    private static final String SUCCESS = "View/bill.jsp";
-
+    private static final String SUCCESS = "MainController?action=CartPage";
+     
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        response.setContentType("text/html;charset=UTF-8");
-        String url = SUCCESS;
-        try {
-            HttpSession ss = request.getSession();
-            UserDTO us = (UserDTO) ss.getAttribute("LOGIN_USER");
-            RoomDAO dao = new RoomDAO();
-            CustomerDAO Cusdao = new CustomerDAO();
-            ContractDAO Cdao = new ContractDAO();
-            BillDAO Bdao = new BillDAO();
-
-            List<HostelDTO> HostelList = dao.GetListHostel(us.getUserID());
-            List<RoomDTO> RoomList = dao.GetListRoom(HostelList);
-            List<ContractDTO> ContractList = Cdao.GetListContract(RoomList);
-            List<CustomerDTO> CusList = Cusdao.GetListCustomer(ContractList);
-            List<BillDTO> BillList = Bdao.GetListBill(CusList);
-            List<BillDTO> BillList_COMPLETE = Bdao.GetListBill_COMPLETE(CusList);
-
-            request.setAttribute("HostelList", HostelList);
-            request.setAttribute("RoomList", RoomList);
-            request.setAttribute("ContractList", ContractList);
-            request.setAttribute("CusList", CusList);
-            request.setAttribute("BillList", BillList);
-            request.setAttribute("CompleteList", BillList_COMPLETE);
-
-        } catch (Exception e) {
-            log("Error at RoomPageController:" + e.toString());
-        } finally {
-            request.getRequestDispatcher(url).forward(request, response);
-        }
+       response.setContentType("text/html;charset=UTF-8");
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -94,7 +65,44 @@ public class BillPageController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+         String url = SUCCESS;
+        try {
+            HttpSession ss = request.getSession();
+            UserDTO us = (UserDTO) ss.getAttribute("LOGIN_USER");
+            RoomDAO dao = new RoomDAO();
+            CustomerDAO Cusdao = new CustomerDAO();
+            ContractDAO Cdao = new ContractDAO();
+            BillDAO Bdao = new BillDAO();
+
+            List<HostelDTO> HostelList = dao.GetListHostel(us.getUserID());
+            List<RoomDTO> RoomList = dao.GetListRoom(HostelList);
+            List<ContractDTO> ContractList = Cdao.GetListContract(RoomList);
+            List<CustomerDTO> CusList = Cusdao.GetListCustomer(ContractList);
+
+            List<BillDTO> BillList_PROCESS = Bdao.GetListBill_PROCESS(CusList);
+
+            for (BillDTO B : BillList_PROCESS) {
+                String Elec = request.getParameter("Elec_" + B.getBillID());
+                String Water = request.getParameter("Wat_" + B.getBillID());
+                List<BillDetailDTO> BillDetail = Bdao.GetListBillDetail(B.getBillID());
+                for (BillDetailDTO BD : BillDetail) {
+                    if (BD.getService().getServiceID() == 1 && Elec != null) {
+                        BD.setQty(Integer.parseInt(Elec));
+                        Bdao.UpdateBillDetail(BD, B.getBillID());
+                    }else 
+
+                    if (BD.getService().getServiceID() == 2 && Water != null) {
+                        BD.setQty(Integer.parseInt(Water));
+                        Bdao.UpdateBillDetail(BD, B.getBillID());
+                    }
+                }
+            }
+      } catch (Exception e) {
+  
+            log("Error at UpdateBillController:" + e.toString());
+        } finally {
+            response.sendRedirect(SUCCESS); 
+        }
     }
 
     /**

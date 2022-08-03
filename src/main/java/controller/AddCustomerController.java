@@ -171,7 +171,11 @@ public class AddCustomerController extends HttpServlet {
                 if (checked_DetailIDs.length > 0) {
                     for (int i = 0; i < checked_DetailIDs.length; i++) {
                         ServiceDetailDTO current = Sdao.GetAServiceDetail(Integer.valueOf(checked_DetailIDs[i]));
-                        BillDetail_list.add(new BillDetailDTO(i, current, 0, 0.0));
+                        int number = 1;
+                        if (current.getServiceID() == 1 || current.getServiceID() == 2) {
+                            number = 0;
+                        }
+                        BillDetail_list.add(new BillDetailDTO(i, current, number, current.getUnit_price() * number));
                     }
                 }
                 Date nullDate = null;

@@ -1,39 +1,42 @@
-D:\j2yD9gmz\Majors 5\SWP391\Git\Group\Git 3\HostelManager\src\main\java\dao\AddressDAO.java
-D:\j2yD9gmz\Majors 5\SWP391\Git\Group\Git 3\HostelManager\src\main\java\controller\UpdateRoomController.java
-D:\j2yD9gmz\Majors 5\SWP391\Git\Group\Git 3\HostelManager\src\main\java\dao\UserDAO.java
-D:\j2yD9gmz\Majors 5\SWP391\Git\Group\Git 3\HostelManager\src\main\java\dao\ServiceDAO.java
-D:\j2yD9gmz\Majors 5\SWP391\Git\Group\Git 3\HostelManager\src\main\java\dto\BillDTO.java
-D:\j2yD9gmz\Majors 5\SWP391\Git\Group\Git 3\HostelManager\src\main\java\controller\DeleteServiceController.java
-D:\j2yD9gmz\Majors 5\SWP391\Git\Group\Git 3\HostelManager\src\main\java\dto\Address\City.java
-D:\j2yD9gmz\Majors 5\SWP391\Git\Group\Git 3\HostelManager\src\main\java\controller\AddCustomerController.java
-D:\j2yD9gmz\Majors 5\SWP391\Git\Group\Git 3\HostelManager\src\main\java\controller\AddRoomController.java
-D:\j2yD9gmz\Majors 5\SWP391\Git\Group\Git 3\HostelManager\src\main\java\dto\UserDTO.java
-D:\j2yD9gmz\Majors 5\SWP391\Git\Group\Git 3\HostelManager\src\main\java\controller\BillPageController.java
-D:\j2yD9gmz\Majors 5\SWP391\Git\Group\Git 3\HostelManager\src\main\java\dao\ContractDAO.java
-D:\j2yD9gmz\Majors 5\SWP391\Git\Group\Git 3\HostelManager\src\main\java\dao\BillDAO.java
-D:\j2yD9gmz\Majors 5\SWP391\Git\Group\Git 3\HostelManager\src\main\java\dto\ServiceDetailDTO.java
-D:\j2yD9gmz\Majors 5\SWP391\Git\Group\Git 3\HostelManager\src\main\java\dto\ServiceTypeDTO.java
-D:\j2yD9gmz\Majors 5\SWP391\Git\Group\Git 3\HostelManager\src\main\java\dto\ContractDTO.java
-D:\j2yD9gmz\Majors 5\SWP391\Git\Group\Git 3\HostelManager\src\main\java\controller\LogoutController.java
-D:\j2yD9gmz\Majors 5\SWP391\Git\Group\Git 3\HostelManager\src\main\java\dao\RoomDAO.java
-D:\j2yD9gmz\Majors 5\SWP391\Git\Group\Git 3\HostelManager\src\main\java\dto\HostelDTO.java
-D:\j2yD9gmz\Majors 5\SWP391\Git\Group\Git 3\HostelManager\src\main\java\dao\CustomerDAO.java
-D:\j2yD9gmz\Majors 5\SWP391\Git\Group\Git 3\HostelManager\src\main\java\utils\DBUtils.java
-D:\j2yD9gmz\Majors 5\SWP391\Git\Group\Git 3\HostelManager\src\main\java\controller\AddHostelController.java
-D:\j2yD9gmz\Majors 5\SWP391\Git\Group\Git 3\HostelManager\src\main\java\dto\RoomDTO.java
-D:\j2yD9gmz\Majors 5\SWP391\Git\Group\Git 3\HostelManager\src\main\java\controller\AddServiceController.java
-D:\j2yD9gmz\Majors 5\SWP391\Git\Group\Git 3\HostelManager\src\main\java\controller\MainController.java
-D:\j2yD9gmz\Majors 5\SWP391\Git\Group\Git 3\HostelManager\src\main\java\controller\UpdateHostelController.java
-D:\j2yD9gmz\Majors 5\SWP391\Git\Group\Git 3\HostelManager\src\main\java\controller\DeleteRoomController.java
-D:\j2yD9gmz\Majors 5\SWP391\Git\Group\Git 3\HostelManager\src\main\java\dto\BillDetailDTO.java
-D:\j2yD9gmz\Majors 5\SWP391\Git\Group\Git 3\HostelManager\src\main\java\controller\RoomPageController.java
-D:\j2yD9gmz\Majors 5\SWP391\Git\Group\Git 3\HostelManager\src\main\java\dto\Address\District.java
-D:\j2yD9gmz\Majors 5\SWP391\Git\Group\Git 3\HostelManager\src\main\java\controller\DeleteHostelController.java
-D:\j2yD9gmz\Majors 5\SWP391\Git\Group\Git 3\HostelManager\src\main\java\dto\Address\Ward.java
-D:\j2yD9gmz\Majors 5\SWP391\Git\Group\Git 3\HostelManager\src\main\java\controller\ServicePageController.java
-D:\j2yD9gmz\Majors 5\SWP391\Git\Group\Git 3\HostelManager\src\main\java\controller\CustomerPageController.java
-D:\j2yD9gmz\Majors 5\SWP391\Git\Group\Git 3\HostelManager\src\main\java\controller\UserPageController.java
-D:\j2yD9gmz\Majors 5\SWP391\Git\Group\Git 3\HostelManager\src\main\java\dto\CustomerDTO.java
-D:\j2yD9gmz\Majors 5\SWP391\Git\Group\Git 3\HostelManager\src\main\java\controller\LoginController.java
-D:\j2yD9gmz\Majors 5\SWP391\Git\Group\Git 3\HostelManager\src\main\java\controller\UpdateServiceController.java
-D:\j2yD9gmz\Majors 5\SWP391\Git\Group\Git 3\HostelManager\src\main\java\controller\HostelManagerController.java
+C:\Users\magic\Desktop\Git\HostelManager\src\main\java\dao\UserDAO.java
+C:\Users\magic\Desktop\Git\HostelManager\src\main\java\controller\CartController.java
+C:\Users\magic\Desktop\Git\HostelManager\src\main\java\dto\CustomerDTO.java
+C:\Users\magic\Desktop\Git\HostelManager\src\main\java\dto\HostelDTO.java
+C:\Users\magic\Desktop\Git\HostelManager\src\main\java\controller\UpdateHostelController.java
+C:\Users\magic\Desktop\Git\HostelManager\src\main\java\dto\ServiceDetailDTO.java
+C:\Users\magic\Desktop\Git\HostelManager\src\main\java\controller\UpdateServiceController.java
+C:\Users\magic\Desktop\Git\HostelManager\src\main\java\dao\ServiceDAO.java
+C:\Users\magic\Desktop\Git\HostelManager\src\main\java\dto\UserDTO.java
+C:\Users\magic\Desktop\Git\HostelManager\src\main\java\filter\EncodingFilter.java
+C:\Users\magic\Desktop\Git\HostelManager\src\main\java\dao\AddressDAO.java
+C:\Users\magic\Desktop\Git\HostelManager\src\main\java\dto\Address\City.java
+C:\Users\magic\Desktop\Git\HostelManager\src\main\java\dto\BillDTO.java
+C:\Users\magic\Desktop\Git\HostelManager\src\main\java\utils\DBUtils.java
+C:\Users\magic\Desktop\Git\HostelManager\src\main\java\controller\MainController.java
+C:\Users\magic\Desktop\Git\HostelManager\src\main\java\controller\HostelManagerController.java
+C:\Users\magic\Desktop\Git\HostelManager\src\main\java\controller\DeleteServiceController.java
+C:\Users\magic\Desktop\Git\HostelManager\src\main\java\dao\RoomDAO.java
+C:\Users\magic\Desktop\Git\HostelManager\src\main\java\controller\DeleteHostelController.java
+C:\Users\magic\Desktop\Git\HostelManager\src\main\java\controller\AddHostelController.java
+C:\Users\magic\Desktop\Git\HostelManager\src\main\java\controller\CustomerPageController.java
+C:\Users\magic\Desktop\Git\HostelManager\src\main\java\controller\LoginController.java
+C:\Users\magic\Desktop\Git\HostelManager\src\main\java\dao\BillDAO.java
+C:\Users\magic\Desktop\Git\HostelManager\src\main\java\dto\ContractDTO.java
+C:\Users\magic\Desktop\Git\HostelManager\src\main\java\dto\RoomDTO.java
+C:\Users\magic\Desktop\Git\HostelManager\src\main\java\controller\AddRoomController.java
+C:\Users\magic\Desktop\Git\HostelManager\src\main\java\dto\BillDetailDTO.java
+C:\Users\magic\Desktop\Git\HostelManager\src\main\java\dto\Address\District.java
+C:\Users\magic\Desktop\Git\HostelManager\src\main\java\controller\RoomPageController.java
+C:\Users\magic\Desktop\Git\HostelManager\src\main\java\controller\ServicePageController.java
+C:\Users\magic\Desktop\Git\HostelManager\src\main\java\controller\UserPageController.java
+C:\Users\magic\Desktop\Git\HostelManager\src\main\java\dto\ServiceTypeDTO.java
+C:\Users\magic\Desktop\Git\HostelManager\src\main\java\dto\Address\Ward.java
+C:\Users\magic\Desktop\Git\HostelManager\src\main\java\controller\BillPageController.java
+C:\Users\magic\Desktop\Git\HostelManager\src\main\java\dao\ContractDAO.java
+C:\Users\magic\Desktop\Git\HostelManager\src\main\java\dao\CustomerDAO.java
+C:\Users\magic\Desktop\Git\HostelManager\src\main\java\controller\DeleteRoomController.java
+C:\Users\magic\Desktop\Git\HostelManager\src\main\java\controller\UpdateRoomController.java
+C:\Users\magic\Desktop\Git\HostelManager\src\main\java\controller\AddServiceController.java
+C:\Users\magic\Desktop\Git\HostelManager\src\main\java\controller\LogoutController.java
+C:\Users\magic\Desktop\Git\HostelManager\src\main\java\controller\UpdateBillController.java
+C:\Users\magic\Desktop\Git\HostelManager\src\main\java\controller\AddCustomerController.java

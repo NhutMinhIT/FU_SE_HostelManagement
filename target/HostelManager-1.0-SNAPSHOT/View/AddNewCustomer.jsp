@@ -160,7 +160,6 @@
                                                 <th>Tên dịch vụ</th>
                                                 <th>Loại dịch vụ</th>
                                                 <th>Ngày cập nhật</th> 
-                                                <th>Địa điểm</th>
                                                 <th>Giá</th>                                     
 
                                             </tr>
@@ -171,7 +170,6 @@
                                                 <th>Tên dịch vụ</th>
                                                 <th>Loại dịch vụ</th>
                                                 <th>Ngày cập nhật</th> 
-                                                <th>Địa điểm</th>
                                                 <th>Giá</th>                                     
 
                                             </tr>
@@ -197,12 +195,6 @@
                                                         </c:forEach>
 
                                                         <td><fmt:formatDate pattern="dd/MM/yyyy" value="${SD.updated_date}"/></td>
-
-                                                        <c:forEach items="${HostelList}" var="H">   
-                                                            <c:if test="${H.hostelID == SD.hostelID}">
-                                                                <td>${H.hostelname}</td>
-                                                            </c:if>                                                
-                                                        </c:forEach>
 
                                                         <td><input type="text" name="" class="money form-control" value="<fmt:formatNumber type="number" maxFractionDigits="0" value="${SD.unit_price}"/>" disabled="disable" style="width: 100%"/></td>                                     
 

@@ -42,13 +42,13 @@
                                     <div class="form-group row col-md-6 mt-2">
                                         <label  class="col-sm-4 col-form-label">Tên dịch vụ:</label>
                                         <div class="col col-sm-8">
-                                            <input name="detail_name" type="text" class="form-control" value="${ServiceDetail.detailname}" required pattern="\S+">
+                                            <input name="detail_name" type="text" class="form-control" value="${ServiceDetail.detailname}">
                                         </div>
                                     </div>
                                     <div class="form-group row col-md-6 mt-2">
                                         <label  class="col-sm-4 col-form-label">Loại dịch vụ:</label>
                                         <div class="col-sm-8">
-                                            <select id="#" name="service_id" style="padding:6px 0; border-radius: 3px; width: 50%; font-weight: bold" disabled="disabled">
+                                            <select id="#" name="service_id" style="padding:6px 0; border-radius: 3px; width: 50%; font-weight: bold">
                                                 <c:forEach items="${ServiceTypeList}" var="ST" >
                                                     <c:choose>
                                                         <c:when test="${ST.serviceID == ServiceDetail.serviceID}">

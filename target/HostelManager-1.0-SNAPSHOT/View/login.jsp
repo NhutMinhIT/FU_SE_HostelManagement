@@ -70,18 +70,6 @@
                     </div>
                 </form>
 
-                <div class="ord-v">
-                    <a href="or login with"></a>
-                </div>
-
-                <div class="soc-det">
-                    <ul>
-                        <li class="facebook"><a href="https://www.facebook.com"><i class="fa fa-facebook"></i></a></li>
-                        <li class="twitter"><a href="https://twitter.com/"><i class="fa fa-twitter"></i></a></li>
-                        <li class="link"><a href="https://www.linkedin.com/"><i class="fa fa-linkedin"></i></a></li>
-                    </ul>
-                </div>
-
 
 
             </div>

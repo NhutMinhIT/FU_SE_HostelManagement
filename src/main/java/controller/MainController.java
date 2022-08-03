@@ -39,6 +39,7 @@ public class MainController extends HttpServlet {
     private static final String UPDATE_ROOM = "UpdateRoomController";
     private static final String UPDATE_HOSTEL = "UpdateHostelController";
     private static final String UPDATE_SERVICE = "UpdateServiceController";
+    private static final String UPDATE_BILL = "UpdateBillController";
 
     private static final String DELETE_ROOM = "DeleteRoomController";
     private static final String DELETE_HOSTEL = "DeleteHostelController";
@@ -101,6 +102,9 @@ public class MainController extends HttpServlet {
                     break;
                 case "UpdateService":
                     url = UPDATE_SERVICE;
+                    break;
+                case "UpdateBill":
+                    url = UPDATE_BILL;
                     break;
 //--DELETE------------------------------------------------------------------------------
                 case "DeleteRoom":

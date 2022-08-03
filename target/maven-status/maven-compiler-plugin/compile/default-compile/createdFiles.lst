@@ -22,6 +22,7 @@ dao\UserDAO.class
 dto\ContractDTO.class
 dao\AddressDAO.class
 controller\UpdateServiceController.class
+controller\CartController.class
 dto\BillDetailDTO.class
 dto\BillDTO.class
 dto\Address\District.class

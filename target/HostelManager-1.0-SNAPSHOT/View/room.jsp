@@ -88,20 +88,13 @@
                                             </thead>
                                             <tbody id="table_filter">
                                                 <c:forEach items="${RoomList}" var="R">
+                                                    <c:set value="0" var="Required" scope="page"/>
                                                     <c:if test="${R.hostelID == Hos.hostelID}"> 
                                                         <tr>                                                
                                                             <td>${R.roomnumber}</td>
-                                                            <c:forEach items="${ContractList}" var="Contract">
-                                                                <!--Check already Contract-->
-                                                                <c:set value="0" var="Required" scope="page"/>
-                                                                <c:forEach items="${ContractList}" var="C">
-                                                                    <c:if test="${C.roomID == R.roomID}" >
-                                                                        <c:set value="1" var="Required" scope="page"/>     
-                                                                    </c:if>
-                                                                </c:forEach>
-
-                                                                <c:choose>
-                                                                    <c:when test="${Required == 1}">
+                                                            <c:choose>
+                                                                <c:when test="${R.status == 'RENTING'}">
+                                                                    <c:forEach items="${ContractList}" var="Contract">
                                                                         <c:if test="${Contract.roomID == R.roomID}">                                                            
                                                                             <c:forEach items="${CusList}" var="Cus">
                                                                                 <c:if test="${Cus.customerID == Contract.customerID}">
@@ -118,12 +111,15 @@
                                                                             </c:forEach>
 
                                                                         </c:if>
-                                                                    </c:when>
-                                                                    <c:otherwise>
-                                                                        <td></td>
-                                                                    </c:otherwise>
-                                                                </c:choose>
-                                                            </c:forEach>
+
+                                                                    </c:forEach>
+                                                                </c:when>
+                                                                <c:otherwise>
+                                                                    <td></td><td></td><td></td><td></td>
+                                                                </c:otherwise>
+                                                            </c:choose>
+
+
 
                                                             <td>
                                                                 <input class="money form-control" type="text" name="unit_price"  placeholder="Giá" 
@@ -131,14 +127,14 @@
                                                             </td>
                                                             <c:choose>
                                                                 <c:when test="${R.status == 'RENTING'}">
-                                                                    <td class="text-success"><strong>${R.status}</strong></td>
-                                                                </c:when>
-                                                                <c:otherwise>
-                                                                    <td class="text-warning"><strong>${R.status}</strong></td>
-                                                                </c:otherwise>
-                                                            </c:choose>
-                                                            <c:choose>
-                                                                <c:when test="${R.status == 'RENTING'}">
+                                                                    <td class="text-success"><strong>RENTING</strong></td>
+                                                                        </c:when>
+                                                                        <c:otherwise>
+                                                                    <td class="text-warning"><strong>EMPTY</strong></td>
+                                                                        </c:otherwise>
+                                                                    </c:choose>
+                                                                    <c:choose>
+                                                                        <c:when test="${R.status == 'RENTING'}">
                                                                     <td>                                                    
 
                                                                         <a href="${pageContext.request.contextPath}/MainController?action=UpdateRoom&RoomID=${R.roomID}">
@@ -147,6 +143,11 @@
                                                                         <c:if test="${RoomInfo.status == 'EMPTY'}">
                                                                             <a href="${pageContext.request.contextPath}/MainController?action=DeleteRoom&RoomID=${R.roomID}">                                                                                        
                                                                                 <button Onclick="return ConfirmDelete();" class="btn btn-danger" title="Remove"><i class="fa fa-remove"></i></button>                
+                                                                            </a>
+                                                                        </c:if>
+                                                                        <c:if test="${RoomInfo.status != 'EMPTY'}">
+                                                                            <a href="${pageContext.request.contextPath}/MainController?action=DeleteRoom&RoomID=${R.roomID}">                                                                                        
+                                                                                <button Onclick="return ConfirmDelete_Renting();" class="btn btn-danger" title="Remove"><i class="fa fa-remove"></i></button>                
                                                                             </a>
                                                                         </c:if>
 
@@ -191,13 +192,23 @@
         <script>
             function ConfirmDelete()
             {
-                var x = confirm("Are you sure you want to delete?");
+                var x = confirm("Xác nhận xóa phòng hiện tại?");
                 if (x)
                     return true;
                 else
                     return false;
             }
-        </script>    
+        </script>  
+        <script>
+            function ConfirmDelete_Renting()
+            {
+                var x = confirm("Phòng đã có người thuê! Xác nhận xóa phòng hiện tại?");
+                if (x)
+                    return true;
+                else
+                    return false;
+            }
+        </script> 
         <script type="text/javascript">
             function myFunction() {
                 var n1 = document.getElementById('n1').value;

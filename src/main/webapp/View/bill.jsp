@@ -102,8 +102,8 @@
                                                                                         <c:forEach items="${CusList}" var="Cus">
                                                                                             <c:if test="${Cus.customerID == C.customerID}">
                                                                                                 <td><a href="${pageContext.request.contextPath}/MainController?action=CustomerPage&CusID=${Cus.customerID}&roomID=${R.roomID}">${Cus.fullname}</a></td>
-                                                                                            </c:if>
-                                                                                        </c:forEach>
+                                                                                                </c:if>
+                                                                                            </c:forEach>
 
                                                                                         <td><fmt:formatDate pattern="dd/MM/yyyy" value="${B.created}"/></td>
                                                                                         <td>---</td>
@@ -136,7 +136,19 @@
                                                                                                         <c:forEach items="${B.details}" var="BD"> 
                                                                                                             <tr>
                                                                                                                 <td>${BD.service.detailname}</td>
-                                                                                                                <td>0</td>
+                                                                                                                
+                                                                                                                <c:forEach items="${CompleteList}" var="Com">
+                                                                                                                    <c:if test="${Com.customerID == B.customerID}">
+                                                                                                                        <c:forEach items="${Com.details}" var="Cd">
+                                                                                                                            <c:if test="${Cd.service.detailID == Com.service.detailID}">
+                                                                                                                                <td>
+                                                                                                                                    <input style="width: 100%" type="number"  value="${Com.qty}">
+                                                                                                                                </td>
+                                                                                                                            </c:if>
+                                                                                                                        </c:forEach>
+                                                                                                                    </c:if>
+                                                                                                                </c:forEach>
+                                                                                                                                
                                                                                                                 <td>${BD.qty}</td>
                                                                                                                 <td><fmt:formatNumber type="number" maxFractionDigits="0" value="${BD.total}"/></td>
                                                                                                             </tr>  
@@ -198,8 +210,8 @@
                                                                                         <c:forEach items="${CusList}" var="Cus">
                                                                                             <c:if test="${Cus.customerID == C.customerID}">
                                                                                                 <td><a href="${pageContext.request.contextPath}/MainController?action=CustomerPage&CusID=${Cus.customerID}&roomID=${R.roomID}">${Cus.fullname}</a></td>
-                                                                                            </c:if>
-                                                                                        </c:forEach>
+                                                                                                </c:if>
+                                                                                            </c:forEach>
                                                                                         <td><fmt:formatDate pattern="dd/MM/yyyy" value="${B.created}"/></td>
                                                                                         <td>---</td>
                                                                                         <td>

@@ -27,7 +27,7 @@
 
         <div id="layoutSidenav_content">
 
-            <form action="${pageContext.request.contextPath}/MainController" method="POST" enctype="multipart/form-data">
+            <form action="${pageContext.request.contextPath}/MainController" method="POST">
                 <div class="card mb-4">
                     <div class="card-header">
                         <div class="card-header">
@@ -43,7 +43,7 @@
                             <a href="${pageContext.request.contextPath}/MainController?action=RoomPage">
                                 <button class="btn btn-warning" type="button" id="cancelButton"><i class="fa fa-mail-reply"></i> Trở Lại</button>
                             </a>
-                            <button class="btn btn-success" type="button" id="sumbitButton"><i class="fa fa-edit"></i> Lưu</button>                              
+                            <button class="btn btn-success" type="submit" name="action" id="sumbitButton" value="CustomerPage"><i class="fa fa-check"></i> Lưu</button>                      
                         </div>                      
                     </div>
                 </div>
@@ -57,7 +57,9 @@
                             <li class="nav-item">
                                 <a class="nav-link active" href="#cusInfor" role="tab" data-toggle="tab">Thông Tin</a>
                             </li>
-
+                            <li class="nav-item">
+                                <a class="nav-link" href="#service" role="tab" data-toggle="tab">Dịch Vụ</a>
+                            </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="#member" role="tab" data-toggle="tab">Thành Viên</a>
                             </li>
@@ -124,7 +126,64 @@
                                 </div>
                             </div>
 
+                            <div role="tabpanel" class="tab-pane fade show " id="service" >
+                                <div class="card px-3 py-3">
+                                    <table id="datatablesSimple">
+                                        <thead>
+                                            <tr>
+                                                <th>Chọn</th>
+                                                <th>Tên dịch vụ</th>
+                                                <th>Loại dịch vụ</th>
+                                                <th>Ngày cập nhật</th> 
+                                                <th>Giá</th>                                     
 
+                                            </tr>
+                                        </thead>
+                                        <tfoot>
+                                            <tr>
+                                                <th>Chọn</th>
+                                                <th>Tên dịch vụ</th>
+                                                <th>Loại dịch vụ</th>
+                                                <th>Ngày cập nhật</th> 
+ 
+                                                <th>Giá</th>                                     
+
+                                            </tr>
+                                        </tfoot>
+                                        <tbody>
+                                            <c:forEach items="${ServiceDetailList}" var="SD">   
+                                                <c:if test="${SD.hostelID == Hostel.hostelID}">
+                                                    <tr>
+                                                        <c:choose>
+                                                            <c:when test="${ST.serviceID == 1}">
+                                                                <td style="text-align: center"><input type="checkbox" name="chooseDetail" value="${SD.detailID}" checked/></td>
+                                                                </c:when>
+                                                                <c:otherwise>
+                                                                <td style="text-align: center"><input type="checkbox" name="chooseDetail" value="${SD.detailID}" /></td>
+                                                                </c:otherwise>
+                                                            </c:choose>
+
+                                                        <td>${SD.detailname}</td>
+                                                        <c:forEach items="${ServiceTypeList}" var="ST">   
+                                                            <c:if test="${ST.serviceID == SD.serviceID}">
+                                                                <td>${ST.service_name}</td>
+                                                            </c:if>                                                
+                                                        </c:forEach>
+
+                                                        <td><fmt:formatDate pattern="dd/MM/yyyy" value="${SD.updated_date}"/></td>
+
+
+                                                        <td><input type="text" name="" class="money form-control" value="<fmt:formatNumber type="number" maxFractionDigits="0" value="${SD.unit_price}"/>" disabled="disable" style="width: 100%"/></td>                                     
+
+                                                    </tr>
+                                                </c:if>
+                                            </c:forEach>
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                                        
                             <div role="tabpanel" class="tab-pane fade show " id="member" >
                                 <div class="card px-3 py-3">
                                     <table  class="table table-striped table-bordered "  >
@@ -144,7 +203,7 @@
                                                 <c:if test="${RM.customerID != Customer.customerID}">
                                                     <tr>
                                                         <td><input type="text" name="fullname1" style="width: 100% ;text-align: center" value="${RM.fullname}"></td>
-                                                        <td><input type="date" name="dob1"></td>
+                                                        <td><input type="date" name="dob1" value="${RM.dob}"></td>
                                                         <td style="text-align: center">
                                                             <c:choose>
                                                                 <c:when test="${RM.gender == 'Male'}" >

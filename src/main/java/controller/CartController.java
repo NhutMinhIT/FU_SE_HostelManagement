@@ -9,6 +9,7 @@ import dao.ContractDAO;
 import dao.CustomerDAO;
 import dao.RoomDAO;
 import dto.BillDTO;
+import dto.BillDetailDTO;
 import dto.ContractDTO;
 import dto.CustomerDTO;
 import dto.HostelDTO;
@@ -31,7 +32,8 @@ import javax.servlet.http.HttpSession;
 @WebServlet(name = "CartController", urlPatterns = {"/CartController"})
 public class CartController extends HttpServlet {
 
-    private static final String SUCCESS = "View/ManagerActivitie1.jsp";
+    private static final String ERROR = "View/ManagerActivitie1.jsp";
+    private static final String SUCCESS = "MainController?action=CartPage";
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -50,7 +52,7 @@ public class CartController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String url = SUCCESS;
+        String url = ERROR;
         try {
             HttpSession ss = request.getSession();
             UserDTO us = (UserDTO) ss.getAttribute("LOGIN_USER");
@@ -93,6 +95,7 @@ public class CartController extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
+        
     }
 
     /**

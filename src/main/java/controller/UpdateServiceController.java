@@ -109,26 +109,28 @@ public class UpdateServiceController extends HttpServlet {
             Double unitprice = Double.parseDouble(request.getParameter("unit_price"));
             String updated_date = request.getParameter("updated_date");
             String description = request.getParameter("description");
+            String service_id = request.getParameter("service_id");
             String status = request.getParameter("status");
             if (status == null) {
                 status = "DISABLED";
             }
             boolean update = false;
             ServiceDetailDTO checkChange = dao.GetAServiceDetail(detail_id);
-            if (!checkChange.getStatus().equals(status)) {
+            if (checkChange.getUnit_price() != unitprice) {
                 checkChange.setStatus(status);
                 update = dao.UpdateServiceDetail(checkChange);
+                checkChange.setUnit_price(unitprice);
+                boolean check = dao.AddServiceDetail(checkChange);
 
             } else {
                 checkChange.setStatus(status);
-                update = dao.UpdateServiceDetail(checkChange);
-
+                checkChange.setServiceID(Integer.parseInt(service_id));
                 checkChange.setDetailname(detail_name);
                 checkChange.setUpdated_date(Date.valueOf(currentDate));
                 checkChange.setDescription(description);
-                checkChange.setUnit_price(unitprice);
+                checkChange.setStatus(status);
                 checkChange.setStatus("ACTIVE");
-                boolean check = dao.AddServiceDetail(checkChange);
+                update = dao.UpdateServiceDetail(checkChange);
             }
 
             if (update) {

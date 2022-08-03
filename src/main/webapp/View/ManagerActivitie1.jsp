@@ -54,10 +54,13 @@
                                 </c:choose>
                                 <div>
                                     <form action="${pageContext.request.contextPath}/MainController" method="POST">
-                                        <br/>                           
+                                        <div class="mt-3 text-center" style="float:right; display: flex; margin: 70px 50px 50px 0">                       
+                                            <button class="btn btn-success" type="submit" name="action" id="sumbitButton" value="UpdateBill"><i class="fa fa-check"></i> Lưu</button>
+                                        </div> 
+                                        <br/>              
+
                                         <div class="container-fluid">
-                                            <input type="search" oninput="filter_table(this, 'table_filter')" class="form_control"
-                                                   placeholder="Filter This Table...">
+
                                             <table class="_table table_sort">
                                                 <thead>
                                                     <tr>
@@ -86,28 +89,62 @@
                                                                                         <td><a href="${pageContext.request.contextPath}/MainController?action=CustomerPage&CusID=${Cus.customerID}&roomID=${R.roomID}">${Cus.fullname}</a></td>
                                                                                         </c:if>
                                                                                     </c:forEach>
-                                                                                    <c:forEach items="${CompleteList}" var="Com">
-                                                                                        <c:if test="${Com.customerID == B.customerID}">
-                                                                                            <c:if test="${Com.details.service.detailID == 1 }">
-                                                                                            <td>
-                                                                                                <input style="width: 100%" oninput="checkNumber()" type="number" id="n1" value="${Com.details.qty}">  
-                                                                                            </td>
-                                                                                        </c:if>
+
+                                                                                <c:set value="0" var="Required" scope="page"/>
+                                                                                <c:forEach items="${CompleteList}" var="Com">
+                                                                                    <c:if test="${Com.customerID == C.customerID}">
+                                                                                        <c:forEach items="${Com.details}" var="Cd">
+                                                                                            <c:if test="${Cd.service.serviceID == '1'}">
+                                                                                                <c:set value="${Cd.qty}" var="Required" scope="page"/>
+                                                                                            </c:if>
+                                                                                        </c:forEach>
+                                                                                    </c:if>
+                                                                                </c:forEach>
+
+                                                                                <td>
+                                                                                    <input style="width: 100%" type="number"  value="${Required}" disabled="disabled">                                                                                                   
+                                                                                </td>
+                                                                                
+                                                                                <c:forEach items="${ProcessList}" var="Com">
+                                                                                    <c:if test="${Com.customerID == C.customerID}">
+                                                                                        <c:forEach items="${Com.details}" var="Cd">
+                                                                                            <c:if test="${Cd.service.serviceID == '1'}">
+                                                                                                <td>
+                                                                                                    <input style="width: 100%" type="number" name="Elec_${B.billID}" value="${Cd.qty}">
+                                                                                                </td>
+                                                                                            </c:if>
+                                                                                        </c:forEach>
+                                                                                    </c:if>
+                                                                                </c:forEach>
+                                                            
+                                                                                <c:set value="0" var="Required" scope="page"/>
+                                                                                <c:forEach items="${CompleteList}" var="Com">
+                                                                                    <c:if test="${Com.customerID == C.customerID}">
+                                                                                        <c:forEach items="${Com.details}" var="Cd">
+                                                                                            <c:if test="${Cd.service.serviceID == '2'}">
+                                                                                                <c:set value="${Cd.qty}" var="Required" scope="page"/>
+                                                                                            </c:if>
+                                                                                        </c:forEach>
                                                                                     </c:if>
                                                                                 </c:forEach>
                                                                                 <td>
-                                                                                    <input style="width: 100%" type="number" id="n2">
+                                                                                    <input style="width: 100%" type="number"  value="${Required}" disabled="disabled">                                                                                                   
                                                                                 </td>
+                                                                                
+                                                                                <c:forEach items="${ProcessList}" var="Com">
+                                                                                    <c:if test="${Com.customerID == C.customerID}">
+                                                                                        <c:forEach items="${Com.details}" var="Cd">
+                                                                                            <c:if test="${Cd.service.serviceID == '2'}">
+                                                                                                <td>
+                                                                                                    <input style="width: 100%" type="number" name="Wat_${B.billID}" value="${Cd.qty}">
+                                                                                                </td>
+                                                                                            </c:if>
+                                                                                        </c:forEach>
+                                                                                    </c:if>
+                                                                                </c:forEach>
 
                                                                                 <td>
-                                                                                    <input style="width: 100%" type="number" id="n1">
-                                                                                </td>
-                                                                                <td>
-                                                                                    <input style="width: 100%" type="number" id="n2">
-                                                                                </td>
-                                                                                <td>
-                                                                                    <button onclick="myFunction()" class="btn btn-primary"><i class="fa fa-save fa-beat" ></i>Lưu</button>
-
+                                                                                    <button  class="btn btn-primary"><i class="fa fa-save fa-beat" ></i>Xóa</button>
                                                                                 </td>
                                                                             </tr>
                                                                         </c:if>

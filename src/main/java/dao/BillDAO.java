@@ -33,6 +33,7 @@ public class BillDAO {
 
     private static final String GETCURRENTBILLDETAIL_ELEMENT = "SELECT TOP (1) * FROM dbo.[BillDetail] WHERE bill_id = ? AND detail_id = ? ORDER BY billd_id DESC ";
     private static final String GETBILLDETAIL_LIST = "SELECT * FROM dbo.[BillDetail] WHERE bill_id = ?";
+    private static final String GETBILLDETAIL_SERVICEID = "SELECT * FROM dbo.[BillDetail] WHERE detail_id = ?";
 
     private static final String ADDBILL = "INSERT INTO dbo.[Bill]([customer_id],[total],[start_date],[end_date],[created],[status]) VALUES(?,?,?,?,?,'PROCESS')";
     private static final String ADDBILLDETAIL = "INSERT INTO dbo.[BillDetail]([bill_id],[detail_id],[qty],[total]) VALUES(?,?,?,?)";
@@ -215,6 +216,35 @@ public class BillDAO {
             }
         }
         return null;
+    }
+
+    public boolean CHECK_BillDetail(int detailid) throws SQLException {
+        Connection conn = null;
+        PreparedStatement ptm = null;
+        ResultSet rs = null;
+        try {
+            conn = DBUtils.getConnection();
+            if (conn != null) {
+                ptm = conn.prepareStatement(GETBILLDETAIL_SERVICEID);
+                ptm.setInt(1, detailid);
+                rs = ptm.executeQuery();
+                while (rs.next()) {
+                    return true;
+                }
+            }
+        } catch (Exception e) {
+        } finally {
+            if (rs != null) {
+                rs.close();
+            }
+            if (ptm != null) {
+                ptm.close();
+            }
+            if (conn != null) {
+                conn.close();
+            }
+        }
+        return false;
     }
 
     public List<BillDetailDTO> GetListBillDetail(int BillID) throws SQLException {
