@@ -4,8 +4,11 @@ package controller;
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
  */
-
+import dao.AddressDAO;
 import dao.RoomDAO;
+import dto.Address.City;
+import dto.Address.District;
+import dto.Address.Ward;
 import dto.HostelDTO;
 import dto.UserDTO;
 import java.io.IOException;
@@ -21,16 +24,16 @@ import javax.servlet.http.HttpSession;
  *
  * @author avillX
  */
-@WebServlet(name = "AddHostelController",urlPatterns = {"/AddHostelController"})
+@WebServlet(name = "AddHostelController", urlPatterns = {"/AddHostelController"})
 public class AddHostelController extends HttpServlet {
 
     private static final String ERROR = "View/addNewHostel.jsp";
-    private static final String SUCCESS = "MainController?action=RoomPage"; 
+    private static final String SUCCESS = "MainController?action=RoomPage";
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        
+
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -69,18 +72,19 @@ public class AddHostelController extends HttpServlet {
         String url = SUCCESS;
         try {
             HttpSession ss = request.getSession();
-            UserDTO us =  (UserDTO) ss.getAttribute("LOGIN_USER");
- 
+            UserDTO us = (UserDTO) ss.getAttribute("LOGIN_USER");
+            AddressDAO ad = new AddressDAO();
+
             String hostelname = request.getParameter("hostelname");
-            String city = request.getParameter("city");
-            String district = request.getParameter("district");
-            String ward = request.getParameter("ward");
-            String address = request.getParameter("address");
             String wardID = request.getParameter("wardID");
 
             RoomDAO dao = new RoomDAO();
             int hostelID = dao.CountHostel();
-            boolean check = dao.AddHostel(new HostelDTO(String.valueOf(hostelID), hostelname, address, us.getPhone(), us.getUserID(),wardID));
+            Ward wwardID = ad.GetAWard(wardID);
+            District DistrictID = ad.GetADistrict(wwardID.getDistrictID());
+            City CityID = ad.GetACity(DistrictID.getCityID());
+            String address = request.getParameter("address") + ", " + wwardID.getWardname() + ", " + DistrictID.getDistrictname() + ", " + CityID.getCityname();
+            boolean check = dao.AddHostel(new HostelDTO(String.valueOf(hostelID), hostelname, address, us.getPhone(), us.getUserID(), wardID));
             if (check) {
                 url = SUCCESS;
             }

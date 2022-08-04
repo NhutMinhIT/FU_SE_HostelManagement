@@ -1,6 +1,11 @@
 package controller;
 
+import dao.ContractDAO;
+import dao.CustomerDAO;
+import dao.RoomDAO;
 import dao.UserDAO;
+import dto.ContractDTO;
+import dto.CustomerDTO;
 import dto.UserDTO;
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -18,6 +23,8 @@ public class LoginController extends HttpServlet {
     private static final String AD = "AD";
     private static final String USER_PAGE = "MainController?action=UserPage";
     private static final String US = "US";
+    private static final String CUS_PAGE = "MainController?action=CustomerPage";
+    private static final String CUS = "CUS";
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -27,18 +34,24 @@ public class LoginController extends HttpServlet {
             String email = request.getParameter("email");
             String password = request.getParameter("password");
             UserDAO dao = new UserDAO();
+            CustomerDAO Cusdao = new CustomerDAO();
+            ContractDAO Cdao = new ContractDAO();
+            RoomDAO Rdao = new RoomDAO();
             UserDTO loginUser = dao.checkLogin(email, password);
-            
-                if (loginUser != null) {
-                    HttpSession session = request.getSession();
-                    String roleID = loginUser.getRoleID().trim();
-                    switch (roleID) {
+            if (loginUser == null) {
+                loginUser = dao.checkLogin_Phone(email, password);
+            }
+
+            if (loginUser != null) {
+                HttpSession session = request.getSession();
+                String roleID = loginUser.getRoleID().trim();
+                switch (roleID) {
                     case AD:
                         session.setAttribute("LOGIN_USER", loginUser);
                         url = ADMIN_PAGE;
                         break;
                     case US:
-                        if(loginUser.getStatus().trim().equals("APPROVED")){
+                        if (loginUser.getStatus().trim().equals("APPROVED")) {
                             session.setAttribute("LOGIN_USER", loginUser);
                             url = USER_PAGE;
                         }
@@ -46,12 +59,19 @@ public class LoginController extends HttpServlet {
                     default:
                         request.setAttribute("ERROR", "Your role is not ready!");
                         break;
-                    }
-                } else {
-                    request.setAttribute("ERROR", "Incorrect userID or Password!");
                 }
+            }
+            if (Cusdao.loginCus(email, password) != null) {
+                HttpSession session = request.getSession();
+                CustomerDTO c = Cusdao.loginCus(email, password);
+                ContractDTO con = Cdao.GetAContract(c.getCustomerID());
+                session.setAttribute("Room", con.getRoomID());
+                session.setAttribute("LOGIN_USER", c);
+                url = "MainController?action=CustomerPage$CusID=" + c.getCustomerID() + "roomID=" + con.getRoomID();
+            } else {
+                request.setAttribute("ERROR", "Incorrect email/phone or Password!");
+            }
 
-            
         } catch (Exception e) {
         } finally {
             request.getRequestDispatcher(url).forward(request, response);

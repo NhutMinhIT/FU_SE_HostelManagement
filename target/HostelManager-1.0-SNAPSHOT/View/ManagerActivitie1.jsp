@@ -70,7 +70,7 @@
                                                         <th>Số Điện Mới</th>
                                                         <th>Số Nước Cũ</th>
                                                         <th>Số Nước Mới</th>
-                                                        <th style="width:7%">Action</th>
+                                                        
                                                     </tr>
                                                 </thead>
                                                 <tbody id="table_filter">
@@ -143,9 +143,7 @@
                                                                                     </c:if>
                                                                                 </c:forEach>
 
-                                                                                <td>
-                                                                                    <button  class="btn btn-primary"><i class="fa fa-save fa-beat" ></i>Xóa</button>
-                                                                                </td>
+                                                                                
                                                                             </tr>
                                                                         </c:if>
 

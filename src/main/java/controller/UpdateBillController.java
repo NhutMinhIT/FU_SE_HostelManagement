@@ -33,10 +33,10 @@ import javax.servlet.http.HttpSession;
 public class UpdateBillController extends HttpServlet {
 
     private static final String SUCCESS = "MainController?action=CartPage";
-     
+
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-       response.setContentType("text/html;charset=UTF-8");
+        response.setContentType("text/html;charset=UTF-8");
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -65,7 +65,7 @@ public class UpdateBillController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-         String url = SUCCESS;
+        String url = SUCCESS;
         try {
             HttpSession ss = request.getSession();
             UserDTO us = (UserDTO) ss.getAttribute("LOGIN_USER");
@@ -88,20 +88,20 @@ public class UpdateBillController extends HttpServlet {
                 for (BillDetailDTO BD : BillDetail) {
                     if (BD.getService().getServiceID() == 1 && Elec != null) {
                         BD.setQty(Integer.parseInt(Elec));
+                        BD.setTotal(BD.getQty() * BD.getService().getUnit_price());
                         Bdao.UpdateBillDetail(BD, B.getBillID());
-                    }else 
-
-                    if (BD.getService().getServiceID() == 2 && Water != null) {
+                    } else if (BD.getService().getServiceID() == 2 && Water != null) {
                         BD.setQty(Integer.parseInt(Water));
+                        BD.setTotal(BD.getQty() * BD.getService().getUnit_price());
                         Bdao.UpdateBillDetail(BD, B.getBillID());
                     }
                 }
             }
-      } catch (Exception e) {
-  
+        } catch (Exception e) {
+
             log("Error at UpdateBillController:" + e.toString());
         } finally {
-            response.sendRedirect(SUCCESS); 
+            response.sendRedirect(SUCCESS);
         }
     }
 

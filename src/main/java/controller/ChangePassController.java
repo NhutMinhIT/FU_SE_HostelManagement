@@ -4,19 +4,17 @@
  */
 package controller;
 
-import dao.BillDAO;
-import dao.ContractDAO;
+import dao.AddressDAO;
 import dao.CustomerDAO;
 import dao.RoomDAO;
-import dto.BillDTO;
-import dto.ContractDTO;
-import dto.CustomerDTO;
+import dao.UserDAO;
+import dto.Address.City;
+import dto.Address.District;
+import dto.Address.Ward;
 import dto.HostelDTO;
-import dto.RoomDTO;
 import dto.UserDTO;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -28,44 +26,24 @@ import javax.servlet.http.HttpSession;
  *
  * @author avillX
  */
-@WebServlet(name = "UserPageController", urlPatterns = {"/UserPageController"})
-public class UserPageController extends HttpServlet {
+@WebServlet(name = "ChangePassController", urlPatterns = {"/ChangePassController"})
+public class ChangePassController extends HttpServlet {
 
-    private static final String SUCCESS = "View/index.jsp";
-    private static final String ERROR = "View/index.jsp";
+    private static final String ERROR = "View/changePass.jsp";
+    private static final String SUCCESS = "MainController?action=RoomPage";
 
+    /**
+     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
+     * methods.
+     *
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        String url = ERROR;
-        try {
-            HttpSession ss = request.getSession();
-            UserDTO us = (UserDTO) ss.getAttribute("LOGIN_USER");
-            RoomDAO dao = new RoomDAO();
-            CustomerDAO Cusdao = new CustomerDAO();
-            ContractDAO Cdao = new ContractDAO();
-            BillDAO Bdao = new BillDAO();
-
-            List<HostelDTO> HostelList = dao.GetListHostel(us.getUserID());
-            List<RoomDTO> RoomList = dao.GetListRoom(HostelList);
-            List<ContractDTO> ContractList = Cdao.GetListContract(RoomList);
-            List<CustomerDTO> CusList = Cusdao.GetListCustomer(ContractList);
-            List<BillDTO> BillList = Bdao.GetListBill(CusList);
-            List<BillDTO> BillList_PROCESS = Bdao.GetListBill_CHECKOUT(CusList);
-
-            request.setAttribute("HostelList", HostelList);
-            request.setAttribute("RoomList", RoomList);
-            request.setAttribute("ContractList", ContractList);
-            request.setAttribute("CusList", CusList);
-            request.setAttribute("BillList", BillList);
-            request.setAttribute("CheckoutList", BillList_PROCESS);
-            url = SUCCESS;
-
-        } catch (Exception e) {
-            log("Error at UserPageController:" + e.toString());
-        } finally {
-            request.getRequestDispatcher(url).forward(request, response);
-        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -80,7 +58,13 @@ public class UserPageController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        String url = ERROR;
+        try {
+        } catch (Exception e) {
+            log("Error at AddHostelController(doPost): " + e.toString());
+        } finally {
+            request.getRequestDispatcher(url).forward(request, response);
+        }
     }
 
     /**
@@ -94,7 +78,26 @@ public class UserPageController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        String url = ERROR;
+        try {
+            HttpSession ss = request.getSession();
+            UserDTO us = (UserDTO) ss.getAttribute("LOGIN_USER");
+            UserDAO dao = new UserDAO();
+            String NewPass = request.getParameter("NewPass");
+            String password = request.getParameter("OldPass");
+            UserDTO check = dao.checkLogin(us.getEmail(), password);
+            if (check != null) {
+                check.setPassword(NewPass);
+                dao.ChangePass(check);
+                url = SUCCESS;
+            } else {
+                request.setAttribute("ERROR", "Sai mật khẩu!");
+            }
+        } catch (Exception e) {
+            log("Error at AddHostelController(doPost): " + e.toString());
+        } finally {
+            request.getRequestDispatcher(url).forward(request, response);
+        }
     }
 
     /**

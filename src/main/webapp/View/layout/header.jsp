@@ -4,6 +4,7 @@
     Author     : avillX
 --%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -40,7 +41,7 @@
                     <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
 
-                        <li><a class="dropdown-item" href="View/changePass.jsp">Đổi Mật Khẩu</a></li>
+                        <li><a class="dropdown-item" href="${pageContext.request.contextPath}/MainController?action=ChangePass">Đổi Mật Khẩu</a></li>
                         <li>
                             <hr class="dropdown-divider" />
                         </li>
@@ -54,27 +55,40 @@
                 <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
                     <div class="sb-sidenav-menu">
                         <div class="nav">
+                            <c:choose>
+                                <c:when test="${sessionScope.LOGIN_USER.roleID == 'US'}">
+                                    <a class="nav-link" href="${pageContext.request.contextPath}/MainController?action=UserPage">
+                                        <div class="sb-nav-link-icon"><i class="fas fa-palette"></i></div>
+                                        Trang Chủ
+                                    </a>
+                                    <a class="nav-link collapsed" href="${pageContext.request.contextPath}/MainController?action=RoomPage">
+                                        <div class="sb-nav-link-icon"><i class="fas fa-house"></i></div>
+                                        Phòng                                
+                                    </a>
+                                    <a class="nav-link collapsed" href="${pageContext.request.contextPath}/MainController?action=ServicePage">
+                                        <div class="sb-nav-link-icon"><i class="fas fa-cubes"></i></div>
+                                        Dịch Vụ                                
+                                    </a>
+                                    <a class="nav-link collapsed" href="${pageContext.request.contextPath}/MainController?action=CartPage">
+                                        <div class="sb-nav-link-icon"><i class="fas fa-bolt"></i></div>
+                                        Quản Lý Tiêu                               
+                                    </a>
+                                    <a class="nav-link collapsed" href="${pageContext.request.contextPath}/MainController?action=BillPage">
+                                        <div class="sb-nav-link-icon"><i class="fas fa-money-bill"></i></div>
+                                        Tính tiền                               
+                                    </a>
+                                </c:when>
+                                <c:when test="${sessionScope.LOGIN_USER.status == 'ACTIVE'}">
+                                    <a class="nav-link" href="${pageContext.request.contextPath}/MainController?action=CustomerPage&CusID=${sessionScope.LOGIN_USER.customerID}&roomID=${Room}">
+                                        <div class="sb-nav-link-icon"><i class="fas fa-palette"></i></div>
+                                        Thông tin
+                                    </a>
+                                </c:when>
+                                <c:otherwise>
 
-                            <a class="nav-link" href="${pageContext.request.contextPath}/MainController?action=UserPage">
-                                <div class="sb-nav-link-icon"><i class="fas fa-palette"></i></div>
-                                Trang Chủ
-                            </a>
-                            <a class="nav-link collapsed" href="${pageContext.request.contextPath}/MainController?action=RoomPage">
-                                <div class="sb-nav-link-icon"><i class="fas fa-house"></i></div>
-                                Phòng                                
-                            </a>
-                            <a class="nav-link collapsed" href="${pageContext.request.contextPath}/MainController?action=ServicePage">
-                                <div class="sb-nav-link-icon"><i class="fas fa-cubes"></i></div>
-                                Dịch Vụ                                
-                            </a>
-                            <a class="nav-link collapsed" href="${pageContext.request.contextPath}/MainController?action=CartPage">
-                                <div class="sb-nav-link-icon"><i class="fas fa-bolt"></i></div>
-                                Quản Lý Tiêu                               
-                            </a>
-                            <a class="nav-link collapsed" href="${pageContext.request.contextPath}/MainController?action=BillPage">
-                                <div class="sb-nav-link-icon"><i class="fas fa-money-bill"></i></div>
-                                Tính tiền                               
-                            </a>
+                                </c:otherwise>
+                            </c:choose>
+
 
 
                             <div class="sb-sidenav-menu-heading">Khác</div>

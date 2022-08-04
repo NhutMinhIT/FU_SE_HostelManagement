@@ -42,7 +42,7 @@ import javax.servlet.http.HttpSession;
 public class CustomerPageController extends HttpServlet {
 
     private static final String ERROR = "View/editCus.jsp";
-    private static final String SUCCESS = "CustomerPageController";
+    private static final String SUCCESS = "RoomPageController";
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -71,6 +71,7 @@ public class CustomerPageController extends HttpServlet {
             ContractDAO Cdao = new ContractDAO();
             ServiceDAO SerDAO = new ServiceDAO();
             AddressDAO ad = new AddressDAO();
+            BillDAO Bdao = new BillDAO();
 
             String CusID = request.getParameter("CusID");
             RoomDTO room = dao.GetARoom(request.getParameter("roomID"));
@@ -86,12 +87,16 @@ public class CustomerPageController extends HttpServlet {
             CustomerDTO Customer = Cusdao.GetACustomer(CusID);
             List<HostelDTO> HostelList = dao.GetListHostel(us.getUserID());
             List<ServiceDetailDTO> ServiceDetailList = SerDAO.GetListServiceDetail(HostelList);
+            BillDTO bill = Bdao.Get_A_ProcessBill(CusID);
             int length = RoomMate.size();
+            if (length == 0) {
+                length = 1;
+            }
 
             Ward wardID = ad.GetAWard(Customer.getWardID());
             District DistrictID = ad.GetADistrict(wardID.getDistrictID());
             City CityID = ad.GetACity(DistrictID.getCityID());
-            Customer.setAddress(Customer.getAddress() + ", " + wardID.getWardname() + ", " + DistrictID.getDistrictname() + ", " + CityID.getCityname());
+            String ward = ", " + wardID.getWardname() + ", " + DistrictID.getDistrictname() + ", " + CityID.getCityname();
 
             request.setAttribute("ServiceTypeList", ServiceTypeList);
             request.setAttribute("Contract", Contract);
@@ -99,8 +104,11 @@ public class CustomerPageController extends HttpServlet {
             request.setAttribute("Customer", Customer);
             request.setAttribute("Room", room);
             request.setAttribute("RoomMate", RoomMate);
+            request.setAttribute("Bill", bill);
             request.setAttribute("ServiceDetailList", ServiceDetailList);
             request.setAttribute("length", length);
+            request.setAttribute("wardID", wardID.getWardID());
+            request.setAttribute("ward", ward);
 
         } catch (Exception e) {
             log("Error at CustomerPageController(doGet):" + e.toString());
@@ -162,34 +170,35 @@ public class CustomerPageController extends HttpServlet {
                 }
             }
 
-            if (Cusdao.GetACustomer(customerID) != null) {
-                request.setAttribute("ERROR", "CMND/CCCD [" + Cusdao.GetACustomer(customerID).getCustomerID() + "] đã được đăng ký !");
-            } else {
-                boolean AddCus = Cusdao.UpdateCustomer(new CustomerDTO(customerID, "", fullname, email, gender, Date.valueOf(dob), phone, "ACTIVE", address, wardID));
-                boolean AddContract = Ctdao.UpdateContract(new ContractDTO("", customerID, roomID, Date.valueOf(signed_date), Date.valueOf(due_date), "ACTIVE", description));
+            boolean AddCus = Cusdao.UpdateCustomer(new CustomerDTO(customerID, "", fullname, email, gender, Date.valueOf(dob), phone, "ACTIVE", address, wardID));
+            boolean AddContract = Ctdao.UpdateContract(new ContractDTO("", customerID, roomID, Date.valueOf(signed_date), Date.valueOf(due_date), "ACTIVE", description));
 
-                //Service----------------------------------------------------------------
-                String[] checked_DetailIDs = request.getParameterValues("chooseDetail");
-                List<BillDetailDTO> BillDetail_list = new ArrayList<>();
-                if (checked_DetailIDs.length > 0) {
-                    for (int i = 0; i < checked_DetailIDs.length; i++) {
-                        ServiceDetailDTO current = Sdao.GetAServiceDetail(Integer.valueOf(checked_DetailIDs[i]));
-                        boolean check = Bdao.CHECK_BillDetail(Integer.valueOf(checked_DetailIDs[i]));
-                        if (!check) {
-                            BillDetail_list.add(new BillDetailDTO(i, current, 0, 0.0));
+            //Service----------------------------------------------------------------
+            String[] checked_DetailIDs = request.getParameterValues("chooseDetail");
+            List<BillDetailDTO> BillDetail_list = new ArrayList<>();
+            if (checked_DetailIDs.length > 0) {
+                for (int i = 0; i < checked_DetailIDs.length; i++) {
+                    ServiceDetailDTO current = Sdao.GetAServiceDetail(Integer.valueOf(checked_DetailIDs[i]));
+                    boolean check = Bdao.CHECK_BillDetail(Integer.valueOf(checked_DetailIDs[i]));
+                    if (!check) {
+                        int number = 1;
+                        if (current.getServiceID() == 1 || current.getServiceID() == 2) {
+                            number = 0;
                         }
+                        BillDetail_list.add(new BillDetailDTO(i, current, number, current.getUnit_price() * number));
                     }
                 }
-
-                BillDTO currentBill = Bdao.Get_A_ProcessBill(customerID);
-                for (BillDetailDTO dList : BillDetail_list) {
-                    Bdao.AddBillDetail(dList, currentBill.getBillID());
-                }
-                //-------------------------------------------------------------------------
-                if (AddCus) {
-                    url = SUCCESS;
-                }
             }
+
+            BillDTO currentBill = Bdao.Get_A_ProcessBill(customerID);
+            for (BillDetailDTO dList : BillDetail_list) {
+                Bdao.AddBillDetail(dList, currentBill.getBillID());
+            }
+            //-------------------------------------------------------------------------
+            if (AddCus) {
+                url = SUCCESS;
+            }
+
         } catch (Exception e) {
             log("Error at AddCustomerController(doPost):" + e.toString());
         } finally {

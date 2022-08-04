@@ -45,6 +45,10 @@ public class MainController extends HttpServlet {
     private static final String DELETE_HOSTEL = "DeleteHostelController";
     private static final String DELETE_SERVICE = "DeleteServiceController";
 
+    private static final String CHANGE_PASS = "ChangePassController";
+    private static final String CHECKOUT = "CheckoutController";
+    private static final String COMPLETEBILL = "CompleteBillController";
+
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
@@ -105,6 +109,15 @@ public class MainController extends HttpServlet {
                     break;
                 case "UpdateBill":
                     url = UPDATE_BILL;
+                    break;
+                case "ChangePass":
+                    url = CHANGE_PASS;
+                    break;
+                case "Checkout":
+                    url = CHECKOUT;
+                    break;
+                case "CompleteBill":
+                    url = COMPLETEBILL;
                     break;
 //--DELETE------------------------------------------------------------------------------
                 case "DeleteRoom":

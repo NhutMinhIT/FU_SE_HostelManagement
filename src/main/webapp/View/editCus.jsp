@@ -37,7 +37,8 @@
                             <h4 style="padding-left: 20px;"><i class="fa fa-home"></i> ${Hostel.hostelname}</h4>                              
                         </div>
                         <div class="card-header">
-                            <h4 style="padding-left: 40px;"><i class="fa fa-person-shelter"></i> Phòng ${Room.roomnumber}</h4>                              
+                            <h4 style="padding-left: 40px;"><i class="fa fa-person-shelter"></i> Phòng ${Room.roomnumber}</h4>     
+                            <input type="hidden" class="form-control" value="${Room.roomnumber}" name="roomID">
                         </div>
                         <div class="mt-3 text-center" style="float:right; display: flex">                               
                             <a href="${pageContext.request.contextPath}/MainController?action=RoomPage">
@@ -75,7 +76,7 @@
                                     <div class="form-group row mt-2">
                                         <label  class="col-sm-2 col-form-label">Tên</label>
                                         <div class="col-sm-10">
-                                            <input type="text" class="form-control" placeholder="Enter your name" value="${Customer.fullname}">
+                                            <input type="text" class="form-control" placeholder="Enter your name" value="${Customer.fullname}" name="fullname">
                                         </div>
                                     </div>
                                     <div class="form-group row mt-2">
@@ -99,26 +100,37 @@
                                         <label  class="col-sm-2 col-form-label">Ngày Sinh</label>
                                         <div class="col-sm-10">
 
-                                            <input type="date" class="form-control"placeholder="" value="${Customer.dob}" >
+                                            <input type="date" class="form-control"placeholder="" value="${Customer.dob}" name="dob">
                                         </div>
                                     </div>
                                     <div class="form-group row mt-2">
                                         <label  class="col-sm-2 col-form-label">CMND/CCCD</label>
                                         <div class="col-sm-10">
-                                            <input type="text" class="form-control" placeholder="Enter your CMND/CCCD" value="${Customer.customerID}" >
+                                            <input type="text" class="form-control" placeholder="Enter your CMND/CCCD" value="${Customer.customerID}" disabled="disabled">
+                                            <input type="hidden" class="form-control" placeholder="Enter your CMND/CCCD" value="${Customer.customerID}" name="customerID">
                                         </div>
                                     </div>
                                     <div class="form-group row mt-2">
                                         <label  class="col-sm-2 col-form-label">Số Điện Thoại</label>
                                         <div class="col-sm-10">
-                                            <input type="text" class="form-control" placeholder="Enter your phone"value="${Customer.phone}" >
+                                            <input type="text" class="form-control" placeholder="Enter your phone"value="${Customer.phone}" name="phone" >
+                                        </div>
+                                    </div>
+                                    <div class="form-group row mt-2">
+                                        <label  class="col-sm-2 col-form-label">Email</label>
+                                        <div class="col-sm-10">
+                                            <input type="text" class="form-control" placeholder="Enter your email" name="email" value="${Customer.email}">
                                         </div>
                                     </div>
                                     <div class="form-group row mt-2">
                                         <label  class="col-sm-2 col-form-label">Địa chỉ</label>
                                         <div class="col-sm-10">
                                             <input type="text" class="form-control" placeholder="Enter your address" 
-                                                   value="${Customer.address}" disabled="disabled">
+                                                   value="${Customer.address}${ward}" disabled="disabled">
+                                            <input type="hidden" class="form-control"
+                                                   value="${Customer.address}" name="address">
+                                            <input type="hidden" class="form-control"
+                                                   value="${wardID}" name="wardID">
                                         </div>
                                     </div>
 
@@ -145,7 +157,7 @@
                                                 <th>Tên dịch vụ</th>
                                                 <th>Loại dịch vụ</th>
                                                 <th>Ngày cập nhật</th> 
- 
+
                                                 <th>Giá</th>                                     
 
                                             </tr>
@@ -154,12 +166,18 @@
                                             <c:forEach items="${ServiceDetailList}" var="SD">   
                                                 <c:if test="${SD.hostelID == Hostel.hostelID}">
                                                     <tr>
+                                                        <c:set var="Req" value="0" scope="page"/>
+                                                        <c:forEach items="${Bill.details}" var="B">
+                                                            <c:if test="${B.service.detailID == SD.detailID}">
+                                                                <c:set var="Req" value="1" scope="page"/>
+                                                            </c:if>
+                                                        </c:forEach>
                                                         <c:choose>
-                                                            <c:when test="${ST.serviceID == 1}">
+                                                            <c:when test="${Req == '1'}">
                                                                 <td style="text-align: center"><input type="checkbox" name="chooseDetail" value="${SD.detailID}" checked/></td>
                                                                 </c:when>
                                                                 <c:otherwise>
-                                                                <td style="text-align: center"><input type="checkbox" name="chooseDetail" value="${SD.detailID}" /></td>
+                                                                <td style="text-align: center"><input type="checkbox" name="chooseDetail" value="${SD.detailID}"/></td>
                                                                 </c:otherwise>
                                                             </c:choose>
 
@@ -176,6 +194,7 @@
                                                         <td><input type="text" name="" class="money form-control" value="<fmt:formatNumber type="number" maxFractionDigits="0" value="${SD.unit_price}"/>" disabled="disable" style="width: 100%"/></td>                                     
 
                                                     </tr>
+
                                                 </c:if>
                                             </c:forEach>
 
@@ -183,7 +202,7 @@
                                     </table>
                                 </div>
                             </div>
-                                        
+
                             <div role="tabpanel" class="tab-pane fade show " id="member" >
                                 <div class="card px-3 py-3">
                                     <table  class="table table-striped table-bordered "  >
@@ -207,8 +226,8 @@
                                                         <td style="text-align: center">
                                                             <c:choose>
                                                                 <c:when test="${RM.gender == 'Male'}" >
-                                                                    <input type="radio" name="gender" value="Male"checked/> Nam
-                                                                    <input type="radio" name="gender" value="Female" />Nữ
+                                                                    <input type="radio" name="gender${RM.customerID}" value="Male"checked/> Nam
+                                                                    <input type="radio" name="gender${RM.customerID}" value="Female" />Nữ
                                                                 </c:when>
                                                                 <c:otherwise>
                                                                     <input type="radio" name="gender" value="Male"/> Nam
@@ -271,21 +290,20 @@
                                         <div class="form-group row col-md-6 mt-2">
                                             <label  class="col-sm-4 col-form-label">Ngày Bắt Đầu</label>
                                             <div class="col col-sm-8">
-                                                <input type="date" class="form-control" name="signed-date" value="${Contract.signed_date}">
+                                                <input type="date" class="form-control" name="signed_date" value="${Contract.signed_date}">
                                             </div>
                                         </div>                                           
                                         <div class="form-group row col-md-6 mt-2">
                                             <label  class="col-sm-4 col-form-label">Ngày Hết Hạn</label>
                                             <div class="col-sm-8">
-                                                <input type="date" class="form-control" name="due-date" value="${Contract.signed_date}">
+                                                <input type="date" class="form-control" name="due_date" value="${Contract.signed_date}">
                                             </div>
                                         </div>
-                                        <div class="form-group row col-md-8 mt-2">
-                                            <label  class="col-sm-4 col-form-label"></label>
-                                            <div class="col col-sm-8">
-                                                <input name="contract"type="file" accept=".jpg, .png" multiple/>
-                                            </div>
+                                        <div class="form-group" style="margin-top: 10px">
+                                            <label for="inputAddress2">Mô Tả</label>
+                                            <textarea rows="3" class="form-control" id="remarks" name="description" value="${Contract.description}"></textarea>
                                         </div>
+
                                     </div> 
                                 </div>
                             </div>

@@ -27,7 +27,7 @@
 
         <div id="layoutSidenav_content">
 
-            <form action="${pageContext.request.contextPath}/MainController" method="POST">
+            <form action="${pageContext.request.contextPath}/MainController" method="POST" >
                 <div class="card mb-4">
                     <div class="card-header">
                         <div class="card-header">
@@ -71,6 +71,9 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="#contract" role="tab" data-toggle="tab">Hợp Đồng</a>
                             </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#register" role="tab" data-toggle="tab">Tạo tài khoản</a>
+                            </li>
                         </ul>
 
                         <div class="tab-content ">
@@ -112,7 +115,13 @@
                                     <div class="form-group row mt-2">
                                         <label  class="col-sm-2 col-form-label">Số Điện Thoại</label>
                                         <div class="col-sm-10">
-                                            <input type="text" class="form-control" placeholder="Enter your phone" name="phone" value="${Customer.phone}">
+                                            <input type="text" class="form-control" placeholder="Enter your phone" name="phone" >
+                                        </div>
+                                    </div>
+                                    <div class="form-group row mt-2">
+                                        <label  class="col-sm-2 col-form-label">Email</label>
+                                        <div class="col-sm-10">
+                                            <input type="text" class="form-control" placeholder="Enter your email" name="email" >
                                         </div>
                                     </div>
 
@@ -295,12 +304,35 @@
                                             <label for="inputAddress2">Mô Tả</label>
                                             <textarea rows="3" class="form-control" id="remarks" name="description"></textarea>
                                         </div>
-                                        <div class="form-group row col-md-8 mt-2">
-                                            <label  class="col-sm-4 col-form-label"></label>
+                                        <!--                                        <div class="form-group row col-md-8 mt-2">
+                                                                                    <label  class="col-sm-4 col-form-label"></label>
+                                                                                    <div class="col col-sm-8">
+                                                                                        <input name="contract" type="file" size="100"/>
+                                                                                    </div>
+                                                                                </div>-->
+
+                                    </div> 
+                                </div>
+                            </div>
+                            <div role="tabpanel" class="tab-pane fade show " id="register" >
+                                <div class="card px-3 py-3">
+                                    <div class="form-group row mt-2">
+
+                                    </div>
+                                    <div class="row mt-2">
+                                        <div class="form-group row col-md-6 mt-2">
+                                            <label  class="col-sm-4 col-form-label">Tên đăng nhập:</label>
                                             <div class="col col-sm-8">
-                                                <input name="contract" type="file" accept=".jpg, .png" multiple/>
+                                                <input type="text" placeholder="Email hoặc số điện thoại của User" class="form-control" name="phone" disabled="disabled">
                                             </div>
                                         </div>
+                                        <div class="form-group row col-md-6 mt-2">
+                                            <label  class="col-sm-2 col-form-label">Mật khẩu:</label>
+                                            <div class="col-sm-10">
+                                                <input type="text" class="form-control" value="1" name="passCus" disabled="disabled">
+                                            </div>
+                                        </div>
+
                                     </div> 
                                 </div>
                             </div>

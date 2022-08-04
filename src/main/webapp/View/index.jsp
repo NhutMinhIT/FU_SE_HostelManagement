@@ -6,6 +6,7 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -35,7 +36,7 @@
                                     <h1>Trạng thái phòng</h1>
                                     <hr>
                                 </div>
-                                
+
                                 <div class="card-body">
                                     <canvas id="myPieChart" ></canvas>
                                 </div>
@@ -43,7 +44,7 @@
                         </div>
 
                         <div class="col-xl-6">
-                          <div class="card text-primary mb-4" style="background-color: rgba(240,240,240,1)">
+                            <div class="card text-primary mb-4" style="background-color: rgba(240,240,240,1)">
                                 <div class="card-body">
                                     <h1>Tổng doanh thu</h1>
                                     <hr>
@@ -51,7 +52,7 @@
                                 <div class="card-body">
                                     <canvas id="myLinechart" ></canvas>
                                 </div>
-                                
+
                             </div>
                         </div>
                         <div class="col-xl-6 ">
@@ -92,9 +93,9 @@
                             </div>
                         </div>
                         <div class="col-xl-6 ">
-                           <div class="card text-primary mb-4" style="background-color: rgba(240,240,240,1)">
+                            <div class="card text-primary mb-4" style="background-color: rgba(240,240,240,1)">
                                 <div class="card-body">
-                                    <h1>Danh sách người thuê còn nợ</h1>
+                                    <h1>Danh sách hóa đơn chưa thanh toán</h1>
                                     <hr>
                                 </div>
                                 <div class="card-body">
@@ -109,20 +110,33 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <th scope="row">Moon House</th>
-                                                <td>2</td>
-                                                <td>Nhựt Minh</td>
-                                                <td>8</td>
-                                                <td>2.300.000</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">Moon House</th>
-                                                <td>2</td>
-                                                <td>Nhựt Minh</td>
-                                                <td>8</td>
-                                                <td>2.300.000</td>
-                                            </tr>
+                                            <c:forEach items="${CheckoutList}" var="Check">
+                                                <c:if test="${!Check.created.isEmpty()}">
+                                                    <c:forEach items="${CusList}" var="Cus">
+                                                        <c:if test="${Check.customerID == Cus.customerID}">
+                                                            <c:forEach items="${ContractList}" var="C">
+                                                                <c:if test="${Check.customerID == C.customerID}">
+                                                                    <c:forEach items="${RoomList}" var="R">
+                                                                        <c:if test="${C.roomID == R.roomID}">
+                                                                            <c:forEach items="${HostelList}" var="H">
+                                                                                <c:if test="${H.hostelID == R.hostelID}">
+                                                                                    <tr>
+                                                                                        <th scope="row">${H.hostelname}</th>
+                                                                                        <td>${R.roomnumber}</td>
+                                                                                        <td>${Cus.fullname}</td>
+                                                                                        <td><fmt:formatDate pattern="MM" value="${Check.created}"/></td>
+                                                                                        <td><fmt:formatNumber type="number" maxFractionDigits="0" value="${Check.total}"/></td>
+                                                                                    </tr>
+                                                                                </c:if>
+                                                                            </c:forEach>
+                                                                        </c:if>
+                                                                    </c:forEach>
+                                                                </c:if>
+                                                            </c:forEach>
+                                                        </c:if>
+                                                    </c:forEach>
+                                                </c:if>
+                                            </c:forEach>
                                         </tbody>
                                     </table>
                                 </div>
@@ -136,7 +150,7 @@
                     </div>
 
                 </div>
-                
+
             </main>
             <footer class="py-4 bg-light mt-auto">
                 <div class="container-fluid px-4">
@@ -148,11 +162,11 @@
         </div>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>          
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
-         <script src="${pageContext.request.contextPath}/js/scripts.js"></script>        
+        <script src="${pageContext.request.contextPath}/js/scripts.js"></script>        
         <script src="${pageContext.request.contextPath}/assets/demo/chart-pie-demo.js"></script>
         <script src="${pageContext.request.contextPath}/assets/demo/chart-line-demo.js"></script>
-        
-       
+
+
     </body>
 
 </html>

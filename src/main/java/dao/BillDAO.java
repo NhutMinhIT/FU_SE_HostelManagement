@@ -30,6 +30,8 @@ public class BillDAO {
     private static final String GETBILLBYSTATUS_LIST = "SELECT * FROM dbo.[Bill] WHERE customer_id = ? AND status = ?";
     private static final String GETBILL_LASTEST_COMPLETE = "SELECT TOP (1) * FROM dbo.Bill WHERE customer_id = ? AND status = 'COMPLETE' ORDER BY bill_id DESC ";
     private static final String GETBILL_LASTEST_PROCESS = "SELECT TOP (1) * FROM dbo.Bill WHERE customer_id = ? AND status = 'PROCESS' ORDER BY bill_id DESC ";
+    private static final String GETBILL_LASTEST_CHECKOUT = "SELECT TOP (1) * FROM dbo.Bill WHERE customer_id = ? AND status = 'CHECKOUT' ORDER BY bill_id DESC ";
+    private static final String GETBILL_LASTEST_PROCESS_BillID = "SELECT TOP (1) * FROM dbo.Bill WHERE bill_id = ? AND status = 'PROCESS' ORDER BY bill_id DESC ";
 
     private static final String GETCURRENTBILLDETAIL_ELEMENT = "SELECT TOP (1) * FROM dbo.[BillDetail] WHERE bill_id = ? AND detail_id = ? ORDER BY billd_id DESC ";
     private static final String GETBILLDETAIL_LIST = "SELECT * FROM dbo.[BillDetail] WHERE bill_id = ?";
@@ -43,6 +45,8 @@ public class BillDAO {
 
     public List<BillDTO> GetListBill(List<CustomerDTO> CusList) throws SQLException {
         List<BillDTO> list = new ArrayList<>();
+        RoomDAO dao = new RoomDAO();
+        ContractDAO Cdao = new ContractDAO();
         for (CustomerDTO i : CusList) {
             Connection conn = null;
             PreparedStatement ptm = null;
@@ -61,9 +65,10 @@ public class BillDAO {
                         Date end = rs.getDate("end_date");
                         Date created = rs.getDate("created");
                         String status = rs.getString("status");
-
+                        ContractDTO Con = Cdao.GetAContract(customerID);
+                        RoomDTO room = dao.GetARoom(Con.getRoomID());
                         DetailList = this.GetListBillDetail(BillID);
-                        Double total = 0.0;
+                        Double total = room.getPrice();
                         for (BillDetailDTO dList : DetailList) {
                             total += dList.getTotal();
                         }
@@ -85,6 +90,45 @@ public class BillDAO {
             }
         }
         return list;
+    }
+
+    public BillDTO Get_A_ProcessBill_billid(int BillID) throws SQLException {
+        Connection conn = null;
+        PreparedStatement ptm = null;
+        ResultSet rs = null;
+        try {
+            conn = DBUtils.getConnection();
+            if (conn != null) {
+                ptm = conn.prepareStatement(GETBILL_LASTEST_PROCESS_BillID);
+                ptm.setInt(1, BillID);
+                rs = ptm.executeQuery();
+                while (rs.next()) {
+                    String CustomerID = rs.getString("customer_id");
+                    Date start = rs.getDate("start_date");
+                    Date end = rs.getDate("end_date");
+                    Date created = rs.getDate("created");
+                    String status = rs.getString("status");
+                    Double total = 0.0;
+                    List<BillDetailDTO> DetailList = this.GetListBillDetail(BillID);
+                    for (BillDetailDTO dList : DetailList) {
+                        total += dList.getTotal();
+                    }
+                    return new BillDTO(BillID, CustomerID, total, start, end, created, status, DetailList);
+                }
+            }
+        } catch (Exception e) {
+        } finally {
+            if (rs != null) {
+                rs.close();
+            }
+            if (ptm != null) {
+                ptm.close();
+            }
+            if (conn != null) {
+                conn.close();
+            }
+        }
+        return null;
     }
 
     public List<BillDTO> GetListBill_COMPLETE(List<CustomerDTO> CusList) throws SQLException {
@@ -143,6 +187,52 @@ public class BillDAO {
                 conn = DBUtils.getConnection();
                 if (conn != null) {
                     ptm = conn.prepareStatement(GETBILL_LASTEST_PROCESS);
+                    ptm.setString(1, i.getCustomerID());
+                    rs = ptm.executeQuery();
+                    while (rs.next()) {
+                        List<BillDetailDTO> DetailList = new ArrayList<>();
+                        int BillID = rs.getInt("bill_id");
+                        String customerID = rs.getString("customer_id");
+                        Date start = rs.getDate("start_date");
+                        Date end = rs.getDate("end_date");
+                        Date created = rs.getDate("created");
+                        String status = rs.getString("status");
+
+                        DetailList = this.GetListBillDetail(BillID);
+                        Double total = 0.0;
+                        for (BillDetailDTO dList : DetailList) {
+                            total += dList.getTotal();
+                        }
+                        list.add(new BillDTO(BillID, customerID, total, start, end, created, status, DetailList));
+                    }
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            } finally {
+                if (rs != null) {
+                    rs.close();
+                }
+                if (ptm != null) {
+                    ptm.close();
+                }
+                if (conn != null) {
+                    conn.close();
+                }
+            }
+        }
+        return list;
+    }
+
+    public List<BillDTO> GetListBill_CHECKOUT(List<CustomerDTO> CusList) throws SQLException {
+        List<BillDTO> list = new ArrayList<>();
+        for (CustomerDTO i : CusList) {
+            Connection conn = null;
+            PreparedStatement ptm = null;
+            ResultSet rs = null;
+            try {
+                conn = DBUtils.getConnection();
+                if (conn != null) {
+                    ptm = conn.prepareStatement(GETBILL_LASTEST_CHECKOUT);
                     ptm.setString(1, i.getCustomerID());
                     rs = ptm.executeQuery();
                     while (rs.next()) {

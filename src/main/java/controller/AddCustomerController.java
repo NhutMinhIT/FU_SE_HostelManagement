@@ -9,6 +9,7 @@ import dao.ContractDAO;
 import dao.CustomerDAO;
 import dao.RoomDAO;
 import dao.ServiceDAO;
+import dao.UserDAO;
 import dto.BillDTO;
 import dto.BillDetailDTO;
 import dto.ContractDTO;
@@ -115,6 +116,7 @@ public class AddCustomerController extends HttpServlet {
             CustomerDAO Cusdao = new CustomerDAO();
             ContractDAO Ctdao = new ContractDAO();
             RoomDAO dao = new RoomDAO();
+            UserDAO user = new UserDAO();
 
             ServiceDAO Sdao = new ServiceDAO();
             BillDAO Bdao = new BillDAO();
@@ -150,17 +152,20 @@ public class AddCustomerController extends HttpServlet {
                 }
             }
 
-            //customer_id,password,fullname,email,gender,dob,phone,status,address,ward_id
-            //contract_id,customer_id,room_id,signed_date,due_date,status,description
-//            Part part = request.getPart("contract");
-//            String realPath = request.getServletContext().getRealPath("/img/contract");
-//            part.write(realPath+"/"+filename);
             if (Cusdao.GetACustomer(customerID) != null) {
                 request.setAttribute("ERROR", "CMND/CCCD [" + Cusdao.GetACustomer(customerID).getCustomerID() + "] đã được đăng ký !");
             } else {
-                boolean AddCus = Cusdao.AddCustomer(new CustomerDTO(customerID, "", fullname, email, gender, Date.valueOf(dob), phone, "ACTIVE", address, wardID));
+                boolean AddCus = Cusdao.AddCustomer(new CustomerDTO(customerID, "1", fullname, email, gender, Date.valueOf(dob), phone, "ACTIVE", address, wardID));
                 boolean AddContract = Ctdao.AddContract(new ContractDTO("", customerID, roomID, Date.valueOf(signed_date), Date.valueOf(due_date), "ACTIVE", description));
+               
 
+////                Part part = request.getPart("contract");
+////                String realPath = request.getServletContext().getRealPath("assets/img/contract");
+////                String filename = customerID;
+////                if (!Files.exists(Paths.get(realPath))) {
+////                    Files.createDirectories(Paths.get(realPath));
+////                }
+//                part.write(realPath + "/" + filename);
                 RoomDTO room = dao.GetARoom(roomID);
                 room.setStatus("RENTING");
                 boolean UpdateRoom = dao.UpdateRoom(room);

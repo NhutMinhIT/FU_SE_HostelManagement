@@ -37,10 +37,10 @@
                         <li class="nav-item">
                             <c:choose>
                                 <c:when test="${Ho.hostelID == HostelList.get(0).hostelID}">
-                                    <a class="nav-link active" href="#${Ho.hostelname}" role="tab" data-toggle="tab">${Ho.hostelname}</a>   
+                                    <a class="nav-link active" href="#${Ho.hostelname}" role="tab" data-toggle="tab" title="${Ho.address}">${Ho.hostelname}</a>   
                                 </c:when>
                                 <c:otherwise>
-                                    <a class="nav-link" href="#${Ho.hostelname}" role="tab" data-toggle="tab">${Ho.hostelname}</a>
+                                    <a class="nav-link" href="#${Ho.hostelname}" role="tab" data-toggle="tab" title="${Ho.address}">${Ho.hostelname}</a>
                                 </c:otherwise>
                             </c:choose>
                         </li>
