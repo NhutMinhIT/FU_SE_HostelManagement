@@ -1,7 +1,8 @@
 # HostelManager - MoonHostel
 
 ## Logo
-![image](https://user-images.githubusercontent.com/90835621/170406519-d4b2b71d-b897-4619-a533-9ca672692bf7.png)
+![rounded-in-photoretrica](https://user-images.githubusercontent.com/90835621/183275730-ebc1415b-53fd-4880-a0f7-2cebd2a8980b.png)
+
 
 ## Case study
 
@@ -38,8 +39,8 @@ Through research, we have found that there are very few developed applications i
    - GitHub
 ## Developers
 - Nguyen Nhut Minh (Leader) 
-    - Gmail: nhutminh.fpt@gmail.com
-    - Linkedin: https://www.linkedin.com/in/nhut-minh-nguyen-91636a236/
+    - Gmail: nhutminh.it19@gmail.com
+    - Linkedin: https://www.linkedin.com/in/minhit19/
     - Github: https://github.com/FPTnhutminh00
 
 - Tran Quang Hung
@@ -53,36 +54,44 @@ Through research, we have found that there are very few developed applications i
     - Github: https://github.com/minhtri269
 
 ## Database
-![image](https://user-images.githubusercontent.com/90835621/170403663-a77d7a42-5592-4d2b-bd36-9cbf5eed8f85.png)
+![image](https://user-images.githubusercontent.com/90835621/183275985-268f916f-1a95-40ba-b3fc-61d969ff9acd.png)
 
 ## Wireframe or Screenshots of the system
 ### Website Interface
 ### Home Page
-![image](https://user-images.githubusercontent.com/90835621/171013579-666d8f9c-aadb-4674-951e-e508dd37ecf8.png)
-
-### Room Page
-![image](https://user-images.githubusercontent.com/90835621/172651005-6ce8f813-63a9-4200-b7ed-b64323f9c162.png)
-
-### Service Page
-![image](https://user-images.githubusercontent.com/90835621/172651131-3f3fe9b7-8f40-40eb-907f-58b7e2ab74b5.png)
+![image](https://user-images.githubusercontent.com/90835621/183276827-d67ca8ef-1bc8-4a4a-a062-0aced9b0a0ed.png)
 
 ### Add New Hostel Page
-![image](https://user-images.githubusercontent.com/90835621/172651218-90a9aac7-aea4-47f4-9033-99f3309cff5f.png)
+![image](https://user-images.githubusercontent.com/90835621/183276895-1617f535-43be-4e84-9f38-d3d454a05fef.png)
+
+### Room Page
+![image](https://user-images.githubusercontent.com/90835621/183276923-5c386e66-4bc0-4449-81c7-946e191bfdf8.png)
 
 ### Add New Room Page
-![image](https://user-images.githubusercontent.com/90835621/172651300-477393ad-e3ee-48fd-983a-777398d9e5b4.png)
+![image](https://user-images.githubusercontent.com/90835621/183276999-36fe43df-80fb-49dc-8f38-268bd650c86f.png)
+
+### Service Page
+![image](https://user-images.githubusercontent.com/90835621/183276975-648cd3c5-9374-4d45-ac46-34e7649f4aa8.png)
+
+![image](https://user-images.githubusercontent.com/90835621/183276938-21fc2132-2d17-477f-8f6a-f15bec044e55.png)
 
 ### Add New Customer
-![image](https://user-images.githubusercontent.com/90835621/172651379-e1f00f45-4b8e-47db-b1e8-4cbe22a64f9e.png)
-![image](https://user-images.githubusercontent.com/90835621/172651432-2f1a17ac-fa0a-4dfa-bfd7-4cb2f7a81bd5.png)
-![image](https://user-images.githubusercontent.com/90835621/172651488-0090e486-1ede-45d6-a7ed-6a93342c5ccd.png)
-![image](https://user-images.githubusercontent.com/90835621/172657847-fdb9305e-cd01-4452-ab8c-af0d749c6218.png)
+![image](https://user-images.githubusercontent.com/90835621/183277042-b1ebc346-2fcc-4044-ae37-96544adebc23.png)
+![image](https://user-images.githubusercontent.com/90835621/183277053-b15dba04-19d5-4209-adc7-fa0fdafec60d.png)
+![image](https://user-images.githubusercontent.com/90835621/183277072-8a2d2c1b-b0de-4f6b-b5eb-507c50e0bb12.png)
+![image](https://user-images.githubusercontent.com/90835621/183277081-aa3e79e7-2e91-4d10-ae25-dd5466d84c2b.png)
 
 ### View Customer
-![image](https://user-images.githubusercontent.com/90835621/172652185-fcff3d43-9695-4e30-8784-e1e6468114cc.png)
-![image](https://user-images.githubusercontent.com/90835621/172652224-5a8abeb0-2b9d-4feb-b3a1-ec938fe7373c.png)
-![image](https://user-images.githubusercontent.com/90835621/172652272-6a67ee25-8ce2-482b-b6d9-4746dece99f2.png)
-![image](https://user-images.githubusercontent.com/90835621/172652318-0664c500-27a8-48e9-b981-f3cb07664162.png)
+![image](https://user-images.githubusercontent.com/90835621/183277103-4285d1d1-ce2a-4d6f-8f1e-fe106e2b38e3.png)
+![image](https://user-images.githubusercontent.com/90835621/183277111-095622a3-d263-4535-a13c-ec6ddb4d82ab.png)
+
+### Consumption Management & Bill 
+![image](https://user-images.githubusercontent.com/90835621/183277174-faf274ed-53da-4896-b9f9-2c5169b108e3.png)
+![image](https://user-images.githubusercontent.com/90835621/183277192-c024d98c-8d98-4acd-86aa-b8379de0c28c.png)
+
+### Contact Page 
+![image](https://user-images.githubusercontent.com/90835621/183277207-87fe38d1-0211-4ec4-9020-61f740650307.png)
+
 
 ### Login Page
 ![image](https://user-images.githubusercontent.com/90835621/171219562-4e6f967d-58f1-4d98-8324-d6a0572b3b4d.png)
