@@ -41,7 +41,7 @@ Through research, we have found that there are very few developed applications i
 - Nguyen Nhut Minh (Leader) 
     - Gmail: nhutminh.it19@gmail.com
     - Linkedin: https://www.linkedin.com/in/minhit19/
-    - Github: https://github.com/FPTnhutminh00
+    - Github: https://github.com/NhutMinhIT
 
 - Tran Quang Hung
     - Gmail: quanghung04102017@gmail.com
