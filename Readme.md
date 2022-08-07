@@ -38,7 +38,7 @@ Through research, we have found that there are very few developed applications i
 - Responsitory:
    - GitHub
 ## Developers
-- Nguyen Nhut Minh (Leader) 
+- Nguyen Nhut Minh (Leader) | Document and Front-End 
     - Gmail: nhutminh.it19@gmail.com
     - Linkedin: https://www.linkedin.com/in/minhit19/
     - Github: https://github.com/NhutMinhIT
