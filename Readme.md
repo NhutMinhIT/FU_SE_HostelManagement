@@ -94,8 +94,8 @@ Through research, we have found that there are very few developed applications i
 
 ### Consumption Management & Bill 
 ![image](https://github.com/NhutMinhIT/HostelManagement/assets/90835621/c81dc246-fdb1-439d-953b-ff85e7f77fa3)
-![Uploading image.png…]()
-![Uploading image.png…]()
+![image](https://github.com/NhutMinhIT/HostelManagement/assets/90835621/a615244c-902d-42ff-be52-d6f0f9822146)
+
 
 ### Contact Page 
 ![image](https://user-images.githubusercontent.com/90835621/183277207-87fe38d1-0211-4ec4-9020-61f740650307.png)
