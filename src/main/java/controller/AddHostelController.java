@@ -83,7 +83,7 @@ public class AddHostelController extends HttpServlet {
             Ward wwardID = ad.GetAWard(wardID);
             District DistrictID = ad.GetADistrict(wwardID.getDistrictID());
             City CityID = ad.GetACity(DistrictID.getCityID());
-            String address = request.getParameter("address");
+            String address = request.getParameter("address") + ", " + wwardID.getWardname() + ", " + DistrictID.getDistrictname() + ", " + CityID.getCityname();
             boolean check = dao.AddHostel(new HostelDTO(String.valueOf(hostelID), hostelname, address, us.getPhone(), us.getUserID(), wardID));
             if (check) {
                 url = SUCCESS;
