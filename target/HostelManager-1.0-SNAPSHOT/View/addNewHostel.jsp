@@ -68,7 +68,7 @@
                                     <div class="form-group row col-md-12 mt-2">
                                         <label  class="col-sm-2 col-form-label">Phường/Xã</label>
                                         <div class="col-sm-10">
-                                            <select id="ward" style="padding:6px 0; border-radius: 3px; width: 40%" >
+                                            <select id="ward" style="padding:6px 0; border-radius: 3px; width: 40%" name="wardID">
                                             </select>  
                                         </div>
                                     </div>

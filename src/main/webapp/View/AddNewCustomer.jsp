@@ -130,21 +130,21 @@
                                     <div class="form-group row mt-2">
                                         <label  class="col-sm-2 col-form-label">Tỉnh/Thành Phố</label>
                                         <div class="col-sm-8">
-                                            <select id="province" style="padding:6px 0; border-radius: 3px; width: 50%" value="79">
+                                            <select id="province" style="padding:6px 0; border-radius: 3px; width: 50%" value="50">
                                             </select>  
                                         </div>
                                     </div>
                                     <div class="form-group row mt-2">
                                         <label  class="col-sm-2 col-form-label">Quận/Huyện</label>
                                         <div class="col-sm-8">
-                                            <select id="district" style="padding:6px 0; border-radius: 3px; width: 50%" value="760">
+                                            <select id="district" style="padding:6px 0; border-radius: 3px; width: 50%">
                                             </select>  
                                         </div>
                                     </div>
                                     <div class="form-group row mt-2">
                                         <label  class="col-sm-2 col-form-label">Phường/Xã</label>
                                         <div class="col-sm-8">
-                                            <select id="ward" style="padding:6px 0; border-radius: 3px; width: 50%" name="wardID" value="26734"> 
+                                            <select id="ward" style="padding:6px 0; border-radius: 3px; width: 50%" name="wardID"> 
                                             </select>  
                                         </div>
                                     </div>
